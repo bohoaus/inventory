@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Admin</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Inventory Admin</h1>
+
+    <div id="inventory-list"></div>
+
+    <h2>Add Item</h2>
+    <form id="add-item-form">
+      <input type="text" id="item-name" placeholder="Name" required />
+      <input
+        type="text"
+        id="item-description"
+        placeholder="Description"
+        required
+      />
+      <input type="number" id="item-quantity" placeholder="Quantity" required />
+      <input type="number" id="item-price" placeholder="Price" required />
+      <button type="submit">Add Item</button>
+    </form>
+
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Fetch and display inventory for admin
+      displayInventory(true);
+
+      // Add item form submission
+      document
+        .getElementById("add-item-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const name = document.getElementById("item-name").value;
+          const description = document.getElementById("item-description").value;
+          const quantity = parseInt(
+            document.getElementById("item-quantity").value,
+            10
+          );
+          const price = parseFloat(document.getElementById("item-price").value);
+
+          const newItem = { name, description, quantity, price };
+          await addItem(newItem);
+          displayInventory(true);
+          event.target.reset();
+        });
+    </script>
+  </body>
+</html>
