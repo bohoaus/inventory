@@ -24,7 +24,7 @@
       const supabaseUrl = "https://twjuvshslihzobyamtfj.supabase.co"; // Replace with your actual Supabase URL
       const supabaseKey =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3anV2c2hzbGloem9ieWFtdGZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU1MTQxOTMsImV4cCI6MjA1MTA5MDE5M30.3mE-W4CskWOg4490dgm-bjMmdo8cghAk6y7JCDtco1g"; // Replace with your actual Supabase anon key
-      const supabase = createClient(supabaseUrl, supabaseKey);
+      const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
       // Handle login form submission
       document
