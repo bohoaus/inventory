@@ -3,17 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory Viewer</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Inventory Viewer</h1>
-    <div id="inventory-list"></div>
-    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <div class="login-container">
+      <h1>Login</h1>
+      <div id="login">
+        <input type="text" id="username" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
     <script src="script.js"></script>
-    <script>
-      // Fetch and display inventory for viewers
-      displayInventory();
-    </script>
   </body>
 </html>
