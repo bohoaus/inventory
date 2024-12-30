@@ -3,52 +3,365 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory Admin</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Inventory Admin</h1>
+    <div class="header">
+      <h1>Admin Dashboard</h1>
+      <button onclick="logout()">Logout</button>
+    </div>
 
-    <div id="inventory-list"></div>
+    <div id="content">
+      <h2>Inventory Management</h2>
 
-    <h2>Add Item</h2>
-    <form id="add-item-form">
-      <input type="text" id="item-name" placeholder="Name" required />
-      <input
-        type="text"
-        id="item-description"
-        placeholder="Description"
-        required
-      />
-      <input type="number" id="item-quantity" placeholder="Quantity" required />
-      <input type="number" id="item-price" placeholder="Price" required />
-      <button type="submit">Add Item</button>
-    </form>
+      <!-- Input Form -->
+      <div class="input-form">
+        <h3>Add/Edit Inventory</h3>
+        <form id="inventoryForm">
+          <div class="form-grid">
+            <!-- First Row -->
+            <div class="form-group required">
+              <label for="code">Code and Colour</label>
+              <input type="text" id="code" required />
+            </div>
+            <div class="form-group">
+              <label for="itemName">Item Name</label>
+              <input type="text" id="itemName" />
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" id="location" />
+            </div>
 
-    <script src="https://unpkg.com/@supabase/supabase-js"></script>
-    <script src="script.js"></script>
-    <script>
-      // Fetch and display inventory for admin
-      displayInventory(true);
+            <!-- Second Row -->
+            <div class="form-group">
+              <label for="unit">Unit per Pack</label>
+              <input type="number" id="unit" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="qty">Received Quantity</label>
+              <input type="number" id="qty" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="inventory">Inventory Quantity</label>
+              <input type="number" id="inventory" step="0.5" />
+            </div>
 
-      // Add item form submission
-      document
-        .getElementById("add-item-form")
-        .addEventListener("submit", async (event) => {
-          event.preventDefault();
-          const name = document.getElementById("item-name").value;
-          const description = document.getElementById("item-description").value;
-          const quantity = parseInt(
-            document.getElementById("item-quantity").value,
-            10
-          );
-          const price = parseFloat(document.getElementById("item-price").value);
+            <!-- Third Row -->
+            <div class="form-group">
+              <label for="released">Released Date</label>
+              <input type="date" id="released" />
+            </div>
+            <div class="form-group">
+              <label for="aging">Aging</label>
+              <input
+                type="text"
+                id="aging"
+                name="aging"
+                readonly
+                placeholder="not release"
+              />
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <div class="input-with-edit">
+                <select id="status">
+                  <option value="">Select Status</option>
+                </select>
+                <button
+                  type="button"
+                  onclick="showStatusModal()"
+                  class="btn-secondary"
+                >
+                  Edit Status
+                </button>
+              </div>
+            </div>
 
-          const newItem = { name, description, quantity, price };
-          await addItem(newItem);
-          displayInventory(true);
-          event.target.reset();
-        });
-    </script>
+            <!-- Fourth Row -->
+            <div class="form-group">
+              <label for="sizePack">Size per Pack</label>
+              <div class="input-with-edit">
+                <select id="sizePack">
+                  <option value="">Select Size/Pack</option>
+                </select>
+                <button
+                  type="button"
+                  onclick="showSizePackModal()"
+                  class="btn-secondary"
+                >
+                  Edit Size/Pack
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <div class="input-with-edit">
+                <select id="category">
+                  <option value="">Select Category</option>
+                </select>
+                <button
+                  type="button"
+                  onclick="showCategoryModal()"
+                  class="btn-secondary"
+                >
+                  Edit Category
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="repeated">Repeated (Yes/No)</label>
+              <input type="checkbox" id="repeated" />
+            </div>
+
+            <!-- Fifth Row -->
+            <div class="form-group">
+              <label for="cargo">Cargo</label>
+              <div class="input-with-edit">
+                <select id="cargo">
+                  <option value="">Select Cargo</option>
+                </select>
+                <button
+                  type="button"
+                  onclick="showCargoModal()"
+                  class="btn-secondary"
+                >
+                  Edit Cargo
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mfgD">MFG Date</label>
+              <input type="date" id="mfgD" />
+            </div>
+            <div class="form-group">
+              <label for="scheduleD">Schedule Date</label>
+              <input type="date" id="scheduleD" />
+            </div>
+
+            <!-- Sixth Row -->
+            <div class="form-group">
+              <label for="arriveD">Arrived Date</label>
+              <input type="date" id="arriveD" />
+            </div>
+            <div class="form-group">
+              <label for="ppo">PPO</label>
+              <input type="text" id="ppo" />
+            </div>
+            <div class="form-group">
+              <label for="note">Note</label>
+              <textarea id="note"></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Save</button>
+            <button type="reset" class="btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Data Table -->
+      <div class="table-container">
+        <h3>Inventory List</h3>
+        <div class="search-container">
+          <div class="search-controls">
+            <div class="search-input-wrapper">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search by code or name..."
+              />
+              <button id="clearSearch" class="btn-secondary">Clear</button>
+            </div>
+            <div class="filter-controls">
+              <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+              </select>
+              <select id="statusFilter" class="filter-select">
+                <option value="">All Status</option>
+              </select>
+            </div>
+            <div class="sort-controls">
+              <select id="sortSelect" class="filter-select">
+                <option value="released-desc">
+                  Released Date (Newest First)
+                </option>
+                <option value="released-asc">
+                  Released Date (Oldest First)
+                </option>
+                <option value="inventory-asc">Inventory (Low to High)</option>
+                <option value="inventory-desc">Inventory (High to Low)</option>
+                <option value="received-desc">
+                  Received Date (Newest First)
+                </option>
+                <option value="received-asc">
+                  Received Date (Oldest First)
+                </option>
+              </select>
+            </div>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </div>
+        <div class="scroll-controls">
+          <button id="scrollLeft" class="scroll-button">← Scroll Left</button>
+          <button id="scrollRight" class="scroll-button">Scroll Right →</button>
+        </div>
+        <div class="table-wrapper">
+          <table id="inventoryTable">
+            <thead>
+              <tr>
+                <th>Code & Colour</th>
+                <th>Item Name</th>
+                <th>Location</th>
+                <th>Qty</th>
+                <th>Inventory</th>
+                <th>Released</th>
+                <th>Aging</th>
+                <th>Status</th>
+                <th>Unit</th>
+                <th>Size/Pack</th>
+                <th>Category</th>
+                <th>Repeated</th>
+                <th>PPO</th>
+                <th>MFG Date</th>
+                <th>Cargo</th>
+                <th>Schedule Date</th>
+                <th>Arrive Date</th>
+                <th>Note</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody">
+              <!-- Data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="statusModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Status Management</h3>
+        <div class="status-management">
+          <div class="add-status">
+            <h4>Add New Status</h4>
+            <div class="add-input-container">
+              <input
+                type="text"
+                id="newStatus"
+                placeholder="Enter new status"
+              />
+              <button onclick="addNewStatus()" class="btn-primary">Add</button>
+            </div>
+          </div>
+          <div class="existing-status">
+            <h4>Existing Statuses</h4>
+            <div id="statusList" class="status-list">
+              <!-- Status items will be populated here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button onclick="closeStatusModal()" class="btn-secondary">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="sizePackModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Size/Pack Management</h3>
+        <div class="status-management">
+          <div class="add-status">
+            <h4>Add New Size/Pack</h4>
+            <div class="add-input-container">
+              <input
+                type="text"
+                id="newSizePack"
+                placeholder="Enter new size/pack"
+              />
+              <button onclick="addNewSizePack()" class="btn-primary">
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="existing-status">
+            <h4>Existing Size/Pack Options</h4>
+            <div id="sizePackList" class="status-list">
+              <!-- Size/Pack items will be populated here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button onclick="closeSizePackModal()" class="btn-secondary">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="categoryModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Category Management</h3>
+        <div class="status-management">
+          <div class="add-status">
+            <h4>Add New Category</h4>
+            <div class="add-input-container">
+              <input
+                type="text"
+                id="newCategory"
+                placeholder="Enter new category"
+              />
+              <button onclick="addNewCategory()" class="btn-primary">
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="existing-status">
+            <h4>Existing Categories</h4>
+            <div id="categoryList" class="status-list">
+              <!-- Category items will be populated here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button onclick="closeCategoryModal()" class="btn-secondary">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="cargoModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Cargo Management</h3>
+        <div class="status-management">
+          <div class="add-status">
+            <h4>Add New Cargo</h4>
+            <div class="add-input-container">
+              <input type="text" id="newCargo" placeholder="Enter new cargo" />
+              <button onclick="addNewCargo()" class="btn-primary">Add</button>
+            </div>
+          </div>
+          <div class="existing-status">
+            <h4>Existing Cargo Options</h4>
+            <div id="cargoList" class="status-list">
+              <!-- Cargo items will be populated here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button onclick="closeCargoModal()" class="btn-secondary">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
+    <script src="admin.js"></script>
   </body>
 </html>
