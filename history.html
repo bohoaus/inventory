@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order History</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem auto;
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .history-table-container {
+        position: relative;
+        margin-top: 2rem;
+        max-width: 1400px;
+        margin: 2rem auto;
+      }
+
+      .scroll-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        max-width: 800px;
+        margin: 0 auto 1rem auto;
+      }
+
+      .scroll-button {
+        padding: 0.5rem 1rem;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        min-width: 120px;
+        transition: background-color 0.3s ease;
+      }
+
+      .scroll-button:hover {
+        background-color: #1d4ed8;
+      }
+
+      .history-table {
+        width: 100%;
+        overflow-x: auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .history-table table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .history-table th,
+      .history-table td {
+        padding: 1rem;
+        text-align: right;
+        border-bottom: 1px solid #e2e8f0;
+        white-space: nowrap;
+      }
+
+      .history-table th:first-child,
+      .history-table td:first-child {
+        text-align: left;
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 1;
+        width: 200px;
+        min-width: 200px;
+      }
+
+      .history-table th:not(:first-child),
+      .history-table td:not(:first-child) {
+        width: 100px;
+        min-width: 100px;
+      }
+
+      .history-table th:last-child,
+      .history-table td:last-child {
+        width: 160px;
+        min-width: 160px;
+      }
+
+      .history-table th {
+        background-color: #f8fafc;
+        font-weight: 600;
+        padding: 1rem 0.5rem;
+      }
+
+      .amount {
+        font-family: monospace;
+        text-align: right;
+      }
+
+      .filter-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 1rem auto;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .week-filter {
+        padding: 0.5rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        background-color: white;
+        min-width: 200px;
+        cursor: pointer;
+      }
+
+      .week-filter:hover {
+        border-color: #2563eb;
+      }
+
+      .week-filter:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Order History</h1>
+      <div class="header-buttons">
+        <button onclick="window.location.href='admin.html'" id="backButton">
+          Back to Dashboard
+        </button>
+        <button onclick="refreshData()" class="btn-secondary refresh-btn">
+          <span>↻</span> Refresh
+        </button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="filter-container">
+        <select id="weekFilter" class="week-filter">
+          <option value="">Select Week</option>
+        </select>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="statesPieChart"></canvas>
+      </div>
+
+      <div class="history-table-container">
+        <div class="scroll-controls">
+          <button id="scrollLeft" class="scroll-button">← Scroll Left</button>
+          <button id="scrollRight" class="scroll-button">Scroll Right →</button>
+        </div>
+        <div class="history-table">
+          <table>
+            <thead>
+              <tr>
+                <th>WEEK</th>
+                <th>QLD</th>
+                <th>NSW</th>
+                <th>SA</th>
+                <th>WA</th>
+                <th>VIC</th>
+                <th>NZ</th>
+                <th>NT</th>
+                <th>ACT</th>
+                <th>OTHERS</th>
+                <th>PAID TOTAL</th>
+                <th style="min-width: 150px">PAID/UNPAID TOTAL</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
+    <script src="history.js"></script>
+  </body>
+</html>
