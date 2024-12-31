@@ -13,6 +13,12 @@
         <button onclick="window.location.href='order.html'" class="btn-primary">
           Order Entry
         </button>
+        <button
+          onclick="window.location.href='summary.html'"
+          class="btn-primary"
+        >
+          Item Sale Summary
+        </button>
         <button onclick="logout()">Logout</button>
       </div>
     </div>
@@ -195,6 +201,9 @@
               <select id="statusFilter" class="filter-select">
                 <option value="">All Status</option>
               </select>
+              <button id="repeatedFilter" class="btn-secondary filter-btn">
+                <span class="filter-icon">⭐</span> Repeat Process Items
+              </button>
             </div>
             <div class="sort-controls">
               <select id="sortSelect" class="filter-select">

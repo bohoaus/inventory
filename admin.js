@@ -408,33 +408,73 @@ function closeCargoModal() {
 let inventoryData = []; // Store all inventory data
 let filteredData = []; // Store filtered data
 
-// Update loadInventoryData to store the data
+// Update loadInventoryData function
 async function loadInventoryData() {
   try {
-    const { data, error } = await supabaseClient
-      .from("inventory")
-      .select("*")
-      .order('"code & colour"', { ascending: true });
+    // Show loading state
+    const tableBody = document.querySelector("#inventoryTable tbody");
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="19" style="text-align: center; padding: 2rem;">
+          Loading data...
+        </td>
+      </tr>
+    `;
+
+    const { data, error } = await supabaseClient.from("inventory").select("*");
 
     if (error) throw error;
 
     inventoryData = data || [];
     // Apply default sorting (released date, newest first)
     filteredData = sortData([...inventoryData], "released-desc");
-    renderInventoryTable(filteredData);
 
-    // Update results count in search container
-    const searchContainer = document.querySelector(".search-container");
-    if (searchContainer) {
-      const countElement = document.createElement("div");
-      countElement.id = "resultsCount";
-      countElement.className = "results-count";
-      countElement.textContent = `Showing ${filteredData.length} records`;
-      searchContainer.appendChild(countElement);
+    // Remove existing results count if any
+    const existingCount = document.getElementById("resultsCount");
+    if (existingCount) {
+      existingCount.remove();
     }
+
+    renderInventoryTable(filteredData);
+    updateResultsCount(filteredData);
   } catch (error) {
     console.error("Error:", error);
     alert("Error loading inventory data: " + error.message);
+  }
+}
+
+// Add new function to update results count
+function updateResultsCount(
+  data,
+  categoryValue = "",
+  statusValue = "",
+  isRepeated = false
+) {
+  const searchContainer = document.querySelector(".search-container");
+  const existingCount = document.getElementById("resultsCount");
+
+  if (existingCount) {
+    existingCount.remove();
+  }
+
+  if (searchContainer) {
+    const countElement = document.createElement("div");
+    countElement.id = "resultsCount";
+    countElement.className = "results-count";
+
+    let countText = `Showing ${data.length} records`;
+    if (categoryValue) {
+      countText += ` in ${categoryValue}`;
+    }
+    if (statusValue) {
+      countText += ` with ${statusValue} status`;
+    }
+    if (isRepeated) {
+      countText += " (Repeated Items Only)";
+    }
+
+    countElement.textContent = countText;
+    searchContainer.appendChild(countElement);
   }
 }
 
@@ -757,9 +797,11 @@ function setupSearch() {
   const clearButton = document.getElementById("clearSearch");
   const categoryFilter = document.getElementById("categoryFilter");
   const statusFilter = document.getElementById("statusFilter");
+  const repeatedFilter = document.getElementById("repeatedFilter");
   const sortSelect = document.getElementById("sortSelect");
 
   let debounceTimer;
+  let isRepeatedFilterActive = false;
 
   function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase();
@@ -776,28 +818,47 @@ function setupSearch() {
 
       const matchesCategory = !categoryValue || item.catagory === categoryValue;
       const matchesStatus = !statusValue || item.status === statusValue;
+      const matchesRepeated = !isRepeatedFilterActive || item.repeated === true;
 
-      return matchesSearch && matchesCategory && matchesStatus;
+      return (
+        matchesSearch && matchesCategory && matchesStatus && matchesRepeated
+      );
     });
 
-    // Apply sorting
     filtered = sortData(filtered, sortValue);
     renderInventoryTable(filtered);
+    updateResultsCount(
+      filtered,
+      categoryValue,
+      statusValue,
+      isRepeatedFilterActive
+    );
   }
+
+  // Add repeated filter button handler
+  repeatedFilter.addEventListener("click", () => {
+    isRepeatedFilterActive = !isRepeatedFilterActive;
+    repeatedFilter.classList.toggle("active");
+    applyFilters();
+  });
+
+  // Update clear button handler
+  clearButton.addEventListener("click", () => {
+    searchInput.value = "";
+    categoryFilter.value = "";
+    statusFilter.value = "";
+    sortSelect.value = "released-desc";
+    isRepeatedFilterActive = false;
+    repeatedFilter.classList.remove("active");
+    const filtered = sortData([...inventoryData], "released-desc");
+    renderInventoryTable(filtered);
+    updateResultsCount(filtered);
+  });
 
   // Search input handler
   searchInput.addEventListener("input", () => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(applyFilters, 300);
-  });
-
-  // Clear button handler
-  clearButton.addEventListener("click", () => {
-    searchInput.value = "";
-    categoryFilter.value = "";
-    statusFilter.value = "";
-    sortSelect.value = "released-desc"; // Reset to default sort
-    renderInventoryTable(sortData(inventoryData, "released-desc"));
   });
 
   // Filter change handlers
@@ -1110,3 +1171,53 @@ async function loadFilterOptions() {
     console.error("Error loading filter options:", error);
   }
 }
+
+// Add deleteCategory function
+async function deleteCategory(category) {
+  if (!confirm(`Are you sure you want to delete "${category}"?`)) {
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient
+      .from("category_options")
+      .delete()
+      .eq("category", category);
+
+    if (error) throw error;
+
+    alert("Category deleted successfully!");
+    await loadCategoryOptions();
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error deleting category: " + error.message);
+  }
+}
+
+// Add deleteCargo function
+async function deleteCargo(cargo) {
+  if (!confirm(`Are you sure you want to delete "${cargo}"?`)) {
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient
+      .from("cargo_options")
+      .delete()
+      .eq("cargo", cargo);
+
+    if (error) throw error;
+
+    alert("Cargo deleted successfully!");
+    await loadCargoOptions();
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error deleting cargo: " + error.message);
+  }
+}
+
+// Make sure to export the delete functions
+window.deleteStatus = deleteStatus;
+window.deleteSizePack = deleteSizePack;
+window.deleteCategory = deleteCategory;
+window.deleteCargo = deleteCargo;

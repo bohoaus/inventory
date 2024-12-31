@@ -167,7 +167,7 @@ function addItemToOrder() {
   const quantity = parseInt(document.getElementById("orderQuantity").value);
   const totalPieces = quantity * (selectedItem.unit || 0);
 
-  if (totalPieces > selectedItem.inventory) {
+  if (quantity > selectedItem.inventory) {
     alert("Order quantity exceeds available inventory!");
     return;
   }

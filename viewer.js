@@ -36,17 +36,15 @@ async function loadInventoryData() {
     inventoryData = data || [];
     // Apply default sorting (released date, newest first)
     filteredData = sortData([...inventoryData], "released-desc");
-    renderInventoryTable(filteredData);
 
-    // Update results count in search container
-    const searchContainer = document.querySelector(".search-container");
-    if (searchContainer) {
-      const countElement = document.createElement("div");
-      countElement.id = "resultsCount";
-      countElement.className = "results-count";
-      countElement.textContent = `Showing ${filteredData.length} records`;
-      searchContainer.appendChild(countElement);
+    // Remove existing results count if any
+    const existingCount = document.getElementById("resultsCount");
+    if (existingCount) {
+      existingCount.remove();
     }
+
+    renderInventoryTable(filteredData);
+    updateResultsCount(filteredData);
   } catch (error) {
     console.error("Error:", error);
     const tableBody = document.querySelector("#inventoryTable tbody");
@@ -103,12 +101,6 @@ function renderInventoryTable(data) {
 
     tableBody.appendChild(row);
   });
-
-  // Update results count
-  const countElement = document.getElementById("resultsCount");
-  if (countElement) {
-    countElement.textContent = `Showing ${data.length} records`;
-  }
 }
 
 // Load filter options
@@ -239,9 +231,11 @@ function setupSearch() {
   const clearButton = document.getElementById("clearSearch");
   const categoryFilter = document.getElementById("categoryFilter");
   const statusFilter = document.getElementById("statusFilter");
+  const repeatedFilter = document.getElementById("repeatedFilter");
   const sortSelect = document.getElementById("sortSelect");
 
   let debounceTimer;
+  let isRepeatedFilterActive = false;
 
   function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase();
@@ -257,29 +251,51 @@ function setupSearch() {
           item["item name"].toLowerCase().includes(searchTerm));
 
       const matchesCategory = !categoryValue || item.catagory === categoryValue;
+
       const matchesStatus = !statusValue || item.status === statusValue;
 
-      return matchesSearch && matchesCategory && matchesStatus;
+      const matchesRepeated = !isRepeatedFilterActive || item.repeated;
+
+      return (
+        matchesSearch && matchesCategory && matchesStatus && matchesRepeated
+      );
     });
 
     // Apply sorting
     filtered = sortData(filtered, sortValue);
     renderInventoryTable(filtered);
+    updateResultsCount(
+      filtered,
+      categoryValue,
+      statusValue,
+      isRepeatedFilterActive
+    );
   }
+
+  // Add repeated filter button handler
+  repeatedFilter.addEventListener("click", () => {
+    isRepeatedFilterActive = !isRepeatedFilterActive;
+    repeatedFilter.classList.toggle("active");
+    applyFilters();
+  });
+
+  // Update clear button handler
+  clearButton.addEventListener("click", () => {
+    searchInput.value = "";
+    categoryFilter.value = "";
+    statusFilter.value = "";
+    sortSelect.value = "released-desc";
+    isRepeatedFilterActive = false;
+    repeatedFilter.classList.remove("active");
+    const filtered = sortData([...inventoryData], "released-desc");
+    renderInventoryTable(filtered);
+    updateResultsCount(filtered);
+  });
 
   // Search input handler
   searchInput.addEventListener("input", () => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(applyFilters, 300);
-  });
-
-  // Clear button handler
-  clearButton.addEventListener("click", () => {
-    searchInput.value = "";
-    categoryFilter.value = "";
-    statusFilter.value = "";
-    sortSelect.value = "released-desc"; // Reset to default sort
-    renderInventoryTable(sortData(inventoryData, "released-desc"));
   });
 
   // Filter change handlers
@@ -341,4 +357,39 @@ function setupTableScroll() {
     scrollLeftBtn.disabled = tableWrapper.scrollLeft <= 0;
     scrollRightBtn.disabled = tableWrapper.scrollLeft >= maxScroll - 10;
   });
+}
+
+// Add new function to update results count
+function updateResultsCount(
+  data,
+  categoryValue = "",
+  statusValue = "",
+  isRepeated = false
+) {
+  const searchContainer = document.querySelector(".search-container");
+  const existingCount = document.getElementById("resultsCount");
+
+  if (existingCount) {
+    existingCount.remove();
+  }
+
+  if (searchContainer) {
+    const countElement = document.createElement("div");
+    countElement.id = "resultsCount";
+    countElement.className = "results-count";
+
+    let countText = `Showing ${data.length} records`;
+    if (categoryValue) {
+      countText += ` in ${categoryValue}`;
+    }
+    if (statusValue) {
+      countText += ` with ${statusValue} status`;
+    }
+    if (isRepeated) {
+      countText += " (Repeated Items Only)";
+    }
+
+    countElement.textContent = countText;
+    searchContainer.appendChild(countElement);
+  }
 }

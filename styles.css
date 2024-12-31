@@ -1213,3 +1213,16 @@ td .btn-delete {
   font-weight: 600;
   display: inline-block;
 }
+
+.sort-label-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.sort-label-wrapper label {
+  flex-shrink: 0;
+}
+
+.sort-label-wrapper select {
+  flex-grow: 1;
+}
