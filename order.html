@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Entry</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Order Entry</h1>
+      <div class="header-buttons">
+        <button onclick="window.location.href='admin.html'">
+          Back to Admin
+        </button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="input-form">
+        <h3>New Order</h3>
+        <form id="orderForm">
+          <!-- Order Header -->
+          <div class="form-grid">
+            <div class="form-group required">
+              <label for="orderDate">Order Date</label>
+              <input type="date" id="orderDate" required />
+            </div>
+            <div class="form-group required">
+              <label for="customerName">Customer Name</label>
+              <input type="text" id="customerName" required />
+            </div>
+            <div class="form-group required">
+              <label for="agentState">Agent State</label>
+              <select id="agentState" required>
+                <option value="">Select Agent State</option>
+                <option value="QLD-CAXTON">QLD-CAXTON</option>
+                <option value="NSW-BOHO">NSW-BOHO</option>
+                <option value="VIC-LADYRANGER">VIC-LADYRANGER</option>
+                <option value="SA-LYN">SA-LYN</option>
+                <option value="WA-ESTB">WA-ESTB</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Item Entry Section -->
+          <div class="item-entry-section">
+            <h4>Add Items</h4>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="itemSearch">Search Item (Code/Name)</label>
+                <input type="text" id="itemSearch" autocomplete="off" />
+                <div id="searchSuggestions" class="search-suggestions"></div>
+              </div>
+              <div class="form-group">
+                <label>Selected Item</label>
+                <div id="selectedItem" class="selected-item-info">
+                  No item selected
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Unit per Pack</label>
+                <div id="unitPerPack" class="info-display">-</div>
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <div id="itemStatus" class="info-display">-</div>
+              </div>
+              <div class="form-group">
+                <label for="orderQuantity">Order Quantity (Packs)</label>
+                <input type="number" id="orderQuantity" min="1" />
+              </div>
+              <div class="form-group">
+                <label>Inventory Quantity</label>
+                <div id="inventoryQty" class="info-display">0</div>
+              </div>
+            </div>
+            <button type="button" id="addItemBtn" class="btn-secondary">
+              Add Item
+            </button>
+          </div>
+
+          <!-- Order Items Table -->
+          <div class="order-items-table">
+            <h4>Order Items</h4>
+            <div class="table-actions">
+              <button
+                type="button"
+                onclick="removeAllItems()"
+                class="btn-delete"
+                id="removeAllBtn"
+                style="display: none"
+              >
+                Remove All Items
+              </button>
+            </div>
+            <table id="orderItemsTable">
+              <thead>
+                <tr>
+                  <th>Code & Colour</th>
+                  <th>Item Name</th>
+                  <th>Quantity (Packs)</th>
+                  <th>Total Pieces</th>
+                  <th>Location</th>
+                  <th>Added Item At</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Complete Order</button>
+            <button type="button" class="btn-secondary" onclick="resetOrder()">
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="input-form">
+        <h3>Search Orders</h3>
+        <div class="search-orders-section">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="searchOrderDate">Order Date</label>
+              <input type="date" id="searchOrderDate" />
+            </div>
+            <div class="form-group">
+              <label for="searchCustomer">Customer Name</label>
+              <input
+                type="text"
+                id="searchCustomer"
+                placeholder="Search by customer name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="searchAgentState">Agent State</label>
+              <select id="searchAgentState">
+                <option value="">All Agent States</option>
+                <option value="QLD-CAXTON">QLD-CAXTON</option>
+                <option value="NSW-BOHO">NSW-BOHO</option>
+                <option value="VIC-LADYRANGER">VIC-LADYRANGER</option>
+                <option value="SA-LYN">SA-LYN</option>
+                <option value="WA-ESTB">WA-ESTB</option>
+              </select>
+            </div>
+          </div>
+          <div class="search-actions">
+            <button
+              type="button"
+              onclick="searchOrders()"
+              class="btn-secondary"
+            >
+              Search
+            </button>
+            <button
+              type="button"
+              onclick="resetOrderSearch()"
+              class="btn-secondary"
+            >
+              Reset
+            </button>
+          </div>
+
+          <!-- Orders Table -->
+          <div class="orders-table">
+            <table id="ordersTable">
+              <thead>
+                <tr>
+                  <th>Order Date</th>
+                  <th>Customer Name</th>
+                  <th>Agent State</th>
+                  <th>Total Items</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
+    <script src="order.js"></script>
+  </body>
+</html>

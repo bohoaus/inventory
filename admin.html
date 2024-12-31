@@ -9,7 +9,12 @@
   <body>
     <div class="header">
       <h1>Admin Dashboard</h1>
-      <button onclick="logout()">Logout</button>
+      <div class="header-buttons">
+        <button onclick="window.location.href='order.html'" class="btn-primary">
+          Order Entry
+        </button>
+        <button onclick="logout()">Logout</button>
+      </div>
     </div>
 
     <div id="content">
@@ -163,7 +168,15 @@
 
       <!-- Data Table -->
       <div class="table-container">
-        <h3>Inventory List</h3>
+        <div class="table-header">
+          <h3>Inventory List</h3>
+          <button
+            onclick="loadInventoryData()"
+            class="btn-secondary refresh-btn"
+          >
+            <span>↻</span> Refresh
+          </button>
+        </div>
         <div class="search-container">
           <div class="search-controls">
             <div class="search-input-wrapper">
@@ -212,6 +225,7 @@
           <table id="inventoryTable">
             <thead>
               <tr>
+                <th>Actions</th>
                 <th>Code & Colour</th>
                 <th>Item Name</th>
                 <th>Location</th>
@@ -230,7 +244,6 @@
                 <th>Schedule Date</th>
                 <th>Arrive Date</th>
                 <th>Note</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody id="inventoryTableBody">

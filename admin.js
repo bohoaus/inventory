@@ -6,6 +6,19 @@ const supabaseKey =
 const { createClient } = supabase;
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
+// Utility function to format dates
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  try {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return ""; // Invalid date
+    return date.toLocaleDateString();
+  } catch (error) {
+    console.error("Error formatting date:", error);
+    return "";
+  }
+}
+
 // Session Management
 async function getCurrentSession() {
   const {
@@ -427,17 +440,21 @@ async function loadInventoryData() {
 
 // Separate function to render the table
 function renderInventoryTable(data) {
-  const tableBody = document.querySelector("#inventoryTable tbody");
-  tableBody.innerHTML = "";
+  const tbody = document.querySelector("#inventoryTable tbody");
+  tbody.innerHTML = "";
 
   data.forEach((item) => {
     const row = document.createElement("tr");
 
-    // Format dates
-    const formatDate = (dateStr) =>
-      dateStr ? new Date(dateStr).toLocaleDateString() : "";
+    // Add actions column first
+    const actionsCell = document.createElement("td");
+    actionsCell.innerHTML = `
+      <button onclick="loadItemForEdit('${item["code & colour"]}')" class="btn-secondary">Edit</button>
+      <button onclick="deleteItem('${item["code & colour"]}')" class="btn-delete">Delete</button>
+    `;
+    row.appendChild(actionsCell);
 
-    // Create cells with proper classes
+    // Add other cells
     const cells = [
       { value: item["code & colour"] || "", truncate: true },
       { value: item["item name"] || "", truncate: true },
@@ -459,22 +476,14 @@ function renderInventoryTable(data) {
       { value: item.note || "", truncate: true },
     ];
 
-    // Create the row HTML
-    row.innerHTML =
-      cells
-        .map(
-          (cell) =>
-            `<td class="${cell.truncate ? "truncate" : ""}">${cell.value}</td>`
-        )
-        .join("") +
-      `<td>
-        <div class="action-buttons">
-          <button onclick="loadItemForEdit('${item["code & colour"]}')" class="btn-edit">Edit</button>
-          <button onclick="deleteItem('${item["code & colour"]}')" class="btn-delete">Delete</button>
-        </div>
-      </td>`;
+    cells.forEach(({ value, truncate }) => {
+      const td = document.createElement("td");
+      td.textContent = value;
+      if (truncate) td.classList.add("truncate");
+      row.appendChild(td);
+    });
 
-    tableBody.appendChild(row);
+    tbody.appendChild(row);
   });
 }
 
