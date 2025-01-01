@@ -265,6 +265,7 @@ async function initializePage() {
   await checkAuth();
   await fetchHistoryData();
   setupScrollButtons();
+  setupBackButton();
 
   // Add week filter event listener
   const weekFilter = document.getElementById("weekFilter");
@@ -318,5 +319,24 @@ function handleWeekFilterChange(event) {
       // Initialize Supabase client
     });
     updatePieChart(weekData);
+  }
+}
+
+// Add new function to handle back button setup
+function setupBackButton() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const backButton = document.getElementById("backButton");
+
+  if (backButton && user) {
+    // Update button text based on role
+    backButton.textContent = `Back to ${
+      user.role === "admin" ? "Admin" : "Viewer"
+    } Dashboard`;
+
+    // Update onclick handler
+    backButton.onclick = () => {
+      window.location.href =
+        user.role === "admin" ? "admin.html" : "viewer.html";
+    };
   }
 }

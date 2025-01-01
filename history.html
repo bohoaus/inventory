@@ -109,7 +109,19 @@
         max-width: 800px;
         margin: 1rem auto;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+      }
+
+      .filter-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .filter-group label {
+        font-weight: 600;
+        color: #2c3e50;
+        white-space: nowrap;
       }
 
       .week-filter {
@@ -148,9 +160,12 @@
 
     <div id="content">
       <div class="filter-container">
-        <select id="weekFilter" class="week-filter">
-          <option value="">Select Week</option>
-        </select>
+        <div class="filter-group">
+          <label for="weekFilter">Select Week:</label>
+          <select id="weekFilter" class="week-filter">
+            <option value="">Select Week</option>
+          </select>
+        </div>
       </div>
 
       <div class="chart-container">

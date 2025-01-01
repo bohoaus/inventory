@@ -51,20 +51,14 @@ body {
 
 /* Header styles for all pages */
 .header {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
 .header h1 {
-  font-size: 1.5rem;
-  color: #2c3e50;
+  margin-bottom: 1.5rem;
 }
 
 /* Content area for all pages */
@@ -246,29 +240,156 @@ button.btn-delete:hover {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-  overflow: hidden;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1800px;
 }
 
+/* Table wrapper styles */
 .table-wrapper {
-  max-height: calc(100% - 100px);
-  overflow-y: auto;
+  width: 100%;
   overflow-x: auto;
+  border: 1px solid #dde2e5;
+  border-radius: 8px;
+  background: #fff;
 }
 
-table {
+/* Table styles */
+#inventoryTable {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
-th,
-td {
-  padding: 0.75rem;
-  text-align: left;
+/* Table header and cells */
+#inventoryTable th,
+#inventoryTable td {
+  padding: 1rem;
+  text-align: center;
   border: 1px solid #dde2e5;
-  background: #fff;
+  min-width: 120px;
+}
+
+#inventoryTable th {
+  background: #f8fafc;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* Responsive styles for different screen sizes */
+@media screen and (max-width: 1600px) {
+  .table-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .table-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  #inventoryTable th,
+  #inventoryTable td {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .table-container {
+    margin: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  #inventoryTable th,
+  #inventoryTable td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .table-container {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  #inventoryTable th,
+  #inventoryTable td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+
+  /* Adjust specific columns for mobile */
+  #inventoryTable td:first-child {
+    min-width: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .table-container {
+    margin: 0.25rem;
+    padding: 0.25rem;
+  }
+
+  #inventoryTable th,
+  #inventoryTable td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Custom scrollbar for better UX */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Ensure content is visible on scroll */
+.table-wrapper {
+  position: relative;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Add fade effect for scroll indication */
+.table-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.table-wrapper:hover::after {
+  opacity: 1;
 }
 
 td {
@@ -550,308 +671,155 @@ td.truncate:hover {
   }
 }
 
-/* Search box styles */
+/* Search container and filters */
 .search-container {
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-  position: relative;
-}
-
-.search-input {
-  padding: 0.75rem;
-  border: 1px solid #dde2e5;
-  border-radius: 6px;
-  width: 300px;
-  font-size: 0.95rem;
-}
-
-.search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 300px;
-  background: white;
-  border: 1px solid #dde2e5;
-  border-radius: 0 0 6px 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 1000;
-  display: none;
-}
-
-.search-result-item {
-  padding: 0.75rem;
-  cursor: pointer;
-  border-bottom: 1px solid #dde2e5;
-}
-
-.search-result-item:hover {
-  background-color: #f8fafc;
-}
-
-/* Style the action buttons to be smaller */
-td .btn-edit,
-td .btn-delete {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.8rem;
-  margin: 0.1rem;
-}
-
-/* Filter styles */
-.search-filters {
   background: #fff;
-  border-radius: 12px;
-  border: 1px solid #dde2e5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
 
-.filters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.filter-group {
-  background: #f8fafc;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #dde2e5;
-}
-
-.filter-group label {
-  display: block;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.filter-group input,
-.filter-group select {
-  padding: 0.5rem;
-  border: 1px solid #dde2e5;
-  border-radius: 4px;
-  font-size: 0.9rem;
-}
-
-.filter-group span {
-  text-align: center;
-  padding: 0.5rem;
-}
-
-.sort-options {
+/* Search controls wrapper */
+.search-controls {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem 0;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.sort-options select {
-  padding: 0.5rem;
-  border: 1px solid #dde2e5;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  min-width: 200px;
-}
-
-/* Additional filter styles */
-.date-range,
-.number-range {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.date-range span,
-.number-range span {
-  color: #7f8c8d;
-  font-weight: 500;
-}
-
-.filter-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  justify-content: flex-end;
-}
-
-.search-filters {
+/* Search section with results */
+.search-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.filters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #dde2e5;
-}
-
-.sort-options {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #dde2e5;
-}
-
-.sort-options label {
-  font-weight: 600;
-  color: #34495e;
-  white-space: nowrap;
-}
-
-.sort-options select {
-  flex: 1;
+  gap: 0.5rem;
+  min-width: 250px;
   max-width: 300px;
 }
 
-/* Search section */
-.search-section {
-  padding: 1.5rem;
-  border-bottom: 1px solid #dde2e5;
-  background: #f8fafc;
+/* Search input area */
+.search-input-wrapper {
   display: flex;
-  flex-direction: column;
-}
-
-.search-container {
-  max-width: 500px;
-  margin: 0;
-}
-
-/* Filter grid layout */
-.filter-grid {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-/* Date and number filters */
-.filter-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.filter-group {
-  background: #f8fafc;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #dde2e5;
-}
-
-.filter-group label {
-  display: block;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.date-range,
-.number-range {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.date-range input,
-.number-range input {
+  gap: 0.5rem;
   width: 100%;
-  padding: 0.75rem;
 }
 
-.date-range span,
-.number-range span {
-  color: #7f8c8d;
-  font-weight: 500;
-}
-
-/* Select filters */
-.select-filters {
-  display: flex;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-top: 1px solid #dde2e5;
-}
-
-.select-group {
+.search-input {
   flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #dde2e5;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
-.select-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #2c3e50;
+/* Search results count */
+#searchResults {
+  font-size: 0.9rem;
+  color: #666;
+  padding-left: 0.25rem;
+  margin-top: 0.25rem;
 }
 
-.select-group select {
-  width: 100%;
+/* Filter controls */
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 2;
+}
+
+/* Common styles for filters and sort */
+.filter-select,
+#sortSelect {
+  flex: 1;
+  min-width: 150px;
   padding: 0.75rem;
   border: 1px solid #dde2e5;
   border-radius: 6px;
   background: #fff;
+  font-size: 0.95rem;
 }
 
-/* Sort and action section */
-.sort-and-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  background: #fff;
-  border-top: 1px solid #dde2e5;
-}
-
-.sort-options {
+/* Filter button */
+.filter-btn {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex: 1;
-  max-width: 500px;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  height: 42px;
+  white-space: nowrap;
+  min-width: 150px;
+  font-size: 0.95rem;
 }
 
-.filter-actions {
-  display: flex;
-  gap: 1rem;
+.filter-icon {
+  font-size: 1.1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1400px) {
-  .filter-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  .filter-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .select-filters {
+/* Responsive styles */
+@media screen and (max-width: 1400px) {
+  .search-controls {
     flex-direction: column;
-  }
-
-  .sort-and-actions {
-    flex-direction: column;
+    align-items: stretch;
     gap: 1rem;
   }
 
-  .sort-options {
-    max-width: 100%;
+  .search-input-wrapper {
+    max-width: none;
+    width: 100%;
+  }
+
+  .filter-controls,
+  .sort-controls {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .filter-controls,
+  .sort-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .filter-select,
+  #sortSelect,
+  .filter-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-container {
+    padding: 0.75rem;
+  }
+
+  .search-controls {
+    gap: 0.75rem;
+  }
+
+  .search-input-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #clearSearch {
+    width: 100%;
+  }
+
+  .filter-controls,
+  .sort-controls {
+    gap: 0.75rem;
+  }
+
+  .filter-select,
+  #sortSelect,
+  .filter-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    height: 38px;
   }
 }
 
@@ -1254,4 +1222,361 @@ td .btn-delete {
   color: #2c3e50;
   font-size: 2.5rem;
   margin: 0;
+}
+
+.header {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 1.5rem;
+}
+
+.header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-buttons button {
+  margin: 0;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: 150px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .header-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .header-buttons button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 1rem 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Search and filter container */
+.search-filter-container {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1800px;
+}
+
+/* Search controls wrapper */
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Search input area */
+.search-input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #dde2e5;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Filter controls - all in one line */
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex: 2;
+}
+
+/* Common styles for all filters */
+.filter-select,
+#sortSelect {
+  min-width: 150px;
+  padding: 0.75rem;
+  border: 1px solid #dde2e5;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+/* Style for the repeated filter button */
+#repeatedFilter {
+  white-space: nowrap;
+  padding: 0.75rem 1rem;
+  height: 42px; /* Match height with selects */
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1400px) {
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-wrapper {
+    max-width: none;
+    width: 100%;
+  }
+
+  .filter-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .filter-controls {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .filter-select,
+  #sortSelect,
+  #repeatedFilter {
+    min-width: calc(50% - 0.5rem);
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-filter-container {
+    padding: 1rem;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+  }
+
+  .filter-select,
+  #sortSelect,
+  #repeatedFilter {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Hover and focus states */
+.filter-select:hover,
+#sortSelect:hover {
+  border-color: #3498db;
+}
+
+.filter-select:focus,
+#sortSelect:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Update the orders table styles */
+.orders-table {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+#ordersTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+}
+
+#ordersTable th,
+#ordersTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dde2e5;
+  white-space: nowrap;
+}
+
+#ordersTable th {
+  background: #f8fafc;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Set specific column widths for orders table */
+#ordersTable th:nth-child(1) { width: 15%; } /* Order Date */
+#ordersTable th:nth-child(2) { width: 25%; } /* Customer Name */
+#ordersTable th:nth-child(3) { width: 15%; } /* Agent State */
+#ordersTable th:nth-child(4) { width: 10%; } /* Total Items */
+#ordersTable th:nth-child(5) { width: 20%; } /* Status */
+#ordersTable th:nth-child(6) { width: 15%; } /* Actions */
+
+/* Style status indicators */
+.cancelled-status,
+.dispatched-status,
+.hold-status,
+.active-status {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cancelled-status {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.dispatched-status {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.hold-status {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.active-status {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+/* Style action buttons in table */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.action-buttons button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .orders-table {
+    margin: 1rem -1rem;
+    border-radius: 0;
+  }
+
+  #ordersTable th,
+  #ordersTable td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #ordersTable {
+    font-size: 0.85rem;
+  }
+
+  #ordersTable th,
+  #ordersTable td {
+    padding: 0.5rem;
+  }
+
+  .cancelled-status,
+  .dispatched-status,
+  .hold-status,
+  .active-status {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Add horizontal scroll indicator */
+.orders-table::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.orders-table:hover::after {
+  opacity: 1;
+}
+
+/* Ensure table header stays visible when scrolling */
+.orders-table {
+  position: relative;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+#ordersTable thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+}
+
+/* Add box shadow to header for better visibility */
+#ordersTable thead::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.05);
 }

@@ -534,11 +534,31 @@ async function initializePage() {
   await loadCurrentWeek();
   await loadFilters();
   setupEventListeners();
+  setupBackButton();
 
   // Set initial active table
   switchTable("items");
 
   await refreshData();
+}
+
+// Add new function to handle back button setup
+function setupBackButton() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const backButton = document.getElementById("backButton");
+
+  if (backButton && user) {
+    // Update button text based on role
+    backButton.textContent = `Back to ${
+      user.role === "admin" ? "Admin" : "Viewer"
+    } Dashboard`;
+
+    // Update onclick handler
+    backButton.onclick = () => {
+      window.location.href =
+        user.role === "admin" ? "admin.html" : "viewer.html";
+    };
+  }
 }
 
 // Start the application
