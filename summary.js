@@ -164,6 +164,7 @@ function processCustomerSummary(orders, searchTerm, inventoryMap) {
         order_status: order.status,
         is_cancelled: order.is_cancelled,
         cancel_date: order.cancel_date,
+        dispatch_time: order.dispatch_time,
       };
     })
   );
@@ -335,6 +336,7 @@ async function fetchItemsSummary(
         status,
         is_cancelled,
         cancel_date,
+        dispatch_time,
         order_items (
           code_colour,
           item_name,
@@ -375,6 +377,7 @@ async function fetchItemsSummary(
             status: order.status,
             is_cancelled: order.is_cancelled,
             cancel_date: order.cancel_date,
+            dispatch_time: order.dispatch_time,
           },
         }))
       );
@@ -441,6 +444,10 @@ function renderCustomerTable(items) {
           item.is_cancelled && item.cancel_date
             ? `<span class="cancelled-status">Cancelled on ${formatDate(
                 item.cancel_date
+              )}</span>`
+            : item.order_status === "dispatched" && item.dispatch_time
+            ? `<span class="dispatched-status">Dispatched on ${formatDate(
+                item.dispatch_time
               )}</span>`
             : item.order_status
         }
