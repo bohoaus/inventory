@@ -157,8 +157,8 @@ function calculateTotalPieces() {
   totalPiecesElement.textContent = totalPieces;
 }
 
-// Add item to order table
-function addItemToOrder() {
+// Modify the addItemToOrder function to handle sold-out status
+async function addItemToOrder() {
   if (!selectedItem || !document.getElementById("orderQuantity").value) {
     alert("Please select an item and enter quantity");
     return;
@@ -167,9 +167,46 @@ function addItemToOrder() {
   const quantity = parseInt(document.getElementById("orderQuantity").value);
   const totalPieces = quantity * (selectedItem.unit || 0);
 
-  if (quantity > selectedItem.inventory) {
+  // Check if order would result in zero or negative inventory
+  const newInventoryQuantity = selectedItem.inventory - quantity;
+
+  if (newInventoryQuantity < 0) {
     alert("Order quantity exceeds available inventory!");
     return;
+  }
+
+  // If inventory will become zero, update the status
+  if (newInventoryQuantity === 0) {
+    try {
+      // First get the current item status
+      const { data: currentItem, error: fetchError } = await supabaseClient
+        .from("inventory")
+        .select("status")
+        .eq('"code & colour"', selectedItem["code & colour"])
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      // Update with the current status saved as soldout_status
+      const { error: updateError } = await supabaseClient
+        .from("inventory")
+        .update({
+          status: "Out of Stock",
+          soldout_status: currentItem.status, // Save the current status before changing to Out of Stock
+          soldout_date: new Date().toISOString(),
+        })
+        .eq('"code & colour"', selectedItem["code & colour"]);
+
+      if (updateError) throw updateError;
+
+      // Update the selectedItem object to reflect the new status
+      selectedItem.status = "Out of Stock";
+      document.getElementById("itemStatus").textContent = "Out of Stock";
+    } catch (error) {
+      console.error("Error updating sold-out status:", error);
+      alert("Error updating item status: " + error.message);
+      return;
+    }
   }
 
   const orderItem = {
@@ -186,6 +223,9 @@ function addItemToOrder() {
   renderOrderItems();
   resetItemEntry();
 }
+
+// Make sure the function is available globally
+window.addItemToOrder = addItemToOrder;
 
 // Render order items table
 function renderOrderItems() {
