@@ -318,9 +318,8 @@ async function handleOrderSubmit(event) {
     const orderDate = document.getElementById("orderDate").value;
     const customerName = document.getElementById("customerName").value;
     const agentState = document.getElementById("agentState").value;
-    const existingOrderId = document
-      .getElementById("orderForm")
-      .getAttribute("data-order-id");
+    const orderForm = document.getElementById("orderForm");
+    const existingOrderId = orderForm.getAttribute("data-order-id");
 
     // Skip duplicate check if editing an existing order
     if (!existingOrderId) {
@@ -388,6 +387,39 @@ async function handleOrderSubmit(event) {
 
       if (headerError) throw headerError;
       orderHeader = data;
+
+      // Only update weekly_state_orders for new orders
+      // Get current week's start date
+      const today = new Date();
+      const weekStart = new Date(today);
+      weekStart.setDate(today.getDate() - today.getDay());
+      weekStart.setHours(0, 0, 0, 0);
+
+      // Format date as YYYY-MM-DD
+      const formattedWeekStart = `${weekStart.getFullYear()}-${String(
+        weekStart.getMonth() + 1
+      ).padStart(2, "0")}-${String(weekStart.getDate()).padStart(2, "0")}`;
+
+      // Get existing week record
+      let { data: weekData, error: weekError } = await supabaseClient
+        .from("weekly_state_orders")
+        .select("*")
+        .eq("week_start", formattedWeekStart)
+        .maybeSingle();
+
+      if (weekError) throw weekError;
+
+      if (weekData) {
+        // Update overall_total
+        const { error: updateWeekError } = await supabaseClient
+          .from("weekly_state_orders")
+          .update({
+            overall_total: (weekData.overall_total || 0) + 1,
+          })
+          .eq("week_start", formattedWeekStart);
+
+        if (updateWeekError) throw updateWeekError;
+      }
     }
 
     // Handle order items
@@ -435,11 +467,15 @@ async function handleOrderSubmit(event) {
       }
     }
 
+    // Show success message
     alert(
       existingOrderId
         ? "Order updated successfully!"
         : "Order completed successfully!"
     );
+
+    // Clear the edit mode and reset form
+    orderForm.removeAttribute("data-order-id");
     resetOrder();
     await searchOrders(); // Refresh the orders list
   } catch (error) {
@@ -456,6 +492,12 @@ function resetOrder() {
   document.getElementById("customerName").value = "";
   document.getElementById("agentState").value = "";
   setDefaultOrderDate();
+
+  // Clear edit mode
+  const orderForm = document.getElementById("orderForm");
+  if (orderForm.hasAttribute("data-order-id")) {
+    orderForm.removeAttribute("data-order-id");
+  }
 }
 
 // Logout function
@@ -524,7 +566,9 @@ async function searchOrders() {
                     order.cancel_date
                   )}</span>`
                 : order.status === "dispatched"
-                ? `<span class="dispatched-status">Dispatched</span>`
+                ? `<span class="dispatched-status">Dispatched on ${formatDate(
+                    order.dispatch_time
+                  )}</span>`
                 : order.status === "hold"
                 ? `<span class="hold-status">On Hold</span>`
                 : `<span class="active-status">Processing</span>`
@@ -539,7 +583,7 @@ async function searchOrders() {
               </button>
               ${
                 !order.is_cancelled && order.status !== "dispatched"
-                  ? `<button onclick="editOrder(${order.order_id})" class="btn-secondary">
+                  ? `<button onclick="editOrder(${order.order_id})" class="btn-secondary" style="padding-top: 5px;">
                       Edit
                     </button>`
                   : ""
@@ -643,6 +687,30 @@ async function viewOrderDetails(orderId) {
       </style>
     `;
 
+    // Add state selection dropdown for dispatch
+    const dispatchControls =
+      !orderData.is_cancelled && orderData.status !== "dispatched"
+        ? `
+        <div class="dispatch-controls">
+          <select id="dispatchState" class="state-select">
+            <option value="">Select State</option>
+            <option value="qld">QLD</option>
+            <option value="nsw">NSW</option>
+            <option value="sa">SA</option>
+            <option value="wa">WA</option>
+            <option value="vic">VIC</option>
+            <option value="nz">NZ</option>
+            <option value="nt">NT</option>
+            <option value="act">ACT</option>
+            <option value="others">OTHERS</option>
+          </select>
+          <button onclick="markAsDispatched(${orderData.order_id})" class="btn-secondary">
+            Mark as Dispatched
+          </button>
+        </div>
+      `
+        : "";
+
     const content = `
       ${tableStyle}
       <div class="modal-content">
@@ -660,7 +728,9 @@ async function viewOrderDetails(orderId) {
                   orderData.cancel_date
                 )}</p>`
               : orderData.status === "dispatched"
-              ? `<p class="dispatched-status"><strong>DISPATCHED</strong></p>`
+              ? `<p class="dispatched-status"><strong>DISPATCHED - ${
+                  orderData.dispatch_state
+                }</strong> on ${formatDate(orderData.dispatch_time)}</p>`
               : orderData.status === "hold"
               ? `<p class="hold-status"><strong>ON HOLD</strong></p>`
               : `<p class="active-status"><strong>PROCESSING</strong></p>`
@@ -730,12 +800,10 @@ async function viewOrderDetails(orderId) {
         </div>
 
         <div class="modal-actions">
+          ${dispatchControls}
           ${
             !orderData.is_cancelled && orderData.status !== "dispatched"
               ? `
-            <button onclick="updateOrderStatus(${orderData.order_id}, 'dispatched')" class="btn-secondary">
-              Mark as Dispatched
-            </button>
             <button onclick="updateOrderStatus(${orderData.order_id}, 'hold')" class="btn-secondary">
               Put on Hold
             </button>
@@ -866,8 +934,14 @@ async function editOrder(orderId) {
     // Set form to edit mode
     document.getElementById("orderForm").setAttribute("data-order-id", orderId);
 
+    // Format the date to YYYY-MM-DD
+    let orderDate = orderData.order_date;
+    if (orderDate.includes("T")) {
+      orderDate = orderDate.split("T")[0];
+    }
+
     // Populate form with order header data
-    document.getElementById("orderDate").value = orderData.order_date;
+    document.getElementById("orderDate").value = orderDate;
     document.getElementById("customerName").value = orderData.customer_name;
     document.getElementById("agentState").value = orderData.agent_state;
 
@@ -1043,5 +1117,107 @@ async function checkExistingOrder(orderDate, customerName) {
   } catch (error) {
     console.error("Error checking existing order:", error);
     throw error;
+  }
+}
+
+// Update markAsDispatched function with proper local date handling
+async function markAsDispatched(orderId) {
+  try {
+    const stateSelect = document.getElementById("dispatchState");
+    const selectedState = stateSelect.value;
+
+    if (!selectedState) {
+      alert("Please select a state before dispatching the order");
+      return;
+    }
+
+    if (!confirm(`Please confirm dispatch to ${selectedState.toUpperCase()}`)) {
+      return;
+    }
+
+    // Get current date in local time
+    const today = new Date();
+
+    // Get the previous Sunday (for week start) in local time
+    const weekStart = new Date(today);
+    weekStart.setDate(today.getDate() - today.getDay()); // Go back to Sunday
+    weekStart.setHours(0, 0, 0, 0); // Set to start of day
+
+    // Get the Saturday (for week end) in local time
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6); // Add 6 days to get to Saturday
+    weekEnd.setHours(23, 59, 59, 999); // Set to end of day
+
+    // Format dates as YYYY-MM-DD using local time
+    const formattedWeekStart = `${weekStart.getFullYear()}-${String(
+      weekStart.getMonth() + 1
+    ).padStart(2, "0")}-${String(weekStart.getDate()).padStart(2, "0")}`;
+    const formattedWeekEnd = `${weekEnd.getFullYear()}-${String(
+      weekEnd.getMonth() + 1
+    ).padStart(2, "0")}-${String(weekEnd.getDate()).padStart(2, "0")}`;
+
+    // Update order with dispatch info
+    const { error: updateError } = await supabaseClient
+      .from("order_header")
+      .update({
+        status: "dispatched",
+        dispatch_time: today.toISOString(),
+        dispatch_state: selectedState.toUpperCase(), // Store the dispatch state
+      })
+      .eq("order_id", orderId);
+
+    if (updateError) throw updateError;
+
+    // Get existing week record
+    let { data: weekData, error: weekError } = await supabaseClient
+      .from("weekly_state_orders")
+      .select("*")
+      .eq("week_start", formattedWeekStart)
+      .maybeSingle();
+
+    if (weekError) throw weekError;
+
+    if (weekData) {
+      // Record exists, update only the selected state's amount
+      const stateColumn = `${selectedState}_amount`;
+      const { error: updateWeekError } = await supabaseClient
+        .from("weekly_state_orders")
+        .update({
+          [stateColumn]: (weekData[stateColumn] || 0) + 1,
+        })
+        .eq("week_start", formattedWeekStart);
+
+      if (updateWeekError) throw updateWeekError;
+    } else {
+      // No record exists, create new one with 1 for selected state
+      const newWeekData = {
+        week_start: formattedWeekStart,
+        week_end: formattedWeekEnd,
+        qld_amount: selectedState === "qld" ? 1 : 0,
+        nsw_amount: selectedState === "nsw" ? 1 : 0,
+        sa_amount: selectedState === "sa" ? 1 : 0,
+        wa_amount: selectedState === "wa" ? 1 : 0,
+        vic_amount: selectedState === "vic" ? 1 : 0,
+        nz_amount: selectedState === "nz" ? 1 : 0,
+        nt_amount: selectedState === "nt" ? 1 : 0,
+        act_amount: selectedState === "act" ? 1 : 0,
+        others_amount: selectedState === "others" ? 1 : 0,
+      };
+
+      const { error: insertError } = await supabaseClient
+        .from("weekly_state_orders")
+        .insert(newWeekData);
+
+      if (insertError) throw insertError;
+    }
+
+    alert("Order marked as dispatched successfully!");
+    document.querySelector(".modal").remove();
+    await searchOrders();
+  } catch (error) {
+    console.error("Error dispatching order:", error);
+    alert(
+      "Error dispatching order: " + (error.message || "Unknown error occurred")
+    );
   }
 }
