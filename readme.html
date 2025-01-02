@@ -11,9 +11,12 @@
       <header>
         <div class="header-top">
           <h1>BOHO Inventory System Documentation</h1>
-          <button onclick="window.close()" class="close-btn">✕</button>
+          <button onclick="window.close()" class="close-btn">CLOSE</button>
         </div>
         <nav>
+          <button class="nav-btn" data-section="login-info">
+            Default Login Info
+          </button>
           <button class="nav-btn active" data-section="infrastructure">
             Infrastructure
           </button>
@@ -32,6 +35,99 @@
         <!-- Infrastructure Section -->
         <section id="infrastructure" class="content-section active">
           <h2>System Infrastructure</h2>
+
+          <!-- Add the system overview diagram -->
+          <div class="system-overview">
+            <h3>System Overview</h3>
+            <div class="system-diagram">
+              <!-- User Types -->
+              <div class="user-types">
+                <div class="user admin">
+                  <div class="user-icon">👑</div>
+                  <div class="user-label">Admin</div>
+                  <div class="permissions">
+                    <span>Full Control</span>
+                    <span>admin.html</span>
+                  </div>
+                </div>
+                <div class="user viewer">
+                  <div class="user-icon">👁️</div>
+                  <div class="user-label">Viewer</div>
+                  <div class="permissions">
+                    <span>Read Only</span>
+                    <span>view.html</span>
+                  </div>
+                </div>
+                <div class="user guest">
+                  <div class="user-icon">👤</div>
+                  <div class="user-label">Guest</div>
+                  <div class="permissions">
+                    <span>Limited View</span>
+                    <span>guest.html</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- System Components with Relationships -->
+              <div class="system-components">
+                <!-- Web Component -->
+                <div class="component web">
+                  <div class="component-icon">🌐</div>
+                  <div class="component-label">Web Frontend</div>
+                  <div class="features">
+                    <span>Static Pages</span>
+                    <span>User Interface</span>
+                  </div>
+                </div>
+
+                <!-- GitHub Component -->
+                <div class="component github">
+                  <div class="component-icon">📦</div>
+                  <div class="component-label">GitHub Pages</div>
+                  <div class="features">
+                    <span>Static Hosting</span>
+                    <span>Version Control</span>
+                  </div>
+                  <div class="relationship-indicator">
+                    <span>⬆️ Deploys Frontend</span>
+                  </div>
+                </div>
+
+                <!-- Supabase Component -->
+                <div class="component supabase">
+                  <div class="component-icon">🗄️</div>
+                  <div class="component-label">Supabase</div>
+                  <div class="features">
+                    <span>Database</span>
+                    <span>Authentication</span>
+                  </div>
+                  <div class="relationship-indicator">
+                    <span>↔️ API & Auth</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Page Access Matrix -->
+              <div class="page-access">
+                <h4>Page Access</h4>
+                <div class="access-grid">
+                  <div class="page">
+                    <span>soldout.html</span>
+                    <span class="access-all">All Users</span>
+                  </div>
+                  <div class="page">
+                    <span>history.html</span>
+                    <span class="access-auth">Auth Users</span>
+                  </div>
+                  <div class="page">
+                    <span>order.html</span>
+                    <span class="access-admin">Admin Only</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="tech-stack-container">
             <div class="tech-group">
               <h3>Frontend</h3>
@@ -669,6 +765,40 @@
                   <!-- Content will be dynamically populated by JavaScript -->
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Add new login info section -->
+        <section id="login-info" class="content-section">
+          <h2>Default Login Information</h2>
+          <div class="login-info-container">
+            <div class="login-card">
+              <div class="login-role admin">
+                <div class="role-icon">👑</div>
+                <div class="role-details">
+                  <h3>Admin Role</h3>
+                  <div class="email">admin@boho.aus</div>
+                </div>
+              </div>
+              <div class="login-role viewer">
+                <div class="role-icon">👁️</div>
+                <div class="role-details">
+                  <h3>Viewer Role</h3>
+                  <div class="email">viewer@boho.aus</div>
+                </div>
+              </div>
+              <div class="login-role guest">
+                <div class="role-icon">👤</div>
+                <div class="role-details">
+                  <h3>Guest Role</h3>
+                  <div class="email">guest@boho.aus</div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-note">
+              <div class="note-icon">ℹ️</div>
+              <p>For passwords or any changes, please contact Jimmy.</p>
             </div>
           </div>
         </section>
