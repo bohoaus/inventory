@@ -5,17 +5,103 @@ const supabaseKey =
 const { createClient } = supabase;
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
-// Add this function to handle back navigation
-function handleBackNavigation() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (user.role === "admin") {
-    window.location.href = "admin.html";
-  } else if (user.role === "viewer") {
-    window.location.href = "viewer.html";
-  } else if (user.role === "guest") {
-    window.location.href = "guest.html";
+// Define and export functions at the top
+window.goBack = function (event) {
+  // Prevent any default behavior
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
   }
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log("goBack - Current user:", user);
+
+  if (!user || !user.role) {
+    console.log("goBack - No valid user");
+    return false;
+  }
+
+  // Force navigation based on role
+  try {
+    switch (user.role) {
+      case "admin":
+        document.location = "admin.html";
+        break;
+      case "viewer":
+        document.location = "viewer.html";
+        break;
+      case "guest":
+        document.location = "guest.html";
+        break;
+      default:
+        return false;
+    }
+  } catch (error) {
+    console.error("Navigation error:", error);
+    return false;
+  }
+
+  return false; // Prevent any default behavior
+};
+
+// Initialize page
+window.addEventListener("load", async function () {
+  try {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("Initial user data:", user);
+
+    if (!user || !user.role) {
+      window.location.href = "index.html";
+      return;
+    }
+
+    // Update back button text and handler
+    const backButton = document.querySelector(".back-button");
+    if (backButton) {
+      // Update button text
+      backButton.textContent = `Back to ${
+        user.role.charAt(0).toUpperCase() + user.role.slice(1)
+      } Dashboard`;
+
+      // Add click handler
+      backButton.onclick = function () {
+        const currentUser = JSON.parse(localStorage.getItem("user"));
+        if (!currentUser || !currentUser.role) {
+          window.location.href = "index.html";
+          return;
+        }
+
+        // Direct navigation
+        if (currentUser.role === "admin") {
+          window.location.href = "admin.html";
+        } else if (currentUser.role === "viewer") {
+          window.location.href = "viewer.html";
+        } else if (currentUser.role === "guest") {
+          window.location.href = "guest.html";
+        }
+      };
+    }
+
+    const logoutButton = document.querySelector(".logout-button");
+    if (logoutButton) {
+      logoutButton.addEventListener("click", logout);
+    }
+
+    await loadWeekFilter();
+  } catch (error) {
+    console.error("Error during initialization:", error);
+  }
+});
+
+// Keep the logout function simple
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "index.html";
 }
+
+// Export necessary functions
+window.logout = logout;
+window.filterSoldOutItems = filterSoldOutItems;
 
 // Load week filter options
 async function loadWeekFilter() {
@@ -206,74 +292,4 @@ function formatDate(dateStr) {
     console.error("Error formatting date:", error);
     return "";
   }
-}
-
-// Initialize page
-window.addEventListener("load", async function () {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    window.location.href = "index.html";
-    return;
-  }
-
-  // Update back button text based on user role
-  const backButton = document.querySelector(
-    ".header-buttons button:first-child"
-  );
-  if (backButton) {
-    backButton.textContent = `Back to ${
-      user.role === "admin"
-        ? "Admin"
-        : user.role === "viewer"
-        ? "Viewer"
-        : "Guest"
-    }`;
-    backButton.addEventListener("click", handleBackNavigation);
-  }
-
-  // Add click event listener to logout button
-  const logoutButton = document.querySelector(
-    ".header-buttons button:last-child"
-  );
-  if (logoutButton) {
-    logoutButton.addEventListener("click", logout);
-  }
-
-  // Load the week filter and initial data
-  await loadWeekFilter();
-});
-
-// Logout function
-function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "index.html";
-}
-
-// Make sure functions are available globally
-window.handleBackNavigation = handleBackNavigation;
-window.logout = logout;
-window.filterSoldOutItems = filterSoldOutItems;
-
-// Add this function to handle role-based navigation
-function getBackUrl() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    return "index.html";
-  }
-
-  switch (user.role) {
-    case "admin":
-      return "admin.html";
-    case "viewer":
-      return "viewer.html";
-    case "guest":
-      return "guest.html";
-    default:
-      return "index.html";
-  }
-}
-
-// Update the back button navigation
-function goBack() {
-  window.location.href = getBackUrl();
 }
