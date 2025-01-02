@@ -9,17 +9,57 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 let selectedItem = null;
 let orderItems = [];
 
-// Check authentication on page load
-window.addEventListener("load", async function () {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user || user.role !== "admin") {
-    window.location.href = "index.html";
-    return;
-  }
+// Function to load agent states from database
+async function loadAgentStates() {
+  try {
+    const { data: agentStates, error } = await supabaseClient
+      .from("agent_state_options")
+      .select("agent_state")
+      .order("agent_state");
 
-  setupEventListeners();
+    if (error) throw error;
+
+    // Get both select elements
+    const agentStateSelect = document.getElementById("agentState");
+    const searchAgentStateSelect = document.getElementById("searchAgentState");
+
+    // Clear existing options except the first one
+    agentStateSelect.innerHTML = '<option value="">Select Agent State</option>';
+    searchAgentStateSelect.innerHTML =
+      '<option value="">All Agent States</option>';
+
+    // Add new options from database
+    if (agentStates) {
+      agentStates.forEach(({ agent_state }) => {
+        if (agent_state) {
+          // Add to new order select
+          const option1 = document.createElement("option");
+          option1.value = agent_state;
+          option1.textContent = agent_state;
+          agentStateSelect.appendChild(option1);
+
+          // Add to search select
+          const option2 = document.createElement("option");
+          option2.value = agent_state;
+          option2.textContent = agent_state;
+          searchAgentStateSelect.appendChild(option2);
+        }
+      });
+    }
+  } catch (error) {
+    console.error("Error loading agent states:", error);
+    alert("Error loading agent states. Please try again.");
+  }
+}
+
+// Initialize the page
+document.addEventListener("DOMContentLoaded", async function () {
+  await loadAgentStates();
   setDefaultOrderDate();
-  await searchOrders(); // Load orders on page load
+  setupEventListeners();
+
+  // Load initial orders
+  await searchOrders();
 });
 
 // Set today's date as default order date
@@ -164,7 +204,45 @@ async function addItemToOrder() {
     return;
   }
 
-  const quantity = parseInt(document.getElementById("orderQuantity").value);
+  const quantity = parseFloat(document.getElementById("orderQuantity").value);
+  if (!quantity || quantity < 0.5) {
+    alert("Please enter a valid quantity");
+    return;
+  }
+
+  // Check if quantity has .5 value
+  const hasHalfUnit = quantity % 1 !== 0;
+
+  if (hasHalfUnit) {
+    // Get item status and unit per pack
+    const itemStatus = document.getElementById("itemStatus").textContent;
+    const unitPerPack = parseFloat(
+      document.getElementById("unitPerPack").textContent
+    );
+
+    // Show warning for On Sale items
+    if (itemStatus === "On Sale") {
+      if (
+        !confirm(
+          "This item is On Sale. Are you sure you want to add it with half pack?"
+        )
+      ) {
+        return;
+      }
+    }
+
+    // Show warning for items with unit per pack not equal to 8
+    if (unitPerPack !== 8) {
+      if (
+        !confirm(
+          `This item has ${unitPerPack} units per pack (not 8). Are you sure you want to add it with half pack?`
+        )
+      ) {
+        return;
+      }
+    }
+  }
+
   const totalPieces = quantity * (selectedItem.unit || 0);
 
   // Check if order would result in zero or negative inventory
@@ -356,14 +434,19 @@ async function handleOrderSubmit(event) {
 
   try {
     const orderDate = document.getElementById("orderDate").value;
-    const customerName = document.getElementById("customerName").value;
+    const customerName = normalizeCustomerName(
+      document.getElementById("customerName").value
+    );
     const agentState = document.getElementById("agentState").value;
     const orderForm = document.getElementById("orderForm");
     const existingOrderId = orderForm.getAttribute("data-order-id");
 
-    // Skip duplicate check if editing an existing order
+    // Update the customer name field with normalized value
+    document.getElementById("customerName").value = customerName;
+
+    // Skip checks if editing an existing order
     if (!existingOrderId) {
-      // Check for existing order with same date and customer
+      // First check for same date orders
       const existingOrder = await checkExistingOrder(orderDate, customerName);
 
       if (existingOrder) {
@@ -394,15 +477,62 @@ async function handleOrderSubmit(event) {
         document.body.appendChild(modal);
         return;
       }
+
+      // Then check for active orders with normalized name
+      const activeOrders = await checkActiveOrdersByCustomer(customerName);
+
+      if (activeOrders.length > 0) {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        modal.style.display = "block";
+
+        const ordersList = activeOrders
+          .map(
+            (order) => `
+            <li style="margin-bottom: 0.5rem;">
+              Order date: ${formatDateDDMMYYYY(order.order_date)} - Status: ${
+              order.status
+            }
+            </li>
+          `
+          )
+          .join("");
+
+        modal.innerHTML = `
+          <div class="modal-content" style="max-width: 450px; max-height: 400px; text-align: center; margin: auto;">
+            <h3>Active Orders Warning</h3>
+            <div style="margin: 1rem 0;">
+              <p style="margin-bottom: 1rem;">
+                Customer "${customerName}" has the following active orders:
+              </p>
+              <ul style="list-style: none; padding: 0; text-align: left; margin: 1rem 2rem;">
+                ${ordersList}
+              </ul>
+              <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                Please complete or cancel existing orders before creating a new one.
+              </p>
+            </div>
+            <div class="modal-actions">
+              <button style="margin: auto;" onclick="this.closest('.modal').remove()" class="btn-secondary">
+                Close
+              </button>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(modal);
+        return;
+      }
     }
 
-    // Create or update order header
+    // Create or update order header with normalized name
     const orderHeaderData = {
       order_date: orderDate,
       customer_name: customerName,
       agent_state: agentState,
       total_items: orderItems.length,
       status: "processing",
+      note: document.getElementById("orderNote").value,
     };
 
     let orderHeader;
@@ -412,17 +542,22 @@ async function handleOrderSubmit(event) {
         .from("order_header")
         .update(orderHeaderData)
         .eq("order_id", existingOrderId)
-        .select()
+        .select("*")
         .single();
 
       if (headerError) throw headerError;
       orderHeader = data;
+
+      // Verify the update was successful
+      if (!orderHeader) {
+        throw new Error("Failed to update order");
+      }
     } else {
       // Create new order
       const { data, error: headerError } = await supabaseClient
         .from("order_header")
-        .insert([orderHeaderData])
-        .select()
+        .insert(orderHeaderData)
+        .select("*")
         .single();
 
       if (headerError) throw headerError;
@@ -531,6 +666,7 @@ function resetOrder() {
   resetItemEntry();
   document.getElementById("customerName").value = "";
   document.getElementById("agentState").value = "";
+  document.getElementById("orderNote").value = "";
   setDefaultOrderDate();
 
   // Clear edit mode
@@ -555,22 +691,29 @@ window.logout = logout;
 document.getElementById("customerName").addEventListener("input", function (e) {
   const start = this.selectionStart;
   const end = this.selectionEnd;
-  this.value = this.value.toUpperCase();
+  const value = this.value;
+  this.value = value.toUpperCase();
   this.setSelectionRange(start, end);
+});
+
+// Add a blur event listener to trim whitespace when the input loses focus
+document.getElementById("customerName").addEventListener("blur", function (e) {
+  this.value = normalizeCustomerName(this.value);
 });
 
 // Search orders
 async function searchOrders() {
   try {
-    const searchDate = document.getElementById("searchOrderDate")?.value || "";
-    const searchCustomer =
-      document.getElementById("searchCustomer")?.value?.toUpperCase() || "";
-    const searchAgent =
-      document.getElementById("searchAgentState")?.value || "";
+    const searchDate = document.getElementById("searchOrderDate").value;
+    const searchCustomer = document
+      .getElementById("searchCustomer")
+      .value.toUpperCase();
+    const searchAgentState = document.getElementById("searchAgentState").value;
 
     let query = supabaseClient
       .from("order_header")
-      .select("*, order_items(count)");
+      .select("*")
+      .order("order_date", { ascending: false });
 
     if (searchDate) {
       query = query.eq("order_date", searchDate);
@@ -578,62 +721,18 @@ async function searchOrders() {
     if (searchCustomer) {
       query = query.ilike("customer_name", `%${searchCustomer}%`);
     }
-    if (searchAgent) {
-      query = query.eq("agent_state", searchAgent);
+    if (searchAgentState) {
+      query = query.eq("agent_state", searchAgentState);
     }
 
-    const { data, error } = await query.order("order_date", {
-      ascending: false,
-    });
+    const { data: orders, error } = await query;
 
     if (error) throw error;
 
     const tbody = document.querySelector("#ordersTable tbody");
     tbody.innerHTML = "";
 
-    if (data && data.length > 0) {
-      data.forEach((order) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${formatDateDDMMYYYY(order.order_date)}</td>
-          <td>${order.customer_name}</td>
-          <td>${order.agent_state}</td>
-          <td>${order.total_items}</td>
-          <td>
-            ${
-              order.is_cancelled
-                ? `<span class="cancelled-status">Cancelled on ${formatDate(
-                    order.cancel_date
-                  )}</span>`
-                : order.status === "dispatched"
-                ? `<span class="dispatched-status">Dispatched on ${formatDate(
-                    order.dispatch_time
-                  )}</span>`
-                : order.status === "hold"
-                ? `<span class="hold-status">On Hold</span>`
-                : `<span class="active-status">Processing</span>`
-            }
-          </td>
-          <td>
-            <div class="action-buttons">
-              <button onclick="viewOrderDetails(${
-                order.order_id
-              })" class="btn-secondary">
-                View Details
-              </button>
-              ${
-                !order.is_cancelled && order.status !== "dispatched"
-                  ? `<button onclick="editOrder(${order.order_id})" class="btn-secondary" style="padding-top: 5px;">
-                      Edit
-                    </button>`
-                  : ""
-              }
-            </div>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    } else {
+    if (!orders || orders.length === 0) {
       tbody.innerHTML = `
         <tr>
           <td colspan="6" style="text-align: center; padding: 1rem;">
@@ -641,7 +740,43 @@ async function searchOrders() {
           </td>
         </tr>
       `;
+      return;
     }
+
+    orders.forEach((order) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${formatDateDDMMYYYY(order.order_date)}</td>
+        <td>${order.customer_name}</td>
+        <td>${order.agent_state}</td>
+        <td>${order.total_items}</td>
+        <td>
+          ${
+            order.is_cancelled
+              ? `<span class="cancelled-status">Cancelled</span>`
+              : order.status === "dispatched"
+              ? `<span class="dispatched-status">Dispatched</span>`
+              : order.status === "hold"
+              ? `<span class="hold-status">On Hold</span>`
+              : `<span class="active-status">Processing</span>`
+          }
+        </td>
+        <td>
+          <button onclick="viewOrderDetails(${
+            order.order_id
+          })" class="btn-secondary">View</button>
+          ${
+            !order.is_cancelled && order.status !== "dispatched"
+              ? `
+            <button onclick="editOrder(${order.order_id})" class="btn-secondary">Edit</button>
+            <button onclick="deleteOrder(${order.order_id})" class="btn-delete">Delete</button>
+          `
+              : ""
+          }
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
   } catch (error) {
     console.error("Error searching orders:", error);
     alert("Error searching orders: " + error.message);
@@ -651,8 +786,8 @@ async function searchOrders() {
 // View order details
 async function viewOrderDetails(orderId) {
   try {
-    // Get order header and current items
-    const { data: orderData, error: orderError } = await supabaseClient
+    // Fetch order details including items
+    const { data: order, error: orderError } = await supabaseClient
       .from("order_header")
       .select(
         `
@@ -673,192 +808,163 @@ async function viewOrderDetails(orderId) {
 
     if (orderError) throw orderError;
 
-    // If order is cancelled, get the history items
-    let historyItems = [];
-    if (orderData.is_cancelled) {
-      const { data: historyData, error: historyError } = await supabaseClient
-        .from("order_item_history")
-        .select("*")
-        .eq("order_id", orderId)
-        .order("action_date", { ascending: false });
-
-      if (historyError) throw historyError;
-      historyItems = historyData || [];
-    }
-
+    // Create modal
     const modal = document.createElement("div");
     modal.className = "modal";
     modal.style.display = "block";
 
-    const tableStyle = `
-      <style>
-        .modal-table-container {
-          margin: 1rem 0;
-          overflow-x: auto;
-        }
-        .modal-table-container table {
-          width: 100%;
-          border-collapse: collapse;
-          white-space: nowrap;
-        }
-        .modal-table-container th {
-          background-color: #f8f9fa;
-          padding: 0.75rem;
-          text-align: left;
-          font-weight: 600;
-        }
-        .modal-table-container td {
-          padding: 0.75rem;
-          border-top: 1px solid #dee2e6;
-        }
-        .modal-table-container th:last-child,
-        .modal-table-container td:last-child {
-          position: sticky;
-          right: 0;
-          background-color: #fff;
-          box-shadow: -2px 0 4px rgba(0,0,0,0.1);
-        }
-        .modal-table-container tr:hover td {
-          background-color: #f8f9fa;
-        }
-        .modal-table-container tr:hover td:last-child {
-          background-color: #f8f9fa;
-        }
-      </style>
-    `;
+    // Format the order details
+    const items = order.order_items
+      .map(
+        (item) => `
+      <tr>
+        <td>${item.code_colour || ""}</td>
+        <td>${item.item_name || ""}</td>
+        <td>${item.unit_per_pack || ""}</td>
+        <td>${item.order_quantity || ""}</td>
+        <td>${item.total_pieces || ""}</td>
+        <td>${item.location || ""}</td>
+      </tr>
+    `
+      )
+      .join("");
 
-    // Add state selection dropdown for dispatch
-    const dispatchControls =
-      !orderData.is_cancelled && orderData.status !== "dispatched"
-        ? `
-        <div class="dispatch-controls">
-          <select id="dispatchState" class="state-select">
-            <option value="">Select State</option>
-            <option value="qld">QLD</option>
-            <option value="nsw">NSW</option>
-            <option value="sa">SA</option>
-            <option value="wa">WA</option>
-            <option value="vic">VIC</option>
-            <option value="nz">NZ</option>
-            <option value="nt">NT</option>
-            <option value="act">ACT</option>
-            <option value="others">OTHERS</option>
-          </select>
-          <button onclick="markAsDispatched(${orderData.order_id})" class="btn-secondary">
-            Mark as Dispatched
-          </button>
-        </div>
-      `
-        : "";
-
-    const content = `
-      ${tableStyle}
+    modal.innerHTML = `
       <div class="modal-content">
         <h3>Order Details</h3>
-        <div class="order-header-info">
+        <div class="order-info">
           <p><strong>Order Date:</strong> ${formatDateDDMMYYYY(
-            orderData.order_date
+            order.order_date
           )}</p>
-          <p><strong>Customer:</strong> ${orderData.customer_name}</p>
-          <p><strong>Agent State:</strong> ${orderData.agent_state}</p>
-          <p><strong>Total Items:</strong> ${orderData.total_items}</p>
-          ${
-            orderData.is_cancelled
-              ? `<p class="cancelled-order"><strong>CANCELLED</strong> on ${formatDate(
-                  orderData.cancel_date
-                )}</p>`
-              : orderData.status === "dispatched"
-              ? `<p class="dispatched-status"><strong>DISPATCHED - ${
-                  orderData.dispatch_state
-                }</strong> on ${formatDate(orderData.dispatch_time)}</p>`
-              : orderData.status === "hold"
-              ? `<p class="hold-status"><strong>ON HOLD</strong></p>`
-              : `<p class="active-status"><strong>PROCESSING</strong></p>`
-          }
+          <p><strong>Customer:</strong> ${order.customer_name}</p>
+          <p><strong>Agent State:</strong> ${order.agent_state}</p>
+          <p><strong>Status:</strong> 
+            ${
+              order.is_cancelled
+                ? `<span class="cancelled-status">Cancelled on ${formatDate(
+                    order.cancel_date
+                  )}</span>`
+                : order.status === "dispatched"
+                ? `<span class="dispatched-status">Dispatched on ${formatDate(
+                    order.dispatch_time
+                  )}</span>`
+                : order.status === "hold"
+                ? `<span class="hold-status">On Hold</span>`
+                : `<span class="active-status">Processing</span>`
+            }
+          </p>
+          ${order.note ? `<p><strong>Note:</strong> ${order.note}</p>` : ""}
+          <p><strong>Total Items:</strong> ${order.total_items}</p>
         </div>
-
-        <div class="modal-table-container">
-          <h4>${
-            orderData.is_cancelled
-              ? "Removed Items History"
-              : "Current Order Items"
-          }</h4>
-          <table>
+        <div class="items-table-container">
+          <table class="items-table">
             <thead>
               <tr>
-                <th style="width: 15%">Code & Colour</th>
-                <th style="width: 20%">Item Name</th>
-                <th style="width: 12%">Quantity (Packs)</th>
-                <th style="width: 10%">Unit/Pack</th>
-                <th style="width: 12%">Total Pieces</th>
-                <th style="width: 13%">Location</th>
-                <th style="width: 18%">${
-                  orderData.is_cancelled ? "Removed At" : "Added Item At"
-                }</th>
+                <th>Code & Colour</th>
+                <th>Item Name</th>
+                <th>Unit/Pack</th>
+                <th>Quantity (Packs)</th>
+                <th>Total Pieces</th>
+                <th>Location</th>
               </tr>
             </thead>
             <tbody>
-              ${
-                orderData.is_cancelled
-                  ? historyItems.length > 0
-                    ? historyItems
-                        .map(
-                          (item) => `
-                          <tr>
-                            <td>${item.code_colour || ""}</td>
-                            <td>${item.item_name || ""}</td>
-                            <td>${item.order_quantity || ""}</td>
-                            <td>${item.unit_per_pack || ""}</td>
-                            <td>${item.total_pieces || ""}</td>
-                            <td>${item.location || ""}</td>
-                            <td>${formatDateTime(item.action_date)}</td>
-                          </tr>
-                        `
-                        )
-                        .join("")
-                    : `<tr><td colspan="7" style="text-align: center;">No history found</td></tr>`
-                  : orderData.order_items.length > 0
-                  ? orderData.order_items
-                      .map(
-                        (item) => `
-                        <tr>
-                          <td>${item.code_colour || ""}</td>
-                          <td>${item.item_name || ""}</td>
-                          <td>${item.order_quantity || ""}</td>
-                          <td>${item.unit_per_pack || ""}</td>
-                          <td>${item.total_pieces || ""}</td>
-                          <td>${item.location || ""}</td>
-                          <td>${formatDateTime(item.created_at)}</td>
-                        </tr>
-                      `
-                      )
-                      .join("")
-                  : `<tr><td colspan="7" style="text-align: center;">No items found</td></tr>`
-              }
+              ${items}
             </tbody>
           </table>
         </div>
-
         <div class="modal-actions">
-          ${dispatchControls}
-          ${
-            !orderData.is_cancelled && orderData.status !== "dispatched"
-              ? `
-            <button onclick="updateOrderStatus(${orderData.order_id}, 'hold')" class="btn-secondary">
-              Put on Hold
+          <div style="
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+          ">
+            ${
+              !order.is_cancelled && order.status !== "dispatched"
+                ? `
+              <div class="dispatch-controls" style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+              ">
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <label for="dispatchState" style="font-weight: 500;">Dispatch to:</label>
+                  <select id="dispatchState" class="dispatch-state-select" style="
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    width: 150px;
+                    height: 40px;
+                  ">
+                    <option value="">Select State</option>
+                    <option value="qld">QLD</option>
+                    <option value="nsw">NSW</option>
+                    <option value="vic">VIC</option>
+                    <option value="sa">SA</option>
+                    <option value="wa">WA</option>
+                    <option value="nz">NZ</option>
+                    <option value="nt">NT</option>
+                    <option value="act">ACT</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+                <button 
+                  onclick="markAsDispatched(${order.order_id})"
+                  class="btn-primary"
+                  style="
+                    padding: 8px 16px;
+                    width: 150px;
+                    height: 40px;
+                  "
+                >
+                  Mark as Dispatched
+                </button>
+                <button 
+                  onclick="toggleOrderHold(${order.order_id}, '${
+                    order.status
+                  }')"
+                  class="btn-secondary"
+                  style="
+                    padding: 8px 16px;
+                    width: 150px;
+                    height: 40px;
+                    ${
+                      order.status === "hold"
+                        ? "background-color: #4CAF50; color: white;"
+                        : "background-color: #ff9800; color: white;"
+                    }
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-weight: 500;
+                  "
+                >
+                  ${order.status === "hold" ? "Remove Hold" : "Put On Hold"}
+                </button>
+              </div>
+            `
+                : ""
+            }
+            <button 
+              onclick="this.closest('.modal').remove()" 
+              class="btn-secondary"
+              style="
+                padding: 8px 16px;
+                width: 150px;
+                height: 40px;
+              "
+            >
+              Close
             </button>
-            <button onclick="cancelOrder(${orderData.order_id})" class="btn-delete">
-              Cancel Order
-            </button>
-          `
-              : ""
-          }
-          <button onclick="this.closest('.modal').remove()" class="btn-secondary">Close</button>
+          </div>
         </div>
       </div>
     `;
 
-    modal.innerHTML = content;
     document.body.appendChild(modal);
   } catch (error) {
     console.error("Error viewing order details:", error);
@@ -1147,12 +1253,11 @@ async function checkExistingOrder(orderDate, customerName) {
       .from("order_header")
       .select("order_id, order_date")
       .eq("order_date", orderDate)
-      .ilike("customer_name", customerName)
-      .not("status", "eq", "cancelled") // Exclude cancelled orders
+      .eq("customer_name", customerName) // Using exact match with normalized name
+      .not("status", "eq", "cancelled")
       .order("created_at", { ascending: false });
 
     if (error) throw error;
-
     return data && data.length > 0 ? data[0] : null;
   } catch (error) {
     console.error("Error checking existing order:", error);
@@ -1261,3 +1366,229 @@ async function markAsDispatched(orderId) {
     );
   }
 }
+
+// Add this new function to check for active orders by customer name
+async function checkActiveOrdersByCustomer(customerName) {
+  try {
+    const { data, error } = await supabaseClient
+      .from("order_header")
+      .select("order_id, order_date, status")
+      .eq("customer_name", customerName) // Using exact match with normalized name
+      .in("status", ["processing", "hold"])
+      .order("order_date", { ascending: false });
+
+    if (error) throw error;
+    return data || [];
+  } catch (error) {
+    console.error("Error checking active orders:", error);
+    throw error;
+  }
+}
+
+// Modify the deleteOrder function
+async function deleteOrder(orderId) {
+  try {
+    if (
+      !confirm(
+        "Are you sure you want to delete this order? This action cannot be undone."
+      )
+    ) {
+      return;
+    }
+
+    // First check if order exists and its status
+    const { data: orderData, error: orderError } = await supabaseClient
+      .from("order_header")
+      .select("*")
+      .eq("order_id", orderId)
+      .single();
+
+    if (orderError) {
+      console.error("Error checking order:", orderError);
+      throw new Error("Could not find the order");
+    }
+
+    if (!orderData) {
+      throw new Error("Order not found");
+    }
+
+    // Check if order has any items
+    const { data: orderItems, error: itemsError } = await supabaseClient
+      .from("order_items")
+      .select("*")
+      .eq("order_id", orderId);
+
+    if (itemsError) {
+      console.error("Error checking order items:", itemsError);
+      throw new Error("Could not check order items");
+    }
+
+    if (orderItems && orderItems.length > 0) {
+      alert("Please remove all items from the order before deleting.");
+      return;
+    }
+
+    // Delete any order history records first (if they exist)
+    const { error: historyDeleteError } = await supabaseClient
+      .from("order_item_history")
+      .delete()
+      .eq("order_id", orderId);
+
+    if (historyDeleteError) {
+      console.error("Error deleting order history:", historyDeleteError);
+      // Continue even if history deletion fails
+    }
+
+    // Delete the order header
+    const { error: deleteError } = await supabaseClient
+      .from("order_header")
+      .delete()
+      .eq("order_id", orderId);
+
+    if (deleteError) {
+      console.error("Error deleting order:", deleteError);
+      throw new Error("Failed to delete the order");
+    }
+
+    alert("Order deleted successfully!");
+    await searchOrders(); // Refresh the orders list
+  } catch (error) {
+    console.error("Error in delete operation:", error);
+    alert(
+      "Error deleting order: " + (error.message || "Unknown error occurred")
+    );
+  }
+}
+
+// Make sure it's exported to window
+window.deleteOrder = deleteOrder;
+
+// Add this utility function at the top with other utility functions
+function normalizeCustomerName(name) {
+  return name.trim().toUpperCase();
+}
+
+// Add this function to handle order hold status
+async function toggleOrderHold(orderId, currentStatus) {
+  try {
+    const newStatus = currentStatus === "hold" ? "processing" : "hold";
+
+    const { error } = await supabaseClient
+      .from("order_header")
+      .update({ status: newStatus })
+      .eq("order_id", orderId);
+
+    if (error) throw error;
+
+    alert(
+      `Order ${
+        newStatus === "hold" ? "put on hold" : "removed from hold"
+      } successfully!`
+    );
+    document.querySelector(".modal").remove();
+    await searchOrders(); // Refresh the orders list
+  } catch (error) {
+    console.error("Error toggling order hold status:", error);
+    alert(
+      "Error updating order status: " +
+        (error.message || "Unknown error occurred")
+    );
+  }
+}
+
+// Add to window exports
+window.toggleOrderHold = toggleOrderHold;
+
+// Agent State Modal Functions
+function showAgentStateModal() {
+  document.getElementById("agentStateModal").style.display = "block";
+  loadAgentStateList();
+}
+
+function closeAgentStateModal() {
+  document.getElementById("agentStateModal").style.display = "none";
+}
+
+async function loadAgentStateList() {
+  try {
+    const { data: agentStates, error } = await supabaseClient
+      .from("agent_state_options")
+      .select("agent_state")
+      .order("agent_state");
+
+    if (error) throw error;
+
+    const agentStateList = document.getElementById("agentStateList");
+    agentStateList.innerHTML = "";
+
+    agentStates.forEach(({ agent_state }) => {
+      if (agent_state) {
+        const div = document.createElement("div");
+        div.className = "status-item";
+        div.innerHTML = `
+          <span>${agent_state}</span>
+          <button onclick="deleteAgentState('${agent_state}')" class="btn-delete">Delete</button>
+        `;
+        agentStateList.appendChild(div);
+      }
+    });
+  } catch (error) {
+    console.error("Error loading agent states:", error);
+    alert("Error loading agent states: " + error.message);
+  }
+}
+
+async function addNewAgentState() {
+  const newAgentState = document
+    .getElementById("newAgentState")
+    .value.trim()
+    .toUpperCase();
+  if (!newAgentState) {
+    alert("Please enter an agent state");
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient
+      .from("agent_state_options")
+      .insert([{ agent_state: newAgentState }]);
+
+    if (error) throw error;
+
+    alert("New agent state added successfully!");
+    document.getElementById("newAgentState").value = "";
+    await loadAgentStateList();
+    await loadAgentStates(); // Refresh the select options
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error adding new agent state: " + error.message);
+  }
+}
+
+async function deleteAgentState(agentState) {
+  if (!confirm(`Are you sure you want to delete "${agentState}"?`)) {
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient
+      .from("agent_state_options")
+      .delete()
+      .eq("agent_state", agentState);
+
+    if (error) throw error;
+
+    alert("Agent state deleted successfully!");
+    await loadAgentStateList();
+    await loadAgentStates(); // Refresh the select options
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error deleting agent state: " + error.message);
+  }
+}
+
+// Export functions to window
+window.showAgentStateModal = showAgentStateModal;
+window.closeAgentStateModal = closeAgentStateModal;
+window.addNewAgentState = addNewAgentState;
+window.deleteAgentState = deleteAgentState;

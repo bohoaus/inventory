@@ -332,6 +332,10 @@ function setupTableScroll() {
   const scrollLeftBtn = document.getElementById("scrollLeft");
   const scrollRightBtn = document.getElementById("scrollRight");
 
+  // Set max height for vertical scrolling
+  tableWrapper.style.maxHeight = "calc(100vh - 300px)"; // Adjust the value as needed
+  tableWrapper.style.overflowY = "auto"; // Enable vertical scrolling
+
   // Calculate scroll amount based on viewport width
   const calculateScrollAmount = () => {
     const viewportWidth = tableWrapper.clientWidth;
@@ -383,19 +387,26 @@ function updateResultsCount(
     const countElement = document.createElement("div");
     countElement.id = "resultsCount";
     countElement.className = "results-count";
+    // Add styles for larger font, center position, and bold text
+    countElement.style.fontSize = "1.5rem";
+    countElement.style.fontWeight = "bold";
+    countElement.style.textAlign = "center";
+    countElement.style.margin = "1rem 0";
 
-    let countText = `Showing ${data.length} records`;
+    // Create spans with red color for dynamic values
+    let countText = `Showing <span style="color: #ff0000">${data.length}</span> records`;
     if (categoryValue) {
-      countText += ` in ${categoryValue}`;
+      countText += ` in <span style="color: #ff0000">${categoryValue}</span>`;
     }
     if (statusValue) {
-      countText += ` with ${statusValue} status`;
+      countText += ` with <span style="color: #ff0000">${statusValue}</span> status`;
     }
     if (isRepeated) {
-      countText += " (Repeated Items Only)";
+      countText += ` <span style="color: #ff0000">(Repeated Order to Factory Only)</span>`;
     }
 
-    countElement.textContent = countText;
+    // Use innerHTML instead of textContent to render the HTML spans
+    countElement.innerHTML = countText;
     searchContainer.appendChild(countElement);
   }
 }

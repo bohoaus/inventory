@@ -408,7 +408,7 @@ function closeCargoModal() {
 let inventoryData = []; // Store all inventory data
 let filteredData = []; // Store filtered data
 
-// Update loadInventoryData function
+//Update loadInventoryData function
 async function loadInventoryData() {
   try {
     // Show loading state
@@ -420,6 +420,50 @@ async function loadInventoryData() {
         </td>
       </tr>
     `;
+
+    // Reload all filters first
+    await Promise.all([
+      loadStatusOptions(),
+      loadSizePackOptions(),
+      loadCategoryOptions(),
+      loadCargoOptions(),
+    ]);
+
+    // Clear and reload category filter
+    const categoryFilter = document.getElementById("categoryFilter");
+    categoryFilter.innerHTML = '<option value="">All Categories</option>';
+    const { data: categoryData } = await supabaseClient
+      .from("category_options")
+      .select("*")
+      .order("category");
+    if (categoryData) {
+      categoryData.forEach(({ category }) => {
+        if (category) {
+          const option = document.createElement("option");
+          option.value = category;
+          option.textContent = category;
+          categoryFilter.appendChild(option);
+        }
+      });
+    }
+
+    // Clear and reload status filter
+    const statusFilter = document.getElementById("statusFilter");
+    statusFilter.innerHTML = '<option value="">All Status</option>';
+    const { data: statusData } = await supabaseClient
+      .from("status_options")
+      .select("*")
+      .order("status");
+    if (statusData) {
+      statusData.forEach(({ status }) => {
+        if (status) {
+          const option = document.createElement("option");
+          option.value = status;
+          option.textContent = status;
+          statusFilter.appendChild(option);
+        }
+      });
+    }
 
     const { data, error } = await supabaseClient.from("inventory").select("*");
 
@@ -443,7 +487,7 @@ async function loadInventoryData() {
   }
 }
 
-// Add new function to update results count
+// Update the updateResultsCount function to include filter information
 function updateResultsCount(
   data,
   categoryValue = "",
@@ -461,27 +505,44 @@ function updateResultsCount(
     const countElement = document.createElement("div");
     countElement.id = "resultsCount";
     countElement.className = "results-count";
+    // Add styles for larger font, center position, and bold text
+    countElement.style.fontSize = "1.5rem";
+    countElement.style.fontWeight = "bold";
+    countElement.style.textAlign = "center";
+    countElement.style.margin = "1rem 0";
 
-    let countText = `Showing ${data.length} records`;
+    // Create spans with red color for dynamic values
+    let countText = `Showing <span style="color: #ff0000">${data.length}</span> records`;
     if (categoryValue) {
-      countText += ` in ${categoryValue}`;
+      countText += ` in <span style="color: #ff0000">${categoryValue}</span>`;
     }
     if (statusValue) {
-      countText += ` with ${statusValue} status`;
+      countText += ` with <span style="color: #ff0000">${statusValue}</span> status`;
     }
     if (isRepeated) {
-      countText += " (Repeated Items Only)";
+      countText += ` <span style="color: #ff0000">(Repeated Order to Factory Only)</span>`;
     }
 
-    countElement.textContent = countText;
+    // Use innerHTML instead of textContent to render the HTML spans
+    countElement.innerHTML = countText;
     searchContainer.appendChild(countElement);
   }
 }
 
-// Separate function to render the table
+// Update the renderInventoryTable function to pass filter values
 function renderInventoryTable(data) {
   const tbody = document.querySelector("#inventoryTable tbody");
   tbody.innerHTML = "";
+
+  // Get current filter values
+  const categoryValue = document.getElementById("categoryFilter").value;
+  const statusValue = document.getElementById("statusFilter").value;
+  const isRepeated = document
+    .getElementById("repeatedFilter")
+    .classList.contains("active");
+
+  // Update results count with filter information
+  updateResultsCount(data, categoryValue, statusValue, isRepeated);
 
   data.forEach((item) => {
     const row = document.createElement("tr");
@@ -504,10 +565,10 @@ function renderInventoryTable(data) {
       { value: formatDate(item.released), truncate: false },
       { value: item.aging || "", truncate: false },
       { value: item.status || "", truncate: true },
+      { value: item.repeated ? "✓" : "No", truncate: false },
       { value: item.unit || "", truncate: false },
       { value: item["size/pack"] || "", truncate: true },
       { value: item.catagory || "", truncate: true },
-      { value: item.repeated ? "✓" : "", truncate: false },
       { value: item.ppo || "", truncate: true },
       { value: formatDate(item["mfg-d"]), truncate: false },
       { value: item.cargo || "", truncate: true },
@@ -899,23 +960,24 @@ function setupTableScroll() {
   const scrollLeftBtn = document.getElementById("scrollLeft");
   const scrollRightBtn = document.getElementById("scrollRight");
 
-  // Calculate number of visible columns
-  const getVisibleColumns = () => {
-    const tableWidth = tableWrapper.scrollWidth;
+  // Set max height and enable vertical scrolling
+  tableWrapper.style.maxHeight = "calc(100vh - 300px)";
+  tableWrapper.style.overflowY = "auto";
+
+  // Calculate scroll amount based on viewport width
+  const calculateScrollAmount = () => {
     const viewportWidth = tableWrapper.clientWidth;
-    return Math.ceil(tableWidth / viewportWidth);
+    return Math.floor(viewportWidth * 0.75); // Scroll 75% of visible width
   };
 
   scrollLeftBtn.addEventListener("click", () => {
-    const columnCount = getVisibleColumns();
-    const scrollStep = tableWrapper.scrollWidth / columnCount;
-    tableWrapper.scrollLeft -= scrollStep;
+    const scrollAmount = calculateScrollAmount();
+    tableWrapper.scrollLeft -= scrollAmount;
   });
 
   scrollRightBtn.addEventListener("click", () => {
-    const columnCount = getVisibleColumns();
-    const scrollStep = tableWrapper.scrollWidth / columnCount;
-    tableWrapper.scrollLeft += scrollStep;
+    const scrollAmount = calculateScrollAmount();
+    tableWrapper.scrollLeft += scrollAmount;
   });
 
   // Update button states on scroll
@@ -1215,6 +1277,25 @@ async function deleteCargo(cargo) {
     alert("Error deleting cargo: " + error.message);
   }
 }
+
+// Add reload filters function
+async function reloadFilters() {
+  try {
+    await Promise.all([
+      loadStatusOptions(),
+      loadSizePackOptions(),
+      loadCategoryOptions(),
+      loadCargoOptions(),
+    ]);
+    alert("Filters reloaded successfully");
+  } catch (error) {
+    console.error("Error reloading filters:", error);
+    alert("Error reloading filters. Please try again.");
+  }
+}
+
+// Export the function
+window.reloadFilters = reloadFilters;
 
 // Make sure to export the delete functions
 window.deleteStatus = deleteStatus;

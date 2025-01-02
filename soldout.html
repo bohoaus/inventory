@@ -6,6 +6,39 @@
     <title>Sold Out Items - BOHO Inventory</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
+      /* Add refresh button animation */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .refresh-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      /* Time info styles */
+      .summary-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .time-info {
+        font-size: 14px;
+        color: #666;
+        margin: 0 20px;
+      }
+
+      .time-info p {
+        margin: 5px 0;
+      }
+
       .filter-section {
         margin: 20px;
         padding: 15px;
@@ -97,35 +130,48 @@
   </head>
   <body>
     <div class="header">
-      <h1 class="header-title">Sold Out Items</h1>
-      <button onclick="logout()" class="logout-button">Logout</button>
+      <h1 class="header-title">SOLD OUT ITEMS</h1>
+      <!-- <button onclick="logout()" class="logout-button">Logout</button> -->
       <div class="header-buttons">
+        <span class="menu-title">MENU:</span>
         <button type="button" class="btn-primary back-button">Back</button>
+        <button onclick="refreshData()" class="btn-secondary refresh-btn">
+          <span>↻</span> Refresh
+        </button>
       </div>
     </div>
 
-    <div class="filter-section">
-      <label for="weekFilter">Filter by Week:</label>
-      <select id="weekFilter" onchange="filterSoldOutItems()">
-        <option value="">Loading weeks...</option>
-      </select>
-    </div>
+    <div id="content">
+      <div class="summary-header">
+        <div class="time-info">
+          <p id="currentWeek">Current Week: Loading...</p>
+          <p id="lastUpdated">Last Login Time: Loading...</p>
+        </div>
+      </div>
 
-    <div class="table-container">
-      <table id="soldOutTable">
-        <thead>
-          <tr>
-            <th>Code & Colour</th>
-            <th>Item Name</th>
-            <th>Release Date</th>
-            <th>Sold Out Date</th>
-            <th>Previous Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table content will be populated by JavaScript -->
-        </tbody>
-      </table>
+      <div class="filter-section">
+        <label for="weekFilter">Select Week:</label>
+        <select id="weekFilter" onchange="filterSoldOutItems()">
+          <option value="">Loading weeks...</option>
+        </select>
+      </div>
+
+      <div class="table-container">
+        <table id="soldOutTable">
+          <thead>
+            <tr>
+              <th>Code & Colour</th>
+              <th>Item Name</th>
+              <th>Release Date</th>
+              <th>Sold Out Date</th>
+              <th>Previous Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

@@ -75,7 +75,11 @@ async function fetchHistoryData() {
 
     // Store all week data globally
     allWeekData = data;
-    currentWeekData = data[0]; // Set current week as first week
+    // Set current week as first week and add week_range
+    currentWeekData = {
+      ...data[0],
+      week_range: formatWeekRange(data[0].week_start, data[0].week_end),
+    };
 
     // Populate week filter with all weeks
     populateWeekFilter(data);
@@ -195,7 +199,7 @@ function updatePieChart(weekData) {
         title: {
           display: true,
           text: [
-            "Current Week: " + weekData.week_range,
+            "Selected Week: " + weekData.week_range,
             "Orders by State",
             "",
             "Paid Total: " + formatNumber(paidTotal),
@@ -239,32 +243,14 @@ function updatePieChart(weekData) {
 
 // Refresh data
 async function refreshData() {
-  await fetchHistoryData();
-}
-
-// Update setupScrollButtons function and add it to initializePage
-function setupScrollButtons() {
-  const tableWrapper = document.querySelector(".history-table");
-  const scrollLeftBtn = document.getElementById("scrollLeft");
-  const scrollRightBtn = document.getElementById("scrollRight");
-  const scrollAmount = 200;
-
-  if (scrollLeftBtn && scrollRightBtn && tableWrapper) {
-    scrollLeftBtn.addEventListener("click", function () {
-      tableWrapper.scrollLeft -= scrollAmount;
-    });
-
-    scrollRightBtn.addEventListener("click", function () {
-      tableWrapper.scrollLeft += scrollAmount;
-    });
-  }
+  window.location.reload();
 }
 
 // Update initializePage function to include setupScrollButtons
 async function initializePage() {
   await checkAuth();
+  updateTimeInfo();
   await fetchHistoryData();
-  setupScrollButtons();
   setupBackButton();
 
   // Add week filter event listener
@@ -362,3 +348,41 @@ window.addEventListener("load", function () {
   // Initialize page if authentication passes
   initializePage();
 });
+
+// Add function to update time information
+function updateTimeInfo() {
+  // Update current week
+  const now = new Date();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - now.getDay());
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString("en-AU", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
+
+  document.getElementById(
+    "currentWeek"
+  ).textContent = `Current Week: ${formatDate(weekStart)} - ${formatDate(
+    weekEnd
+  )}`;
+
+  // Update last login time
+  document.getElementById(
+    "lastUpdated"
+  ).textContent = `Last Login Time: ${now.toLocaleDateString("en-AU", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })} ${now.toLocaleTimeString("en-AU", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  })}`;
+}

@@ -6,6 +6,21 @@
     <title>Item Sale Summary</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
+      /* Add refresh button animation */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .refresh-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
       /* Add these styles specific to summary page */
       .summary-header {
         display: flex;
@@ -264,13 +279,53 @@
         overflow-x: auto;
         max-width: 100%;
       }
+
+      /* Update the table wrapper styles */
+      .table-wrapper {
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: calc(100vh - 300px);
+        position: relative;
+      }
+
+      /* Keep headers fixed while scrolling */
+      #itemsTable thead,
+      #customerTable thead {
+        position: sticky;
+        top: 0;
+        background-color: #f8fafc;
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Ensure proper spacing at the bottom of tables */
+      #itemsTable tbody tr:last-child td,
+      #customerTable tbody tr:last-child td {
+        padding-bottom: 16px;
+      }
+
+      /* Add some padding to the table containers */
+      .table-container {
+        padding: 0;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: white;
+      }
+
+      /* Ensure tables take full width */
+      #itemsTable,
+      #customerTable {
+        width: 100%;
+        border-collapse: collapse;
+      }
     </style>
   </head>
   <body>
     <div class="header">
-      <h1 class="header-title">Item Sale Summary</h1>
-      <button onclick="logout()" class="logout-button">Logout</button>
+      <h1 class="header-title">ITEM SALE SUMMARY</h1>
+      <!-- <button onclick="logout()" class="logout-button">Logout</button> -->
       <div class="header-buttons">
+        <span class="menu-title">MENU:</span>
         <button onclick="window.location.href='viewer.html'" id="backButton">
           Back to Dashboard
         </button>
@@ -401,7 +456,10 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="summary.js"></script>
   </body>
 </html>

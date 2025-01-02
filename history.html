@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .refresh-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .summary-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .time-info {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .time-info p {
+        margin: 5px 0;
+      }
+
       .chart-container {
         width: 100%;
         max-width: 600px;
@@ -51,6 +81,8 @@
       .history-table {
         width: 100%;
         overflow-x: auto;
+        overflow-y: auto;
+        max-height: calc(100vh - 500px);
         background: white;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -76,7 +108,7 @@
         position: sticky;
         left: 0;
         background: white;
-        z-index: 1;
+        z-index: 2;
         width: 200px;
         min-width: 200px;
       }
@@ -142,13 +174,51 @@
         border-color: #2563eb;
         box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
       }
+
+      .history-table table thead tr {
+        position: sticky;
+        top: 0;
+        background-color: #f8fafc;
+        z-index: 2;
+      }
+
+      .history-table table thead th {
+        background-color: #f8fafc;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      .history-table table thead th:first-child {
+        position: sticky;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        background-color: #f8fafc;
+      }
+
+      .history-table table tbody td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: white;
+        z-index: 1;
+      }
+
+      .history-table table thead tr {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .history-table table tbody td:first-child {
+        box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.1);
+      }
     </style>
   </head>
   <body>
     <div class="header">
-      <h1 class="header-title">Order History</h1>
-      <button onclick="logout()" class="logout-button">Logout</button>
+      <h1 class="header-title">ORDER HISTORY</h1>
+      <!-- <button onclick="logout()" class="logout-button">Logout</button> -->
       <div class="header-buttons">
+        <span class="menu-title">MENU:</span>
         <button onclick="window.location.href='admin.html'" id="backButton">
           Back to Dashboard
         </button>
@@ -159,6 +229,13 @@
     </div>
 
     <div id="content">
+      <div class="summary-header">
+        <div class="time-info">
+          <p id="currentWeek">Current Week: Loading...</p>
+          <p id="lastUpdated">Last Login Time: Loading...</p>
+        </div>
+      </div>
+
       <div class="filter-container">
         <div class="filter-group">
           <label for="weekFilter">Select Week:</label>
@@ -173,10 +250,6 @@
       </div>
 
       <div class="history-table-container">
-        <div class="scroll-controls">
-          <button id="scrollLeft" class="scroll-button">← Scroll Left</button>
-          <button id="scrollRight" class="scroll-button">Scroll Right →</button>
-        </div>
         <div class="history-table">
           <table>
             <thead>

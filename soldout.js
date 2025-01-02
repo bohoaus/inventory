@@ -55,6 +55,9 @@ window.addEventListener("load", async function () {
       return;
     }
 
+    // Update time information
+    updateTimeInfo();
+
     // Update back button text and handler
     const backButton = document.querySelector(".back-button");
     if (backButton) {
@@ -293,3 +296,49 @@ function formatDate(dateStr) {
     return "";
   }
 }
+
+// Add function to update time information
+function updateTimeInfo() {
+  // Update current week
+  const now = new Date();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - now.getDay());
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString("en-AU", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
+
+  document.getElementById(
+    "currentWeek"
+  ).textContent = `Current Week: ${formatDate(weekStart)} - ${formatDate(
+    weekEnd
+  )}`;
+
+  // Update last login time
+  document.getElementById(
+    "lastUpdated"
+  ).textContent = `Last Login Time: ${now.toLocaleDateString("en-AU", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })} ${now.toLocaleTimeString("en-AU", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  })}`;
+}
+
+// Add refresh function
+function refreshData() {
+  window.location.reload();
+}
+
+// Export refresh function
+window.refreshData = refreshData;

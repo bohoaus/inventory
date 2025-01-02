@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "status", type: "varchar" },
         { name: "dispatch_time", type: "timestamp with time zone" },
         { name: "dispatch_state", type: "varchar" },
+        { name: "note", type: "text" },
       ],
       relationships: [
         { type: "hasMany", table: "order_items", via: "order_id" },
@@ -190,6 +191,18 @@ document.addEventListener("DOMContentLoaded", function () {
       fields: [
         { name: "id", type: "bigint", isPrimary: true, isRequired: true },
         { name: "cargo", type: "text" },
+        {
+          name: "created_at",
+          type: "timestamp with time zone",
+          isRequired: true,
+        },
+      ],
+    },
+    agent_state_options: {
+      name: "Agent State Options",
+      fields: [
+        { name: "id", type: "bigint", isPrimary: true, isRequired: true },
+        { name: "agent_state", type: "text" },
         {
           name: "created_at",
           type: "timestamp with time zone",

@@ -2,8 +2,17 @@
 const supabaseUrl = "https://twjuvshslihzobyamtfj.supabase.co";
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3anV2c2hzbGloem9ieWFtdGZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU1MTQxOTMsImV4cCI6MjA1MTA5MDE5M30.3mE-W4CskWOg4490dgm-bjMmdo8cghAk6y7JCDtco1g";
-const { createClient } = supabase;
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
+let supabaseClient;
+
+// Initialize Supabase client when the script is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+  } catch (error) {
+    console.error("Error initializing Supabase client:", error);
+    alert("Error connecting to database. Please refresh the page.");
+  }
+});
 
 // Global variables
 let currentWeekStart = null;
@@ -12,6 +21,11 @@ let weeks = [];
 
 // Check authentication on page load
 async function checkAuth() {
+  if (!supabaseClient) {
+    console.error("Supabase client not initialized");
+    return;
+  }
+
   const {
     data: { session },
     error,
@@ -314,6 +328,10 @@ async function fetchItemsSummary(
   sortBy
 ) {
   try {
+    if (!supabaseClient) {
+      throw new Error("Database connection not initialized");
+    }
+
     // First get inventory data for additional item details
     const { data: inventoryData, error: inventoryError } = await supabaseClient
       .from("inventory")
@@ -470,6 +488,12 @@ function setupEventListeners() {
     searchInput.addEventListener("input", debounce(refreshData, 300));
   }
 
+  // Add refresh button event listener
+  const refreshButton = document.querySelector(".refresh-btn");
+  if (refreshButton) {
+    refreshButton.onclick = () => window.location.reload();
+  }
+
   // Update clear button to reset all filters
   document.getElementById("clearSearch")?.addEventListener("click", () => {
     // Reset all filters
@@ -524,6 +548,9 @@ function switchTable(tableType) {
   // Show selected table container
   document.getElementById(`${tableType}TableContainer`).classList.add("active");
 
+  // Set up table scroll after switching
+  setupTableScroll();
+
   // Refresh data if needed
   refreshData();
 }
@@ -535,6 +562,7 @@ async function initializePage() {
   await loadFilters();
   setupEventListeners();
   setupBackButton();
+  setupTableScroll();
 
   // Set initial active table
   switchTable("items");
@@ -628,3 +656,24 @@ window.addEventListener("load", function () {
   // Initialize page if authentication passes
   initializePage();
 });
+
+// Add this function to set up table scrolling
+function setupTableScroll() {
+  // Set up scrolling for Items table
+  const itemsTableWrapper = document.querySelector(
+    "#itemsTableContainer .table-wrapper"
+  );
+  if (itemsTableWrapper) {
+    itemsTableWrapper.style.maxHeight = "calc(100vh - 300px)";
+    itemsTableWrapper.style.overflowY = "auto";
+  }
+
+  // Set up scrolling for Customer table
+  const customerTableWrapper = document.querySelector(
+    "#customersTableContainer .table-wrapper"
+  );
+  if (customerTableWrapper) {
+    customerTableWrapper.style.maxHeight = "calc(100vh - 300px)";
+    customerTableWrapper.style.overflowY = "auto";
+  }
+}

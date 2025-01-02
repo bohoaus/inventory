@@ -10,14 +10,14 @@
     <div class="documentation">
       <header>
         <div class="header-top">
-          <h1>BOHO Inventory System Documentation</h1>
+          <h1>BOHO INVENTORY SYSTEM DOCUMENTATION</h1>
           <button onclick="window.close()" class="close-btn">CLOSE</button>
         </div>
         <nav>
-          <button class="nav-btn" data-section="login-info">
+          <button class="nav-btn active" data-section="login-info">
             Default Login Info
           </button>
-          <button class="nav-btn active" data-section="infrastructure">
+          <button class="nav-btn" data-section="infrastructure">
             Infrastructure
           </button>
           <button class="nav-btn" data-section="github">GitHub</button>
@@ -28,12 +28,13 @@
           <button class="nav-btn" data-section="database">
             Database Schema
           </button>
+
         </nav>
       </header>
 
       <main>
         <!-- Infrastructure Section -->
-        <section id="infrastructure" class="content-section active">
+        <section id="infrastructure" class="content-section">
           <h2>System Infrastructure</h2>
 
           <!-- Add the system overview diagram -->
@@ -49,6 +50,19 @@
                     <span>Full Control</span>
                     <span>admin.html</span>
                   </div>
+                  <div class="access-arrow" style="position: relative">
+                    <span
+                      style="
+                        position: absolute;
+                        right: -30px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 24px;
+                      "
+                    >
+                      ➡
+                    </span>
+                  </div>
                 </div>
                 <div class="user viewer">
                   <div class="user-icon">👁️</div>
@@ -56,6 +70,19 @@
                   <div class="permissions">
                     <span>Read Only</span>
                     <span>view.html</span>
+                  </div>
+                  <div class="access-arrow" style="position: relative">
+                    <span
+                      style="
+                        position: absolute;
+                        right: -30px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 24px;
+                      "
+                    >
+                      ➡
+                    </span>
                   </div>
                 </div>
                 <div class="user guest">
@@ -65,15 +92,30 @@
                     <span>Limited View</span>
                     <span>guest.html</span>
                   </div>
+                  <div class="access-arrow" style="position: relative">
+                    <span
+                      style="
+                        position: absolute;
+                        right: -30px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 24px;
+                      "
+                    >
+                      ➡
+                    </span>
+                  </div>
                 </div>
               </div>
 
               <!-- System Components with Relationships -->
-              <div class="system-components">
+              <div class="system-components" style="margin-left: 40px">
                 <!-- Web Component -->
                 <div class="component web">
                   <div class="component-icon">🌐</div>
-                  <div class="component-label">Web Frontend</div>
+                  <div class="component-label">
+                    BOHO Inventory Management - Web Frontend
+                  </div>
                   <div class="features">
                     <span>Static Pages</span>
                     <span>User Interface</span>
@@ -89,20 +131,20 @@
                     <span>Version Control</span>
                   </div>
                   <div class="relationship-indicator">
-                    <span>⬆️ Deploys Frontend</span>
+                    <span style="font-size: 24px">⬆ Deploys Frontend</span>
                   </div>
                 </div>
 
                 <!-- Supabase Component -->
                 <div class="component supabase">
                   <div class="component-icon">🗄️</div>
-                  <div class="component-label">Supabase</div>
+                  <div class="component-label">Supabase Database</div>
                   <div class="features">
-                    <span>Database</span>
+                    <span>Database Tables</span>
                     <span>Authentication</span>
                   </div>
                   <div class="relationship-indicator">
-                    <span>↔️ API & Auth</span>
+                    <span style="font-size: 24px">↔ API & Auth</span>
                   </div>
                 </div>
               </div>
@@ -158,6 +200,19 @@
                       Version Control: Tracks all code changes and enables
                       collaborative development
                     </li>
+                    <li
+                      style="
+                        background: #e3f2fd;
+                        padding: 10px;
+                        border-left: 4px solid #2196f3;
+                        margin: 10px 0;
+                      "
+                    >
+                      <strong>Safety Feature:</strong> Version control system
+                      prevents accidental code modifications by allowing
+                      rollback to any previous recorded version, ensuring code
+                      safety and recovery
+                    </li>
                     <li>
                       Branch Management: Supports parallel development and
                       feature isolation
@@ -179,6 +234,19 @@
                     <li>
                       PostgreSQL Database: A robust and scalable relational
                       database
+                    </li>
+                    <li
+                      style="
+                        background: #e3f2fd;
+                        padding: 10px;
+                        border-left: 4px solid #2196f3;
+                        margin: 10px 0;
+                      "
+                    >
+                      <strong>User-Friendly Interface:</strong> Combines
+                      intuitive graphical interface with SQL editing
+                      capabilities, making database table management accessible
+                      through both visual tools and direct SQL commands
                     </li>
                     <li>
                       Real-time Subscriptions: Enable live updates and seamless
@@ -245,35 +313,38 @@
                 <div class="guide-item">
                   <h4>Access & Authentication</h4>
                   <ul>
-                    <li>
-                      Login Methods:
+                    <li
+                      style="
+                        background: #e3f2fd;
+                        padding: 15px;
+                        border-left: 4px solid #2196f3;
+                        margin: 15px 0;
+                      "
+                    >
+                      <strong>GitHub Access:</strong>
                       <ul>
-                        <li>Direct Login: <code>https://github.com</code></li>
+                        <li>Login URL: <code>https://github.com</code></li>
                         <li>
-                          Google Account Login:
+                          Account Credentials:
                           <ul>
-                            <li>Email: bohoaus2012@gmail.com</li>
-                            <li>Use "Sign in with Google" option</li>
+                            <li>Username/Email: bohoaus2012@gmail.com</li>
+                            <li>Use email/password login only</li>
                           </ul>
                         </li>
-                      </ul>
-                    </li>
-                    <li>
-                      Account Requirements:
-                      <ul>
-                        <li>Access to bohoaus2012@gmail.com Google account</li>
-                        <li>Membership in bohoaus GitHub organization</li>
-                        <li>Repository access permission</li>
-                      </ul>
-                    </li>
-                    <li>
-                      First-time Access:
-                      <ul>
-                        <li>Go to <code>https://github.com</code></li>
-                        <li>Click "Sign in with Google"</li>
-                        <li>Select bohoaus2012@gmail.com account</li>
-                        <li>Navigate to bohoaus organization</li>
-                        <li>Access inventory repository</li>
+                        <li>
+                          Access Steps:
+                          <ul>
+                            <li>Visit GitHub login page</li>
+                            <li>Enter email: bohoaus2012@gmail.com</li>
+                            <li>Enter associated password</li>
+                            <li>Navigate to bohoaus organization</li>
+                            <li>Access inventory repository</li>
+                          </ul>
+                        </li>
+                        <li style="color: #d32f2f; margin-top: 10px">
+                          ⚠️ Note: Google account login is not available. Use
+                          direct email/password login only.
+                        </li>
                       </ul>
                     </li>
                   </ul>
@@ -365,6 +436,51 @@
                     <li>
                       Update from remote:
                       <code>git fetch origin</code>
+                    </li>
+                    <li
+                      style="
+                        background: #e3f2fd;
+                        padding: 15px;
+                        border-left: 4px solid #2196f3;
+                        margin: 15px 0;
+                      "
+                    >
+                      <strong>Recover Previous Versions:</strong>
+                      <ol style="margin-top: 10px; margin-left: 20px">
+                        <li>
+                          View commit history with details:
+                          <code>git log --oneline</code>
+                        </li>
+                        <li>Find the desired commit hash (e.g., abc123)</li>
+                        <li>
+                          To view files at that point:
+                          <code>git checkout abc123</code>
+                        </li>
+                        <li>
+                          To restore specific file to that version:
+                          <code>git checkout abc123 -- path/to/file</code>
+                        </li>
+                        <li>
+                          To completely revert to that version:
+                          <code>git reset --hard abc123</code>
+                          <br />
+                          <span
+                            style="
+                              color: #d32f2f;
+                              font-size: 0.9em;
+                              margin-top: 5px;
+                              display: block;
+                            "
+                          >
+                            ⚠️ Warning: This will permanently discard all
+                            changes after the selected commit
+                          </span>
+                        </li>
+                        <li>
+                          Return to latest version:
+                          <code>git checkout main</code>
+                        </li>
+                      </ol>
                     </li>
                   </ul>
                 </div>
@@ -463,6 +579,74 @@
                       </li>
                     </ul>
 
+                    <h5
+                      style="
+                        background: #e3f2fd;
+                        padding: 15px;
+                        border-left: 4px solid #2196f3;
+                        margin: 15px 0;
+                      "
+                    >
+                      Recovering Previous Versions (Web UI):
+                      <ol style="margin-top: 10px">
+                        <li>
+                          Find the Previous Version:
+                          <ul>
+                            <li>Go to repository main page</li>
+                            <li>Click "commits" at the top</li>
+                            <li>Browse through commit history</li>
+                          </ul>
+                        </li>
+                        <li>
+                          Restore Single File:
+                          <ul>
+                            <li>Click on the desired commit</li>
+                            <li>Find the file you want to restore</li>
+                            <li>Click the file to view its contents</li>
+                            <li>
+                              Click the "..." button at the top right of file
+                              view
+                            </li>
+                            <li>Select "Edit file"</li>
+                            <li>
+                              Commit the changes with a message like "Restore
+                              file to previous version"
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Restore Entire Repository:
+                          <ul>
+                            <li>Click on the desired commit</li>
+                            <li>
+                              Click "Browse files" button to view repository at
+                              that point
+                            </li>
+                            <li>Click "..." button at the top of file list</li>
+                            <li>Select "Restore repository to this commit"</li>
+                            <li style="color: #d32f2f">
+                              ⚠️ Warning: This will create a new commit that
+                              matches the state of the selected commit
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Compare Changes:
+                          <ul>
+                            <li>Click "commits" on repository main page</li>
+                            <li>Select a commit to view its changes</li>
+                            <li>
+                              Use the split view to compare old and new versions
+                            </li>
+                            <li>
+                              Green highlights show additions, red shows
+                              deletions
+                            </li>
+                          </ul>
+                        </li>
+                      </ol>
+                    </h5>
+
                     <h5>Best Practices:</h5>
                     <ul>
                       <li>Use meaningful commit messages</li>
@@ -489,9 +673,31 @@
                   <ul>
                     <li>Project Name: Boho Aus</li>
                     <li>Organization: bohoaus</li>
-                    <li>Region: AWS ap-southeast-2</li>
-                    <li>Tier: Nano (Free)</li>
-                    <li>Dashboard: <code>https://app.supabase.com</code></li>
+                    <li
+                      style="
+                        background: #e3f2fd;
+                        padding: 10px;
+                        border-left: 4px solid #2196f3;
+                        margin: 10px 0;
+                      "
+                    >
+                      <strong>GitHub Login:</strong>
+                      <ul>
+                        <li>Username/Email: bohoaus2012@gmail.com</li>
+                        <li>Authentication: Email/Password only</li>
+                        <li style="color: #d32f2f">
+                          ⚠️ Note: Google account login is not available
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Repository URL:
+                      <code>https://github.com/bohoaus/inventory</code>
+                    </li>
+                    <li>
+                      Access the deployed site at:
+                      https://bohoaus.github.io/inventory/
+                    </li>
                   </ul>
                 </div>
                 <div class="guide-item">
@@ -563,43 +769,391 @@
                     </li>
                   </ol>
                 </div>
-                <div class="guide-item">
-                  <h4>Authentication Management</h4>
-                  <ul>
-                    <li>
-                      Access Authentication Settings:
-                      <ul>
-                        <li>Navigate to Authentication > Providers</li>
-                        <li>Configure Email/Password settings</li>
-                        <li>Set password requirements</li>
-                      </ul>
-                    </li>
-                    <li>
-                      User Management:
-                      <ul>
-                        <li>View users in Authentication > Users</li>
-                        <li>Create new users manually if needed</li>
-                        <li>Reset passwords or disable accounts</li>
-                        <li>Monitor user sessions and activity</li>
-                      </ul>
-                    </li>
-                    <li>
-                      Role-Based Access:
-                      <ul>
-                        <li>Define roles: admin, viewer, guest</li>
-                        <li>Set up Row Level Security policies</li>
-                        <li>
-                          Example RLS policy:
-                          <code>
-                            CREATE POLICY "Viewers can read inventory" ON
-                            inventory FOR SELECT TO authenticated USING
-                            (auth.role() = 'viewer');
-                          </code>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                <div
+                  class="guide-item"
+                  style="
+                    background: #e3f2fd;
+                    padding: 15px;
+                    border-left: 4px solid #2196f3;
+                    margin: 15px 0;
+                  "
+                >
+                  <h4>SQL and Table Management Guide</h4>
+
+                  <div style="margin-bottom: 20px">
+                    <h5>Using SQL Editor:</h5>
+                    <ol>
+                      <li>
+                        Access SQL Editor:
+                        <ul>
+                          <li>Click "SQL Editor" in left sidebar</li>
+                          <li>Create "New Query" or select saved query</li>
+                          <li>Use split view to see results alongside query</li>
+                        </ul>
+                      </li>
+                      <li>
+                        Common SQL Operations:
+                        <ul>
+                          <li>
+                            View Table Data:
+                            <code>SELECT * FROM table_name;</code>
+                          </li>
+                          <li>
+                            Filter Records:
+                            <code
+                              >SELECT * FROM table_name WHERE condition;</code
+                            >
+                          </li>
+                          <li>
+                            Update Records:
+                            <code
+                              >UPDATE table_name SET column = value WHERE
+                              condition;</code
+                            >
+                          </li>
+                          <li>
+                            Delete Records:
+                            <code>DELETE FROM table_name WHERE condition;</code>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Save Queries:
+                        <ul>
+                          <li>Click "Save" button after writing query</li>
+                          <li>Name your query for future reference</li>
+                          <li>Access saved queries from left sidebar</li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div style="margin-bottom: 20px">
+                    <h5>Advanced Table Management:</h5>
+                    <ol>
+                      <li>
+                        Table Structure:
+                        <ul>
+                          <li>
+                            Add/Remove Columns:
+                            <ul>
+                              <li>Use Table Editor: Click "Edit Table"</li>
+                              <li>
+                                Or SQL:
+                                <code
+                                  >ALTER TABLE table_name ADD COLUMN column_name
+                                  data_type;</code
+                                >
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            Modify Columns:
+                            <ul>
+                              <li>Change data types</li>
+                              <li>Add constraints (unique, not null, etc.)</li>
+                              <li>Set default values</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Bulk Operations:
+                        <ul>
+                          <li>
+                            Import Data:
+                            <ul>
+                              <li>Click "Insert" > "Import Data"</li>
+                              <li>Support CSV, JSON formats</li>
+                              <li>Map columns automatically or manually</li>
+                            </ul>
+                          </li>
+                          <li>
+                            Export Data:
+                            <ul>
+                              <li>Select rows to export</li>
+                              <li>Choose format (CSV, JSON)</li>
+                              <li>Download or copy to clipboard</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Table Relationships:
+                        <ul>
+                          <li>
+                            Create Foreign Keys:
+                            <ul>
+                              <li>Link tables through relationships</li>
+                              <li>
+                                Set referential actions (CASCADE, SET NULL)
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            View Relationships:
+                            <ul>
+                              <li>Use "Database" > "Relationships" view</li>
+                              <li>Visual diagram of table connections</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div
+                    style="
+                      color: #1565c0;
+                      background: white;
+                      padding: 10px;
+                      border-radius: 4px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <strong>💡 Pro Tip:</strong> Use the visual query builder
+                    for simple queries, then switch to SQL view to learn the
+                    corresponding SQL syntax.
+                  </div>
                 </div>
+
+                <div class="guide-item">
+                  <h4 style="margin-bottom: 15px">Authentication Management</h4>
+
+                  <div style="margin-bottom: 25px">
+                    <h5>Initial Setup</h5>
+                    <ol>
+                      <li>
+                        Configure Authentication Provider:
+                        <ul>
+                          <li>Navigate to Authentication > Providers</li>
+                          <li>Enable Email/Password authentication</li>
+                          <li>
+                            Configure password requirements:
+                            <ul>
+                              <li>Minimum length: 8 characters</li>
+                              <li>Require special characters</li>
+                              <li>Require numbers</li>
+                            </ul>
+                          </li>
+                          <li>
+                            Set up email templates for:
+                            <ul>
+                              <li>Welcome emails</li>
+                              <li>Password reset</li>
+                              <li>Email confirmation</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div style="margin-bottom: 25px">
+                    <h5>User Management</h5>
+                    <ol>
+                      <li>
+                        Access User List:
+                        <ul>
+                          <li>Go to Authentication > Users</li>
+                          <li>View all registered users</li>
+                          <li>Filter by status (active/inactive)</li>
+                          <li>Search by email or metadata</li>
+                        </ul>
+                      </li>
+                      <li>
+                        User Operations:
+                        <ul>
+                          <li>
+                            Create New User (Multiple Methods):
+                            <ul>
+                              <li>
+                                Method 1 - Authentication UI:
+                                <ul>
+                                  <li>Go to Authentication > Users</li>
+                                  <li>Click "New User"</li>
+                                  <li>Enter email and password</li>
+                                  <li>Optional: Check "Auto-confirm user"</li>
+                                  <li>Click "Create User"</li>
+                                </ul>
+                              </li>
+                              <li>
+                                Method 2 - Direct Table Edit:
+                                <ul>
+                                  <li>Go to Table Editor > auth.users</li>
+                                  <li>Click "Insert Row"</li>
+                                  <li>
+                                    Fill required fields:
+                                    <ul>
+                                      <li>email: user's email</li>
+                                      <li>
+                                        encrypted_password: use bcrypt hash
+                                      </li>
+                                      <li>
+                                        role: 'admin', 'viewer', or 'guest'
+                                      </li>
+                                      <li>
+                                        email_confirmed_at: current timestamp
+                                        (for auto-confirm)
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li style="color: #d32f2f">
+                                    ⚠️ Warning: This method bypasses email
+                                    verification
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                Method 3 - SQL Insert:
+                                <ul>
+                                  <li>Go to SQL Editor</li>
+                                  <li>
+                                    Use this template:
+                                    <code
+                                      style="
+                                        display: block;
+                                        margin: 10px 0;
+                                        padding: 10px;
+                                        background: #f5f5f5;
+                                      "
+                                    >
+                                      INSERT INTO auth.users (email,
+                                      encrypted_password, role,
+                                      email_confirmed_at)<br />
+                                      VALUES (<br />
+                                      'user@example.com',<br />
+                                      crypt('password', gen_salt('bf')),<br />
+                                      'admin',<br />
+                                      now()<br />
+                                      );
+                                    </code>
+                                  </li>
+                                  <li>Modify values as needed</li>
+                                  <li>Execute query to create user</li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            style="
+                              background: #fff3e0;
+                              padding: 10px;
+                              border-left: 4px solid #ff9800;
+                              margin: 10px 0;
+                            "
+                          >
+                            <strong>Important Notes:</strong>
+                            <ul>
+                              <li>
+                                Direct table editing bypasses email verification
+                              </li>
+                              <li>
+                                Use with caution in production environment
+                              </li>
+                              <li>Always set proper role permissions</li>
+                              <li>Document any manual user creations</li>
+                            </ul>
+                          </li>
+                          <li>
+                            Modify existing user:
+                            <ul>
+                              <li>Reset password</li>
+                              <li>Change role</li>
+                              <li>Disable/Enable account</li>
+                              <li>Delete account (with caution)</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Monitor Activity:
+                        <ul>
+                          <li>View login history</li>
+                          <li>Track failed login attempts</li>
+                          <li>Monitor active sessions</li>
+                          <li>Review security logs</li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div style="margin-bottom: 25px">
+                    <h5>Role-Based Access Control (RBAC)</h5>
+                    <ol>
+                      <li>
+                        Role Configuration:
+                        <ul>
+                          <li>
+                            Admin Role:
+                            <ul>
+                              <li>Full system access</li>
+                              <li>Manage users and roles</li>
+                              <li>Modify database structure</li>
+                            </ul>
+                          </li>
+                          <li>
+                            Viewer Role:
+                            <ul>
+                              <li>Read-only access</li>
+                              <li>View inventory and orders</li>
+                              <li>No modification rights</li>
+                            </ul>
+                          </li>
+                          <li>
+                            Guest Role:
+                            <ul>
+                              <li>Limited access</li>
+                              <li>View basic information only</li>
+                              <li>No sensitive data access</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Row Level Security (RLS):
+                        <ul>
+                          <li>
+                            Basic Policy Example:
+                            <code>
+                              CREATE POLICY "Viewers can read inventory" ON
+                              inventory<br />
+                              FOR SELECT TO authenticated<br />
+                              USING (auth.role() = 'viewer');
+                            </code>
+                          </li>
+                          <li>
+                            Advanced Policies:
+                            <ul>
+                              <li>Restrict sensitive data access</li>
+                              <li>Limit modification capabilities</li>
+                              <li>Control data visibility by role</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div
+                    style="
+                      background: #fff3e0;
+                      padding: 15px;
+                      border-left: 4px solid #ff9800;
+                      border-radius: 4px;
+                    "
+                  >
+                    <strong>🔒 Security Best Practices:</strong>
+                    <ul style="margin-top: 10px">
+                      <li>Regularly review user access and permissions</li>
+                      <li>Monitor and log authentication attempts</li>
+                      <li>Implement strong password policies</li>
+                      <li>Keep authentication settings up to date</li>
+                      <li>Document all role changes and policy updates</li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div class="guide-item">
                   <h4>Database Backup</h4>
                   <ul>
@@ -635,6 +1189,73 @@
                   <li>Session Management</li>
                   <li>Access Control</li>
                 </ul>
+              </div>
+              <div
+                class="page-item"
+                style="
+                  background: #e3f2fd;
+                  padding: 15px;
+                  border-left: 4px solid #2196f3;
+                  margin: 15px 0;
+                "
+              >
+                <h4>Test Authentication System (/test_signup_login/)</h4>
+                <ul>
+                  <li>
+                    Components:
+                    <ul>
+                      <li>signup.html - User interface for authentication</li>
+                      <li>signup.css - Styling for authentication forms</li>
+                      <li>signup.js - Supabase authentication integration</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Features:
+                    <ul>
+                      <li>Email-based signup with real email verification</li>
+                      <li>Secure login system with password protection</li>
+                      <li>
+                        Tab-based interface switching between login/signup
+                      </li>
+                      <li>User dashboard after successful authentication</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Supabase Integration:
+                    <ul>
+                      <li>Real email verification process</li>
+                      <li>Configurable auto-confirmation settings</li>
+                      <li>Secure password handling and storage</li>
+                      <li>Session management and persistence</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Testing Purpose:
+                    <ul>
+                      <li>Demonstrates complete authentication flow</li>
+                      <li>Shows Supabase authentication implementation</li>
+                      <li>Provides template for future authentication needs</li>
+                      <li>Tests email verification functionality</li>
+                    </ul>
+                  </li>
+                </ul>
+                <div
+                  style="
+                    background: #fff3e0;
+                    padding: 10px;
+                    border-left: 4px solid #ff9800;
+                    margin-top: 10px;
+                  "
+                >
+                  <strong>📝 Note:</strong> This is a testing implementation
+                  that showcases how to:
+                  <ul style="margin-top: 5px">
+                    <li>Implement full authentication flow with Supabase</li>
+                    <li>Handle email verification process</li>
+                    <li>Manage user sessions and states</li>
+                    <li>Create user-friendly authentication interface</li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -754,6 +1375,9 @@
                 <button class="menu-item" data-table="cargo_options">
                   Cargo Options
                 </button>
+                <button class="menu-item" data-table="agent_state_options">
+                  Agent State Options
+                </button>
               </div>
             </div>
 
@@ -770,35 +1394,86 @@
         </section>
 
         <!-- Add new login info section -->
-        <section id="login-info" class="content-section">
+        <section id="login-info" class="content-section active">
           <h2>Default Login Information</h2>
           <div class="login-info-container">
             <div class="login-card">
+              <div class="description" style="background: #e3f2fd; padding: 15px; border-left: 4px solid #2196f3; margin-bottom: 20px;">
+                <h3>System Access Credentials</h3>
+                <p style="margin: 10px 0;">
+                  Two types of accounts are available:
+                  <ul style="margin-top: 5px;">
+                    <li><strong>Testing Accounts:</strong> Short credentials for development and testing</li>
+                    <li><strong>Production Accounts:</strong> Standard credentials for normal system use</li>
+                  </ul>
+                </p>
+              </div>
+
               <div class="login-role admin">
                 <div class="role-icon">👑</div>
                 <div class="role-details">
                   <h3>Admin Role</h3>
-                  <div class="email">admin@boho.aus</div>
+                  <div class="credentials">
+                    <div class="test-account">
+                      <span class="label">🔧 Testing Account:</span>
+                      <span class="email">a@a.com</span>
+                    </div>
+                    <div class="normal-account">
+                      <span class="label">🔑 Production Account:</span>
+                      <span class="email">admin@boho.aus</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+
               <div class="login-role viewer">
                 <div class="role-icon">👁️</div>
                 <div class="role-details">
                   <h3>Viewer Role</h3>
-                  <div class="email">viewer@boho.aus</div>
+                  <div class="credentials">
+                    <div class="test-account">
+                      <span class="label">🔧 Testing Account:</span>
+                      <span class="email">v@v.com</span>
+                    </div>
+                    <div class="normal-account">
+                      <span class="label">🔑 Production Account:</span>
+                      <span class="email">viewer@boho.aus</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+
               <div class="login-role guest">
                 <div class="role-icon">👤</div>
                 <div class="role-details">
                   <h3>Guest Role</h3>
-                  <div class="email">guest@boho.aus</div>
+                  <div class="credentials">
+                    <div class="test-account">
+                      <span class="label">🔧 Testing Account:</span>
+                      <span class="email">g@g.com</span>
+                    </div>
+                    <div class="normal-account">
+                      <span class="label">🔑 Production Account:</span>
+                      <span class="email">guest@boho.aus</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="contact-note">
-              <div class="note-icon">ℹ️</div>
-              <p>For passwords or any changes, please contact Jimmy.</p>
+
+              <div style="background: #fff3e0; padding: 15px; border-left: 4px solid #ff9800; margin-top: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div class="note-icon">⚠️</div>
+                  <div>
+                    <strong>Important Notes:</strong>
+                    <ul style="margin-top: 5px;">
+                      <li>Testing accounts are for development purposes only</li>
+                      <li>Use production accounts for normal system operation</li>
+                      <li>For passwords or any changes, please contact Jimmy</li>
+                      <li>Keep credentials confidential and secure</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

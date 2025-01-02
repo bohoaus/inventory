@@ -8,9 +8,10 @@
   </head>
   <body>
     <div class="header">
-      <h1 class="header-title">Order Entry</h1>
-      <button onclick="logout()" class="logout-button">Logout</button>
+      <h1 class="header-title">ORDER ENTRY</h1>
+      <!-- <button onclick="logout()" class="logout-button">Logout</button> -->
       <div class="header-buttons">
+        <span class="menu-title">MENU:</span>
         <button onclick="window.location.href='admin.html'">
           Back to Admin Dashboard
         </button>
@@ -25,22 +26,51 @@
           <div class="form-grid">
             <div class="form-group required">
               <label for="orderDate">Order Date</label>
-              <input type="date" id="orderDate" required />
+              <input
+                type="date"
+                id="orderDate"
+                required
+                placeholder="Select order date"
+              />
             </div>
             <div class="form-group required">
               <label for="customerName">Customer Name</label>
-              <input type="text" id="customerName" required />
+              <input
+                type="text"
+                id="customerName"
+                required
+                placeholder="Enter customer name"
+              />
             </div>
             <div class="form-group required">
               <label for="agentState">Agent State</label>
-              <select id="agentState" required>
-                <option value="">Select Agent State</option>
-                <option value="QLD-CAXTON">QLD-CAXTON</option>
-                <option value="NSW-BOHO">NSW-BOHO</option>
-                <option value="VIC-LADYRANGER">VIC-LADYRANGER</option>
-                <option value="SA-LYN">SA-LYN</option>
-                <option value="WA-ESTB">WA-ESTB</option>
-              </select>
+              <div class="input-with-edit">
+                <select id="agentState" required>
+                  <option value="">Select Agent State</option>
+                </select>
+                <button
+                  type="button"
+                  onclick="showAgentStateModal()"
+                  class="btn-secondary"
+                >
+                  Edit States
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="orderNote">Note</label>
+              <textarea
+                id="orderNote"
+                rows="2"
+                placeholder="Enter any special instructions or notes"
+                style="
+                  width: 100%;
+                  padding: 8px;
+                  border: 1px solid #ddd;
+                  border-radius: 4px;
+                  resize: vertical;
+                "
+              ></textarea>
             </div>
           </div>
 
@@ -50,7 +80,12 @@
             <div class="form-grid">
               <div class="form-group">
                 <label for="itemSearch">Search Item (Code/Name)</label>
-                <input type="text" id="itemSearch" autocomplete="off" />
+                <input
+                  type="text"
+                  id="itemSearch"
+                  autocomplete="off"
+                  placeholder="Search by code or name"
+                />
                 <div id="searchSuggestions" class="search-suggestions"></div>
               </div>
               <div class="form-group">
@@ -68,8 +103,14 @@
                 <div id="itemStatus" class="info-display">-</div>
               </div>
               <div class="form-group">
-                <label for="orderQuantity">Order Quantity (Packs)</label>
-                <input type="number" id="orderQuantity" min="1" />
+                <label for="orderQuantity">Order Quantity</label>
+                <input
+                  type="number"
+                  id="orderQuantity"
+                  min="0.5"
+                  step="0.5"
+                  placeholder="Enter order quantity"
+                />
               </div>
               <div class="form-group">
                 <label>Inventory Quantity</label>
@@ -123,6 +164,23 @@
       <div class="input-form">
         <h3>Search Orders</h3>
         <div class="search-orders-section">
+          <div
+            class="search-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 1rem;
+            "
+          >
+            <h4>Search Filters</h4>
+            <button
+              onclick="window.location.reload()"
+              class="btn-secondary refresh-btn"
+            >
+              <span>↻</span> Refresh
+            </button>
+          </div>
           <div class="form-grid">
             <div class="form-group">
               <label for="searchOrderDate">Order Date</label>
@@ -187,5 +245,37 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.min.js"></script>
     <script src="order.js"></script>
+
+    <div id="agentStateModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Agent State Management</h3>
+        <div class="status-management">
+          <div class="add-status">
+            <h4>Add New Agent State</h4>
+            <div class="add-input-container">
+              <input
+                type="text"
+                id="newAgentState"
+                placeholder="Enter new agent state"
+              />
+              <button onclick="addNewAgentState()" class="btn-primary">
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="existing-status">
+            <h4>Existing Agent States</h4>
+            <div id="agentStateList" class="status-list">
+              <!-- Agent states will be populated here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button onclick="closeAgentStateModal()" class="btn-secondary">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1362,3 +1362,55 @@ nav {
   margin: 0;
   font-size: 0.95rem;
 }
+
+/* Update login info styles */
+.login-info-container .description {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.login-info-container .description p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.login-role .credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.credentials .test-account,
+.credentials .normal-account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.credentials .label {
+  color: #718096;
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.credentials .test-account .email {
+  color: #3182ce;
+  font-weight: 600;
+}
+
+.credentials .normal-account .email {
+  color: #2d3748;
+}
+
+/* Hover effects */
+.credentials .test-account:hover .email,
+.credentials .normal-account:hover .email {
+  transform: translateX(5px);
+  transition: transform 0.2s ease;
+}
+
