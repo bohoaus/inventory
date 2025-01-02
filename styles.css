@@ -14,6 +14,12 @@ body {
 }
 
 /* Login page specific styles */
+.sys-doc {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 .login-container {
   max-width: 400px;
   margin: 0 auto;
@@ -1097,6 +1103,20 @@ td.truncate:hover {
   align-items: center;
 }
 
+.header-title {
+  display: inline-block;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+}
+
 /* Add some spacing between form sections */
 .form-grid + .form-grid {
   margin-top: 1.5rem;
@@ -1443,12 +1463,24 @@ td.truncate:hover {
 }
 
 /* Set specific column widths for orders table */
-#ordersTable th:nth-child(1) { width: 15%; } /* Order Date */
-#ordersTable th:nth-child(2) { width: 25%; } /* Customer Name */
-#ordersTable th:nth-child(3) { width: 15%; } /* Agent State */
-#ordersTable th:nth-child(4) { width: 10%; } /* Total Items */
-#ordersTable th:nth-child(5) { width: 20%; } /* Status */
-#ordersTable th:nth-child(6) { width: 15%; } /* Actions */
+#ordersTable th:nth-child(1) {
+  width: 15%;
+} /* Order Date */
+#ordersTable th:nth-child(2) {
+  width: 25%;
+} /* Customer Name */
+#ordersTable th:nth-child(3) {
+  width: 15%;
+} /* Agent State */
+#ordersTable th:nth-child(4) {
+  width: 10%;
+} /* Total Items */
+#ordersTable th:nth-child(5) {
+  width: 20%;
+} /* Status */
+#ordersTable th:nth-child(6) {
+  width: 15%;
+} /* Actions */
 
 /* Style status indicators */
 .cancelled-status,
@@ -1540,7 +1572,7 @@ td.truncate:hover {
 
 /* Add horizontal scroll indicator */
 .orders-table::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -1572,7 +1604,7 @@ td.truncate:hover {
 
 /* Add box shadow to header for better visibility */
 #ordersTable thead::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;

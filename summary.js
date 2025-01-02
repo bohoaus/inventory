@@ -606,3 +606,25 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
 });
+// Check authentication when page loads
+window.addEventListener("load", function () {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    window.location.href = "index.html";
+    return;
+  }
+
+  // Only admin and viewer roles can access history page
+  if (user.role !== "admin" && user.role !== "viewer") {
+    // Redirect to appropriate page based on role
+    if (user.role === "guest") {
+      window.location.href = "guest.html";
+    } else {
+      window.location.href = "index.html";
+    }
+    return;
+  }
+
+  // Initialize page if authentication passes
+  initializePage();
+});

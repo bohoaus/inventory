@@ -1,0 +1,991 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f7fa;
+}
+
+.documentation {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #cbd5e0;
+}
+
+.nav-btn.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Section Styles */
+.content-section {
+  display: none;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.content-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Table Header Decorations */
+.schema-container .table-card h3 {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: white;
+  padding: 1rem;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.schema-container .table-card h3::after {
+  content: "📋";
+  font-size: 1.2rem;
+}
+
+/* Option Tables Special Styling */
+.schema-container .table-card[data-table="options"] h4 {
+  background: #f8fafc;
+  color: #2c3e50;
+  padding: 0.75rem;
+  margin: 1rem -1rem;
+  border-left: 4px solid #3498db;
+  font-size: 1rem;
+}
+
+/* Table Content Enhancement */
+.table-content ul {
+  padding-left: 1rem;
+  border-left: 2px solid #e2e8f0;
+  margin: 0.5rem 0;
+}
+
+.table-content li {
+  position: relative;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+}
+
+.table-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+}
+
+.table-content li strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Data Type Indicators */
+.table-content li::after {
+  content: attr(data-type);
+  font-size: 0.8rem;
+  color: #718096;
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
+/* Relationship Indicators */
+.table-content li[data-relation]::before {
+  content: "🔗";
+}
+
+/* Required Field Indicators */
+.table-content li[data-required="true"]::after {
+  content: " *";
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Table Card Hover Effects */
+.table-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.table-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: #3498db;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .schema-container {
+    grid-template-columns: 1fr;
+  }
+
+  .table-card {
+    margin-bottom: 1rem;
+  }
+
+  .table-content ul {
+    padding-left: 0.5rem;
+  }
+
+  .table-content li {
+    padding: 0.5rem 0.25rem 0.5rem 1rem;
+  }
+}
+
+/* Scroll Indicator */
+.table-card {
+  position: relative;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.table-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.9));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.table-card:hover::after {
+  opacity: 1;
+}
+
+/* Primary Key Highlight */
+.table-content li[data-primary="true"] {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+/* Foreign Key Highlight */
+.table-content li[data-foreign="true"] {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+/* Schema Row Layout */
+.schema-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .schema-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Equal height cards within a row */
+.schema-row .table-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.schema-row .table-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Add divider between rows */
+.schema-row:not(:last-child) {
+  border-bottom: 2px dashed #e2e8f0;
+  padding-bottom: 2rem;
+}
+
+/* Relationships Section Styles */
+.relationships-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.relationships-section h3 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.relationship-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.relationship-group {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.relationship-group h4 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.relationship-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.table-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 2px solid #3498db;
+  min-width: 200px;
+  text-align: center;
+}
+
+.table-box.primary {
+  border-color: #3498db;
+  background: #ebf8ff;
+}
+
+.table-box.secondary {
+  border-color: #2ecc71;
+  background: #f0fff4;
+}
+
+.table-box h5 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.table-box p {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.relationship-arrow {
+  position: relative;
+  height: 2px;
+  width: 100px;
+  background: #718096;
+}
+
+.relationship-arrow::before,
+.relationship-arrow::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #718096;
+}
+
+.relationship-arrow::before {
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.relationship-arrow.double::after {
+  right: 0;
+  transform: rotate(225deg);
+}
+
+.arrow-label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #718096;
+  border: 1px solid #e2e8f0;
+}
+
+/* Responsive adjustments */
+/* Base Styles */
+@media (max-width: 768px) {
+  .relationship-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .relationship-arrow {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+
+  .arrow-label {
+    transform: translateX(-50%) rotate(-90deg);
+  }
+}
+
+/* Schema Explorer Layout */
+.schema-explorer {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  min-height: 600px;
+}
+
+/* Schema Menu Styles */
+.schema-menu {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-right: 1px solid #e2e8f0;
+  border-radius: 8px 0 0 8px;
+}
+
+.menu-group {
+  margin-bottom: 1.5rem;
+}
+
+.menu-group h4 {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.25rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.menu-item:hover {
+  background: #edf2f7;
+  color: #2c3e50;
+}
+
+.menu-item.active {
+  background: #3498db;
+  color: white;
+  font-weight: 500;
+}
+
+/* Schema Display Styles */
+.schema-display {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.table-info-display {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.table-content {
+  display: none;
+  padding: 1.5rem;
+}
+
+.table-content.active {
+  display: block;
+}
+
+.table-content h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.table-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.table-content li {
+  padding: 0.75rem;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-content li:last-child {
+  border-bottom: none;
+}
+
+/* Relationships Display Styles */
+.relationships-display {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .schema-explorer {
+    grid-template-columns: 1fr;
+  }
+
+  .schema-menu {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .menu-group {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Table Field Types */
+.field-type {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+.field-required {
+  color: #e53e3e;
+  margin-left: 0.5rem;
+}
+
+.field-primary {
+  background: #ebf8ff;
+  color: #2b6cb0;
+}
+
+.field-foreign {
+  background: #f0fff4;
+  color: #2f855a;
+}
+
+/* Add these styles for better table alignment */
+.table-fields table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table-fields th,
+.table-fields td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table-fields th {
+  background: #f7fafc;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.table-fields tr:hover {
+  background: #f7fafc;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+.type-badge.primary {
+  background: #ebf8ff;
+  color: #2b6cb0;
+}
+
+.type-badge.foreign {
+  background: #f0fff4;
+  color: #2f855a;
+}
+
+.constraint {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.constraint.primary {
+  background: #bee3f8;
+  color: #2c5282;
+}
+
+.constraint.foreign {
+  background: #c6f6d5;
+  color: #276749;
+}
+
+.constraint.required {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+.field-name {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* Ensure table header stays visible */
+.table-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 1rem 0;
+  border-bottom: 2px solid #e2e8f0;
+  z-index: 10;
+}
+
+/* Enhanced Page Relationships Section Styles */
+#pages {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+#pages h2 {
+  color: #2c3e50;
+  padding: 1.5rem;
+  margin-bottom: 0;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 1.8rem;
+}
+
+.page-group {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #3498db, #2980b9);
+}
+
+.page-group.auth::before {
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+}
+
+.page-group.admin::before {
+  background: linear-gradient(to right, #3498db, #2980b9);
+}
+
+.page-group.viewer::before {
+  background: linear-gradient(to right, #2ecc71, #27ae60);
+}
+
+.page-group.guest::before {
+  background: linear-gradient(to right, #95a5a6, #7f8c8d);
+}
+
+.page-group h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-group.auth h3::before {
+  content: "🔐";
+}
+
+.page-group.admin h3::before {
+  content: "⚙️";
+}
+
+.page-group.viewer h3::before {
+  content: "👁️";
+}
+
+.page-group.guest h3::before {
+  content: "👤";
+}
+
+.page-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.page-item:last-child {
+  margin-bottom: 0;
+}
+
+.page-item:hover {
+  background: #fff;
+  transform: translateX(5px);
+  border-color: #3498db;
+}
+
+.page-item h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.page-item h4::before {
+  content: "📄";
+}
+
+.page-item ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.page-item li {
+  color: #4a5568;
+  padding: 0.75rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.page-item li:last-child {
+  border-bottom: none;
+}
+
+.page-item li::before {
+  content: "→";
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Hover effect for list items */
+.page-item li:hover {
+  color: #2c3e50;
+  background: #edf2f7;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-group {
+    margin-bottom: 1.5rem;
+  }
+
+  #pages h2 {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Style for the sections container */
+.sections-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Adjust the width of each section */
+.sections-container .page-group {
+  flex: 1;
+  min-width: 0; /* Allows flex items to shrink below content size */
+}
+
+/* Remove the previous horizontal styles */
+.page-group.admin,
+.page-group.viewer,
+.page-group.guest {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Update responsive design */
+@media (max-width: 1200px) {
+  .sections-container {
+    flex-direction: column;
+  }
+
+  .sections-container .page-group {
+    width: 100%;
+  }
+}
+
+/* Keep only this version of page-flow */
+.page-flow {
+  padding: 2rem;
+  background: #f8fafc;
+}
+
+/* Infrastructure Section Styles */
+.tech-stack-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.tech-group {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.tech-group:nth-child(1)::before {
+  background: linear-gradient(to right, #3498db, #2980b9);
+}
+
+.tech-group:nth-child(2)::before {
+  background: linear-gradient(to right, #2ecc71, #27ae60);
+}
+
+.tech-group:nth-child(3)::before {
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+}
+
+.tech-group h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tech-group:nth-child(1) h3::before {
+  content: "💻";
+}
+
+.tech-group:nth-child(2) h3::before {
+  content: "🗄️";
+}
+
+.tech-group:nth-child(3) h3::before {
+  content: "🔒";
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tech-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.tech-item h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tech-item ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.tech-item li {
+  color: #4a5568;
+  padding: 0.75rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.tech-item li:last-child {
+  border-bottom: none;
+}
+
+.tech-item li::before {
+  content: "→";
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Hover effects */
+.tech-item:hover {
+  background: #fff;
+  transform: translateX(5px);
+  border-color: #3498db;
+  transition: all 0.3s ease;
+}
+
+.tech-item li:hover {
+  color: #2c3e50;
+  background: #edf2f7;
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tech-stack-container {
+    padding: 1rem;
+  }
+
+  .tech-group {
+    padding: 1.5rem;
+  }
+
+  .tech-item {
+    padding: 1rem;
+  }
+}
+
+/* Add these styles for the close button and header layout */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.close-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+/* Update the existing h1 styles to work with the new layout */
+.header-top h1 {
+  margin-bottom: 0;
+}

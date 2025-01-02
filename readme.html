@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOHO Inventory System Documentation</title>
+    <link rel="stylesheet" href="readme.css" />
+  </head>
+  <body>
+    <div class="documentation">
+      <header>
+        <div class="header-top">
+          <h1>BOHO Inventory System Documentation</h1>
+          <button onclick="window.close()" class="close-btn">✕</button>
+        </div>
+        <nav>
+          <button class="nav-btn active" data-section="infrastructure">
+            Infrastructure
+          </button>
+          <button class="nav-btn" data-section="pages">
+            Page Relationships
+          </button>
+          <button class="nav-btn" data-section="database">
+            Database Schema
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Infrastructure Section -->
+        <section id="infrastructure" class="content-section active">
+          <h2>System Infrastructure</h2>
+          <div class="tech-stack-container">
+            <div class="tech-group">
+              <h3>Frontend</h3>
+              <div class="tech-card">
+                <div class="tech-item">
+                  <h4>Core Technologies</h4>
+                  <ul>
+                    <li>
+                      HTML: For building the structural layout of the
+                      application
+                    </li>
+                    <li>
+                      CSS: For styling and enhancing the visual presentation
+                    </li>
+                    <li>
+                      JavaScript: For implementing interactive functionality and
+                      dynamic behavior
+                    </li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <h4>GitHub Integration</h4>
+                  <ul>
+                    <li>Free Hosting: Hosts static pages for the frontend</li>
+                    <li>
+                      Version Control: Tracks changes and manages collaborative
+                      development efficiently
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3>Backend & Database</h3>
+              <div class="tech-card">
+                <div class="tech-item">
+                  <h4>Supabase Platform</h4>
+                  <ul>
+                    <li>
+                      PostgreSQL Database: A robust and scalable relational
+                      database
+                    </li>
+                    <li>
+                      Real-time Subscriptions: Enable live updates and seamless
+                      data syncing
+                    </li>
+                    <li>
+                      Row Level Security: Enforces granular data access control
+                    </li>
+                    <li>Free Tier: Offers essential features at no cost</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3>Authentication & Security</h3>
+              <div class="tech-card">
+                <div class="tech-item">
+                  <h4>Security Features</h4>
+                  <ul>
+                    <li>
+                      Supabase Auth: Provides authentication mechanisms for
+                      users
+                    </li>
+                    <li>
+                      Role-Based Access Control: Ensures users only access
+                      features relevant to their roles
+                    </li>
+                    <li>
+                      Secure API Endpoints: Protects the backend from
+                      unauthorized access
+                    </li>
+                    <li>
+                      Data Encryption: Safeguards sensitive data during storage
+                      and transmission
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page Relationships Section -->
+        <section id="pages" class="content-section">
+          <h2>System Pages & Navigation</h2>
+          <div class="page-flow">
+            <!-- Authentication at top -->
+            <div class="page-group auth">
+              <h3>Authentication</h3>
+              <div class="page-item">
+                <h4>Login Page (index.html)</h4>
+                <ul>
+                  <li>User Authentication</li>
+                  <li>Role Verification (Admin/Viewer/Guest)</li>
+                  <li>Session Management</li>
+                  <li>Access Control</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Container for the three sections -->
+            <div class="sections-container">
+              <div class="page-group admin">
+                <h3>Admin Section</h3>
+                <div class="page-item">
+                  <h4>Admin Dashboard (admin.html)</h4>
+                  <ul>
+                    <li>Edit Item List</li>
+                    <li>View Item List</li>
+                    <li>Full System Access</li>
+                    <li>User Management</li>
+                  </ul>
+                </div>
+                <div class="page-item">
+                  <h4>Order Management (order.html)</h4>
+                  <ul>
+                    <li>Create New Orders</li>
+                    <li>Manage Existing Orders</li>
+                    <li>Process Orders</li>
+                  </ul>
+                </div>
+                <div class="page-item">
+                  <h4>Additional Access</h4>
+                  <ul>
+                    <li>Sold Out Items (soldout.html)</li>
+                    <li>Order History (history.html)</li>
+                    <li>System Summary (summary.html)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="page-group viewer">
+                <h3>Viewer Section</h3>
+                <div class="page-item">
+                  <h4>Viewer Dashboard (view.html)</h4>
+                  <ul>
+                    <li>View Item List</li>
+                    <li>Read-only Access</li>
+                    <li>Limited Functionality</li>
+                  </ul>
+                </div>
+                <div class="page-item">
+                  <h4>Accessible Pages</h4>
+                  <ul>
+                    <li>Sold Out Items (soldout.html)</li>
+                    <li>Order History (history.html)</li>
+                    <li>System Summary (summary.html)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="page-group guest">
+                <h3>Guest Section</h3>
+                <div class="page-item">
+                  <h4>Guest Dashboard (guest.html)</h4>
+                  <ul>
+                    <li>View Item List</li>
+                    <li>Basic Read Access</li>
+                    <li>Minimal Functionality</li>
+                  </ul>
+                </div>
+                <div class="page-item">
+                  <h4>Limited Access</h4>
+                  <ul>
+                    <li>Sold Out Items (soldout.html)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Database Schema Section -->
+        <section id="database" class="content-section">
+          <h2>Database Schema</h2>
+          <div class="schema-explorer">
+            <!-- Side Menu -->
+            <div class="schema-menu">
+              <div class="menu-group">
+                <h4>Core Tables</h4>
+                <button class="menu-item active" data-table="inventory">
+                  Inventory
+                </button>
+                <button class="menu-item" data-table="users">Users</button>
+              </div>
+              <div class="menu-group">
+                <h4>Order Tables</h4>
+                <button class="menu-item" data-table="order_header">
+                  Order Header
+                </button>
+                <button class="menu-item" data-table="order_items">
+                  Order Items
+                </button>
+                <button class="menu-item" data-table="order_item_history">
+                  Order History
+                </button>
+              </div>
+              <div class="menu-group">
+                <h4>Analytics Tables</h4>
+                <button class="menu-item" data-table="weekly_state_orders">
+                  Weekly State Orders
+                </button>
+              </div>
+              <div class="menu-group">
+                <h4>Lookup Tables</h4>
+                <button class="menu-item" data-table="status_options">
+                  Status Options
+                </button>
+                <button class="menu-item" data-table="category_options">
+                  Category Options
+                </button>
+                <button class="menu-item" data-table="sizepack_options">
+                  Size/Pack Options
+                </button>
+                <button class="menu-item" data-table="cargo_options">
+                  Cargo Options
+                </button>
+              </div>
+            </div>
+
+            <!-- Display Area -->
+            <div class="schema-display">
+              <!-- Table Info Display -->
+              <div class="table-info-display">
+                <div id="tableContent" class="table-content active">
+                  <!-- Content will be dynamically populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="readme.js"></script>
+  </body>
+</html>

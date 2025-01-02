@@ -9,34 +9,22 @@ async function login() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  if (!username || !password) {
-    alert("Please enter both email and password");
-    return;
-  }
-
   try {
-    // Sign in the user
-    const { data: authData, error: authError } =
-      await supabaseClient.auth.signInWithPassword({
-        email: username,
-        password: password,
-      });
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: username,
+      password: password,
+    });
 
-    if (authError) throw authError;
+    if (error) throw error;
 
-    // Get the user's role from the users table
+    // Get user role from your users table or metadata
     const { data: userData, error: userError } = await supabaseClient
       .from("users")
       .select("role")
       .eq("email", username)
-      .maybeSingle();
+      .single();
 
     if (userError) throw userError;
-
-    if (!userData) {
-      throw new Error("User not found in database");
-    }
-
     // Store user data
     localStorage.setItem(
       "user",
@@ -47,11 +35,21 @@ async function login() {
     );
 
     // Redirect based on role
-    window.location.href =
-      userData.role === "admin" ? "admin.html" : "viewer.html";
+    switch (userData.role) {
+      case "admin":
+        window.location.href = "admin.html";
+        break;
+      case "viewer":
+        window.location.href = "viewer.html";
+        break;
+      case "guest":
+        window.location.href = "guest.html";
+        break;
+      default:
+        throw new Error("Invalid role");
+    }
   } catch (error) {
-    console.error("Login error:", error);
-    alert("Login failed: " + (error.message || "Invalid credentials"));
+    alert(error.message);
   }
 }
 
@@ -61,8 +59,10 @@ window.addEventListener("load", function () {
   if (user) {
     if (user.role === "admin") {
       window.location.href = "admin.html";
-    } else {
+    } else if (user.role === "viewer") {
       window.location.href = "viewer.html";
+    } else {
+      window.location.href = "guest.html";
     }
   }
 });

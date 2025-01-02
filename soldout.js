@@ -10,8 +10,10 @@ function handleBackNavigation() {
   const user = JSON.parse(localStorage.getItem("user"));
   if (user.role === "admin") {
     window.location.href = "admin.html";
-  } else {
+  } else if (user.role === "viewer") {
     window.location.href = "viewer.html";
+  } else if (user.role === "guest") {
+    window.location.href = "guest.html";
   }
 }
 
@@ -220,7 +222,11 @@ window.addEventListener("load", async function () {
   );
   if (backButton) {
     backButton.textContent = `Back to ${
-      user.role === "admin" ? "Admin" : "Viewer"
+      user.role === "admin"
+        ? "Admin"
+        : user.role === "viewer"
+        ? "Viewer"
+        : "Guest"
     }`;
     backButton.addEventListener("click", handleBackNavigation);
   }
@@ -247,3 +253,27 @@ function logout() {
 window.handleBackNavigation = handleBackNavigation;
 window.logout = logout;
 window.filterSoldOutItems = filterSoldOutItems;
+
+// Add this function to handle role-based navigation
+function getBackUrl() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    return "index.html";
+  }
+
+  switch (user.role) {
+    case "admin":
+      return "admin.html";
+    case "viewer":
+      return "viewer.html";
+    case "guest":
+      return "guest.html";
+    default:
+      return "index.html";
+  }
+}
+
+// Update the back button navigation
+function goBack() {
+  window.location.href = getBackUrl();
+}
