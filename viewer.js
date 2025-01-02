@@ -313,8 +313,15 @@ function logout() {
 // Check if user is logged in and initialize page
 window.addEventListener("load", function () {
   const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    window.location.href = "index.html";
+  // Check if user exists and has the correct role
+  if (!user || user.role !== "viewer") {
+    // If user is not a viewer, redirect to their appropriate dashboard
+    if (user && user.role === "guest") {
+      window.location.href = "guest.html";
+    } else {
+      // If no user or unknown role, redirect to login
+      window.location.href = "index.html";
+    }
   } else {
     initializePage();
   }
