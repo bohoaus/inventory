@@ -17,6 +17,8 @@
           <button class="nav-btn active" data-section="infrastructure">
             Infrastructure
           </button>
+          <button class="nav-btn" data-section="github">GitHub</button>
+          <button class="nav-btn" data-section="supabase">Supabase</button>
           <button class="nav-btn" data-section="pages">
             Page Relationships
           </button>
@@ -53,10 +55,19 @@
                 <div class="tech-item">
                   <h4>GitHub Integration</h4>
                   <ul>
-                    <li>Free Hosting: Hosts static pages for the frontend</li>
                     <li>
-                      Version Control: Tracks changes and manages collaborative
-                      development efficiently
+                      Free Hosting: GitHub Pages serves static frontend content
+                    </li>
+                    <li>
+                      Version Control: Tracks all code changes and enables
+                      collaborative development
+                    </li>
+                    <li>
+                      Branch Management: Supports parallel development and
+                      feature isolation
+                    </li>
+                    <li>
+                      Deployment: Automatic deployment through GitHub Actions
                     </li>
                   </ul>
                 </div>
@@ -115,6 +126,404 @@
           </div>
         </section>
 
+        <section id="github" class="content-section">
+          <h2>GitHub Integration</h2>
+          <div class="management-guides">
+            <div class="guide-section">
+              <h3>GitHub Management Guide</h3>
+              <div class="guide-card">
+                <div class="guide-item">
+                  <h4>Repository Setup Information</h4>
+                  <ul>
+                    <li>
+                      Repository URL: https://github.com/bohoaus/inventory
+                    </li>
+                    <li>Repository Name: inventory</li>
+                    <li>Branch: main (primary branch)</li>
+                    <li>Access: Private repository</li>
+                    <li>
+                      GitHub Pages URL: https://bohoaus.github.io/inventory/
+                    </li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>Access & Authentication</h4>
+                  <ul>
+                    <li>
+                      Login Methods:
+                      <ul>
+                        <li>Direct Login: <code>https://github.com</code></li>
+                        <li>
+                          Google Account Login:
+                          <ul>
+                            <li>Email: bohoaus2012@gmail.com</li>
+                            <li>Use "Sign in with Google" option</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Account Requirements:
+                      <ul>
+                        <li>Access to bohoaus2012@gmail.com Google account</li>
+                        <li>Membership in bohoaus GitHub organization</li>
+                        <li>Repository access permission</li>
+                      </ul>
+                    </li>
+                    <li>
+                      First-time Access:
+                      <ul>
+                        <li>Go to <code>https://github.com</code></li>
+                        <li>Click "Sign in with Google"</li>
+                        <li>Select bohoaus2012@gmail.com account</li>
+                        <li>Navigate to bohoaus organization</li>
+                        <li>Access inventory repository</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>Code Update Process</h4>
+                  <ol>
+                    <li>
+                      Clone the repository (first time only):
+                      <code
+                        >git clone
+                        https://github.com/bohoaus/inventory.git</code
+                      >
+                    </li>
+                    <li>
+                      Navigate to the repository:
+                      <code>cd inventory</code>
+                    </li>
+                    <li>
+                      Pull latest changes:
+                      <code>git pull origin main</code>
+                    </li>
+                    <li>
+                      Create a new branch for changes:
+                      <code>git checkout -b feature/your-feature-name</code>
+                    </li>
+                    <li>Make your changes and test locally</li>
+                    <li>
+                      Stage changes:
+                      <code>git add .</code>
+                    </li>
+                    <li>
+                      Commit changes:
+                      <code>git commit -m "Description of changes"</code>
+                    </li>
+                    <li>
+                      Push to GitHub:
+                      <code>git push origin feature/your-feature-name</code>
+                    </li>
+                    <li>
+                      Create Pull Request:
+                      <ul>
+                        <li>Go to https://github.com/bohoaus/inventory</li>
+                        <li>Click "Pull requests" tab</li>
+                        <li>Click "New pull request"</li>
+                        <li>Select your feature branch to merge into main</li>
+                        <li>Click "Create pull request"</li>
+                      </ul>
+                    </li>
+                    <li>After review, merge the pull request into main</li>
+                  </ol>
+                </div>
+                <div class="guide-item">
+                  <h4>GitHub Pages Deployment</h4>
+                  <ul>
+                    <li>Navigate to repository Settings > Pages</li>
+                    <li>Source: Deploy from a branch</li>
+                    <li>Branch: main, folder: / (root)</li>
+                    <li>Save to trigger deployment</li>
+                    <li>
+                      Access the deployed site at:
+                      https://bohoaus.github.io/inventory/
+                    </li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>Common Git Commands</h4>
+                  <ul>
+                    <li>
+                      Check status of changes:
+                      <code>git status</code>
+                    </li>
+                    <li>
+                      View commit history:
+                      <code>git log</code>
+                    </li>
+                    <li>
+                      Switch to main branch:
+                      <code>git checkout main</code>
+                    </li>
+                    <li>
+                      Create and switch to new branch:
+                      <code>git checkout -b branch-name</code>
+                    </li>
+                    <li>
+                      Discard local changes:
+                      <code>git checkout -- filename</code>
+                    </li>
+                    <li>
+                      Update from remote:
+                      <code>git fetch origin</code>
+                    </li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>GitHub Web UI Operations</h4>
+                  <div class="web-ui-steps">
+                    <h5>Viewing Code:</h5>
+                    <ol>
+                      <li>
+                        Go to <code>https://github.com/bohoaus/inventory</code>
+                      </li>
+                      <li>
+                        Navigate through folders by clicking on folder names
+                      </li>
+                      <li>Click on any file to view its contents</li>
+                      <li>
+                        Use keyboard shortcuts in file view:
+                        <ul>
+                          <li><code>t</code>: Quick file search</li>
+                          <li><code>l</code>: Jump to line</li>
+                          <li><code>w</code>: Switch branch</li>
+                          <li><code>b</code>: View blame</li>
+                        </ul>
+                      </li>
+                    </ol>
+
+                    <h5>Editing Code:</h5>
+                    <ol>
+                      <li>Navigate to the file you want to edit</li>
+                      <li>
+                        Click the pencil icon (✏️) in the top-right of the file
+                        view
+                      </li>
+                      <li>Make your changes in the web editor</li>
+                      <li>
+                        At the bottom of the page:
+                        <ul>
+                          <li>Add a commit message describing your changes</li>
+                          <li>
+                            Choose either:
+                            <ul>
+                              <li>
+                                "Commit directly to the main branch" (for minor
+                                changes)
+                              </li>
+                              <li>
+                                "Create a new branch and start a pull request"
+                                (for significant changes)
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>Click "Commit changes" or "Propose changes"</li>
+                    </ol>
+
+                    <h5>Creating New Files:</h5>
+                    <ol>
+                      <li>Navigate to the desired folder</li>
+                      <li>Click "Add file" > "Create new file"</li>
+                      <li>
+                        Enter the file name with extension (e.g., "newfile.js")
+                      </li>
+                      <li>Add your content</li>
+                      <li>Follow the same commit process as editing</li>
+                    </ol>
+
+                    <h5>Uploading Files:</h5>
+                    <ol>
+                      <li>Navigate to the desired folder</li>
+                      <li>Click "Add file" > "Upload files"</li>
+                      <li>Drag and drop files or "choose your files"</li>
+                      <li>Add a commit message</li>
+                      <li>Choose commit destination (main or new branch)</li>
+                      <li>Click "Commit changes"</li>
+                    </ol>
+
+                    <h5>Review Changes:</h5>
+                    <ul>
+                      <li>
+                        View commit history:
+                        <ol>
+                          <li>Click "commits" near the top of repository</li>
+                          <li>Click any commit to see detailed changes</li>
+                        </ol>
+                      </li>
+                      <li>
+                        Compare versions:
+                        <ol>
+                          <li>Click "commits"</li>
+                          <li>Click the clipboard icon next to any commit</li>
+                          <li>
+                            Use "Browse files" to see repository at that point
+                          </li>
+                        </ol>
+                      </li>
+                    </ul>
+
+                    <h5>Best Practices:</h5>
+                    <ul>
+                      <li>Use meaningful commit messages</li>
+                      <li>Create branches for significant changes</li>
+                      <li>Review changes before committing</li>
+                      <li>Use pull requests for collaborative review</li>
+                      <li>Keep commits focused and atomic</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="supabase" class="content-section">
+          <h2>Supabase Management</h2>
+          <div class="management-guides">
+            <div class="guide-section">
+              <h3>Supabase Management Guide</h3>
+              <div class="guide-card">
+                <div class="guide-item">
+                  <h4>Project Information</h4>
+                  <ul>
+                    <li>Project Name: Boho Aus</li>
+                    <li>Organization: bohoaus</li>
+                    <li>Region: AWS ap-southeast-2</li>
+                    <li>Tier: Nano (Free)</li>
+                    <li>Dashboard: <code>https://app.supabase.com</code></li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>Access & Authentication</h4>
+                  <ul>
+                    <li>
+                      Login Methods:
+                      <ul>
+                        <li>
+                          Direct Login: <code>https://app.supabase.com</code>
+                        </li>
+                        <li>
+                          GitHub Login: Use GitHub account for seamless
+                          authentication
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Account Requirements:
+                      <ul>
+                        <li>
+                          GitHub account with access to bohoaus organization
+                        </li>
+                        <li>Supabase account linked to GitHub</li>
+                        <li>
+                          Project access permission from organization admin
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      First-time Access:
+                      <ul>
+                        <li>
+                          Click "Continue with GitHub" on Supabase login page
+                        </li>
+                        <li>Authorize Supabase access to GitHub account</li>
+                        <li>Select bohoaus organization</li>
+                        <li>Access Boho Aus project from dashboard</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>Table Update Process</h4>
+                  <ol>
+                    <li>
+                      Access Supabase Dashboard:
+                      <code>https://app.supabase.com</code>
+                    </li>
+                    <li>Select Project: BohoInventory</li>
+                    <li>Navigate to Table Editor</li>
+                    <li>
+                      For new tables:
+                      <ul>
+                        <li>Click "New Table"</li>
+                        <li>Define columns and data types</li>
+                        <li>Set primary keys and foreign keys</li>
+                        <li>Enable Row Level Security (RLS)</li>
+                      </ul>
+                    </li>
+                    <li>
+                      For existing tables:
+                      <ul>
+                        <li>Click on table name</li>
+                        <li>"Edit Table" for structure changes</li>
+                        <li>"Insert/Edit Row" for data changes</li>
+                        <li>Use SQL Editor for complex updates</li>
+                      </ul>
+                    </li>
+                  </ol>
+                </div>
+                <div class="guide-item">
+                  <h4>Authentication Management</h4>
+                  <ul>
+                    <li>
+                      Access Authentication Settings:
+                      <ul>
+                        <li>Navigate to Authentication > Providers</li>
+                        <li>Configure Email/Password settings</li>
+                        <li>Set password requirements</li>
+                      </ul>
+                    </li>
+                    <li>
+                      User Management:
+                      <ul>
+                        <li>View users in Authentication > Users</li>
+                        <li>Create new users manually if needed</li>
+                        <li>Reset passwords or disable accounts</li>
+                        <li>Monitor user sessions and activity</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Role-Based Access:
+                      <ul>
+                        <li>Define roles: admin, viewer, guest</li>
+                        <li>Set up Row Level Security policies</li>
+                        <li>
+                          Example RLS policy:
+                          <code>
+                            CREATE POLICY "Viewers can read inventory" ON
+                            inventory FOR SELECT TO authenticated USING
+                            (auth.role() = 'viewer');
+                          </code>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="guide-item">
+                  <h4>Database Backup</h4>
+                  <ul>
+                    <li>Regular backups: Daily automated backups</li>
+                    <li>
+                      Manual backup:
+                      <ul>
+                        <li>Navigate to Database > Backups</li>
+                        <li>Click "Create Backup"</li>
+                        <li>Download backup file for local storage</li>
+                      </ul>
+                    </li>
+                    <li>Restore process available through support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Page Relationships Section -->
         <section id="pages" class="content-section">
           <h2>System Pages & Navigation</h2>
@@ -143,7 +552,6 @@
                     <li>Edit Item List</li>
                     <li>View Item List</li>
                     <li>Full System Access</li>
-                    <li>User Management</li>
                   </ul>
                 </div>
                 <div class="page-item">
