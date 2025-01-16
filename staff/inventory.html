@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Inventory - Inventory Management System</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="css/staffinventory.css" />
+    <link rel="stylesheet" href="../sales/css/exportpdf.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- Load Supabase and Config first -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+
+    <!-- Load PDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Load inventory components -->
+    <script src="js/staffinventoryexport.js"></script>
+    <script src="js/staffinventory.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Staff</div>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="active"><a href="inventory.html">Inventory</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header>
+          <h1>Staff Inventory</h1>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <!-- Add the inventory container div -->
+        <div id="inventoryContainer" class="Staffinventory-container"></div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize inventory component
+        staffInventoryComponent.initialize("inventoryContainer");
+      });
+    </script>
+  </body>
+</html>

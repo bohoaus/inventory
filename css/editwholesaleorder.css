@@ -1,0 +1,372 @@
+.editwholesaleorder-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.editwholesaleorder-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 8px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.editwholesaleorder-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.editwholesaleorder-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.editwholesaleorder-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.editwholesaleorder-group {
+  flex: 1;
+}
+
+.editwholesaleorder-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.editwholesaleorder-group input,
+.editwholesaleorder-group select,
+.editwholesaleorder-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.editwholesaleorder-group input:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.editwholesaleorder-tables {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.editwholesaleorder-table-container {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  width: 100%;
+}
+
+.editwholesaleorder-table-container h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.table-actions {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editwholesaleorder-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.editwholesaleorder-table th,
+.editwholesaleorder-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.editwholesaleorder-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.editwholesaleorder-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #dee2e6;
+}
+
+.editwholesaleorder-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.editwholesaleorder-btn-primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.editwholesaleorder-btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.editwholesaleorder-btn:hover {
+  opacity: 0.9;
+}
+
+.editwholesaleorder-search {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.editwholesaleorder-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editwholesaleorder-suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.editwholesaleorder-suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+.editwholesaleorder-selected-item {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.editwholesaleorder-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.suggestion-main {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.suggestion-details {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9em;
+}
+
+.group-tag,
+.stock-tag,
+.status-tag {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+#orderQty {
+  width: 100px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #6c757d;
+  padding: 20px !important;
+  font-style: italic;
+}
+
+.editwholesaleorder-btn-secondary.undo {
+  padding: 4px 8px;
+  font-size: 0.9em;
+  background-color: #6c757d;
+}
+
+.editwholesaleorder-btn-secondary.undo:hover {
+  background-color: #5a6268;
+}
+
+/* Pack Size Editor Styles */
+.editwholesaleorder-pack-size-editor {
+  margin-top: 10px;
+  background-color: #f8f9fa !important;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid red !important;
+}
+
+.editwholesaleorder-pack-size-editor table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  background-color: white;
+  border: 1px solid #ddd !important;
+}
+
+.editwholesaleorder-pack-size-editor th {
+  background-color: #f1f3f5;
+  color: #495057;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.editwholesaleorder-pack-size-editor td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.editwholesaleorder-size-input {
+  width: 120px;
+  padding: 6px 10px;
+  border: 2px solid blue !important;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.editwholesaleorder-qty-input {
+  width: 100px;
+  padding: 6px 10px;
+  border: 2px solid blue !important;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: right;
+  transition: border-color 0.2s;
+}
+
+.editwholesaleorder-size-input:focus,
+.editwholesaleorder-qty-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.editwholesaleorder-remove-size-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.2s;
+}
+
+.editwholesaleorder-remove-size-btn::before {
+  content: "×";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.editwholesaleorder-remove-size-btn:hover {
+  background-color: #c82333;
+}
+
+.editwholesaleorder-add-size-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.editwholesaleorder-add-size-btn::before {
+  content: "+";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.editwholesaleorder-add-size-btn:hover {
+  background-color: #218838;
+}
+
+/* Empty state styling */
+.editwholesaleorder-pack-size-editor tbody:empty::after {
+  content: "No sizes added";
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Invalid input styling */
+.editwholesaleorder-size-input.invalid,
+.editwholesaleorder-qty-input.invalid {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .editwholesaleorder-pack-size-editor {
+    padding: 10px;
+  }
+
+  .editwholesaleorder-size-input,
+  .editwholesaleorder-qty-input {
+    width: 100%;
+    min-width: 80px;
+  }
+
+  .editwholesaleorder-pack-size-editor td {
+    padding: 8px;
+  }
+}

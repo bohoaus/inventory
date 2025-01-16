@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders View - Sales</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="css/salesorders.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Sales</div>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li class="active"><a href="order.html">Orders</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header>
+          <h1>Orders View</h1>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <div id="ordersContainer" class="Salesorders-container"></div>
+      </main>
+    </div>
+
+    <script src="js/salesorders.js"></script>
+    <script>
+      // Create global instance of SalesOrdersComponent
+      window.salesOrdersComponent = new SalesOrdersComponent();
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          console.log("DOM loaded, checking auth...");
+          const {
+            data: { session },
+            error,
+          } = await supabaseClient.auth.getSession();
+
+          if (error) {
+            console.error("Auth error:", error);
+            window.location.href = "/index.html";
+            return;
+          }
+
+          if (!session) {
+            console.log("No session found");
+            window.location.href = "/index.html";
+            return;
+          }
+
+          console.log("Session found:", session.user.email);
+
+          // Set user email in header
+          document.getElementById("userEmail").textContent = session.user.email;
+
+          // Initialize orders component
+          if (window.salesOrdersComponent) {
+            console.log("Initializing orders component...");
+            await window.salesOrdersComponent.initialize("ordersContainer");
+          } else {
+            console.error("Orders component not found");
+          }
+
+          // Setup logout handler
+          document
+            .getElementById("logout")
+            .addEventListener("click", async (e) => {
+              e.preventDefault();
+              const { error } = await supabaseClient.auth.signOut();
+              if (!error) {
+                window.location.href = "/index.html";
+              }
+            });
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

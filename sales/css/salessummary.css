@@ -1,0 +1,161 @@
+.salessummary-container {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.salessummary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.salessummary-section {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.salessummary-section h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.2em;
+  font-weight: 500;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.salessummary-subsection {
+  margin-bottom: 25px;
+}
+
+.salessummary-subsection h4 {
+  margin: 0 0 15px 0;
+  color: #495057;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.salessummary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.salessummary-stat {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.salessummary-label {
+  display: block;
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.salessummary-value {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.salessummary-list {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.salessummary-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.salessummary-list-item:last-child {
+  border-bottom: none;
+}
+
+.salessummary-item-name {
+  color: #495057;
+}
+
+.salessummary-item-count {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.salessummary-upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.salessummary-upcoming-item {
+  background: white;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.salessummary-upcoming-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.salessummary-customer {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.salessummary-dispatch-date {
+  color: #6c757d;
+}
+
+.salessummary-upcoming-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #495057;
+  font-size: 0.9em;
+}
+
+.salessummary-note {
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.salessummary-detail-item {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.salessummary-note strong {
+  color: #e65100;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .salessummary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salessummary-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,569 @@
+class OdmItem {
+  constructor() {
+    this.itemGroup = "ODM";
+    this.initialize();
+  }
+
+  initialize() {
+    // Add any initialization logic here
+  }
+
+  async addItem(formData) {
+    const itemData = {
+      code_colour: formData.get("code_colour"),
+      odm_customer: formData.get("odm_customer"),
+      item_group: this.itemGroup,
+      receive_qty: formData.get("receive_qty") || 0,
+      stock_qty: 0,
+      item_category: formData.get("item_category") || "",
+      item_status: formData.get("item_status") || "",
+      item_cargo: formData.get("item_cargo") || "",
+      mfg_date: formData.get("mfg_date") || "",
+      item_note: formData.get("item_note") || "",
+      created_at: new Date().toISOString(),
+    };
+
+    const { data, error } = await supabaseClient
+      .from("inventory")
+      .insert([itemData])
+      .select()
+      .single();
+
+    if (error) {
+      throw new Error("Error adding ODM item: " + error.message);
+    }
+
+    return data;
+  }
+
+  async editItem(itemId, formData) {
+    const updates = {
+      code_colour: formData.get("code_colour"),
+      odm_customer: formData.get("odm_customer"),
+      item_group: this.itemGroup,
+      receive_qty: formData.get("receive_qty") || 0,
+      stock_qty: 0,
+      item_category: formData.get("item_category") || "",
+      item_status: formData.get("item_status") || "",
+      item_cargo: formData.get("item_cargo") || "",
+      mfg_date: formData.get("mfg_date") || "",
+      item_note: formData.get("item_note") || "",
+      updated_at: new Date().toISOString(),
+    };
+
+    const { data, error } = await supabaseClient
+      .from("inventory")
+      .update(updates)
+      .eq("id", itemId)
+      .select()
+      .single();
+
+    if (error) {
+      throw new Error("Error updating ODM item: " + error.message);
+    }
+
+    return data;
+  }
+
+  async updateItemStatus(itemId, status) {
+    const validStatuses = [
+      "SHIPPING",
+      "ARRIVED",
+      "PROCESSING",
+      "ON HOLD",
+      "DISPATCHED",
+      "CANCELLED IN WAREHOUSE",
+    ];
+
+    if (!validStatuses.includes(status)) {
+      throw new Error("Invalid status for ODM item");
+    }
+
+    const { error } = await supabaseClient
+      .from("inventory")
+      .update({
+        item_status: status,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", itemId);
+
+    if (error) {
+      throw new Error("Error updating item status: " + error.message);
+    }
+  }
+
+  async getOdmItems(status = null) {
+    let query = supabaseClient
+      .from("inventory")
+      .select("*")
+      .eq("item_group", this.itemGroup.toUpperCase());
+
+    if (status) {
+      query = query.eq("item_status", status.toUpperCase());
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      throw new Error("Error fetching ODM items: " + error.message);
+    }
+
+    return data;
+  }
+
+  generateItemForm(item = null) {
+    const categories = [
+      "DRESS",
+      "TOP",
+      "BOTTOM",
+      "SHIRT",
+      "SKIRT",
+      "KAFTAN",
+      "KIMONO",
+      "JACKET",
+      "COAT",
+      "KNITWEAR",
+    ];
+
+    const statuses = [
+      "SHIPPING",
+      "ARRIVED",
+      "PROCESSING",
+      "ON HOLD",
+      "DISPATCHED",
+      "CANCELLED IN WAREHOUSE",
+    ];
+
+    const form = document.createElement("form");
+    form.id = item ? "editItemForm" : "addItemForm";
+    form.className = "item-form two-column";
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    form.innerHTML = `
+        <div class="modal-header">
+            <button type="button" 
+                    class="add-item-btn" 
+                    onclick="odmItem.validateAndSubmit(this.closest('form'))"
+                    disabled>
+                ${item ? "Update Item" : "Add Item"}
+            </button>
+        </div>
+
+        <div class="form-column">
+            <!-- Left Column -->
+            <div class="form-group required">
+                <label for="code_colour">Code*</label>
+                <input type="text" 
+                       name="code_colour" 
+                       required 
+                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
+                       onblur="odmItem.checkCodeExists(this.value)"
+                       ${item ? "disabled" : ""}>
+                <span class="code-warning" style="display: none; color: #dc3545;">
+                    Warning: This code already exists
+                </span>
+            </div>
+
+            <div class="form-group required">
+                <label for="odm_customer">ODM Customer*</label>
+                <input type="text" 
+                       name="odm_customer" 
+                       required
+                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
+                       value="${item?.odm_customer || ""}">
+            </div>
+
+            <div class="form-group">
+                <label for="odm_ppo">ODM PPO</label>
+                <input type="text" 
+                       name="odm_ppo" 
+                       value="${item?.odm_ppo || ""}"
+                       onkeyup="this.value = this.value.toUpperCase()">
+            </div>
+
+            <div class="form-group required">
+                <label for="receive_qty">Received Quantity</label>
+                <input type="number" 
+                       name="receive_qty" 
+                       step="1" 
+                       min="1"
+                       value="${item?.receive_qty || ""}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
+
+            <input type="hidden" name="stock_qty" value="0">
+        </div>
+
+        <div class="form-column">
+            <!-- Right Column -->
+            <div class="form-group required">
+                <label for="item_category">Category</label>
+                <select name="item_category">
+                    <option value="">Select Category</option>
+                    ${categories
+                      .map(
+                        (cat) => `
+                        <option value="${cat}" ${
+                          item?.item_category === cat ? "selected" : ""
+                        }>
+                            ${cat}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="item_status">Status</label>
+                <select name="item_status">
+                    <option value="">Select Status</option>
+                    ${statuses
+                      .map(
+                        (status) => `
+                        <option value="${status}" ${
+                          item?.item_status === status ? "selected" : ""
+                        }>
+                            ${status}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="item_cargo">Cargo</label>
+                <select name="item_cargo">
+                    <option value="">Select Cargo</option>
+                    <option value="AIR" ${
+                      item?.item_cargo === "AIR" ? "selected" : ""
+                    }>AIR</option>
+                    <option value="SEA" ${
+                      item?.item_cargo === "SEA" ? "selected" : ""
+                    }>SEA</option>
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="mfg_date">MFG Date</label>
+                <input type="date" 
+                       name="mfg_date" 
+                       value="${item?.mfg_date || ""}">
+            </div>
+
+            <div class="form-group">
+                <label for="item_note">Item Note</label>
+                <textarea name="item_note" 
+                          rows="3"
+                          onkeyup="this.value = this.value.toUpperCase()">${
+                            item?.item_note || ""
+                          }</textarea>
+            </div>
+        </div>
+    `;
+
+    // Add event listeners for all required fields
+    const requiredFields = [
+      "code_colour",
+      "odm_customer",
+      "receive_qty",
+      "item_category",
+      "item_status",
+      "item_cargo",
+      "mfg_date",
+    ];
+
+    requiredFields.forEach((fieldName) => {
+      const element = form.querySelector(`[name="${fieldName}"]`);
+      if (element) {
+        // Use input event for text/number inputs and change event for selects
+        const eventType = element.tagName === "SELECT" ? "change" : "input";
+        element.addEventListener(eventType, () => this.validateForm(form));
+      }
+    });
+
+    return form;
+  }
+
+  validateForm(form) {
+    if (!form) return;
+
+    const codeInput = form.querySelector('input[name="code_colour"]');
+    const customerInput = form.querySelector('input[name="odm_customer"]');
+    const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
+    const itemCategoryInput = form.querySelector(
+      'select[name="item_category"]'
+    );
+    const itemStatusInput = form.querySelector('select[name="item_status"]');
+    const itemCargoInput = form.querySelector('select[name="item_cargo"]');
+    const mfgDateInput = form.querySelector('input[name="mfg_date"]');
+    const submitButton = form.querySelector(".add-item-btn");
+
+    if (!codeInput || !customerInput || !submitButton) return;
+
+    // Trim values to check for empty or whitespace-only input
+    const isValid =
+      codeInput.value.trim() !== "" &&
+      customerInput.value.trim() !== "" &&
+      itemCategoryInput.value !== "" &&
+      itemStatusInput.value !== "" &&
+      itemCargoInput.value !== "" &&
+      mfgDateInput.value !== "" &&
+      receiveQtyInput.value !== "" &&
+      !submitButton.hasAttribute("data-warning");
+
+    submitButton.disabled = !isValid;
+
+    // Add visual feedback for empty required fields
+    if (!codeInput.value.trim()) {
+      codeInput.classList.add("invalid");
+    } else {
+      codeInput.classList.remove("invalid");
+    }
+
+    if (!customerInput.value.trim()) {
+      customerInput.classList.add("invalid");
+    } else {
+      customerInput.classList.remove("invalid");
+    }
+  }
+
+  validateAndSubmit(form) {
+    const codeInput = form.querySelector('input[name="code_colour"]');
+    const customerInput = form.querySelector('input[name="odm_customer"]');
+    const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
+    const itemCategoryInput = form.querySelector(
+      'select[name="item_category"]'
+    );
+    const itemStatusInput = form.querySelector('select[name="item_status"]');
+    const itemCargoInput = form.querySelector('select[name="item_cargo"]');
+    const mfgDateInput = form.querySelector('input[name="mfg_date"]');
+
+    // Trim values to check for empty or whitespace-only input
+    const codeValue = codeInput?.value.trim();
+    const customerValue = customerInput?.value.trim();
+
+    if (!codeValue) {
+      adminInventory.showNotification("Please enter Code/Colour", "error");
+      codeInput?.focus();
+      return;
+    }
+
+    if (!customerValue) {
+      adminInventory.showNotification("Please enter ODM Customer", "error");
+      customerInput?.focus();
+      return;
+    }
+
+    if (!itemCategoryInput.value) {
+      adminInventory.showNotification("Please select Category", "error");
+      itemCategoryInput?.focus();
+      return;
+    }
+
+    if (!itemStatusInput.value) {
+      adminInventory.showNotification("Please select Status", "error");
+      itemStatusInput?.focus();
+      return;
+    }
+
+    if (!itemCargoInput.value) {
+      adminInventory.showNotification("Please select Cargo", "error");
+      itemCargoInput?.focus();
+      return;
+    }
+
+    if (!mfgDateInput.value) {
+      adminInventory.showNotification("Please enter MFG Date", "error");
+      mfgDateInput?.focus();
+      return;
+    }
+
+    if (!receiveQtyInput.value) {
+      adminInventory.showNotification(
+        "Please enter Received Quantity",
+        "error"
+      );
+      receiveQtyInput?.focus();
+      return;
+    }
+
+    // If validation passes, submit the form
+    this.submitForm(form);
+  }
+
+  async checkCodeExists(code) {
+    if (!code) return;
+
+    // Clean the code
+    const cleanCode = code.trim().replace(/\s+/g, " ").toUpperCase();
+
+    try {
+      const { data: allMatches } = await supabaseClient
+        .from("inventory")
+        .select("*")
+        .ilike("code_colour", cleanCode);
+
+      // Find elements within the current form context
+      const form = document.querySelector("#addItemForm, #editItemForm");
+      if (!form) return;
+
+      const warningElement = form.querySelector(".code-warning");
+      const submitButton = form.querySelector(".add-item-btn");
+
+      if (!warningElement || !submitButton) return;
+
+      if (allMatches && allMatches.length > 0) {
+        // Group matches by item_group
+        const matchesByGroup = allMatches.reduce((acc, item) => {
+          const group = (item.item_group || "").toUpperCase().trim();
+          if (!acc[group]) acc[group] = [];
+          acc[group].push(item);
+          return acc;
+        }, {});
+
+        // Create warning message based on matches
+        let warningHTML = `
+                <div class="warning-details">
+                    <p>Warning: This code exists in the following groups:</p>
+                    <table class="warning-table">
+            `;
+
+        // Add ODM matches if they exist
+        if (matchesByGroup["ODM"]) {
+          const odmMatch = matchesByGroup["ODM"][0];
+          warningHTML += `
+                    <tr>
+                        <th colspan="2" style="background: #fff3cd;">ODM Items:</th>
+                    </tr>
+                    <tr><th>Code:</th><td>${odmMatch.code_colour}</td></tr>
+                    <tr><th>Customer:</th><td>${
+                      odmMatch.odm_customer || "-"
+                    }</td></tr>
+                    <tr><th>PPO:</th><td>${odmMatch.odm_ppo || "-"}</td></tr>
+                `;
+        }
+
+        // Add Wholesale matches if they exist
+        if (matchesByGroup["BOHO"] || matchesByGroup["PRIMROSE"]) {
+          warningHTML += `
+                    <tr>
+                        <th colspan="2" style="background: #fff3cd;">Wholesale Items:</th>
+                    </tr>
+                `;
+
+          ["BOHO", "PRIMROSE"].forEach((group) => {
+            if (matchesByGroup[group]) {
+              const match = matchesByGroup[group][0];
+              warningHTML += `
+                            <tr><th>${group}:</th><td>${
+                match.code_colour
+              }</td></tr>
+                        <tr><th>Name:</th><td>${
+                          match.item_name || "-"
+                        }</td></tr>
+                        `;
+            }
+          });
+        }
+
+        warningHTML += `
+                    </table>
+                    <div style="margin-top: 10px; padding: 10px; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px;">
+                        <p style="color: #856404; margin: 0;">
+                            <strong>Suggestion:</strong> To avoid confusion, please add an extension to the code:
+                            <br>
+                            Examples: 
+                            <br>
+                            • ${cleanCode}-ODM
+                            <br>
+                            • ODM-${cleanCode}
+                            <br>
+                            • ${cleanCode}-[CUSTOMER_NAME]
+                        </p>
+                    </div>
+                </div>
+            `;
+
+        warningElement.innerHTML = warningHTML;
+        warningElement.style.display = "block";
+        submitButton.disabled = true;
+        submitButton.setAttribute("data-warning", "true");
+      } else {
+        warningElement.style.display = "none";
+        submitButton.removeAttribute("data-warning");
+        this.validateForm(form);
+      }
+    } catch (error) {
+      console.error("Error checking code:", error);
+      adminInventory.showNotification(
+        "Error checking code availability",
+        "error"
+      );
+    }
+  }
+
+  handlePaste(event) {
+    event.preventDefault();
+
+    // Get pasted content and clean it
+    const pastedText = (event.clipboardData || window.clipboardData)
+      .getData("text")
+      .trim() // Remove start/end spaces
+      .replace(/\s+/g, " ") // Replace multiple spaces with single space
+      .toUpperCase(); // Convert to uppercase
+
+    // Get the input element
+    const input = event.target;
+
+    // Update input value
+    input.value = pastedText;
+
+    // Trigger code check
+    this.checkCodeExists(pastedText);
+  }
+
+  async submitForm(form) {
+    try {
+      const formData = new FormData(form);
+
+      if (form.id === "editItemForm") {
+        const itemId = form.getAttribute("data-item-id");
+        await this.editItem(itemId, formData);
+        adminInventory.showNotification("Item updated successfully", "success");
+      } else {
+        await this.addItem(formData);
+        adminInventory.showNotification("Item added successfully", "success");
+      }
+
+      // Close the modal
+      const modal = form.closest(".modal");
+      if (modal) {
+        modal.remove();
+      }
+
+      // Refresh the inventory display
+      if (window.adminInventory) {
+        window.adminInventory.loadInventory();
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      adminInventory.showNotification(error.message, "error");
+    }
+  }
+}
+
+// Initialize the global instance
+window.odmItem = new OdmItem();
+
+// Keep the DOMContentLoaded event for additional setup if needed
+document.addEventListener("DOMContentLoaded", () => {
+  // Any additional setup that needs DOM to be ready
+  if (!window.odmItem) {
+    window.odmItem = new OdmItem();
+  }
+});

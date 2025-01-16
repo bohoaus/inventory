@@ -1,0 +1,87 @@
+.staffsummary-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.staffsummary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.staffsummary-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.staffsummary-section {
+  margin-bottom: 20px;
+}
+
+.staffsummary-section-title {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.staffsummary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.staffsummary-card {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.staffsummary-card-title {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.staffsummary-card-value {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+}
+
+.staffsummary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.staffsummary-table th,
+.staffsummary-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+
+.staffsummary-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.staffsummary-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .staffsummary-grid {
+    grid-template-columns: 1fr;
+  }
+}

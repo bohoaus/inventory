@@ -1,0 +1,219 @@
+.export-pdf-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.export-pdf-dialog h2 {
+  margin: 0 0 20px;
+  color: #333;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.export-pdf-dialog h3 {
+  color: #555;
+  font-size: 1.1rem;
+  margin: 15px 0 10px;
+}
+
+.export-option-group {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+/* Page Settings */
+.export-option-group:first-of-type label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.export-option-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Columns Section */
+.export-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.export-columns label {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.export-columns input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Filters Section */
+.export-option-group select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+/* Warning Message */
+.export-warning {
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 15px 0;
+  display: none;
+}
+
+/* Preview Section */
+.export-preview {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.export-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.export-preview th,
+.export-preview td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.export-preview th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+/* Buttons */
+.export-dialog-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.export-dialog-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.export-cancel-btn {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.export-cancel-btn:hover {
+  background: #e2e6ea;
+}
+
+.export-confirm-btn {
+  background: #28a745;
+  color: white;
+}
+
+.export-confirm-btn:hover {
+  background: #218838;
+}
+
+/* Scrollbar Styling */
+.export-columns::-webkit-scrollbar,
+.export-pdf-dialog::-webkit-scrollbar {
+  width: 8px;
+}
+
+.export-columns::-webkit-scrollbar-track,
+.export-pdf-dialog::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.export-columns::-webkit-scrollbar-thumb,
+.export-pdf-dialog::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.export-columns::-webkit-scrollbar-thumb:hover,
+.export-pdf-dialog::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Sort Options */
+.export-option-group select#exportSortColumn,
+.export-option-group select#exportSortDirection {
+  width: calc(50% - 5px);
+  display: inline-block;
+}
+
+.export-option-group select#exportSortColumn {
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .export-pdf-dialog {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .export-columns {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .export-option-group select#exportSortColumn,
+  .export-option-group select#exportSortDirection {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Modal Backdrop */
+.export-pdf-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}

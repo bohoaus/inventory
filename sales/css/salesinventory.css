@@ -1,0 +1,718 @@
+.Salesinventory-container {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.Salesinventory-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.Salesinventory-search-filter {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+  min-width: 300px;
+}
+
+.Salesinventory-search-filter input,
+.Salesinventory-search-filter select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.Salesinventory-search-filter input {
+  flex: 1;
+}
+
+.Salesinventory-group-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.Salesinventory-group-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Salesinventory-group-btn:hover {
+  background: #f8f9fa;
+}
+
+.Salesinventory-group-btn.active {
+  background: #007bff;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.Salesinventory-display-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.Salesinventory-column-toggle-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.Salesinventory-column-toggle-btn.active {
+  background: #f8f9fa;
+}
+
+.Salesinventory-column-selection {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 250px;
+}
+
+.Salesinventory-column-selection.show {
+  display: block;
+}
+
+.Salesinventory-column-search {
+  margin-bottom: 10px;
+}
+
+.Salesinventory-column-search input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.Salesinventory-column-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.Salesinventory-column-actions button {
+  flex: 1;
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.Salesinventory-column-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.Salesinventory-column-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.Salesinventory-required {
+  color: #dc3545;
+  margin-left: 4px;
+}
+
+.Salesinventory-table-container {
+  flex: 1;
+  overflow: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 0;
+  margin-bottom: 20px;
+}
+
+.Salesinventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Salesinventory-th,
+.Salesinventory-td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.Salesinventory-th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.Salesinventory-th:hover {
+  background-color: #e9ecef;
+}
+
+.Salesinventory-sort-icon {
+  margin-left: 5px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Salesinventory-th:hover .Salesinventory-sort-icon {
+  opacity: 1;
+  color: #007bff;
+}
+
+.Salesinventory-sort-icon.active {
+  opacity: 1;
+  color: #007bff;
+}
+
+.Salesinventory-tr:hover {
+  background-color: #f8f9fa;
+}
+
+.Salesinventory-status-out {
+  color: #dc3545;
+}
+
+.Salesinventory-status-low {
+  color: #ffc107;
+}
+
+.Salesinventory-status-in {
+  color: #28a745;
+}
+
+.Salesinventory-view-btn {
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background: #fff;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Salesinventory-view-btn:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.Salesinventory-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.Salesinventory-pagination-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Salesinventory-pagination-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+}
+
+.Salesinventory-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Salesinventory-pagination-active {
+  background: #007bff;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.Salesinventory-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.Salesinventory-modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.Salesinventory-detail-row {
+  display: flex;
+  margin: 10px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.Salesinventory-detail-row label {
+  font-weight: 600;
+  width: 150px;
+}
+
+.Salesinventory-no-data {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.Salesinventory-code {
+  font-family: inherit;
+}
+
+.Salesinventory-qty {
+  text-align: right;
+}
+
+.Salesinventory-note {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Add styles for the main content area */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.special-buttons {
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.Salesinventory-clear-btn {
+  padding: 8px 16px;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  background: #fff;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.Salesinventory-clear-btn:hover {
+  background: #dc3545;
+  color: #fff;
+}
+
+.Salesinventory-records-info {
+  margin: 15px 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.Salesinventory-records-count {
+  font-size: 0.9rem;
+  color: #495057;
+  line-height: 1.5;
+}
+
+.Salesinventory-records-count strong {
+  font-weight: 600;
+  color: #212529;
+}
+
+.Salesinventory-json-view-btn {
+  padding: 4px 8px;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  background: #fff;
+  color: #28a745;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.Salesinventory-json-view-btn:hover {
+  background: #28a745;
+  color: #fff;
+}
+
+.Salesinventory-json-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.Salesinventory-json-row {
+  display: flex;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.Salesinventory-json-key {
+  font-weight: 600;
+  width: 150px;
+  color: #666;
+}
+
+.Salesinventory-json-value {
+  flex: 1;
+  word-break: break-word;
+}
+
+.Salesinventory-pagination-ellipsis {
+  padding: 8px;
+  color: #666;
+  user-select: none;
+}
+
+/* Update column alignment */
+.Salesinventory-td.Salesinventory-qty,
+.Salesinventory-th[onclick*="stock_qty"] {
+  text-align: right;
+}
+
+.Salesinventory-td.Salesinventory-note,
+.Salesinventory-th[onclick*="item_note"] {
+  text-align: left;
+  max-width: 300px;
+}
+
+/* Add hover effect for all interactive icons */
+.Salesinventory-toggle-icon {
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.Salesinventory-column-toggle-btn:hover .Salesinventory-toggle-icon,
+.Salesinventory-column-toggle-btn.active .Salesinventory-toggle-icon {
+  opacity: 1;
+  color: #007bff;
+}
+
+/* Ensure consistent text alignment for all columns */
+.Salesinventory-th,
+.Salesinventory-td {
+  text-align: left;
+}
+
+/* Center align action buttons */
+.Salesinventory-td:first-child {
+  text-align: center;
+}
+
+.Salesinventory-th:first-child {
+  text-align: center;
+}
+
+.Salesinventory-modal .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.Salesinventory-modal .close:hover {
+  opacity: 1;
+  color: #dc3545;
+}
+
+.Salesinventory-td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.Salesinventory-detail-section {
+  margin-bottom: 30px;
+}
+
+.Salesinventory-detail-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #007bff;
+}
+
+.Salesinventory-detail-group {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30px;
+  min-width: 300px;
+}
+
+.Salesinventory-detail-row {
+  display: flex;
+  margin: 8px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.Salesinventory-detail-row label {
+  font-weight: 600;
+  width: 150px;
+  color: #666;
+}
+
+.Salesinventory-detail-row span {
+  flex: 1;
+}
+
+/* Update stock quantity alignment */
+.Salesinventory-td.Salesinventory-qty,
+.Salesinventory-th[onclick*="stock_qty"] {
+  text-align: left;
+}
+
+/* Modal content scrolling */
+.Salesinventory-modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* JSON formatting in details */
+#detailPackSize,
+#detailRepeatItem {
+  white-space: pre-wrap;
+  font-family: monospace;
+  background: #f8f9fa;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.Salesinventory-display-controls select,
+.export-pdf-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.export-pdf-btn {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.export-pdf-btn:hover {
+  background: #28a745;
+  color: #fff;
+}
+
+.export-pdf-btn .pdf-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.export-pdf-btn:hover .pdf-icon path {
+  fill: #fff;
+}
+
+/* Fix stock quantity alignment */
+.Salesinventory-td.Salesinventory-qty {
+  text-align: left !important;
+}
+
+.Salesinventory-th[onclick*="stock_qty"] {
+  text-align: left;
+}
+
+/* JSON data table display */
+.Salesinventory-json-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #fff;
+}
+
+.Salesinventory-json-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.Salesinventory-json-table td {
+  padding: 8px 10px;
+  border: 1px solid #dee2e6;
+}
+
+.pack-size-table th,
+.repeat-item-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.pack-size-table th:first-child,
+.repeat-item-table th:first-child {
+  min-width: 100px;
+}
+
+/* Export PDF Dialog */
+.export-pdf-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.export-pdf-dialog h2 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+.export-pdf-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.export-option-group {
+  padding: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.export-option-group h3 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.export-warning {
+  padding: 10px;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  color: #856404;
+  margin: 10px 0;
+  display: none;
+}
+
+.export-preview {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.export-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.export-preview th,
+.export-preview td {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.export-dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.export-dialog-buttons button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.export-cancel-btn {
+  border: 1px solid #dc3545;
+  background: #fff;
+  color: #dc3545;
+}
+
+.export-cancel-btn:hover {
+  background: #dc3545;
+  color: #fff;
+}
+
+.export-confirm-btn {
+  border: 1px solid #28a745;
+  background: #28a745;
+  color: #fff;
+}
+
+.export-confirm-btn:hover {
+  background: #218838;
+}

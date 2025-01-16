@@ -1,138 +1,129 @@
 # BOHO Inventory Management System
 
-A comprehensive inventory management system built for BOHO Australia, featuring role-based access control, real-time inventory tracking, and order management capabilities.
+A comprehensive web-based inventory management system designed for BOHO Australia, featuring real-time communication, PDF export capabilities, and role-based access control.
 
-## Table of Contents
-- [Overview](#overview)
-- [System Architecture](#system-architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Authentication](#authentication)
-- [Features](#features)
-- [Technical Stack](#technical-stack)
-- [Contributing](#contributing)
-- [Contact](#contact)
+## 🌟 Features
 
-## Overview
+### 🔐 Role-Based Access
 
-BOHO Inventory Management System is a web-based application that provides inventory tracking, order management, and role-based access control. The system supports three user roles (Admin, Viewer, and Guest) with different permission levels.
+- **Admin** (Full Control)
 
-## System Architecture
+  - Complete inventory management
+  - Order processing and fulfillment
+  - System configuration
+  - User management
+
+- **Sales** (Read & Create)
+
+  - Order creation and management
+  - Inventory viewing
+  - Customer management
+  - Export order documentation
+
+- **Staff** (Limited Access)
+  - Stock updates
+  - Warehouse operations
+  - Inventory tracking
+  - ODM dispatch management
+
+### 📊 Core Functionalities
+
+#### Real-Time Communication
+
+- Interactive note board for all users
+- Instant message updates
+- Reply functionality
+- Adjustable font sizes for better readability
+
+#### PDF Export System
+
+- Inventory lists and summaries
+- Order documentation
+- Sold-out item reports
+- ODM dispatch information
+
+#### Inventory Management
+
+- Real-time stock tracking
+- Location management
+- Item aging monitoring
+- Stock movement history
+
+#### Order Processing
+
+- Order creation and tracking
+- Invoice generation
+- Payment processing
+- Dispatch management
+
+## 🛠️ Technical Stack
 
 ### Frontend
-- Static web pages hosted on GitHub Pages
-- HTML/CSS/JavaScript implementation
-- Responsive design for various devices
+
+- HTML/CSS/JavaScript
+- Hosted on GitHub Pages
+- Responsive design
+- Cross-browser compatibility
 
 ### Backend
-- Supabase for database and authentication
-- PostgreSQL database with real-time capabilities
-- Secure API endpoints with row-level security
 
-## Installation
+- Supabase Database
+- Real-time subscriptions
+- Authentication system
+- Row-level security
 
-1. Clone the repository:
+### Integration
 
-bash
-git clone https://github.com/bohoaus/inventory.git
+- PDF generation capabilities
+- Real-time data synchronization
+- Secure API endpoints
+- Data backup and recovery
 
-2. Navigate to the project directory:
+## 🚀 Getting Started
 
-bash
-cd inventory
+1. **Access the System**
 
+   - Production URL: https://bohoaus.github.io/inventory/
+   - Login with your provided credentials
+   - System will direct you to your role-specific dashboard
 
-3. Deploy to GitHub Pages:
-- Configure GitHub Pages in repository settings
-- Set source to main branch
-- Access at https://bohoaus.github.io/inventory/
+2. **System Requirements**
+   - Modern web browser (Chrome, Firefox, Safari, Edge)
+   - Internet connection
+   - Screen resolution: 1280x720 or higher recommended
 
-## Usage
+## 📱 Key Pages
 
-### Access Levels
-
-1. **Admin Role** (admin.html)
-   - Full system access
-   - Edit inventory items
-   - Manage orders
-   - Access all system features
-
-2. **Viewer Role** (view.html)
-   - Read-only access
-   - View inventory items
-   - Access order history
-   - View system summary
-
-3. **Guest Role** (guest.html)
-   - Limited access
-   - Basic inventory view
-   - Access to sold-out items
-
-### Key Pages
-- `index.html` - Authentication portal
+- `index.html` - Authentication page
 - `admin.html` - Admin dashboard
-- `view.html` - Viewer dashboard
-- `guest.html` - Guest access
-- `order.html` - Order management
-- `history.html` - Order history
-- `summary.html` - System summary
-- `soldout.html` - Sold out items
+- `sales.html` - Sales interface
+- `staff.html` - Staff workspace
+- `inventory.html` - Inventory management
+- `order.html` - Order processing
 
-## Authentication
+## 🔒 Security Features
 
-### Test Accounts
-- Admin: a@a.com
-- Viewer: v@v.com
-- Guest: g@g.com
-
-### Production Accounts
-- Admin: admin@boho.aus
-- Viewer: viewer@boho.aus
-- Guest: guest@boho.aus
-
-*Note: Contact system administrator for passwords*
-
-## Features
-
-- Real-time inventory tracking
-- Order management system
 - Role-based access control
-- Order history tracking
-- System summary and analytics
 - Secure authentication
-- Database backup and recovery
-- Email verification system
+- Data encryption
+- Session management
+- Regular backups
 
-## Technical Stack
+## 💡 Support
 
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Supabase
-- **Database**: PostgreSQL
-- **Hosting**: GitHub Pages
-- **Version Control**: Git/GitHub
-- **Authentication**: Supabase Auth
+For technical support or user assistance:
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/YourFeature`)
-3. Commit changes (`git commit -m 'Add YourFeature'`)
-4. Push to branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow existing code structure
-- Document new features
-- Test thoroughly before submitting PR
-- Update documentation as needed
-
-## Contact
-
-For any queries or support:
-- Project Repository: https://github.com/bohoaus/inventory
-- Organization: Boho Australia
+- Contact system administrator
 - Email: bohoaus2012@gmail.com
 
----
-*Note: This is an internal system. Please ensure proper authorization before accessing.*
+## 🔄 Updates
 
+The system is regularly maintained and updated. Users will be notified of any significant changes or new features through the system's note board.
+
+## 📝 License
+
+Proprietary software for BOHO Australia. All rights reserved.
+
+---
+
+© 2024 BOHO Australia. All rights reserved.

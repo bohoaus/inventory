@@ -1,0 +1,193 @@
+.weekly-summary-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.weekly-summary-content {
+  background-color: #fefefe;
+  margin: 3% auto;
+  padding: 30px;
+  border: none;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+.weekly-summary-modal .close {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.weekly-summary-modal .close:hover {
+  color: #dc3545;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.date-filter label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 15px;
+  min-width: 140px;
+}
+
+.date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-input {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.date-input:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+#summaryTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#summaryTable th,
+#summaryTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+#summaryTable th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#summaryTable tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+#summaryTable td {
+  color: #212529;
+  font-size: 14px;
+}
+
+/* Status Colors */
+#summaryTable td:nth-child(3) {
+  font-weight: 500;
+}
+
+#summaryTable td[data-status="NEW RELEASE"] {
+  color: #28a745;
+}
+
+#summaryTable td[data-status="FULL PRICE"] {
+  color: #007bff;
+}
+
+#summaryTable td[data-status="ON SALE"] {
+  color: #dc3545;
+}
+
+/* Empty State */
+.no-data {
+  text-align: center;
+  padding: 30px !important;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .weekly-summary-content {
+    width: 95%;
+    margin: 2% auto;
+    padding: 20px;
+  }
+
+  .date-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .date-inputs {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .date-input {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  #summaryTable {
+    font-size: 14px;
+  }
+
+  #summaryTable th,
+  #summaryTable td {
+    padding: 8px 10px;
+  }
+}

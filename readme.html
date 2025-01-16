@@ -5,6 +5,296 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BOHO Inventory System Documentation</title>
     <link rel="stylesheet" href="readme.css" />
+    <style>
+      /* ... existing styles ... */
+
+      /* Database Schema Styles */
+      .schema-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+        background: #f8f9fa;
+      }
+
+      .schema-row {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .table-card {
+        flex: 1;
+        min-width: 300px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .table-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e9ecef;
+        font-size: 1.2rem;
+      }
+
+      .table-content {
+        display: block;
+        width: 100%;
+      }
+
+      .table-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .table-content li {
+        padding: 0.5rem;
+        color: #495057;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #f1f3f5;
+      }
+
+      .table-content li:last-child {
+        border-bottom: none;
+      }
+
+      .table-content li[data-primary="true"] {
+        color: #e74c3c;
+        font-weight: bold;
+        background: #fff5f5;
+      }
+
+      .table-content li[data-foreign="true"] {
+        color: #3498db;
+        background: #f8f9fa;
+      }
+
+      .table-content li[data-required="true"] {
+        color: #2ecc71;
+        background: #f6fef9;
+      }
+
+      @media (max-width: 768px) {
+        .schema-row {
+          flex-direction: column;
+        }
+        
+        .table-card {
+          min-width: 100%;
+        }
+      }
+
+      /* System Overview Styles */
+      .overview-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding: 1rem;
+      }
+
+      .overview-card {
+        flex: 1;
+        min-width: 300px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .overview-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e9ecef;
+        font-size: 1.2rem;
+      }
+
+      .use-case {
+        margin-bottom: 1.5rem;
+      }
+
+      .use-case:last-child {
+        margin-bottom: 0;
+      }
+
+      .use-case h4 {
+        color: #34495e;
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+      }
+
+      .use-case ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .use-case li {
+        padding: 0.4rem 0;
+        color: #555;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .use-case li:before {
+        content: "•";
+        color: #3498db;
+        position: absolute;
+        left: 0.5rem;
+      }
+
+      .admin-cases h3 {
+        border-bottom-color: #e74c3c;
+      }
+
+      .sales-cases h3 {
+        border-bottom-color: #3498db;
+      }
+
+      .staff-cases h3 {
+        border-bottom-color: #2ecc71;
+      }
+
+      .shared-features h3 {
+        border-bottom-color: #9b59b6;
+      }
+
+      @media (max-width: 768px) {
+        .overview-card {
+          min-width: 100%;
+        }
+      }
+
+      /* System Workflow Styles */
+      .workflow-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+      }
+
+      .workflow-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .workflow-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e9ecef;
+        font-size: 1.2rem;
+      }
+
+      .workflow-item {
+        margin-bottom: 1.5rem;
+      }
+
+      .workflow-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .workflow-item h4 {
+        color: #34495e;
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+      }
+
+      .workflow-item ul {
+        list-style: none;
+        padding-left: 1.5rem;
+        margin: 0;
+      }
+
+      .workflow-item li {
+        padding: 0.4rem 0;
+        color: #555;
+        position: relative;
+      }
+
+      .workflow-item li:before {
+        content: "•";
+        color: #3498db;
+        position: absolute;
+        left: -1rem;
+      }
+
+      .workflow-sequence {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 6px;
+        position: relative;
+      }
+
+      .step-number {
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background: #3498db;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .step h4 {
+        color: #2c3e50;
+        margin: 0 0 0.5rem 1rem;
+        font-size: 1.1rem;
+      }
+
+      .step p {
+        margin: 0 0 0 1rem;
+        color: #555;
+        line-height: 1.4;
+      }
+
+      .daily-operations h3 {
+        border-bottom-color: #e74c3c;
+      }
+
+      .order-process h3 {
+        border-bottom-color: #3498db;
+      }
+
+      .inventory-management h3 {
+        border-bottom-color: #2ecc71;
+      }
+
+      @media (max-width: 768px) {
+        .workflow-card {
+          min-width: 100%;
+        }
+        
+        .step {
+          margin-left: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="documentation">
@@ -19,6 +309,9 @@
           </button>
           <button class="nav-btn" data-section="infrastructure">
             Infrastructure
+          </button>
+          <button class="nav-btn" data-section="overview">
+            System Workflow
           </button>
           <button class="nav-btn" data-section="github">GitHub</button>
           <button class="nav-btn" data-section="supabase">Supabase</button>
@@ -66,10 +359,10 @@
                 </div>
                 <div class="user viewer">
                   <div class="user-icon">👁️</div>
-                  <div class="user-label">Viewer</div>
+                  <div class="user-label">Sales</div>
                   <div class="permissions">
                     <span>Read Only</span>
-                    <span>view.html</span>
+                    <span>sales.html</span>
                   </div>
                   <div class="access-arrow" style="position: relative">
                     <span
@@ -87,10 +380,10 @@
                 </div>
                 <div class="user guest">
                   <div class="user-icon">👤</div>
-                  <div class="user-label">Guest</div>
+                  <div class="user-label">Staff</div>
                   <div class="permissions">
                     <span>Limited View</span>
-                    <span>guest.html</span>
+                    <span>staff.html</span>
                   </div>
                   <div class="access-arrow" style="position: relative">
                     <span
@@ -119,6 +412,8 @@
                   <div class="features">
                     <span>Static Pages</span>
                     <span>User Interface</span>
+                    <span>Real-time Note Board</span>
+                    <span>PDF Export System</span>
                   </div>
                 </div>
 
@@ -142,6 +437,8 @@
                   <div class="features">
                     <span>Database Tables</span>
                     <span>Authentication</span>
+                    <span>Real-time Communication</span>
+                    <span>Data Export API</span>
                   </div>
                   <div class="relationship-indicator">
                     <span style="font-size: 24px">↔ API & Auth</span>
@@ -283,6 +580,260 @@
                       Data Encryption: Safeguards sensitive data during storage
                       and transmission
                     </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3>User Roles & Access</h3>
+              <div class="tech-card">
+                <div class="tech-item">
+                  <h4>Role-Based System Access</h4>
+                  <ul>
+                    <li>
+                      <strong>Admin:</strong> Full system access with management capabilities
+                    </li>
+                    <li>
+                      <strong>Sales:</strong> Order creation and management, inventory viewing
+                    </li>
+                    <li>
+                      <strong>Staff:</strong> Inventory management and stock updates
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3>Communication & Data Features</h3>
+              <div class="tech-card">
+                <div class="tech-item">
+                  <h4>Real-time Communication</h4>
+                  <ul>
+                    <li>
+                      <strong>Note Board:</strong> Real-time communication platform for all users
+                    </li>
+                    <li>Interactive messaging with reply functionality</li>
+                    <li>Customizable font sizes for better readability</li>
+                    <li>Instant updates across all connected users</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <h4>Data Management</h4>
+                  <ul>
+                    <li>
+                      <strong>Export Features:</strong>
+                      <ul>
+                        <li>PDF export for inventory lists</li>
+                        <li>PDF export for order details</li>
+                        <li>PDF export for sold-out items</li>
+                        <li>PDF export for ODM dispatch information</li>
+                      </ul>
+                    </li>
+                    <li>Real-time data synchronization across all users</li>
+                    <li>Automatic data backup and version control</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- System Workflow Section -->
+        <section id="overview" class="content-section">
+          <h2>System Workflow</h2>
+          <div class="workflow-container">
+            <div class="workflow-card daily-operations">
+              <h3>Daily Operations</h3>
+              <div class="workflow-item">
+                <h4>Dashboard & Communication</h4>
+                <ul>
+                  <li>Real-time sharing communication board for all users</li>
+                  <li>Admin/Sales: Access to inventory and order summaries</li>
+                  <li>Sales/Staff: View packing lists, sold-out items, ODM order status</li>
+                  <li>Staff: Access to inventory summary and stock updates</li>
+                </ul>
+              </div>
+              <div class="workflow-item">
+                <h4>Access Levels</h4>
+                <ul>
+                  <li>All roles: View inventory list</li>
+                  <li>Admin/Sales: Order list access</li>
+                  <li>Admin: Full edit rights for inventory and orders</li>
+                  <li>Staff: Regular warehouse stock updates</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="workflow-card order-process">
+              <h3>Order Processing Workflow</h3>
+              <div class="workflow-sequence">
+                <div class="step">
+                  <span class="step-number">1</span>
+                  <h4>Order Reception</h4>
+                  <p>Admin receives wholesale orders via email and creates picking lists in the system</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">2</span>
+                  <h4>Stock Verification</h4>
+                  <p>Warehouse staff verifies stock amounts and picks ordered items, recording carrier and box details</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">3</span>
+                  <h4>Invoice Processing</h4>
+                  <p>Invoice maker creates invoice from picking list and updates invoice number in system</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">4</span>
+                  <h4>Payment & Documentation</h4>
+                  <p>After payment, final invoice is printed and backup invoice with picking list goes to warehouse</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">5</span>
+                  <h4>Dispatch</h4>
+                  <p>Warehouse staff prints delivery labels and updates dispatch information in system</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="workflow-card inventory-management">
+              <h3>Inventory Management Flow</h3>
+              <div class="workflow-sequence">
+                <div class="step">
+                  <span class="step-number">1</span>
+                  <h4>Freight Updates</h4>
+                  <p>Admin enters and updates latest freight information</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">2</span>
+                  <h4>Stock Monitoring</h4>
+                  <p>Sales/Staff check packing lists and current stock information</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">3</span>
+                  <h4>Status Updates</h4>
+                  <p>Admin updates freight info, release dates, and sale status</p>
+                </div>
+                <div class="step">
+                  <span class="step-number">4</span>
+                  <h4>Stock Verification</h4>
+                  <p>Warehouse staff regularly verifies and updates physical stock quantities</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Database Schema Section -->
+        <section id="database" class="content-section">
+          <h2>Database Schema</h2>
+          <div class="schema-container">
+            <div class="schema-row">
+              <div class="table-card" data-table="inventory">
+                <h3>Inventory Table</h3>
+                <div class="table-content">
+                  <ul>
+                    <li data-primary="true">id: UUID (Primary Key)</li>
+                    <li data-required="true">code_colour: VARCHAR (Unique, Not Null)</li>
+                    <li>item_name: VARCHAR</li>
+                    <li>item_group: VARCHAR</li>
+                    <li>item_location: VARCHAR</li>
+                    <li>receive_qty: FLOAT</li>
+                    <li>stock_qty: FLOAT</li>
+                    <li>release_date: TIMESTAMPTZ</li>
+                    <li>item_aging: INTEGER</li>
+                    <li>item_status: VARCHAR</li>
+                    <li>soldout_date: TIMESTAMPTZ</li>
+                    <li>item_category: VARCHAR</li>
+                    <li>pack_unit: INTEGER</li>
+                    <li>pack_size: JSON</li>
+                    <li>repeat_item: JSON</li>
+                    <li>mfg_date: TIMESTAMPTZ</li>
+                    <li>item_cargo: VARCHAR</li>
+                    <li>est_date: TIMESTAMPTZ</li>
+                    <li>arrive_date: TIMESTAMPTZ</li>
+                    <li>delay_date: TIMESTAMPTZ</li>
+                    <li>odm_ppo: VARCHAR</li>
+                    <li>odm_customer: VARCHAR</li>
+                    <li>item_note: TEXT</li>
+                    <li>created_at: TIMESTAMPTZ</li>
+                    <li>updated_at: TIMESTAMPTZ</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="table-card" data-table="orders">
+                <h3>Orders Table</h3>
+                <div class="table-content">
+                  <ul>
+                    <li data-primary="true">id: UUID (Primary Key)</li>
+                    <li>order_type: VARCHAR</li>
+                    <li>status: VARCHAR</li>
+                    <li>customer_name: VARCHAR</li>
+                    <li>agent_state: VARCHAR</li>
+                    <li>dispatched_state: VARCHAR</li>
+                    <li>dispatched_carrier: VARCHAR</li>
+                    <li>dispatched_box: VARCHAR</li>
+                    <li>total_items: INTEGER</li>
+                    <li>removed_items: INTEGER</li>
+                    <li>invoice_no: VARCHAR</li>
+                    <li>tracking_no: VARCHAR</li>
+                    <li>order_note: TEXT</li>
+                    <li>cancelled_at: TIMESTAMPTZ</li>
+                    <li>dispatched_at: TIMESTAMPTZ</li>
+                    <li>created_at: TIMESTAMPTZ</li>
+                    <li>updated_at: TIMESTAMPTZ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="schema-row">
+              <div class="table-card" data-table="order_items">
+                <h3>Order Items Table</h3>
+                <div class="table-content">
+                  <ul>
+                    <li data-primary="true">id: UUID (Primary Key)</li>
+                    <li data-foreign="true">order_id: UUID (Foreign Key to Orders)</li>
+                    <li data-foreign="true">item_name: VARCHAR (Foreign Key to Inventory)</li>
+                    <li>order_qty: FLOAT</li>
+                    <li>total_pieces: INTEGER</li>
+                    <li>order_item_status: VARCHAR</li>
+                    <li>created_at: TIMESTAMPTZ</li>
+                    <li>updated_at: TIMESTAMPTZ</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="table-card" data-table="notes">
+                <h3>Notes Table</h3>
+                <div class="table-content">
+                  <ul>
+                    <li data-primary="true">id: UUID (Primary Key)</li>
+                    <li data-foreign="true">user: EMAIL (Foreign Key to Users)</li>
+                    <li>note_board: TEXT</li>
+                    <li>reply_at: VARCHAR</li>
+                    <li>font_size: VARCHAR</li>
+                    <li>created_at: TIMESTAMPTZ</li>
+                    <li>updated_at: TIMESTAMPTZ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="schema-row">
+              <div class="table-card" data-table="users">
+                <h3>Users Table</h3>
+                <div class="table-content">
+                  <ul>
+                    <li data-primary="true">id: UUID (Primary Key)</li>
+                    <li data-foreign="true">auth_user_id: UUID (Foreign Key to Auth.Users)</li>
+                    <li data-required="true">email: VARCHAR (Unique, Not Null)</li>
+                    <li>role: VARCHAR (admin, sales, staff)</li>
+                    <li>username: VARCHAR</li>
+                    <li>created_at: TIMESTAMPTZ</li>
+                    <li>updated_at: TIMESTAMPTZ</li>
                   </ul>
                 </div>
               </div>
@@ -1289,14 +1840,14 @@
                 </div>
               </div>
 
-              <div class="page-group viewer">
-                <h3>Viewer Section</h3>
+              <div class="page-group sales">
+                <h3>Sales Section</h3>
                 <div class="page-item">
-                  <h4>Viewer Dashboard (view.html)</h4>
+                  <h4>Sales Dashboard (sales.html)</h4>
                   <ul>
                     <li>View Item List</li>
-                    <li>Read-only Access</li>
-                    <li>Limited Functionality</li>
+                    <li>Create Orders</li>
+                    <li>Manage Orders</li>
                   </ul>
                 </div>
                 <div class="page-item">
@@ -1309,84 +1860,22 @@
                 </div>
               </div>
 
-              <div class="page-group guest">
-                <h3>Guest Section</h3>
+              <div class="page-group staff">
+                <h3>Staff Section</h3>
                 <div class="page-item">
-                  <h4>Guest Dashboard (guest.html)</h4>
+                  <h4>Staff Dashboard (staff.html)</h4>
                   <ul>
                     <li>View Item List</li>
-                    <li>Basic Read Access</li>
-                    <li>Minimal Functionality</li>
+                    <li>Update Stock</li>
+                    <li>Manage Inventory</li>
                   </ul>
                 </div>
                 <div class="page-item">
                   <h4>Limited Access</h4>
                   <ul>
                     <li>Sold Out Items (soldout.html)</li>
+                    <li>Inventory Summary</li>
                   </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Database Schema Section -->
-        <section id="database" class="content-section">
-          <h2>Database Schema</h2>
-          <div class="schema-explorer">
-            <!-- Side Menu -->
-            <div class="schema-menu">
-              <div class="menu-group">
-                <h4>Core Tables</h4>
-                <button class="menu-item active" data-table="inventory">
-                  Inventory
-                </button>
-                <button class="menu-item" data-table="users">Users</button>
-              </div>
-              <div class="menu-group">
-                <h4>Order Tables</h4>
-                <button class="menu-item" data-table="order_header">
-                  Order Header
-                </button>
-                <button class="menu-item" data-table="order_items">
-                  Order Items
-                </button>
-                <button class="menu-item" data-table="order_item_history">
-                  Order History
-                </button>
-              </div>
-              <div class="menu-group">
-                <h4>Analytics Tables</h4>
-                <button class="menu-item" data-table="weekly_state_orders">
-                  Weekly State Orders
-                </button>
-              </div>
-              <div class="menu-group">
-                <h4>Lookup Tables</h4>
-                <button class="menu-item" data-table="status_options">
-                  Status Options
-                </button>
-                <button class="menu-item" data-table="category_options">
-                  Category Options
-                </button>
-                <button class="menu-item" data-table="sizepack_options">
-                  Size/Pack Options
-                </button>
-                <button class="menu-item" data-table="cargo_options">
-                  Cargo Options
-                </button>
-                <button class="menu-item" data-table="agent_state_options">
-                  Agent State Options
-                </button>
-              </div>
-            </div>
-
-            <!-- Display Area -->
-            <div class="schema-display">
-              <!-- Table Info Display -->
-              <div class="table-info-display">
-                <div id="tableContent" class="table-content active">
-                  <!-- Content will be dynamically populated by JavaScript -->
                 </div>
               </div>
             </div>
@@ -1404,7 +1893,8 @@
                   Two types of accounts are available:
                   <ul style="margin-top: 5px;">
                     <li><strong>Testing Accounts:</strong> Short credentials for development and testing</li>
-                    <li><strong>Production Accounts:</strong> Standard credentials for normal system use</li>
+                    <li><strong>Production Accounts:</strong> Standard credentials for normal system use
+                      (Normally within your name for identification) (Jimmy will create these)</li>
                   </ul>
                 </p>
               </div>
@@ -1416,45 +1906,33 @@
                   <div class="credentials">
                     <div class="test-account">
                       <span class="label">🔧 Testing Account:</span>
-                      <span class="email">a@a.com</span>
-                    </div>
-                    <div class="normal-account">
-                      <span class="label">🔑 Production Account:</span>
-                      <span class="email">admin@boho.aus</span>
+                      <span class="email">ad@ad.com</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="login-role viewer">
+              <div class="login-role sales">
                 <div class="role-icon">👁️</div>
                 <div class="role-details">
-                  <h3>Viewer Role</h3>
+                  <h3>Sales Role</h3>
                   <div class="credentials">
                     <div class="test-account">
                       <span class="label">🔧 Testing Account:</span>
-                      <span class="email">v@v.com</span>
-                    </div>
-                    <div class="normal-account">
-                      <span class="label">🔑 Production Account:</span>
-                      <span class="email">viewer@boho.aus</span>
+                      <span class="email">sa@sa.com</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="login-role guest">
+              <div class="login-role staff">
                 <div class="role-icon">👤</div>
                 <div class="role-details">
-                  <h3>Guest Role</h3>
+                  <h3>Staff Role</h3>
                   <div class="credentials">
                     <div class="test-account">
                       <span class="label">🔧 Testing Account:</span>
-                      <span class="email">g@g.com</span>
-                    </div>
-                    <div class="normal-account">
-                      <span class="label">🔑 Production Account:</span>
-                      <span class="email">guest@boho.aus</span>
+                      <span class="email">st@st.com</span>
                     </div>
                   </div>
                 </div>

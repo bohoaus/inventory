@@ -1,0 +1,280 @@
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.staffsoldout-button {
+  padding: 12px 24px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.staffsoldout-button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.staffsoldout-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.staffsoldout-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.staffsoldout-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.staffsoldout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.staffsoldout-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.5em;
+}
+
+.staffsoldout-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.staffsoldout-filters {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.staffsoldout-week-filter {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 250px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.staffsoldout-week-filter:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.staffsoldout-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.staffsoldout-item {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.staffsoldout-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.staffsoldout-code {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.staffsoldout-group {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.staffsoldout-item-details {
+  margin-bottom: 10px;
+}
+
+.staffsoldout-name {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.staffsoldout-category {
+  display: block;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.staffsoldout-item-footer {
+  border-top: 1px solid #dee2e6;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.staffsoldout-date {
+  color: #dc3545;
+  font-size: 0.9em;
+}
+
+.staffsoldout-table-container {
+  overflow-x: auto;
+}
+
+.staffsoldout-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: white;
+}
+
+.staffsoldout-table th,
+.staffsoldout-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.staffsoldout-table th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.staffsoldout-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .staffsoldout-filters {
+    flex-direction: column;
+  }
+
+  .staffsoldout-list {
+    grid-template-columns: 1fr;
+  }
+
+  .staffsoldout-table {
+    font-size: 14px;
+  }
+
+  .staffsoldout-table th,
+  .staffsoldout-table td {
+    padding: 8px;
+  }
+}
+
+/* Add these status-based styles */
+.staffsoldout-table .status-new-release {
+  background-color: #e3f2fd;
+}
+
+.staffsoldout-table .status-full-price {
+  background-color: #f1f8e9;
+}
+
+.staffsoldout-table .status-on-sale {
+  background-color: #fbe9e7;
+}
+
+.staffsoldout-table .status-default {
+  background-color: #f5f5f5;
+}
+
+/* Update hover styles to maintain status colors */
+.staffsoldout-table .status-new-release:hover {
+  background-color: #bbdefb;
+}
+
+.staffsoldout-table .status-full-price:hover {
+  background-color: #dcedc8;
+}
+
+.staffsoldout-table .status-on-sale:hover {
+  background-color: #ffccbc;
+}
+
+.staffsoldout-table .status-default:hover {
+  background-color: #eeeeee;
+}
+
+.staffsoldout-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.staffsoldout-export {
+  padding: 6px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.staffsoldout-export:hover {
+  background-color: #45a049;
+}
+
+/* Update header styles */
+.staffsoldout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.staffsoldout-close {
+  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}

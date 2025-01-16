@@ -1,0 +1,694 @@
+.Salesorders-container {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.Salesorders-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.Salesorders-search-filter {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+  min-width: 300px;
+  align-items: center;
+}
+
+.Salesorders-search-filter input,
+.Salesorders-search-filter select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 150px;
+  height: 38px;
+}
+
+.Salesorders-search-filter input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.Salesorders-search-filter input::placeholder {
+  color: #6c757d;
+}
+
+.Salesorders-search-filter select {
+  background-color: white;
+  cursor: pointer;
+}
+
+.Salesorders-search-filter select:hover {
+  border-color: #adb5bd;
+}
+
+.Salesorders-search-filter select:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.Salesorders-group-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.Salesorders-group-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Salesorders-group-btn:hover {
+  background: #f8f9fa;
+}
+
+.Salesorders-group-btn.active {
+  background: #007bff;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.Salesorders-display-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.Salesorders-display-controls select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  height: 38px;
+}
+
+.Salesorders-display-controls select:hover {
+  border-color: #adb5bd;
+}
+
+.Salesorders-display-controls select:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.Salesorders-table-wrapper {
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Salesorders-table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Ensure the table container doesn't overflow the sidebar */
+.main-content {
+  overflow: hidden;
+}
+
+.Salesorders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Salesorders-th,
+.Salesorders-td {
+  padding: 12px;
+  text-align: left !important;
+  border: 1px solid #dee2e6;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+/* Action column */
+.Salesorders-td:first-child,
+.Salesorders-th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: 100px;
+  min-width: 100px;
+}
+
+/* Header styling */
+.Salesorders-th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #f8f9fa !important;
+  font-weight: 600;
+}
+
+/* First header cell (actions) */
+.Salesorders-th:first-child {
+  z-index: 3;
+  background-color: #f8f9fa !important;
+}
+
+/* Column widths */
+.Salesorders-td[data-column="customer_name"],
+.Salesorders-th[onclick*="customer_name"] {
+  min-width: 180px;
+}
+
+.Salesorders-td[data-column="order_note"],
+.Salesorders-th[onclick*="order_note"] {
+  min-width: 250px;
+}
+
+.Salesorders-td[data-column="shipping_address"],
+.Salesorders-th[onclick*="shipping_address"] {
+  min-width: 250px;
+}
+
+/* Right align number columns */
+.Salesorders-td[data-column="total_items"],
+.Salesorders-th[onclick*="total_items"],
+.Salesorders-td[data-column="removed_items"],
+.Salesorders-th[onclick*="removed_items"] {
+  text-align: left !important;
+  min-width: 100px;
+}
+
+/* Date columns */
+.Salesorders-td[data-column*="_at"],
+.Salesorders-th[onclick*="_at"] {
+  min-width: 150px;
+}
+
+/* Status column */
+.Salesorders-td[data-column="status"],
+.Salesorders-th[onclick*="status"] {
+  min-width: 130px;
+}
+
+/* Type and state columns */
+.Salesorders-td[data-column*="type"],
+.Salesorders-th[onclick*="type"],
+.Salesorders-td[data-column*="state"],
+.Salesorders-th[onclick*="state"] {
+  min-width: 120px;
+}
+
+/* Remove fixed table layout */
+.Salesorders-table {
+  table-layout: auto !important;
+  width: max-content !important;
+}
+
+/* Ensure cells don't wrap and show full content */
+.Salesorders-td,
+.Salesorders-th {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Hover effects */
+.Salesorders-tr:hover .Salesorders-td {
+  background-color: #f8f9fa;
+}
+
+.Salesorders-tr:hover .Salesorders-td:first-child {
+  background-color: #f8f9fa;
+}
+
+/* View button */
+.Salesorders-view-btn {
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background: #fff;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.Salesorders-view-btn:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.Salesorders-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.Salesorders-pagination-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Salesorders-pagination-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+}
+
+.Salesorders-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Salesorders-pagination-active {
+  background: #007bff;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.Salesorders-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.Salesorders-modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: none;
+  border-radius: 8px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.Salesorders-detail-section {
+  margin-bottom: 30px;
+}
+
+.Salesorders-detail-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #007bff;
+}
+
+.Salesorders-detail-group {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30px;
+  min-width: 300px;
+}
+
+.Salesorders-detail-row {
+  display: flex;
+  margin: 8px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.Salesorders-detail-row label {
+  font-weight: 600;
+  width: 150px;
+  color: #666;
+}
+
+.Salesorders-detail-row span {
+  flex: 1;
+}
+
+.Salesorders-no-data {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.Salesorders-records-info {
+  margin: 15px 0;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.Salesorders-records-count {
+  color: #495057;
+  line-height: 1.5;
+}
+
+.Salesorders-records-count strong {
+  color: #212529;
+  font-weight: 600;
+}
+
+.Salesorders-clear-btn {
+  padding: 8px 16px;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  background: #fff;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.Salesorders-clear-btn:hover {
+  background: #dc3545;
+  color: #fff;
+}
+
+/* Modal close button */
+.Salesorders-modal .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.Salesorders-modal .close:hover {
+  opacity: 1;
+  color: #dc3545;
+}
+
+/* Items table in modal */
+.Salesorders-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.Salesorders-items-table th,
+.Salesorders-items-table td {
+  text-align: left !important;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
+
+.Salesorders-items-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.Salesorders-items-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+/* Pagination ellipsis */
+.Salesorders-pagination-ellipsis {
+  padding: 8px;
+  color: #666;
+  user-select: none;
+}
+
+/* Table cell alignment */
+.Salesorders-td[data-column="total_items"],
+.Salesorders-th[onclick*="total_items"] {
+  text-align: left !important;
+}
+
+/* Status colors */
+.Salesorders-td .Salesorders-status-pending {
+  color: #ffc107;
+  font-weight: 500;
+}
+
+.Salesorders-td .Salesorders-status-processing {
+  color: #17a2b8;
+  font-weight: 500;
+}
+
+.Salesorders-td .Salesorders-status-completed {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.Salesorders-td .Salesorders-status-cancelled {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .Salesorders-search-filter {
+    flex-wrap: wrap;
+  }
+
+  .Salesorders-search-filter input,
+  .Salesorders-search-filter select {
+    flex: 1 1 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Salesorders-controls {
+    flex-direction: column;
+  }
+
+  .Salesorders-display-controls {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+}
+
+.Salesorders-column-select-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.Salesorders-column-select-btn:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.Salesorders-column-selection {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.Salesorders-column-selection.show {
+  display: block;
+}
+
+.column-search {
+  margin-bottom: 10px;
+}
+
+.column-search input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.column-select-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.column-select-actions button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.column-select-actions button:hover {
+  background: #f8f9fa;
+}
+
+.column-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.column-option label {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* Update status colors */
+.Salesorders-status-picking {
+  color: #17a2b8;
+  font-weight: 500;
+}
+
+.Salesorders-status-awaiting-payment {
+  color: #ffc107;
+  font-weight: 500;
+}
+
+.Salesorders-status-wholesale-on-hold,
+.Salesorders-status-odm-on-hold {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.Salesorders-status-dispatched {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.Salesorders-status-cancelled {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+/* Group buttons */
+.Salesorders-group-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.Salesorders-group-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.Salesorders-group-btn:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.Salesorders-group-btn.active {
+  background: #007bff;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+/* Position the column selection dropdown */
+.Salesorders-display-controls {
+  position: relative;
+}
+
+/* Make sure the table fills the container */
+.Salesorders-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.Salesorders-table th,
+.Salesorders-table td {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Ensure the action column has enough space */
+.Salesorders-table th:first-child,
+.Salesorders-table td:first-child {
+  width: 100px;
+  min-width: 100px;
+}
+
+/* Right align number columns */
+.Salesorders-td[data-column="total_items"],
+.Salesorders-th[onclick*="total_items"],
+.Salesorders-td[data-column="removed_items"],
+.Salesorders-th[onclick*="removed_items"] {
+  text-align: left !important;
+}
+
+.Salesorders-item-removed {
+  background-color: #ffebee;
+}
+
+.Salesorders-item-active {
+  background-color: #ffffff;
+}
+
+.Salesorders-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.Salesorders-items-table th,
+.Salesorders-items-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+
+.Salesorders-items-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.Salesorders-items-table tr:hover {
+  background-color: #f5f5f5;
+}

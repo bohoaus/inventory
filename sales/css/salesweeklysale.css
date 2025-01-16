@@ -1,0 +1,160 @@
+.salesweeklysale-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  margin: 0 0 20px 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.salesweeklysale-button:hover {
+  background-color: #1976d2;
+}
+
+.salesweeklysale-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.salesweeklysale-content {
+  background-color: white;
+  margin: 2% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.date-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date-filter label {
+  font-weight: 500;
+  color: #666;
+}
+
+.date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+#summaryTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+#summaryTable th,
+#summaryTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#summaryTable th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+  color: #333;
+}
+
+#summaryTable tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .date-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Add status-based styles */
+#summaryTable .status-new-release {
+  background-color: #e3f2fd;
+}
+
+#summaryTable .status-full-price {
+  background-color: #f1f8e9;
+}
+
+#summaryTable .status-on-sale {
+  background-color: #fbe9e7;
+}
+
+#summaryTable .status-default {
+  background-color: #f5f5f5;
+}
+
+/* Add export button styles */
+.salesweeklysale-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.salesweeklysale-export {
+  padding: 6px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.salesweeklysale-export:hover {
+  background-color: #45a049;
+}

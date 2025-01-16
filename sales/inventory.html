@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory View - Sales</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="css/salesinventory.css" />
+    <link rel="stylesheet" href="css/exportpdf.css" />
+    <!-- Load Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Load config and auth -->
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <!-- Load PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Sales</div>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="active"><a href="inventory.html">Inventory</a></li>
+          <li><a href="order.html">Orders</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header>
+          <h1>Inventory View</h1>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <div class="special-buttons">
+          <button class="export-pdf-btn">
+            <svg class="pdf-icon" width="16" height="16" viewBox="0 0 384 512">
+              <path
+                fill="currentColor"
+                d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48z"
+              />
+            </svg>
+            Export PDF
+          </button>
+        </div>
+
+        <div id="inventoryContainer" class="Salesinventory-container"></div>
+      </main>
+    </div>
+
+    <!-- Load inventory component -->
+    <script src="../components/dedicated/inventory.js"></script>
+    <script src="../components/dedicated/pdfExport.js"></script>
+
+    <script>
+      // Initialize components when DOM is loaded
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          console.log("DOM loaded, checking auth...");
+          // Check authentication
+          const {
+            data: { session },
+            error,
+          } = await supabaseClient.auth.getSession();
+
+          if (error) {
+            console.error("Auth error:", error);
+            window.location.href = "/index.html";
+            return;
+          }
+
+          if (!session) {
+            console.log("No session found");
+            window.location.href = "/index.html";
+            return;
+          }
+
+          console.log("Session found:", session.user.email);
+
+          // Display user email
+          document.getElementById("userEmail").textContent = session.user.email;
+
+          // Initialize inventory component
+          if (window.inventoryComponent) {
+            console.log("Initializing inventory component...");
+            await window.inventoryComponent.initialize("inventoryContainer");
+          } else {
+            console.error("Inventory component not found");
+          }
+
+          // Setup logout handler
+          document
+            .getElementById("logout")
+            .addEventListener("click", async (e) => {
+              e.preventDefault();
+              const { error } = await supabaseClient.auth.signOut();
+              if (!error) {
+                window.location.href = "/index.html";
+              }
+            });
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Dashboard - Inventory Management System</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/noteBoard.css" />
+    <link rel="stylesheet" href="css/saleDashboard.css" />
+    <link rel="stylesheet" href="css/salesfreightlist.css" />
+    <link rel="stylesheet" href="css/salessummary.css" />
+    <link rel="stylesheet" href="css/salessoldout.css" />
+    <link rel="stylesheet" href="css/salesweeklysale.css" />
+    <link rel="stylesheet" href="css/salesstatedistro.css" />
+
+    <!-- Load Supabase and Config first -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+
+    <!-- Load PDF libraries for freight list export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Add before jsPDF -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Sales</div>
+        <ul class="nav-links">
+          <li class="active"><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="order.html">Orders</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header>
+          <h1>Sales Dashboard</h1>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <div class="note-board">
+          <h2>Note Board</h2>
+          <div id="notes"></div>
+          <textarea id="newNote" placeholder="Add a new note..."></textarea>
+          <button id="addNote">Add Note</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- Load components -->
+    <script src="js/salesfreightlist.js"></script>
+    <script src="../components/shared/noteBoard.js"></script>
+    <script src="../js/salesDashboard.js"></script>
+    <script src="js/salessummary.js"></script>
+    <script src="js/salessoldout.js"></script>
+    <script src="js/salesweeklysale.js"></script>
+    <script src="js/salesstatedistro.js"></script>
+  </body>
+</html>
