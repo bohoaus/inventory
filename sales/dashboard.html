@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/salessoldout.css" />
     <link rel="stylesheet" href="css/salesweeklysale.css" />
     <link rel="stylesheet" href="css/salesstatedistro.css" />
+    <link rel="stylesheet" href="css/salesodmdispatch.css" />
 
     <!-- Load Supabase and Config first -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -47,6 +48,10 @@
         </header>
 
         <div class="note-board">
+          <button id="viewSalesODMDispatchBtn" class="action-button">
+            <i class="fas fa-truck"></i>
+            View ODM Dispatch on Freight List
+          </button>
           <h2>Note Board</h2>
           <div id="notes"></div>
           <textarea id="newNote" placeholder="Add a new note..."></textarea>
@@ -63,5 +68,6 @@
     <script src="js/salessoldout.js"></script>
     <script src="js/salesweeklysale.js"></script>
     <script src="js/salesstatedistro.js"></script>
+    <script src="js/salesodmdispatch.js"></script>
   </body>
 </html>

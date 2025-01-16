@@ -103,7 +103,7 @@ class SalesOrdersComponent {
             <option value="CANCELLED">CANCELLED</option>
           </select>
           <select class="Salesorders-agent-state-filter">
-            <option value="">All States</option>
+            <option value="">All Agent States</option>
             <option value="NSW">NSW</option>
             <option value="VIC">VIC</option>
             <option value="QLD">QLD</option>

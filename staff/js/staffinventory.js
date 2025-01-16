@@ -136,17 +136,18 @@ class StaffInventoryComponent {
           <div class="Staffinventory-search-filter">
             <input type="text" id="searchInventory" placeholder="Search by code or name...">
             <input type="text" id="searchNote" placeholder="Search by note...">
+            <div class="Staffinventory-filter-buttons">
+              <button class="Staffinventory-filter-btn" data-filter="repeat">Repeat Items</button>
+              <button class="Staffinventory-group-btn" data-group="BOHO">BOHO</button>
+              <button class="Staffinventory-group-btn" data-group="PRIMROSE">PRIMROSE</button>
+              <button class="Staffinventory-group-btn" data-group="ODM">ODM</button>
+            </div>
             <select id="categoryFilter">
               <option value="">All Categories</option>
             </select>
             <select id="statusFilter">
               <option value="">All Statuses</option>
             </select>
-            <div class="Staffinventory-group-buttons">
-              <button class="Staffinventory-group-btn" data-group="BOHO">BOHO</button>
-              <button class="Staffinventory-group-btn" data-group="PRIMROSE">PRIMROSE</button>
-              <button class="Staffinventory-group-btn" data-group="ODM">ODM</button>
-            </div>
             <button class="Staffinventory-clear-btn" onclick="window.staffInventoryComponent.clearAllFilters()">
               Clear All Filters
             </button>
@@ -304,37 +305,24 @@ class StaffInventoryComponent {
         toggleBtn.classList.remove("active");
       }
     });
+
+    // Add event listener for repeat items filter
+    document
+      .querySelector('[data-filter="repeat"]')
+      .addEventListener("click", (e) => {
+        const btn = e.target;
+        btn.classList.toggle("active");
+        this.loadInventory();
+      });
   }
 
   async loadInventory() {
     try {
-      console.log("Starting loadInventory...");
+      let query = supabaseClient.from("inventory").select("*");
 
-      // First get total count
-      const { count: totalCount } = await supabaseClient
-        .from("inventory")
-        .select("*", { count: "exact", head: true });
-
-      console.log("Total records:", totalCount);
-
-      // Build query for filtered data
-      let query = supabaseClient
-        .from("inventory")
-        .select("id," + this.selectedColumns.join(","), { count: "exact" });
-
-      // Apply filters
+      // Apply search filters
       const searchTerm = this.searchInput.value.trim().toLowerCase();
       const noteSearchTerm = this.searchNoteInput.value.trim().toLowerCase();
-      const categoryFilter = this.categoryFilter.value;
-      const statusFilter = this.statusFilter.value;
-
-      console.log("Applied filters:", {
-        searchTerm,
-        noteSearchTerm,
-        categoryFilter,
-        statusFilter,
-        groupFilter: this.currentFilter,
-      });
 
       if (searchTerm) {
         query = query.or(
@@ -346,41 +334,37 @@ class StaffInventoryComponent {
         query = query.ilike("item_note", `%${noteSearchTerm}%`);
       }
 
+      // Apply category filter
+      const categoryFilter = document.getElementById("categoryFilter").value;
       if (categoryFilter) {
         query = query.eq("item_category", categoryFilter);
       }
 
+      // Apply status filter
+      const statusFilter = document.getElementById("statusFilter").value;
       if (statusFilter) {
         query = query.eq("item_status", statusFilter);
       }
 
+      // Apply group filter
       if (this.currentFilter !== "all") {
         query = query.eq("item_group", this.currentFilter);
       }
 
-      // Execute query
-      console.log("Executing query...");
-      const { data, error, count: filteredCount } = await query;
+      // Apply repeat items filter
+      const repeatFilterBtn = document.querySelector('[data-filter="repeat"]');
+      if (repeatFilterBtn && repeatFilterBtn.classList.contains("active")) {
+        query = query.not("repeat_item", "is", null);
+      }
+
+      // Get the data
+      const { data, error } = await query;
 
       if (error) {
-        console.error("Error loading inventory:", error);
-        return;
+        throw error;
       }
 
-      if (!data) {
-        console.log("No data received");
-        this.renderInventoryTable([]);
-        this.updateRecordsInfo(totalCount, 0);
-        return;
-      }
-
-      console.log("Received data count:", data.length);
-      console.log("First record:", data[0]);
-
-      // Store the data for re-rendering
-      this.lastData = data;
-
-      // Sort data
+      // Sort the data
       const sortedData = this.sortData(data);
 
       // Apply pagination
@@ -391,19 +375,16 @@ class StaffInventoryComponent {
         startIndex + itemsPerPage
       );
 
-      console.log("Paginated data count:", paginatedData.length);
-
-      // Update records info
-      this.updateRecordsInfo(totalCount, filteredCount);
-
-      // Render table
+      // Update the table with paginated data
       this.renderInventoryTable(paginatedData);
 
-      // Update pagination
-      this.renderPagination(filteredCount);
+      // Update records info
+      this.updateRecordsInfo(data.length, sortedData.length);
+
+      // Render pagination controls
+      this.renderPagination(sortedData.length);
     } catch (error) {
-      console.error("Error in loadInventory:", error);
-      this.renderInventoryTable([]);
+      console.error("Error loading inventory:", error);
     }
   }
 
@@ -734,15 +715,15 @@ class StaffInventoryComponent {
       document.getElementById("detailPackUnit").textContent =
         item.pack_unit || "";
 
-      // Pack Size and Repeat Item as tables
+      // Pack Size and Repeat Item with new format
       const packSizeContainer = document.getElementById("detailPackSize");
       packSizeContainer.innerHTML = item.pack_size
-        ? this.renderJsonGrid(item.pack_size)
+        ? this.renderJsonGrid(item.pack_size, "pack_size")
         : "-";
 
       const repeatItemContainer = document.getElementById("detailRepeatItem");
       repeatItemContainer.innerHTML = item.repeat_item
-        ? this.renderJsonGrid(item.repeat_item)
+        ? this.renderJsonGrid(item.repeat_item, "repeat_item")
         : "-";
 
       document.getElementById("detailAging").textContent =
@@ -897,6 +878,11 @@ class StaffInventoryComponent {
       btn.classList.remove("active");
     });
 
+    // Reset repeat items filter
+    document
+      .querySelector('[data-filter="repeat"]')
+      ?.classList.remove("active");
+
     // Reset page
     this.currentPage = 1;
 
@@ -985,9 +971,9 @@ class StaffInventoryComponent {
         };
       }
 
-      // Render JSON data in grid
+      // Render JSON data in grid with the correct type
       const grid = document.getElementById(gridId);
-      grid.innerHTML = this.renderJsonGrid(data);
+      grid.innerHTML = this.renderJsonGrid(data, type);
 
       // Show modal
       modal.style.display = "block";
@@ -996,26 +982,27 @@ class StaffInventoryComponent {
     }
   }
 
-  renderJsonGrid(data) {
+  renderJsonGrid(data, type) {
     if (typeof data !== "object" || data === null) {
       return '<div class="Staffinventory-json-row">No data available</div>';
     }
 
-    return `
+    if (type === "pack_size") {
+      return `
         <table class="Staffinventory-json-table">
           <thead>
             <tr>
-              <th>Property</th>
-              <th>Value</th>
+              <th>Size</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
             ${Object.entries(data)
               .map(
-                ([key, value]) => `
+                ([size, amount]) => `
                 <tr>
-                  <td>${this.formatColumnName(key)}</td>
-                  <td>${value}</td>
+                  <td>${size}</td>
+                  <td>${amount}</td>
                 </tr>
               `
               )
@@ -1023,6 +1010,54 @@ class StaffInventoryComponent {
           </tbody>
         </table>
       `;
+    } else if (type === "repeat_item") {
+      return `
+        <table class="Staffinventory-json-table">
+          <thead>
+            <tr>
+              <th>Times</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.entries(data)
+              .map(
+                ([key, date], index) => `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td>${this.formatDate(date)}</td>
+                </tr>
+              `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
+    }
+
+    // Default table format for other JSON data
+    return `
+      <table class="Staffinventory-json-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${Object.entries(data)
+            .map(
+              ([key, value]) => `
+              <tr>
+                <td>${this.formatColumnName(key)}</td>
+                <td>${value}</td>
+              </tr>
+            `
+            )
+            .join("")}
+        </tbody>
+      </table>
+    `;
   }
 
   createColumnSelectionHTML() {

@@ -716,3 +716,38 @@ header {
 .export-confirm-btn:hover {
   background: #218838;
 }
+
+.Staffinventory-filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.Staffinventory-filter-btn,
+.Staffinventory-group-btn {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.Staffinventory-filter-btn:hover,
+.Staffinventory-group-btn:hover {
+  background: #f8f9fa;
+  border-color: #ccc;
+}
+
+.Staffinventory-filter-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.Staffinventory-group-btn.active {
+  background: #28a745;
+  color: white;
+  border-color: #1e7e34;
+}

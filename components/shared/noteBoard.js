@@ -129,6 +129,18 @@ class NoteBoard {
       fontSizeSelect.appendChild(option);
     });
 
+    // Add event listener for font size changes
+    fontSizeSelect.addEventListener("change", (e) => {
+      const size = e.target.value;
+      // Remove all font size classes
+      this.newNoteInput.classList.remove(
+        ...this.fontSizes.map((s) => `font-size-${s.replace("px", "")}`)
+      );
+      // Add the selected font size class
+      this.newNoteInput.classList.add(`font-size-${size.replace("px", "")}`);
+      this.currentFontSize = size;
+    });
+
     // Create emoji button
     const emojiBtn = document.createElement("button");
     emojiBtn.type = "button";

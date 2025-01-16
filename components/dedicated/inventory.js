@@ -10,6 +10,7 @@ class InventoryComponent {
     this.sortColumn = "release_date";
     this.sortDirection = "desc";
     this.currentFilter = "all";
+    this.isRepeatFilter = false;
 
     // Define all available columns
     this.allColumns = [
@@ -146,6 +147,9 @@ class InventoryComponent {
             <button class="Salesinventory-group-btn" data-group="BOHO">BOHO</button>
             <button class="Salesinventory-group-btn" data-group="PRIMROSE">PRIMROSE</button>
             <button class="Salesinventory-group-btn" data-group="ODM">ODM</button>
+            <button class="Salesinventory-repeat-btn" onclick="window.inventoryComponent.filterRepeatItems()">
+              <i class="fas fa-sync"></i> Repeat Items
+            </button>
           </div>
           <button class="Salesinventory-clear-btn" onclick="window.inventoryComponent.clearAllFilters()">
             Clear All Filters
@@ -353,6 +357,11 @@ class InventoryComponent {
 
       if (this.currentFilter !== "all") {
         query = query.eq("item_group", this.currentFilter);
+      }
+
+      // Apply repeat filter
+      if (this.isRepeatFilter) {
+        query = query.not("repeat_item", "is", null);
       }
 
       // Execute query
@@ -899,6 +908,13 @@ class InventoryComponent {
 
     // Reload inventory
     this.loadInventory();
+
+    // Reset repeat filter
+    this.isRepeatFilter = false;
+    const repeatBtn = document.querySelector(".Salesinventory-repeat-btn");
+    if (repeatBtn) {
+      repeatBtn.classList.remove("active");
+    }
   }
 
   updateRecordsInfo(totalRecords, filteredRecords) {
@@ -998,28 +1014,84 @@ class InventoryComponent {
       return '<div class="Salesinventory-json-row">No data available</div>';
     }
 
-    return `
-      <table class="Salesinventory-json-table">
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${Object.entries(data)
-            .map(
-              ([key, value]) => `
-              <tr>
-                <td>${this.formatColumnName(key)}</td>
-                <td>${value}</td>
-              </tr>
-            `
-            )
-            .join("")}
-        </tbody>
-      </table>
-    `;
+    // Check if it's a pack size table (has 'size' keys) or repeat item table (has numeric keys)
+    const isPackSize = Object.keys(data).some((key) =>
+      key.toLowerCase().includes("size")
+    );
+    const isRepeatItem = Object.keys(data).every((key) => !isNaN(key));
+
+    if (isPackSize) {
+      return `
+        <table class="Salesinventory-json-table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.entries(data)
+              .map(
+                ([size, amount]) => `
+                <tr>
+                  <td>${size}</td>
+                  <td>${amount}</td>
+                </tr>
+              `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
+    } else if (isRepeatItem) {
+      return `
+        <table class="Salesinventory-json-table">
+          <thead>
+            <tr>
+              <th>Times</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.entries(data)
+              .sort((a, b) => Number(a[0]) - Number(b[0])) // Sort by numeric key
+              .map(
+                ([_, date], index) => `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td>${this.formatDate(date)}</td>
+                </tr>
+              `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
+    } else {
+      // Fallback for other JSON data
+      return `
+        <table class="Salesinventory-json-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Object.entries(data)
+              .map(
+                ([key, value]) => `
+                <tr>
+                  <td>${this.formatColumnName(key)}</td>
+                  <td>${value}</td>
+                </tr>
+              `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
+    }
   }
 
   createColumnSelectionHTML() {
@@ -1538,6 +1610,15 @@ class InventoryComponent {
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
+  }
+
+  filterRepeatItems() {
+    this.isRepeatFilter = !this.isRepeatFilter;
+    const repeatBtn = document.querySelector(".Salesinventory-repeat-btn");
+    if (repeatBtn) {
+      repeatBtn.classList.toggle("active", this.isRepeatFilter);
+    }
+    this.loadInventory();
   }
 }
 

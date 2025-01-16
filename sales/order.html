@@ -79,7 +79,7 @@
               e.preventDefault();
               const { error } = await supabaseClient.auth.signOut();
               if (!error) {
-                window.location.href = "/index.html";
+                window.location.href = "../index.html";
               }
             });
         } catch (error) {

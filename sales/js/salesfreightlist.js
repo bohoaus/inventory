@@ -20,10 +20,19 @@ class SalesFreightList {
       // Create modal
       const modal = document.createElement("div");
       modal.className = "sale-freight-modal";
-      modal.style.display = "block"; // Make sure modal is visible
+      modal.style.display = "block";
 
       const content = document.createElement("div");
       content.className = "sale-freight-content";
+
+      // Create header
+      const header = document.createElement("div");
+      header.className = "sale-freight-header";
+
+      // Add title
+      const title = document.createElement("h2");
+      title.textContent = "Freight Lists";
+      title.style.margin = "0";
 
       // Add close button
       const closeBtn = document.createElement("button");
@@ -31,10 +40,12 @@ class SalesFreightList {
       closeBtn.innerHTML = "&times;";
       closeBtn.onclick = () => modal.remove();
 
-      // Add title
-      const title = document.createElement("h2");
-      title.className = "sale-freight-title";
-      title.textContent = "Freight Lists";
+      header.appendChild(title);
+      header.appendChild(closeBtn);
+
+      // Create body
+      const body = document.createElement("div");
+      body.className = "sale-freight-body";
 
       // Create tabs for different statuses
       const tabContainer = document.createElement("div");
@@ -48,23 +59,26 @@ class SalesFreightList {
       tabContainer.appendChild(delayedTab);
       tabContainer.appendChild(arrivedTab);
 
-      // Create content area
-      const contentArea = document.createElement("div");
-      contentArea.className = "sale-freight-content-area";
+      // Add tabs and initial content to body
+      body.appendChild(tabContainer);
+      this.showTabContent("In Transit", groupedItems.inTransit, body);
 
       // Assemble modal
-      content.appendChild(closeBtn);
-      content.appendChild(title);
-      content.appendChild(tabContainer);
-      content.appendChild(contentArea);
+      content.appendChild(header);
+      content.appendChild(body);
       modal.appendChild(content);
       document.body.appendChild(modal);
 
-      // Show initial data and activate first tab
-      inTransitTab.classList.add("active");
-      this.showTabContent("inTransit", groupedItems.inTransit, contentArea);
+      // Add click event for closing when clicking outside
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.remove();
+        }
+      });
+
+      this.modal = modal;
     } catch (error) {
-      console.error("Error loading freight lists:", error);
+      console.error("Error showing freight modal:", error);
     }
   }
 

@@ -1,11 +1,11 @@
-class StaffODMDispatch {
+class SalesODMDispatch {
   constructor() {
     this.modal = null;
     this.initialize();
   }
 
   initialize() {
-    const odmdispatchBtn = document.getElementById("viewODMDispatchBtn");
+    const odmdispatchBtn = document.getElementById("viewSalesODMDispatchBtn");
     if (odmdispatchBtn) {
       odmdispatchBtn.addEventListener("click", () =>
         this.showODMDispatchModal()
@@ -34,12 +34,12 @@ class StaffODMDispatch {
       }
 
       this.modal = document.createElement("div");
-      this.modal.className = "Staffodmdispatch-modal";
+      this.modal.className = "salesodmdispatch-modal";
       this.modal.innerHTML = `
-        <div class="Staffodmdispatch-content">
-          <div class="Staffodmdispatch-header">
+        <div class="salesodmdispatch-content">
+          <div class="salesodmdispatch-header">
             <h2>ODM Dispatch Information</h2>
-            <button class="Staffodmdispatch-close">&times;</button>
+            <button class="salesodmdispatch-close">&times;</button>
           </div>
           ${this.renderDispatchGroups(groupedItems)}
         </div>
@@ -81,15 +81,15 @@ class StaffODMDispatch {
     return Object.values(groups)
       .map(
         (group) => `
-        <div class="Staffodmdispatch-group">
-          <div class="Staffodmdispatch-group-header">
-            <div class="Staffodmdispatch-header-main">
+        <div class="salesodmdispatch-group">
+          <div class="salesodmdispatch-group-header">
+            <div class="salesodmdispatch-header-main">
               <h3>${this.formatDateToSydney(group.mfg_date)} - ${
           group.cargo
         }</h3>
             </div>
-            <div class="Staffodmdispatch-summary">
-              <div class="Staffodmdispatch-info">
+            <div class="salesodmdispatch-summary">
+              <div class="salesodmdispatch-info">
                 <span>Customers: ${
                   Object.keys(group.customerCounts).length
                 }</span>
@@ -102,7 +102,7 @@ class StaffODMDispatch {
                     : "Not Arrived"
                 }</span>
               </div>
-              <div class="Staffodmdispatch-customer-counts">
+              <div class="salesodmdispatch-customer-counts">
                 ${Object.entries(group.customerCounts)
                   .map(
                     ([customer, count]) => `
@@ -115,14 +115,14 @@ class StaffODMDispatch {
                   .join("")}
               </div>
             </div>
-            <div class="Staffodmdispatch-buttons">
-              <button class="Staffodmdispatch-view-btn" onclick="staffODMDispatch.toggleItemList(this, ${JSON.stringify(
+            <div class="salesodmdispatch-buttons">
+              <button class="salesodmdispatch-view-btn" onclick="salesODMDispatch.toggleItemList(this, ${JSON.stringify(
                 group.items
               ).replace(/"/g, "&quot;")})">
                 <i class="fas fa-eye"></i>
                 <span>View List</span>
               </button>
-              <button class="Staffodmdispatch-export-btn" onclick="staffODMDispatch.exportToPDF(${JSON.stringify(
+              <button class="salesodmdispatch-export-btn" onclick="salesODMDispatch.exportToPDF(${JSON.stringify(
                 {
                   items: group.items,
                   mfg_date: group.mfg_date,
@@ -136,7 +136,7 @@ class StaffODMDispatch {
               </button>
             </div>
           </div>
-          <div class="Staffodmdispatch-items"></div>
+          <div class="salesodmdispatch-items"></div>
         </div>
       `
       )
@@ -148,12 +148,12 @@ class StaffODMDispatch {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
 
-      // Add title with black text
+      // Add title
       doc.setFontSize(16);
-      doc.setTextColor(0, 0, 0); // Black text
+      doc.setTextColor(0, 0, 0);
       doc.text("ODM Dispatch Information", 14, 20);
 
-      // Add group info with black text
+      // Add group info
       doc.setFontSize(12);
       doc.text(
         `Manufacturing Date: ${this.formatDateToSydney(groupData.mfg_date)}`,
@@ -194,32 +194,32 @@ class StaffODMDispatch {
         this.formatDateToSydney(item.updated_at),
       ]);
 
-      // Add table with black and white theme
+      // Add table
       doc.autoTable({
         startY: yPos + 5,
         head: [["Code", "PPO", "Customer", "Status", "Last Updated"]],
         body: tableData,
-        theme: "plain", // Use plain theme for black and white
+        theme: "plain",
         styles: {
           fontSize: 10,
           cellPadding: 3,
-          textColor: [0, 0, 0], // Black text
-          lineColor: [200, 200, 200], // Light gray borders
-          lineWidth: 0.1, // Thin borders
+          textColor: [0, 0, 0],
+          lineColor: [200, 200, 200],
+          lineWidth: 0.1,
         },
         headStyles: {
-          fillColor: [255, 255, 255], // White background
-          textColor: [0, 0, 0], // Black text
+          fillColor: [255, 255, 255],
+          textColor: [0, 0, 0],
           fontStyle: "bold",
-          lineColor: [200, 200, 200], // Light gray borders
-          lineWidth: 0.1, // Thin borders
+          lineColor: [200, 200, 200],
+          lineWidth: 0.1,
         },
         columnStyles: {
-          0: { cellWidth: 35 }, // Code
-          1: { cellWidth: 35 }, // PPO
-          2: { cellWidth: 40 }, // Customer
-          3: { cellWidth: 35 }, // Status
-          4: { cellWidth: 35 }, // Last Updated
+          0: { cellWidth: 35 },
+          1: { cellWidth: 35 },
+          2: { cellWidth: 40 },
+          3: { cellWidth: 35 },
+          4: { cellWidth: 35 },
         },
       });
 
@@ -238,8 +238,8 @@ class StaffODMDispatch {
 
   toggleItemList(button, items) {
     const itemsDiv = button
-      .closest(".Staffodmdispatch-group")
-      .querySelector(".Staffodmdispatch-items");
+      .closest(".salesodmdispatch-group")
+      .querySelector(".salesodmdispatch-items");
     const isHidden =
       itemsDiv.style.display === "none" || !itemsDiv.style.display;
 
@@ -256,7 +256,7 @@ class StaffODMDispatch {
 
   generateItemsTable(items) {
     return `
-      <table class="Staffodmdispatch-table">
+      <table class="salesodmdispatch-table">
         <thead>
           <tr>
             <th>Code</th>
@@ -297,7 +297,7 @@ class StaffODMDispatch {
   }
 
   setupEventListeners() {
-    const closeBtn = this.modal.querySelector(".Staffodmdispatch-close");
+    const closeBtn = this.modal.querySelector(".salesodmdispatch-close");
     closeBtn.onclick = () => this.modal.remove();
 
     this.modal.addEventListener("click", (e) => {
@@ -308,5 +308,5 @@ class StaffODMDispatch {
 
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  window.staffODMDispatch = new StaffODMDispatch();
+  window.salesODMDispatch = new SalesODMDispatch();
 });
