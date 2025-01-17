@@ -338,12 +338,13 @@ class EditWholesaleOrder {
 
   async updateOrder() {
     try {
-      // Get form values with correct column names
+      // Get form values with correct column names and convert to uppercase
       const orderUpdate = {
-        agent_state: document.getElementById("agent_state").value.toLowerCase(),
-        order_note: this.formatInput(
-          document.getElementById("order_note").value
-        ),
+        agent_state: document.getElementById("agent_state").value.toUpperCase(),
+        order_note: document
+          .getElementById("order_note")
+          .value.trim()
+          .toUpperCase(),
         updated_at: new Date().toISOString(),
       };
 

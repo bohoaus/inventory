@@ -1493,19 +1493,39 @@ class EditOdmOrder {
         }
       }
 
-      // 3. Update orders table with removed items count
+      // 3. Update orders table with removed items count and other fields
       const removedItemsCount = removedItems.length;
       console.log(
         "Updating order with removed items count:",
         removedItemsCount
       );
 
+      // Get and validate form values
+      const agentState = document.getElementById("agent_state")?.value || null;
+      const dispatchedBox =
+        document.getElementById("dispatched_box")?.value.trim() || null;
+      const dispatchedAt =
+        document.getElementById("dispatched_at")?.value || null;
+      const orderNote =
+        document.getElementById("order_note")?.value.trim() || null;
+
+      // Prepare update data
+      const updateData = {
+        removed_items: removedItemsCount,
+        updated_at: new Date().toISOString(),
+      };
+
+      // Only add non-null values to update
+      if (agentState) updateData.agent_state = agentState;
+      if (dispatchedBox) updateData.dispatched_box = dispatchedBox;
+      if (dispatchedAt) updateData.dispatched_at = dispatchedAt;
+      if (orderNote) updateData.order_note = orderNote;
+
+      console.log("Updating order with data:", updateData);
+
       const { error: orderUpdateError } = await supabaseClient
         .from("orders")
-        .update({
-          removed_items: removedItemsCount,
-          updated_at: new Date().toISOString(),
-        })
+        .update(updateData)
         .eq("id", this.orderId);
 
       if (orderUpdateError) {

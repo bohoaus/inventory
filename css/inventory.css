@@ -1692,6 +1692,22 @@
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
+.soldout-modal .export-pdf-btn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #888888;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.soldout-modal .export-pdf-btn:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+  border-color: #007bff;
+  cursor: pointer;
+}
+
 .soldout-table-container {
   max-height: calc(80vh - 150px);
   overflow-y: auto;
@@ -1838,6 +1854,22 @@
 .freight-modal .modal-content {
   max-width: 1200px;
   padding: 20px;
+}
+
+.freight-modal .export-pdf-btn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #888888;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.freight-modal .export-pdf-btn:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+  border-color: #007bff;
+  cursor: pointer;
 }
 
 .freight-tabs {
