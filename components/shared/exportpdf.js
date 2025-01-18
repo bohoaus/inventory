@@ -243,7 +243,7 @@ class PDFExport {
 
       // Get sort settings
       const sortColumn =
-        document.getElementById("sortColumn")?.value || "code_colour";
+        document.getElementById("sortColumn")?.value || "Code_Colour";
       const sortDirection =
         document.getElementById("sortDirection")?.value || "asc";
 
@@ -264,7 +264,7 @@ class PDFExport {
           .map((opt) => opt.value)
           .filter((v) => v);
         if (categories.length > 0) {
-          query = query.in("item_category", categories);
+          query = query.in("Category", categories);
         }
       }
 
@@ -772,17 +772,17 @@ class PDFExport {
     const { categories, statuses, groups } = filters;
 
     // Check category filter
-    if (categories?.length > 0 && !categories.includes(item.item_category)) {
+    if (categories?.length > 0 && !categories.includes(item.Category)) {
       return false;
     }
 
     // Check status filter
-    if (statuses?.length > 0 && !statuses.includes(item.item_status)) {
+    if (statuses?.length > 0 && !statuses.includes(item.Status)) {
       return false;
     }
 
     // Check group filter
-    if (groups?.length > 0 && !groups.includes(item.item_group)) {
+    if (groups?.length > 0 && !groups.includes(item.BrandGroup)) {
       return false;
     }
 
