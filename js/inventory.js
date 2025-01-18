@@ -141,7 +141,7 @@ class InventoryView {
                 <td>${item.Item_Name}</td>
                 <td>${item.BrandGroup}</td>
                 ${this.userRole === 'staff' ? `<td>${item.Location || 'N/A'}</td>` : ''}
-                <td>${item.Inventory}</td>
+                <td>${item.Stock}</td>
                 <td class="status-${this.getStatusClass(item.Status)}">${item.Status}</td>
                 <td>
                     <button onclick="inventoryView.viewDetails('${item.id}')">View Details</button>
@@ -180,7 +180,7 @@ class InventoryView {
         document.getElementById('detailCode').textContent = item.Code_Colour;
         document.getElementById('detailName').textContent = item.Item_Name;
         document.getElementById('detailGroup').textContent = item.BrandGroup;
-        document.getElementById('detailStock').textContent = item.Inventory;
+        document.getElementById('detailStock').textContent = item.Stock;
         document.getElementById('detailPackUnit').textContent = item.UnitP;
         document.getElementById('detailLocation').textContent = item.Location || 'N/A';
         document.getElementById('detailStatus').textContent = item.Status;
