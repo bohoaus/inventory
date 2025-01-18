@@ -29,8 +29,8 @@ class UpcomingFreightList {
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
-        .not("mfg_date", "is", null)
-        .order("mfg_date", { ascending: false });
+        .not("mfgDate", "is", null)
+        .order("mfgDate", { ascending: false });
 
       if (error) throw error;
 
@@ -113,14 +113,14 @@ class UpcomingFreightList {
     };
 
     items.forEach((item) => {
-      const key = `${formatDateToSydney(item.mfg_date)}_${
-        item.item_cargo || "unknown"
+      const key = `${formatDateToSydney(item.mfgDate)}_${
+        item.Cargo || "unknown"
       }`;
 
-      if (item.arrive_date) {
+      if (item.ArriveDate) {
         if (!groups.arrived[key]) groups.arrived[key] = [];
         groups.arrived[key].push(item);
-      } else if (item.delay_date) {
+      } else if (item.DelayDate) {
         if (!groups.delayed[key]) groups.delayed[key] = [];
         groups.delayed[key].push(item);
       } else {
@@ -150,7 +150,7 @@ class UpcomingFreightList {
       groupHeader.className = "freight-group-header";
 
       // Add bags amount to the title
-      const bagInfo = groupItems[0]?.freight_bags
+      const bagInfo = groupItems[0]?.FreightBags
         ? ` (${groupItems[0].freight_bags} bags)`
         : "";
       const title = document.createElement("h3");
@@ -167,23 +167,23 @@ class UpcomingFreightList {
                 }</span>
             </div>
             <div class="freight-date ${
-              groupItems[0].delay_date ? "delayed" : ""
+              groupItems[0].DelayDate ? "delayed" : ""
             }">
                 <label>Status</label>
                 <span>${
-                  groupItems[0].delay_date
+                  groupItems[0].DelayDate
                     ? `Delayed to ${formatDateToSydney(
-                        groupItems[0].delay_date
+                        groupItems[0].DelayDate
                       )}`
                     : "On Schedule"
                 }</span>
             </div>
             <div class="freight-date ${
-              groupItems[0].arrive_date ? "arrived" : ""
+              groupItems[0].ArriveDate ? "arrived" : ""
             }">
                 <label>Arrive Date</label>
                 <span>${
-                  formatDateToSydney(groupItems[0].arrive_date) || "Pending"
+                  formatDateToSydney(groupItems[0].ArriveDate) || "Pending"
                 }</span>
             </div>
         `;
@@ -249,26 +249,26 @@ class UpcomingFreightList {
 
       itemCard.innerHTML = `
             <div class="item-header">
-                <span class="item-code">${item.code_colour}</span>
-                <span class="item-name">${item.item_name || ""}</span>
+                <span class="item-code">${item.Code_Colour}</span>
+                <span class="item-name">${item.Item_Name || ""}</span>
             </div>
             <div class="dates-container">
                 <div class="date-column">
                     <label>Est. Date</label>
-                    <span>${formatDateToSydney(item.est_date)}</span>
+                    <span>${formatDateToSydney(item.estDate)}</span>
                 </div>
                 <div class="date-column">
                     <label>Status</label>
                     <span>${
-                      item.delay_date
-                        ? `Delayed to ${formatDateToSydney(item.delay_date)}`
+                      item.DelayDate
+                        ? `Delayed to ${formatDateToSydney(item.DelayDate)}`
                         : "On Schedule"
                     }</span>
                 </div>
                 <div class="date-column">
                     <label>Arrive Date</label>
                     <span>${
-                      formatDateToSydney(item.arrive_date) || "Pending"
+                      formatDateToSydney(item.ArriveDate) || "Pending"
                     }</span>
                 </div>
             </div>
@@ -348,14 +348,14 @@ class UpcomingFreightList {
         }, {});
 
         // If arrive_date is being set, update item_status based on group
-        if (updates.arrive_date) {
+        if (updates.ArriveDate) {
           // Update ODM items
           if (groupedItems.ODM?.length > 0) {
             await supabaseClient
               .from("inventory")
               .update({
                 ...updates,
-                item_status: "ARRIVED",
+                Status: "ARRIVED",
               })
               .in("id", groupedItems.ODM);
           }
@@ -377,7 +377,7 @@ class UpcomingFreightList {
               .from("inventory")
               .update({
                 ...updates,
-                item_status: "NOT RELEASED",
+                Status: "NOT RELEASED",
               })
               .in("id", groupedItems.PRIMROSE);
           }
@@ -462,8 +462,8 @@ class UpcomingFreightList {
 
   // Add helper method for getting brand info
   getBrandInfo(item) {
-    if (!item.item_group) return "-";
-    const group = item.item_group.toUpperCase();
+    if (!item.BrandGroup) return "-";
+    const group = item.BrandGroup.toUpperCase();
 
     // Return item_group for BOHO and PRIMROSE
     if (group === "BOHO" || group === "PRIMROSE") {
@@ -471,7 +471,7 @@ class UpcomingFreightList {
     }
 
     // Return odm_customer for other items
-    return item.odm_customer || "-";
+    return item.odmCustomer || "-";
   }
 
   // Add helper method for getting background color
@@ -560,27 +560,27 @@ class UpcomingFreightList {
             ${sortedItems
               .map((item) => {
                 const brand =
-                  item.item_group === "ODM"
-                    ? item.odm_customer || "Unknown ODM"
-                    : item.item_group || "Unknown";
+                  item.BrandGroup === "ODM"
+                    ? item.odmCustomer || "Unknown ODM"
+                    : item.BrandGroup || "Unknown";
 
                 const backgroundColor = this.getBrandColor(brand);
 
                 // Determine quantity display based on brand
                 const qtyDisplay = ["BOHO", "PRIMROSE"].includes(
-                  item.item_group?.toUpperCase()
+                  item.BrandGroup?.toUpperCase()
                 )
-                  ? `${item.receive_qty || "0"} packs`
-                  : `${item.receive_qty || "0"} pcs`;
+                  ? `${item.Qty || "0"} packs`
+                  : `${item.Qty || "0"} pcs`;
 
                 return `
                     <tr style="background-color: ${backgroundColor}">
-                        <td>${item.code_colour || ""}</td>
+                        <td>${item.Code_Colour || ""}</td>
                         <td>${brand}</td>
-                        <td>${item.item_category || ""}</td>
-                        <td>${this.formatPackSizeString(item.pack_size)}</td>
+                        <td>${item.Category || ""}</td>
+                        <td>${this.formatPackSizeString(item.Pack_Size)}</td>
                         <td>${qtyDisplay}</td>
-                        <td>${item.item_note || ""}</td>
+                        <td>${item.Item_Note || ""}</td>
                     </tr>
                 `;
               })
@@ -599,8 +599,8 @@ class UpcomingFreightList {
 
   // Add helper method for item status
   getItemStatus(item) {
-    if (item.arrive_date) return "arrived";
-    if (item.delay_date) return "delayed";
+    if (item.ArriveDate) return "arrived";
+    if (item.DelayDate) return "delayed";
     return "on-schedule";
   }
 
@@ -638,7 +638,7 @@ class UpcomingFreightList {
                             <input type="checkbox" 
                                    value="${item.id}" 
                                    checked>
-                            <span>${item.code_colour}</span>
+                            <span>${item.Code_Colour}</span>
                         </div>
                     `
                       )
@@ -677,12 +677,12 @@ class UpcomingFreightList {
 
       // Prepare updates object with only filled fields
       const updates = {
-        updated_at: new Date().toISOString(),
+        Updated: new Date().toISOString(),
       };
 
-      if (estDate) updates.est_date = estDate;
+      if (estDate) updates.estDate = estDate;
       if (bagsAmount !== "")
-        updates.freight_bags = parseInt(bagsAmount) || null;
+        updates.FreightBags = parseInt(bagsAmount) || null;
 
       // Update items in smaller batches
       const batchSize = 50;
@@ -731,7 +731,7 @@ class UpcomingFreightList {
   generateGroupHeader(date, cargo, items) {
     return `
         <div class="freight-group-header">
-            <h3>${date} - ${cargo} ${items[0].freight_bags}</h3>
+            <h3>${date} - ${cargo} ${items[0].FreightBags}</h3>
             <div class="freight-stats">
                 <span>Total Items: ${items.length}</span>
             </div>
@@ -739,27 +739,27 @@ class UpcomingFreightList {
                 <div class="freight-date">
                     <label>Est. Date</label>
                     <span>${
-                      formatDateToSydney(items[0].est_date) || "Not Set"
+                      formatDateToSydney(items[0].estDate) || "Not Set"
                     }</span>
                 </div>
                 <div class="freight-date ${
-                  items[0].delay_date ? "delayed" : ""
+                  items[0].DelayDate ? "delayed" : ""
                 }">
                     <label>Status</label>
                     <span>${
-                      items[0].delay_date
+                      items[0].DelayDate
                         ? `Delayed to ${formatDateToSydney(
-                            items[0].delay_date
+                            items[0].DelayDate
                           )}`
                         : "On Schedule"
                     }</span>
                 </div>
                 <div class="freight-date ${
-                  items[0].arrive_date ? "arrived" : ""
+                  items[0].ArriveDate ? "arrived" : ""
                 }">
                     <label>Arrive Date</label>
                     <span>${
-                      formatDateToSydney(items[0].arrive_date) || "Pending"
+                      formatDateToSydney(items[0].ArriveDate) || "Pending"
                     }</span>
                 </div>
             </div>
@@ -791,10 +791,10 @@ class UpcomingFreightList {
                       .map(
                         (item) => `
                         <tr>
-                            <td>${item.code_colour}</td>
-                            <td>${formatDateToSydney(item.est_date)}</td>
-                            <td>${item.freight_bags || "-"}</td>
-                            <td>${item.item_status || "-"}</td>
+                            <td>${item.CodeColour}</td>
+                            <td>${formatDateToSydney(item.estDate)}</td>
+                            <td>${item.FreightBags || "-"}</td>
+                            <td>${item.Status || "-"}</td>
                         </tr>
                     `
                       )
@@ -810,13 +810,13 @@ class UpcomingFreightList {
     return `
         <div class="freight-item">
             <div class="freight-item-info">
-                <span class="item-code">${item.code_colour}</span>
+                <span class="item-code">${item.Code_Colour}</span>
                 <span class="item-bags">${
-                  item.freight_bags ? `${item.freight_bags} bags` : "-"
+                  item.FreightBags ? `${item.FreightBags} bags` : "-"
                 }</span>
             </div>
             <div class="freight-item-status ${this.getItemStatus(item)}">
-                ${item.item_status || "Processing"}
+                ${item.Status || "Processing"}
             </div>
         </div>
     `;
@@ -870,8 +870,8 @@ class UpcomingFreightList {
         if (brandB === "PRIMROSE") return 1;
 
         // For ODM items, sort by odm_customer
-        const odmA = a.odm_customer || "";
-        const odmB = b.odm_customer || "";
+        const odmA = a.odmCustomer || "";
+        const odmB = b.odmCustomer || "";
         return odmA.localeCompare(odmB);
       });
 
@@ -885,14 +885,14 @@ class UpcomingFreightList {
         "Note",
       ];
       const tableData = sortedItems.map((item) => [
-        item.code_colour || "",
+        item.Code_Colour || "",
         this.getBrandInfo(item),
-        item.item_category || "",
-        this.formatPackSizeString(item.pack_size),
-        ["BOHO", "PRIMROSE"].includes(item.item_group?.toUpperCase())
-          ? `${item.receive_qty || "0"} packs`
-          : `${item.receive_qty || "0"} pcs`,
-        item.item_note || "",
+        item.Category || "",
+        this.formatPackSizeString(item.Pack_Size),
+        ["BOHO", "PRIMROSE"].includes(item.BrandGroup?.toUpperCase())
+          ? `${item.Qty || "0"} packs`
+          : `${item.Qty || "0"} pcs`,
+        item.Item_Note || "",
       ]);
 
       // Add title and info
@@ -902,7 +902,7 @@ class UpcomingFreightList {
 
       doc.setFontSize(10);
       const bagInfo = items[0]?.freight_bags
-        ? ` (${items[0].freight_bags} bags)`
+        ? ` (${items[0].FreightBags} bags)`
         : "";
       doc.text(`Manufacturing Date: ${date}`, margins.left, margins.top + 6);
       doc.text(
@@ -972,8 +972,8 @@ class UpcomingFreightList {
     return Object.entries(groupedItems)
       .map(([key, items]) => {
         const [date, cargo] = key.split("_");
-        const bagInfo = items[0]?.freight_bags
-          ? ` (${items[0].freight_bags} bags)`
+        const bagInfo = items[0]?.FreightBags
+          ? ` (${items[0].FreightBags} bags)`
           : "";
 
         return `
