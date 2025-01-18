@@ -189,6 +189,20 @@ class SalesStateDistro {
 
   async fetchAndDisplayData(startDate, endDate) {
     try {
+      // Show loading state
+      const wholesaleTable = this.modal.querySelector("#wholesaleTable tbody");
+      const odmTable = this.modal.querySelector("#odmTable tbody");
+      const loadingHtml =
+        '<tr><td colspan="2" style="text-align: center;">Loading...</td></tr>';
+      wholesaleTable.innerHTML = loadingHtml;
+      odmTable.innerHTML = loadingHtml;
+
+      // Reset total counts in headers
+      const wholesaleTotal = this.modal.querySelector("#wholesaleTotal");
+      const odmTotal = this.modal.querySelector("#odmTotal");
+      if (wholesaleTotal) wholesaleTotal.textContent = "(0)";
+      if (odmTotal) odmTotal.textContent = "(0)";
+
       const { data: orders, error: ordersError } = await supabaseClient
         .from("orders")
         .select(
@@ -199,6 +213,7 @@ class SalesStateDistro {
           dispatched_state,
           order_type,
           status,
+          created_at,
           order_items (
             id,
             total_pieces
@@ -222,6 +237,29 @@ class SalesStateDistro {
       console.error("Error details:", error);
       this.displayError();
     }
+  }
+
+  clearDisplayedData() {
+    // Clear summary tables
+    const wholesaleTable = this.modal.querySelector("#wholesaleTable tbody");
+    const odmTable = this.modal.querySelector("#odmTable tbody");
+    wholesaleTable.innerHTML = "";
+    odmTable.innerHTML = "";
+
+    // Reset total counts in headers
+    const wholesaleTotal = this.modal.querySelector("#wholesaleTotal");
+    const odmTotal = this.modal.querySelector("#odmTotal");
+    if (wholesaleTotal) wholesaleTotal.textContent = "(0)";
+    if (odmTotal) odmTotal.textContent = "(0)";
+
+    // Clear charts
+    Object.values(this.charts).forEach((chart) => {
+      if (chart) {
+        chart.data.labels = [];
+        chart.data.datasets[0].data = [];
+        chart.update();
+      }
+    });
   }
 
   summarizeOrders(orders) {
@@ -316,7 +354,9 @@ class SalesStateDistro {
 
       // Update total count in header
       const totalElement = this.modal.querySelector(`#${totalId}`);
-      totalElement.textContent = `(${totalOrders})`;
+      if (totalElement) {
+        totalElement.textContent = `(${totalOrders})`;
+      }
     };
 
     displayTable(summary.wholesale, "wholesaleTable", "wholesaleTotal");
@@ -377,8 +417,14 @@ class SalesStateDistro {
     // Clear summary tables
     const wholesaleTable = this.modal.querySelector("#wholesaleTable tbody");
     const odmTable = this.modal.querySelector("#odmTable tbody");
-    wholesaleTable.innerHTML = `<tr><td colspan="3">No orders found</td></tr>`;
-    odmTable.innerHTML = `<tr><td colspan="3">No orders found</td></tr>`;
+    wholesaleTable.innerHTML = '<tr><td colspan="2">No orders found</td></tr>';
+    odmTable.innerHTML = '<tr><td colspan="2">No orders found</td></tr>';
+
+    // Reset total counts in headers
+    const wholesaleTotal = this.modal.querySelector("#wholesaleTotal");
+    const odmTotal = this.modal.querySelector("#odmTotal");
+    if (wholesaleTotal) wholesaleTotal.textContent = "(0)";
+    if (odmTotal) odmTotal.textContent = "(0)";
 
     // Clear charts
     this.updateCharts({

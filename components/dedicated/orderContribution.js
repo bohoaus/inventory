@@ -9,18 +9,7 @@ class OrderContribution {
     this.createModal();
     this.modal.style.display = "block";
 
-    // Set initial week value if not already set
-    const weekSelector = document.getElementById("weekSelector");
-    if (!weekSelector.value) {
-      const now = new Date();
-      const weekNum = this.getWeekNumber(now);
-      weekSelector.value = `${now.getFullYear()}-W${weekNum
-        .toString()
-        .padStart(2, "0")}`;
-    }
-
-    // Load initial data
-    console.log("Initializing with week:", weekSelector.value);
+    // Load initial data for current week
     await this.loadData();
   }
 
@@ -129,7 +118,12 @@ class OrderContribution {
       };
 
       const weekSelector = document.getElementById("weekSelector");
-      weekSelector.addEventListener("change", () => this.loadData());
+      weekSelector.addEventListener("change", () => {
+        // Clear previous data
+        this.clearData();
+        // Load new data for selected week
+        this.loadData();
+      });
 
       // Set initial week value
       const now = new Date();
@@ -139,6 +133,34 @@ class OrderContribution {
         .padStart(2, "0")}`;
     }
     this.modal = document.getElementById("orderContributionModal");
+  }
+
+  clearData() {
+    // Clear stats
+    document.getElementById("totalWholesale").textContent = "0";
+    document.getElementById("processingWholesale").textContent = "0";
+    document.getElementById("holdWholesale").textContent = "0";
+    document.getElementById("dispatchedWholesale").textContent = "0";
+    document.getElementById("cancelledWholesale").textContent = "0";
+    document.getElementById("totalOdm").textContent = "0";
+    document.getElementById("processingOdm").textContent = "0";
+    document.getElementById("holdOdm").textContent = "0";
+    document.getElementById("dispatchedOdm").textContent = "0";
+    document.getElementById("cancelledOdm").textContent = "0";
+
+    // Clear charts
+    if (this.charts.agentState) {
+      this.charts.agentState.destroy();
+    }
+    if (this.charts.dispatchedState) {
+      this.charts.dispatchedState.destroy();
+    }
+
+    // Clear table
+    const tableBody = document.getElementById("orderTableBody");
+    if (tableBody) {
+      tableBody.innerHTML = "";
+    }
   }
 
   async loadData() {
@@ -155,14 +177,19 @@ class OrderContribution {
       }
 
       // Log the date range for debugging
-      console.log("Fetching orders between:", dates.start, "and", dates.end);
+      console.log(
+        "Fetching orders between:",
+        dates.start.toISOString(),
+        "and",
+        dates.end.toISOString()
+      );
 
-      // Modify the query to ensure we're getting the right date range
+      // Query orders within the selected week's date range
       const { data: orders, error } = await supabaseClient
         .from("orders")
         .select("*")
-        .gte("created_at", dates.start.toISOString().split("T")[0]) // Use only the date part
-        .lt("created_at", dates.end.toISOString().split("T")[0]) // Use only the date part
+        .gte("created_at", dates.start.toISOString())
+        .lte("created_at", dates.end.toISOString())
         .order("created_at", { ascending: false });
 
       if (error) {
