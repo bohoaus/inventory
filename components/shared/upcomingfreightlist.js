@@ -151,7 +151,7 @@ class UpcomingFreightList {
 
       // Add bags amount to the title
       const bagInfo = groupItems[0]?.FreightBags
-        ? ` (${groupItems[0].freight_bags} bags)`
+        ? ` (${groupItems[0].FreightBags} bags)`
         : "";
       const title = document.createElement("h3");
       title.textContent = `${date} - ${cargo}${bagInfo}`;
@@ -163,7 +163,7 @@ class UpcomingFreightList {
             <div class="freight-date">
                 <label>Est. Date</label>
                 <span>${
-                  formatDateToSydney(groupItems[0].est_date) || "Not Set"
+                  formatDateToSydney(groupItems[0].estDate) || "Not Set"
                 }</span>
             </div>
             <div class="freight-date ${
@@ -366,7 +366,7 @@ class UpcomingFreightList {
               .from("inventory")
               .update({
                 ...updates,
-                item_status: "NOT RELEASED",
+                Status: "NOT RELEASED",
               })
               .in("id", groupedItems.BOHO);
           }
@@ -901,7 +901,7 @@ class UpcomingFreightList {
       doc.text("Packing List Details", margins.left, margins.top);
 
       doc.setFontSize(10);
-      const bagInfo = items[0]?.freight_bags
+      const bagInfo = items[0]?.FreightBags
         ? ` (${items[0].FreightBags} bags)`
         : "";
       doc.text(`Manufacturing Date: ${date}`, margins.left, margins.top + 6);
