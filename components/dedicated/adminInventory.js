@@ -37,7 +37,7 @@ class AdminInventory {
     this.filterGroup = document.getElementById("filterGroup");
     this.rowsPerPage = document.getElementById("rowsPerPage");
     this.currentPage = 1;
-    this.sortColumn = "code_colour";
+    this.sortColumn = "Code_Colour";
     this.sortDirection = "asc";
     this.currentFilter = "All";
 
@@ -46,28 +46,28 @@ class AdminInventory {
 
     // Default selected columns
     this.selectedColumns = [
-      "code_colour",
-      "item_name",
-      "item_category",
-      "item_status",
-      "stock_qty",
-      "release_date",
-      "item_aging",
-      "item_location",
-      "item_note",
+      "Code_Colour",
+      "Item_Name",
+      "Category",
+      "Status",
+      "Stock",
+      "ReleaseDate",
+      "Item_Aging",
+      "Location",
+      "Item_Note",
     ];
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
-      "code_colour",
+      "Code_Colour",
       "item_name",
-      "item_category",
-      "item_status",
-      "stock_qty",
-      "release_date",
-      "item_aging",
-      "item_location",
-      "item_note",
+      "Category",
+      "Status",
+      "Stock",
+      "ReleaseDate",
+      "Item_Aging",
+      "Location",
+      "Item_Note",
     ];
 
     // Initialize selected columns with defaults
@@ -203,34 +203,34 @@ class AdminInventory {
     // Define all columns in the desired order
     const allColumns = [
       // Default columns first (in specific order)
-      { id: "code_colour", label: "Code Color" },
-      { id: "item_name", label: "Item Name" },
-      { id: "item_category", label: "Category" },
-      { id: "item_status", label: "Status" },
-      { id: "stock_qty", label: "Stock Qty" },
+      { id: "Code_Colour", label: "Code Color" },
+      { id: "Item_Name", label: "Item Name" },
+      { id: "Category", label: "Category" },
+      { id: "Status", label: "Status" },
+      { id: "Stock", label: "Inventory" },
       { id: "item_aging", label: "Item Aging" },
-      { id: "release_date", label: "Release Date" },
-      { id: "item_location", label: "Location" },
-      { id: "item_note", label: "Note" },
+      { id: "ReleaseDate", label: "ReleaseDate" },
+      { id: "Location", label: "Location" },
+      { id: "Item_Note", label: "Note" },
       // Other columns after
-      { id: "item_group", label: "Group" },
-      { id: "receive_qty", label: "Receive Qty" },
-      { id: "pack_unit", label: "Pack Unit" },
-      { id: "pack_size", label: "Pack Size" },
-      { id: "repeat_item", label: "Repeat Info" },
-      { id: "mfg_date", label: "Manufacture Date" },
-      { id: "soldout_date", label: "Sold Out Date" },
-      { id: "soldout_status", label: "Sold Out Status" },
-      { id: "item_cargo", label: "Cargo" },
-      { id: "est_date", label: "Estimated Date" },
-      { id: "arrive_date", label: "Arrive Date" },
-      { id: "delay_date", label: "Delay Date" },
-      { id: "odm_ppo", label: "ODM PPO" },
-      { id: "odm_customer", label: "ODM Customer" },
-      { id: "odm_qty_diff", label: "Produced vs Received" },
-      { id: "freight_bags", label: "Freight Bags" },
-      { id: "created_at", label: "Created At" },
-      { id: "updated_at", label: "Updated At" },
+      { id: "BrandGroup", label: "Brand" },
+      { id: "Qty", label: "Qty" },
+      { id: "UnitP", label: "UnitP" },
+      { id: "Pack_Size", label: "Pack Size" },
+      { id: "Repeat_Item", label: "Repeat Info" },
+      { id: "mfgDate", label: "Manufacture Date" },
+      { id: "SoldoutDate", label: "SoldOut Date" },
+      { id: "Soldouttatus", label: "SoldOut Status" },
+      { id: "Cargo", label: "Cargo" },
+      { id: "estDate", label: "Estimated Date" },
+      { id: "ArriveDate", label: "Arrive Date" },
+      { id: "DelayDate", label: "Delay Date" },
+      { id: "odmPPO", label: "ODM PPO" },
+      { id: "odmCustomer", label: "ODM Customer" },
+      { id: "odmQtyDiff", label: "Produced vs Received" },
+      { id: "FreightBags", label: "Freight Bags" },
+      { id: "Created", label: "Created At" },
+      { id: "Updated", label: "Updated At" },
     ];
 
     const columnsHtml = allColumns
@@ -333,7 +333,7 @@ class AdminInventory {
     // Add Category Filter
     const categoryFilter = document.createElement("div");
     categoryFilter.className = "filter-group";
-    const categories = await this.getUniqueValues("item_category");
+    const categories = await this.getUniqueValues("Category");
     categoryFilter.innerHTML = `
         <label>Category:</label>
         <select id="categoryFilter">
@@ -347,7 +347,7 @@ class AdminInventory {
     // Add Status Filter
     const statusFilter = document.createElement("div");
     statusFilter.className = "filter-group";
-    const statuses = await this.getUniqueValues("item_status");
+    const statuses = await this.getUniqueValues("Status");
     statusFilter.innerHTML = `
         <label>Status:</label>
         <select id="statusFilter">
@@ -523,7 +523,7 @@ class AdminInventory {
 
         // Special handling for numeric columns
         if (
-          ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(
+          ["Stock", "Qty", "UnitP", "Item_Aging"].includes(
             this.sortColumn
           )
         ) {
@@ -535,14 +535,14 @@ class AdminInventory {
         // Special handling for dates
         if (
           [
-            "release_date",
-            "mfg_date",
-            "est_date",
-            "arrive_date",
-            "delay_date",
-            "soldout_date",
-            "created_at",
-            "updated_at",
+            "ReleaseDate",
+            "mfgDate",
+            "estDate",
+            "ArriveDate",
+            "DelayDate",
+            "SoldoutDate",
+            "Created",
+            "Updated",
           ].includes(this.sortColumn)
         ) {
           const aDate = aValue ? new Date(aValue).getTime() : 0;
@@ -640,14 +640,14 @@ class AdminInventory {
         // Handle different data types
         if (
           [
-            "release_date",
-            "mfg_date",
-            "est_date",
-            "arrive_date",
-            "delay_date",
-            "soldout_date",
-            "created_at",
-            "updated_at",
+            "ReleaseDate",
+            "mfgDate",
+            "estDate",
+            "ArriveDate",
+            "DelayDate",
+            "SoldoutDate",
+            "Created",
+            "Updated",
           ].includes(colName)
         ) {
           td.textContent = formatDateToSydney(item[colName]);
@@ -817,13 +817,13 @@ class AdminInventory {
 
     const title = document.createElement("h2");
     title.textContent =
-      type === "pack_size" ? "Pack Size Details" : "Repeat Item Details";
+      type === "Pack_Size" ? "Pack Size Details" : "Repeat Item Details";
 
     const details = document.createElement("div");
     details.className = "json-details";
 
     // Format JSON data based on type
-    if (type === "pack_size") {
+    if (type === "Pack_Size") {
       details.innerHTML = this.formatPackSize(data);
     } else if (type === "repeat_item") {
       details.innerHTML = this.formatRepeatItem(data);
@@ -988,26 +988,26 @@ class AdminInventory {
     const classes = ["nowrap"];
 
     // Add specific column classes based on data type
-    if (colName === "code_colour") {
+    if (colName === "Code_Colour") {
       classes.push("code-column");
     } else if (
-      ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(colName)
+      ["Stock", "Qty", "UnitP", "Item_Aging"].includes(colName)
     ) {
       classes.push("qty-column");
     } else if (
       [
-        "release_date",
-        "mfg_date",
-        "est_date",
-        "arrive_date",
-        "delay_date",
-        "soldout_date",
-        "created_at",
-        "updated_at",
+        "ReleaseDate",
+        "mfgDate",
+        "estDate",
+        "ArriveDate",
+        "DelayDate",
+        "SoldoutDate",
+        "Created",
+        "Updated",
       ].includes(colName)
     ) {
       classes.push("date-column");
-    } else if (colName === "item_note") {
+    } else if (colName === "Item_Note") {
       classes.push("note-column");
     }
 
@@ -1148,18 +1148,18 @@ class AdminInventory {
       if (cell) {
         if (
           [
-            "release_date",
-            "mfg_date",
-            "est_date",
-            "arrive_date",
-            "delay_date",
-            "soldout_date",
-            "created_at",
-            "updated_at",
+            "ReleaseDate",
+            "mfgDate",
+            "estDate",
+            "ArriveDate",
+            "DelayDate",
+            "SoldoutDate",
+            "Created",
+            "Updated",
           ].includes(colName)
         ) {
           cell.textContent = formatDateToSydney(data[colName]);
-        } else if (["pack_size", "repeat_item"].includes(colName)) {
+        } else if (["Pack_Size", "repeat_item"].includes(colName)) {
           if (data[colName]) {
             cell.innerHTML = `
                             <button onclick="adminInventory.showModal('${colName}', ${JSON.stringify(
@@ -1170,7 +1170,7 @@ class AdminInventory {
                         `;
           }
         } else if (
-          ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(
+          ["Stock", "Qty", "UnitP", "Item_Aging"].includes(
             colName
           )
         ) {
@@ -1242,7 +1242,7 @@ class AdminInventory {
     this.updateFilterButtons();
 
     // Reset sorting
-    this.sortColumn = "code_colour";
+    this.sortColumn = "Code_Colour";
     this.sortDirection = "asc";
 
     // Reset page
@@ -1262,7 +1262,7 @@ class AdminInventory {
       this.searchInput.value.trim() !== "" ||
       this.searchNoteInput.value.trim() !== "" ||
       this.currentFilter.toUpperCase() !== "ALL" ||
-      this.sortColumn !== "code_colour" ||
+      this.sortColumn !== "Code_Colour" ||
       this.sortDirection !== "asc";
 
     this.clearButton.style.display = hasFilters ? "flex" : "none";
@@ -1447,7 +1447,7 @@ class AdminInventory {
         // ... existing cases ...
 
         case "qty_diff":
-          const diff = (data.receive_qty || 0) - (data.stock_qty || 0);
+          const diff = (data.Qty || 0) - (data.Stock || 0);
           cell.textContent = diff;
           if (diff < 0) {
             cell.style.color = "#dc3545"; // Red for negative difference
@@ -1456,18 +1456,18 @@ class AdminInventory {
           }
           break;
 
-        case "item_status":
-          cell.textContent = data.item_status || "-";
+        case "Status":
+          cell.textContent = data.Status || "-";
           // Add status-based styling
-          if (data.item_status) {
+          if (data.Status) {
             cell.classList.add(
-              `status-${data.item_status.toLowerCase().replace(/\s+/g, "-")}`
+              `status-${data.Status.toLowerCase().replace(/\s+/g, "-")}`
             );
           }
           break;
 
-        case "freight_bags":
-          cell.textContent = data.freight_bags || "-";
+        case "FreightBags":
+          cell.textContent = data.FreightBags || "-";
           cell.style.textAlign = "right";
           break;
 
