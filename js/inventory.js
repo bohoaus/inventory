@@ -138,7 +138,7 @@ class InventoryView {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.Code_Colour}</td>
-                <td>${item.Ctem_Name}</td>
+                <td>${item.Item_Name}</td>
                 <td>${item.BrandGroup}</td>
                 ${this.userRole === 'staff' ? `<td>${item.Location || 'N/A'}</td>` : ''}
                 <td>${item.Inventory}</td>
@@ -185,7 +185,7 @@ class InventoryView {
         document.getElementById('detailLocation').textContent = item.Location || 'N/A';
         document.getElementById('detailStatus').textContent = item.Status;
         document.getElementById('detailReleaseDate').textContent = item.ReleaseDate ? 
-            new Date(item.release_date).toLocaleDateString() : 'N/A';
+            new Date(item.ReleaseDate).toLocaleDateString() : 'N/A';
         document.getElementById('detailAging').textContent = item.Item_Aging || 'N/A';
 
         if (this.userRole === 'staff') {
