@@ -202,7 +202,7 @@ class AdminInventory {
     `;
     panel.appendChild(actionButtons);
 
-    // Define all columns in the desired order
+    // Define all columns in the desired order - for selection tab
     const allColumns = [
       // Default columns first (in specific order)
       { id: "Code_Colour", label: "Code Color" },
@@ -215,7 +215,7 @@ class AdminInventory {
       { id: "Location", label: "Location" },
       { id: "UnitP", label: "UnitP" },
       { id: "Pack_Size", label: "Pack Size" },
-      { id: "item_aging", label: "Item Aging" },
+      { id: "Item_Aging", label: "Item Aging" },
       { id: "Item_Note", label: "Note" },
       // Other columns after
       { id: "BrandGroup", label: "Brand" },
@@ -468,10 +468,10 @@ class AdminInventory {
     let query = supabaseClient.from("inventory").select("*");
 
     if (categoryValue) {
-      query = query.eq("item_category", categoryValue);
+      query = query.eq("Category", categoryValue);
     }
     if (statusValue) {
-      query = query.eq("item_status", statusValue);
+      query = query.eq("Status", statusValue);
     }
 
     try {
@@ -495,22 +495,22 @@ class AdminInventory {
 
       if (searchTerm) {
         query = query.or(
-          `code_colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
+          `Code_Colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
         );
       }
 
       if (noteSearchTerm) {
-        query = query.ilike("item_note", `%${noteSearchTerm}%`);
+        query = query.ilike("Item_Note", `%${noteSearchTerm}%`);
       }
 
       // Apply group filter
       if (this.currentFilter && this.currentFilter !== "All") {
         if (this.currentFilter === "REPEAT") {
           query = query
-            .not("repeat_item", "is", null)
-            .not("repeat_item", "eq", "{}");
+            .not("Repeat_Item", "is", null)
+            .not("Repeat_Item", "eq", "{}");
         } else {
-          query = query.ilike("item_group", this.currentFilter);
+          query = query.ilike("BrandGroup", this.currentFilter);
         }
       }
 
@@ -653,7 +653,7 @@ class AdminInventory {
           ].includes(colName)
         ) {
           td.textContent = formatDateToSydney(item[colName]);
-        } else if (colName === "pack_size") {
+        } else if (colName === "Pack_Size") {
           if (item[colName]) {
             td.innerHTML = `
                 <button class="view-details-btn pack-size-btn" 
@@ -665,11 +665,11 @@ class AdminInventory {
                 </button>
             `;
           }
-        } else if (colName === "repeat_item") {
+        } else if (colName === "Repeat_Item") {
           // Add console.log to debug
           console.log("Repeat item data:", item[colName]);
 
-          // Check if repeat_item exists and has valid data
+          // Check if Repeat_Item exists and has valid data
           if (
             item[colName] &&
             typeof item[colName] === "object" &&
@@ -678,7 +678,7 @@ class AdminInventory {
           ) {
             td.innerHTML = `
                   <button class="view-details-btn repeat-info-btn" 
-                          onclick="adminInventory.showModal('repeat_item', ${JSON.stringify(
+                          onclick="adminInventory.showModal('Repeat_Item', ${JSON.stringify(
                             item[colName]
                           ).replace(/"/g, "&quot;")})">
                       <span class="repeat-icon"></span>
@@ -689,7 +689,7 @@ class AdminInventory {
             td.textContent = ""; // Empty cell if no repeat info
           }
         } else if (
-          ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(
+          ["Stock", "Qty", "UnitP", "Item_Aging"].includes(
             colName
           )
         ) {
@@ -827,7 +827,7 @@ class AdminInventory {
     // Format JSON data based on type
     if (type === "Pack_Size") {
       details.innerHTML = this.formatPackSize(data);
-    } else if (type === "repeat_item") {
+    } else if (type === "Repeat_Item") {
       details.innerHTML = this.formatRepeatItem(data);
     }
 
@@ -1161,7 +1161,7 @@ class AdminInventory {
           ].includes(colName)
         ) {
           cell.textContent = formatDateToSydney(data[colName]);
-        } else if (["Pack_Size", "repeat_item"].includes(colName)) {
+        } else if (["Pack_Size", "Repeat_Item"].includes(colName)) {
           if (data[colName]) {
             cell.innerHTML = `
                             <button onclick="adminInventory.showModal('${colName}', ${JSON.stringify(
@@ -1539,9 +1539,9 @@ class AdminInventory {
 
       let form;
       // Choose editor based on item group
-      if (["BOHO", "PRIMROSE"].includes(item.item_group?.toUpperCase())) {
+      if (["BOHO", "PRIMROSE"].includes(item.BrandGroup?.toUpperCase())) {
         form = await this.loadWholesaleEditor(item);
-      } else if (item.item_group?.toUpperCase() === "ODM") {
+      } else if (item.BrandGroup?.toUpperCase() === "ODM") {
         form = await this.loadOdmEditor(item);
       }
 
