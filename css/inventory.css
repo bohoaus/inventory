@@ -1853,6 +1853,11 @@
   color: #b71c1c;
 }
 
+.inventory-table td[data-column="Item_Name"] {
+ // background-color: #ffebee;
+  color: grey;
+}
+
 /* Freight List Styles */
 .freight-modal .modal-content {
   max-width: 1200px;
