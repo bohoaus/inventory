@@ -49,11 +49,12 @@ class AdminInventory {
       "Code_Colour",
       "Item_Name",
       "Category",
+      "Qty",
       "Status",
-      "Stock",
       "ReleaseDate",
-      "Item_Aging",
+      "Stock",
       "Location",
+      "Item_Aging",
       "Item_Note",
     ];
 
