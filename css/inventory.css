@@ -397,7 +397,8 @@
 }
 
 .sidebar {
-  width: 150px;
+  //width: 150px;
+  width: 100px;
   //min-width: 250px; /* Prevent sidebar from shrinking */
   min-width: 200px; /* Prevent sidebar from shrinking */
   background: #2c3e50;
