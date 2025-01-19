@@ -77,9 +77,9 @@ class StaffInventoryExport {
         },
         columnStyles: {
           // Right align number columns
-          stock_qty: { halign: "right" },
-          receive_qty: { halign: "right" },
-          odm_qty_diff: { halign: "right" },
+          Stock: { halign: "right" },
+          Qty: { halign: "right" },
+          odmQtyDiff: { halign: "right" },
           // Format date columns
           ...this.getDateColumnStyles(options.columns),
         },
@@ -129,13 +129,13 @@ class StaffInventoryExport {
 
   isDateColumn(columnName) {
     return [
-      "release_date",
-      "mfg_date",
-      "est_date",
-      "arrive_date",
-      "delay_date",
-      "created_at",
-      "updated_at",
+      "ReleaseDate",
+      "mfgDate",
+      "estDate",
+      "ArriveDate",
+      "DelayDate",
+      "Created",
+      "Updated",
       "soldout_date",
     ].includes(columnName);
   }
