@@ -28,7 +28,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 170px;
+  width: 180px;
   background-color: var(--sidebar-color);
   color: white;
   padding: 5px 0;
@@ -91,7 +91,7 @@ header {
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 170px;
+    width: 180px;
     overflow: hidden;
   }
 
