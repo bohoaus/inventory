@@ -229,7 +229,7 @@
 
 .inventory-table th {
   background-color: #f8f9fa;
-  font-weight: 200;
+  font-weight: 100;
 }
 
 .inventory-table tr:nth-child(even) {
