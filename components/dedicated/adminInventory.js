@@ -202,7 +202,7 @@ class AdminInventory {
     `;
     panel.appendChild(actionButtons);
 
-    // Define all columns in the desired order - for selection tab
+    // Define all columns in the desired order - for selection tab-inventory.html
     const allColumns = [
       // Default columns first (in specific order)
       { id: "Code_Colour", label: "Code Color" },
