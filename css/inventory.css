@@ -507,7 +507,7 @@
 
 .json-table th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 200;
 }
 
 .json-table tr:nth-child(even) {
