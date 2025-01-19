@@ -274,8 +274,8 @@ class SoldOutList {
 
       // Sort items by status first, then by brand
       const sortedItems = [...items].sort((a, b) => {
-        const statusA = (a.soldout_status || "").toUpperCase();
-        const statusB = (b.soldout_status || "").toUpperCase();
+        const statusA = (a.SoldoutStatus || "").toUpperCase();
+        const statusB = (b.SoldoutStatus || "").toUpperCase();
 
         // First sort by status priority
         const priorityA = statusPriority[statusA] || 999;
