@@ -802,7 +802,7 @@
 }
 
 .add-item-modal label {
-  font-weight: 500;
+  font-weight: 100;
 }
 
 .add-item-modal input,
@@ -810,7 +810,7 @@
   padding: 4px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .add-item-modal button[type="submit"] {
