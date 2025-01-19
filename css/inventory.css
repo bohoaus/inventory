@@ -2155,7 +2155,7 @@
 } /* Note */
 
 /* Add status cell styles */
-.inventory-table td[data-column="item_status"] {
+.inventory-table td[data-column="Status"] {
   font-weight: 100;
   text-transform: uppercase;
   //font-size: 0.9em;
@@ -2163,27 +2163,27 @@
 }
 
 /* Status-specific colors */
-.inventory-table td[data-column="item_status"].status-arrived {
+.inventory-table td[data-column="Status"].status-arrived {
   color: #28a745;
   background-color: #e8f5e9;
 }
 
-.inventory-table td[data-column="item_status"].status-shipping {
+.inventory-table td[data-column="Status"].status-shipping {
   color: #0056b3;
   background-color: #e3f2fd;
 }
 
-.inventory-table td[data-column="item_status"].status-not-released {
+.inventory-table td[data-column="Status"].status-not-released {
   color: #6c757d;
   background-color: #f8f9fa;
 }
 
-.inventory-table td[data-column="item_status"].status-processing {
+.inventory-table td[data-column="Status"].status-processing {
   color: #fd7e14;
   background-color: #fff3e0;
 }
 
-.inventory-table td[data-column="item_status"].status-on-hold {
+.inventory-table td[data-column="Status"].status-on-hold {
   color: #dc3545;
   background-color: #ffebee;
 }
