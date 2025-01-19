@@ -547,7 +547,7 @@
 }
 
 /* Fix table container */
-.main-content {
+.main-content-order {
   display: flex;
   flex-direction: column;
   height: 100vh;
