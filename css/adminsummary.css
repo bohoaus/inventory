@@ -1,5 +1,5 @@
 .admin-summary {
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 5px;
     background: white;
     border-radius: 8px;
@@ -19,12 +19,12 @@
 
 /* Future Dispatches Section */
 .future-dispatches {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .dispatches-list {
     display: grid;
-    gap: 15px;
+    gap: 5px;
 }
 
 .dispatch-item {
@@ -37,7 +37,7 @@
 
 .dispatch-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .dispatch-header {
@@ -94,8 +94,8 @@
 }
 
 .dispatch-details {
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 5px;
+    padding-top: 5px;
     border-top: 1px solid #e9ecef;
 }
 
@@ -109,7 +109,7 @@
 .order-summary .summary-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 6px;
 }
 
 /* Common styles for all summary items */
@@ -119,8 +119,8 @@
 .note-preview {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px;
+    gap: 4px;
+    padding: 4px;
     background: white;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
@@ -166,12 +166,12 @@
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px;
 }
 
 .preview-item {
     background: #e9ecef;
-    padding: 4px 8px;
+    padding: 4px 4px;
     border-radius: 4px;
     font-size: 0.9em;
     color: #495057;
@@ -180,7 +180,7 @@
 .more-items {
     color: #6c757d;
     font-size: 0.9em;
-    padding: 4px 8px;
+    padding: 4px 4px;
     background: #e9ecef;
     border-radius: 4px;
     cursor: pointer;
@@ -193,7 +193,7 @@
 .summary-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 5px;
 }
 
 .summary-content {
@@ -211,7 +211,7 @@
 
 .summary-details {
     display: grid;
-    gap: 10px;
+    gap: 5px;
 }
 
 .summary-group h4 {
@@ -238,7 +238,7 @@
 .no-data {
     color: #6c757d;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
     background: #f8f9fa;
     border-radius: 4px;
 }
@@ -251,7 +251,7 @@
 
     .dispatch-item {
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 5px;
     }
 } 
 
