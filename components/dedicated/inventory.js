@@ -45,7 +45,7 @@ class InventoryComponent {
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
-      "code_colour",
+      "Code_Colour",
       "Item_Name",
       "Stock",
       "Status",
@@ -339,7 +339,7 @@ class InventoryComponent {
 
       if (searchTerm) {
         query = query.or(
-          `code_colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
+          `Code_Colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
         );
       }
 
@@ -682,7 +682,7 @@ class InventoryComponent {
 
   getColumnClass(colName) {
     const classes = ["Salesinventory-td"];
-    if (colName === "code_colour") classes.push("Salesinventory-code");
+    if (colName === "Code_Colour") classes.push("Salesinventory-code");
     if (colName === "Stock") classes.push("Salesinventory-qty");
     if (colName === "Item_Note") classes.push("Salesinventory-note");
     return classes.join(" ");
@@ -720,7 +720,7 @@ class InventoryComponent {
 
       // Basic Information
       document.getElementById("detailCode").textContent =
-        item.code_colour || "";
+        item.Code_Colour || "";
       document.getElementById("detailName").textContent = item.Item_Name || "";
       document.getElementById("detailGroup").textContent =
         item.BrandGroup || "";
@@ -1180,15 +1180,15 @@ class InventoryComponent {
               <h3>Stock Information</h3>
               <div class="Salesinventory-detail-group">
                 <div class="Salesinventory-detail-row">
-                  <label>Stock Quantity:</label>
+                  <label>Stock:</label>
                   <span id="detailStock"></span>
                 </div>
                 <div class="Salesinventory-detail-row">
-                  <label>Receive Quantity:</label>
+                  <label>Qty:</label>
                   <span id="detailReceiveQty"></span>
                 </div>
                 <div class="Salesinventory-detail-row">
-                  <label>Pack Unit:</label>
+                  <label>UnitP:</label>
                   <span id="detailPackUnit"></span>
                 </div>
                 <div class="Salesinventory-detail-row">
