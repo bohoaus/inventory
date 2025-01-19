@@ -409,7 +409,8 @@
 
 .main-content {
   flex: 1;
-  margin-left: 250px; /* Match sidebar width */
+  //margin-left: 250px; /* Match sidebar width left-right*/
+  margin-left: 50px; /* Match sidebar width */
   padding: 5px;
   overflow-x: hidden; /* Prevent horizontal scroll of the main container */
 }
