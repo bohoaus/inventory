@@ -87,7 +87,7 @@ header {
 .user-info {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
 }
 
 /* Responsive Design */
