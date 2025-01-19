@@ -7,49 +7,49 @@ class StaffInventoryComponent {
     this.userRole = "staff";
     this.userEmail = "";
     this.currentPage = 1;
-    this.sortColumn = "release_date";
+    this.sortColumn = "ReleaseDate";
     this.sortDirection = "desc";
     this.currentFilter = "all";
 
     // Define all available columns
     this.allColumns = [
-      { id: "code_colour", label: "Code Color" },
-      { id: "item_name", label: "Item Name" },
-      { id: "item_group", label: "Group" },
-      { id: "item_location", label: "Location" },
-      { id: "receive_qty", label: "Receive Qty" },
-      { id: "stock_qty", label: "Stock Qty" },
-      { id: "release_date", label: "Release Date" },
-      { id: "item_aging", label: "Item Aging" },
-      { id: "item_status", label: "Status" },
-      { id: "item_category", label: "Category" },
-      { id: "pack_unit", label: "Pack Unit" },
-      { id: "pack_size", label: "Pack Size" },
-      { id: "repeat_item", label: "Repeat Item" },
-      { id: "mfg_date", label: "Manufacture Date" },
-      { id: "item_cargo", label: "Cargo" },
-      { id: "est_date", label: "Estimated Date" },
-      { id: "arrive_date", label: "Arrive Date" },
-      { id: "delay_date", label: "Delay Date" },
+      { id: "Code_Colour", label: "Code Color" },
+      { id: "Item_Name", label: "Item Name" },
+      { id: "BrandGroup", label: "Group" },
+      { id: "Location", label: "Location" },
+      { id: "Qty", label: "Qty" },
+      { id: "Stock", label: "Stock" },
+      { id: "ReleaseDate", label: "ReleaseDate" },
+      { id: "Item_Aging", label: "Aging" },
+      { id: "Status", label: "Status" },
+      { id: "Category", label: "Category" },
+      { id: "UnitP", label: "Pack Unit" },
+      { id: "Pack_Size", label: "Pack Size" },
+      { id: "Repeat_Item", label: "RepeatItem" },
+      { id: "mfgDate", label: "mfgDate" },
+      { id: "Cargo", label: "Cargo" },
+      { id: "estDate", label: "EstimatedDate" },
+      { id: "ArriveDate", label: "ArriveDate" },
+      { id: "DelayDate", label: "Delay Date" },
       { id: "odm_ppo", label: "ODM PPO" },
-      { id: "odm_customer", label: "ODM Customer" },
-      { id: "item_note", label: "Note" },
-      { id: "created_at", label: "Created At" },
-      { id: "updated_at", label: "Updated At" },
-      { id: "soldout_date", label: "Sold Out Date" },
-      { id: "soldout_status", label: "Sold Out Status" },
-      { id: "odm_qty_diff", label: "ODM Qty Diff" },
-      { id: "freight_bags", label: "Freight Bags" },
+      { id: "odmCustomer", label: "ODM Customer" },
+      { id: "Item_Note", label: "Note" },
+      { id: "Created", label: "Created At" },
+      { id: "Updated", label: "Updated At" },
+      { id: "SoldoutDate", label: "SoldOutDate" },
+      { id: "SoldoutStatus", label: "SoldOutStatus" },
+      { id: "odmQtyDiff", label: "ODM QtyDiff" },
+      { id: "FreightBags", label: "FreightBags" },
     ];
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
-      "code_colour",
-      "item_name",
-      "stock_qty",
-      "item_status",
-      "item_location",
-      "item_note",
+      "Code_Colour",
+      "Item_Name",
+      "Stock",
+      "Status",
+      "Location",
+      "Item_Note",
     ];
 
     // Initialize selected columns with defaults
@@ -213,11 +213,11 @@ class StaffInventoryComponent {
       // Get unique categories
       const { data: categories } = await supabaseClient
         .from("inventory")
-        .select("item_category")
-        .not("item_category", "is", null);
+        .select("Category")
+        .not("Category", "is", null);
 
       const uniqueCategories = [
-        ...new Set(categories.map((item) => item.item_category)),
+        ...new Set(categories.map((item) => item.Category)),
       ].sort();
       uniqueCategories.forEach((category) => {
         const option = document.createElement("option");
@@ -229,11 +229,11 @@ class StaffInventoryComponent {
       // Get unique statuses
       const { data: statuses } = await supabaseClient
         .from("inventory")
-        .select("item_status")
-        .not("item_status", "is", null);
+        .select("Status")
+        .not("Status", "is", null);
 
       const uniqueStatuses = [
-        ...new Set(statuses.map((item) => item.item_status)),
+        ...new Set(statuses.map((item) => item.Status)),
       ].sort();
       uniqueStatuses.forEach((status) => {
         const option = document.createElement("option");
@@ -326,35 +326,35 @@ class StaffInventoryComponent {
 
       if (searchTerm) {
         query = query.or(
-          `code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`
+          `Code_Colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
         );
       }
 
       if (noteSearchTerm) {
-        query = query.ilike("item_note", `%${noteSearchTerm}%`);
+        query = query.ilike("Item_Note", `%${noteSearchTerm}%`);
       }
 
       // Apply category filter
       const categoryFilter = document.getElementById("categoryFilter").value;
       if (categoryFilter) {
-        query = query.eq("item_category", categoryFilter);
+        query = query.eq("Category", categoryFilter);
       }
 
       // Apply status filter
       const statusFilter = document.getElementById("statusFilter").value;
       if (statusFilter) {
-        query = query.eq("item_status", statusFilter);
+        query = query.eq("Status", statusFilter);
       }
 
       // Apply group filter
       if (this.currentFilter !== "all") {
-        query = query.eq("item_group", this.currentFilter);
+        query = query.eq("BrandGroup", this.currentFilter);
       }
 
       // Apply repeat items filter
       const repeatFilterBtn = document.querySelector('[data-filter="repeat"]');
       if (repeatFilterBtn && repeatFilterBtn.classList.contains("active")) {
-        query = query.not("repeat_item", "is", null);
+        query = query.not("Repeat_Item", "is", null);
       }
 
       // Get the data
@@ -407,7 +407,7 @@ class StaffInventoryComponent {
       // For non-empty values, proceed with normal sorting
       const direction = this.sortDirection === "asc" ? 1 : -1;
 
-      if (this.sortColumn === "stock_qty") {
+      if (this.sortColumn === "Stock") {
         return (Number(aValue) - Number(bValue)) * direction;
       }
 
@@ -471,17 +471,17 @@ class StaffInventoryComponent {
         const td = document.createElement("td");
         td.className = `Staffinventory-td ${this.getColumnClass(col)}`;
 
-        if (col === "stock_qty") {
+        if (col === "Stock") {
           td.textContent = item[col] || "0";
           td.style.textAlign = "right";
-        } else if (col === "item_status") {
+        } else if (col === "Status") {
           td.textContent = item[col] || "";
           td.classList.add(
             `Staffinventory-status-${this.getStatusClass(item[col])}`
           );
         } else if (this.isDateColumn(col)) {
           td.textContent = this.formatDate(item[col]);
-        } else if (col === "pack_size" || col === "repeat_item") {
+        } else if (col === "Pack_Size" || col === "Repeat_Item") {
           const value = item[col];
           if (value && Object.keys(value).length > 0) {
             td.innerHTML = `
@@ -507,14 +507,14 @@ class StaffInventoryComponent {
 
   isDateColumn(columnName) {
     return [
-      "release_date",
-      "mfg_date",
-      "est_date",
-      "arrive_date",
-      "delay_date",
-      "created_at",
-      "updated_at",
-      "soldout_date",
+      "ReleaseDate",
+      "mfgDate",
+      "estDate",
+      "ArriveDate",
+      "DelayDate",
+      "Created",
+      "Updated",
+      "SoldoutDate",
     ].includes(columnName);
   }
 
@@ -657,9 +657,9 @@ class StaffInventoryComponent {
 
   getColumnClass(colName) {
     const classes = ["Staffinventory-td"];
-    if (colName === "code_colour") classes.push("Staffinventory-code");
-    if (colName === "stock_qty") classes.push("Staffinventory-qty");
-    if (colName === "item_note") classes.push("Staffinventory-note");
+    if (colName === "Code_Colour") classes.push("Staffinventory-code");
+    if (colName === "Stock") classes.push("Staffinventory-qty");
+    if (colName === "Item_Note") classes.push("Staffinventory-note");
     return classes.join(" ");
   }
 
@@ -695,50 +695,50 @@ class StaffInventoryComponent {
 
       // Basic Information
       document.getElementById("detailCode").textContent =
-        item.code_colour || "";
-      document.getElementById("detailName").textContent = item.item_name || "";
+        item.Code_Colour || "";
+      document.getElementById("detailName").textContent = item.Item_Name || "";
       document.getElementById("detailGroup").textContent =
-        item.item_group || "";
+        item.BrandGroup || "";
       document.getElementById("detailCategory").textContent =
-        item.item_category || "";
+        item.Category || "";
       document.getElementById("detailStatus").textContent =
-        item.item_status || "";
+        item.Status || "";
       document.getElementById("detailLocation").textContent =
-        item.item_location || "";
-      document.getElementById("detailNote").textContent = item.item_note || "";
+        item.Location || "";
+      document.getElementById("detailNote").textContent = item.Item_Note || "";
 
       // Stock Information
       document.getElementById("detailStock").textContent =
-        item.stock_qty || "0";
+        item.Stock || "0";
       document.getElementById("detailReceiveQty").textContent =
-        item.receive_qty || "0";
+        item.Qty || "0";
       document.getElementById("detailPackUnit").textContent =
-        item.pack_unit || "";
+        item.UnitP || "";
 
       // Pack Size and Repeat Item with new format
       const packSizeContainer = document.getElementById("detailPackSize");
-      packSizeContainer.innerHTML = item.pack_size
-        ? this.renderJsonGrid(item.pack_size, "pack_size")
+      packSizeContainer.innerHTML = item.Pack_Size
+        ? this.renderJsonGrid(item.Pack_Size, "Pack_Size")
         : "-";
 
       const repeatItemContainer = document.getElementById("detailRepeatItem");
-      repeatItemContainer.innerHTML = item.repeat_item
-        ? this.renderJsonGrid(item.repeat_item, "repeat_item")
+      repeatItemContainer.innerHTML = item.Repeat_Item
+        ? this.renderJsonGrid(item.Repeat_Item, "Repeat_Item")
         : "-";
 
       document.getElementById("detailAging").textContent =
-        item.item_aging || "";
+        item.Item_Aging || "";
 
       // Dates
       const dateFields = [
-        "release_date",
-        "mfg_date",
-        "est_date",
-        "arrive_date",
-        "delay_date",
-        "soldout_date",
-        "created_at",
-        "updated_at",
+        "ReleaseDate",
+        "mfgDate",
+        "estDate",
+        "ArriveDate",
+        "DelayDate",
+        "SoldoutDate",
+        "Created",
+        "Updated",
       ];
       dateFields.forEach((field) => {
         const element = document.getElementById(
@@ -754,15 +754,15 @@ class StaffInventoryComponent {
       // ODM Information
       document.getElementById("detailOdmPpo").textContent = item.odm_ppo || "";
       document.getElementById("detailOdmCustomer").textContent =
-        item.odm_customer || "";
+        item.odmCustomer || "";
       document.getElementById("detailOdmQtyDiff").textContent =
-        item.odm_qty_diff || "";
+        item.odmQtyDiff || "";
       document.getElementById("detailCargo").textContent =
-        item.item_cargo || "";
+        item.Cargo || "";
       document.getElementById("detailFreightBags").textContent =
-        item.freight_bags || "";
+        item.FreightBags || "";
       document.getElementById("detailSoldoutStatus").textContent =
-        item.soldout_status || "";
+        item.SoldoutStatus || "";
 
       const modal = document.getElementById("detailsModal");
       modal.style.display = "block";
@@ -947,15 +947,15 @@ class StaffInventoryComponent {
     try {
       const data = JSON.parse(atob(encodedData));
       const modalId =
-        type === "pack_size" ? "packSizeModal" : "repeatItemModal";
-      const gridId = type === "pack_size" ? "packSizeGrid" : "repeatItemGrid";
+        type === "Pack_Size" ? "packSizeModal" : "repeatItemModal";
+      const gridId = type === "Pack_Size" ? "packSizeGrid" : "repeatItemGrid";
 
       // Ensure modal exists
       let modal = document.getElementById(modalId);
       if (!modal) {
         document.body.insertAdjacentHTML(
           "beforeend",
-          this.modalTemplates[type === "pack_size" ? "packSize" : "repeatItem"]
+          this.modalTemplates[type === "Pack_Size" ? "packSize" : "repeatItem"]
         );
         modal = document.getElementById(modalId);
 
@@ -987,7 +987,7 @@ class StaffInventoryComponent {
       return '<div class="Staffinventory-json-row">No data available</div>';
     }
 
-    if (type === "pack_size") {
+    if (type === "Pack_Size") {
       return `
         <table class="Staffinventory-json-table">
           <thead>
@@ -1010,7 +1010,7 @@ class StaffInventoryComponent {
           </tbody>
         </table>
       `;
-    } else if (type === "repeat_item") {
+    } else if (type === "Repeat_Item") {
       return `
         <table class="Staffinventory-json-table">
           <thead>
@@ -1179,7 +1179,7 @@ class StaffInventoryComponent {
                 <div class="Staffinventory-detail-group">
                   <div class="Staffinventory-detail-row">
                     <label>Release Date:</label>
-                    <span id="detailReleaseDate"></span>
+                    <span id="detailStock"></span>
                   </div>
                   <div class="Staffinventory-detail-row">
                     <label>Manufacture Date:</label>
@@ -1407,9 +1407,9 @@ class StaffInventoryComponent {
           .from("inventory")
           .select(selectedColumns.join(","));
 
-        if (category) query = query.eq("item_category", category);
-        if (status) query = query.eq("item_status", status);
-        if (group !== "all") query = query.eq("item_group", group);
+        if (category) query = query.eq("Category", category);
+        if (status) query = query.eq("Status", status);
+        if (group !== "all") query = query.eq("BrandGroup", group);
 
         const { data, error } = await query;
 
@@ -1509,7 +1509,7 @@ class StaffInventoryComponent {
       const status = dialog.querySelector("#exportStatus")?.value || "";
       const group = dialog.querySelector("#exportGroup")?.value || "all";
       const sortColumn =
-        dialog.querySelector("#exportSortColumn")?.value || "code_colour";
+        dialog.querySelector("#exportSortColumn")?.value || "Code_Colour";
       const sortDirection =
         dialog.querySelector("#exportSortDirection")?.value || "asc";
 
@@ -1517,9 +1517,9 @@ class StaffInventoryComponent {
         .from("inventory")
         .select(selectedColumns.join(","));
 
-      if (category) query = query.eq("item_category", category);
-      if (status) query = query.eq("item_status", status);
-      if (group !== "all") query = query.eq("item_group", group);
+      if (category) query = query.eq("Category", category);
+      if (status) query = query.eq("Status", status);
+      if (group !== "all") query = query.eq("BrandGroup", group);
 
       const { data, error } = await query.limit(5);
 
@@ -1580,7 +1580,7 @@ class StaffInventoryComponent {
   formatPreviewValue(value, column) {
     if (value === null || value === undefined) return "-";
     if (this.isDateColumn(column)) return this.formatDate(value);
-    if (column === "pack_size" || column === "repeat_item") {
+    if (column === "Pack_Size" || column === "Repeat_Item") {
       return value ? "JSON data" : "-";
     }
     return value;
