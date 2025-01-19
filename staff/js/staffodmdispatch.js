@@ -20,12 +20,12 @@ class StaffODMDispatch {
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
-        .eq("item_group", "ODM")
-        .order("mfg_date", { ascending: false });
+        .eq("BrandGroup", "ODM")
+        .order("mfgDate", { ascending: false });
 
       if (error) throw error;
 
-      // Group items by mfg_date and cargo
+      // Group items by mfgDate and cargo
       const groupedItems = this.groupItemsByDispatch(items);
 
       if (Object.keys(groupedItems).length === 0) {
@@ -55,14 +55,14 @@ class StaffODMDispatch {
   groupItemsByDispatch(items) {
     const groups = {};
     items.forEach((item) => {
-      if (!item.mfg_date || !item.item_cargo) return;
+      if (!item.mfgDate || !item.Cargo) return;
 
-      const key = `${item.mfg_date}_${item.item_cargo}`;
+      const key = `${item.mfgDate}_${item.Cargo}`;
       if (!groups[key]) {
         groups[key] = {
-          mfg_date: item.mfg_date,
-          cargo: item.item_cargo,
-          arrive_date: item.arrive_date,
+          mfgDate: item.mfgDate,
+          cargo: item.Cargo,
+          ArriveDate: item.ArriveDate,
           items: [],
           customerCounts: {},
         };
@@ -70,7 +70,7 @@ class StaffODMDispatch {
       groups[key].items.push(item);
 
       // Count items per customer
-      const customer = item.odm_customer || "Unknown";
+      const customer = item.odmCustomer || "Unknown";
       groups[key].customerCounts[customer] =
         (groups[key].customerCounts[customer] || 0) + 1;
     });
@@ -84,7 +84,7 @@ class StaffODMDispatch {
         <div class="Staffodmdispatch-group">
           <div class="Staffodmdispatch-group-header">
             <div class="Staffodmdispatch-header-main">
-              <h3>${this.formatDateToSydney(group.mfg_date)} - ${
+              <h3>${this.formatDateToSydney(group.mfgDate)} - ${
           group.cargo
         }</h3>
             </div>
@@ -97,8 +97,8 @@ class StaffODMDispatch {
                 <span>Total Items: ${group.items.length}</span>
                 <span> | </span>
                 <span>Arrival: ${
-                  group.arrive_date
-                    ? this.formatDateToSydney(group.arrive_date)
+                  group.ArriveDate
+                    ? this.formatDateToSydney(group.ArriveDate)
                     : "Not Arrived"
                 }</span>
               </div>
@@ -125,10 +125,10 @@ class StaffODMDispatch {
               <button class="Staffodmdispatch-export-btn" onclick="staffODMDispatch.exportToPDF(${JSON.stringify(
                 {
                   items: group.items,
-                  mfg_date: group.mfg_date,
+                  mfgDate: group.mfgDate,
                   cargo: group.cargo,
                   customerCounts: group.customerCounts,
-                  arrive_date: group.arrive_date,
+                  ArriveDate: group.ArriveDate,
                 }
               ).replace(/"/g, "&quot;")})">
                 <i class="fas fa-file-pdf"></i>
@@ -156,7 +156,7 @@ class StaffODMDispatch {
       // Add group info with black text
       doc.setFontSize(12);
       doc.text(
-        `Manufacturing Date: ${this.formatDateToSydney(groupData.mfg_date)}`,
+        `Manufacturing Date: ${this.formatDateToSydney(groupData.mfgDate)}`,
         14,
         30
       );
@@ -168,8 +168,8 @@ class StaffODMDispatch {
       );
       doc.text(
         `Arrival Date: ${
-          groupData.arrive_date
-            ? this.formatDateToSydney(groupData.arrive_date)
+          groupData.ArriveDate
+            ? this.formatDateToSydney(groupData.ArriveDate)
             : "Not Arrived"
         }`,
         14,
@@ -187,10 +187,10 @@ class StaffODMDispatch {
 
       // Create table data
       const tableData = groupData.items.map((item) => [
-        item.code_colour || "N/A",
-        item.odm_ppo || "N/A",
-        item.odm_customer || "N/A",
-        item.item_status || "N/A",
+        item.Code_Colour || "N/A",
+        item.odmPPO || "N/A",
+        item.odmCustomer || "N/A",
+        item.Status || "N/A",
         this.formatDateToSydney(item.updated_at),
       ]);
 
@@ -225,7 +225,7 @@ class StaffODMDispatch {
 
       // Generate filename
       const filename = `ODM_Dispatch_${
-        groupData.mfg_date
+        groupData.mfgDate
       }_${groupData.cargo.replace(/[^a-z0-9]/gi, "_")}.pdf`;
 
       // Save PDF
@@ -271,10 +271,10 @@ class StaffODMDispatch {
             .map(
               (item) => `
             <tr>
-              <td>${item.code_colour || "N/A"}</td>
-              <td>${item.odm_ppo || "N/A"}</td>
-              <td>${item.odm_customer || "N/A"}</td>
-              <td>${item.item_status || "N/A"}</td>
+              <td>${item.Code_Colour || "N/A"}</td>
+              <td>${item.odmPPO || "N/A"}</td>
+              <td>${item.odmCustomer || "N/A"}</td>
+              <td>${item.Status || "N/A"}</td>
               <td>${this.formatDateToSydney(item.updated_at)}</td>
             </tr>
           `
