@@ -28,7 +28,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 180px;
+  width: 170px;
   background-color: var(--sidebar-color);
   color: white;
   padding: 5px 0;
