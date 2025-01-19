@@ -47,9 +47,11 @@ class InventoryComponent {
     this.defaultColumns = [
       "Code_Colour",
       "Item_Name",
+      "Qty",
+      "Category",
       "Stock",
-      "Status",
       "Location",
+      "Status",
       "Item_Note",
     ];
 
