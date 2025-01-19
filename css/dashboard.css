@@ -108,7 +108,8 @@ header {
   }
 
   .main-content {
-    margin-left: 5px;
+  //margin-left: 180px; //Orders page's sidebar
+    margin-left: 185px;
   }
 
   .dashboard-grid {
