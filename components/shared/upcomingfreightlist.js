@@ -302,19 +302,19 @@ class UpcomingFreightList {
         <h3>Bulk Edit - ${date} ${cargo}</h3>
         <div class="form-group">
             <label>Estimated Date</label>
-            <input type="date" name="est_date">
+            <input type="date" name="estDate">
         </div>
         <div class="form-group">
             <label>Delay Date</label>
-            <input type="date" name="delay_date">
+            <input type="date" name="DelayDate">
         </div>
         <div class="form-group">
             <label>Arrive Date</label>
-            <input type="date" name="arrive_date">
+            <input type="date" name="ArriveDate">
         </div>
         <div class="form-group">
             <label>Bags Amount</label>
-            <input type="number" name="freight_bags" min="0" step="1">
+            <input type="number" name="FreightBags" min="0" step="1">
         </div>
         <div class="form-actions">
             <button type="submit" class="save-btn">Save Changes</button>
@@ -339,15 +339,15 @@ class UpcomingFreightList {
       }
 
       try {
-        // Group items by their item_group
+        // Group items by their BrandGroup
         const groupedItems = items.reduce((acc, item) => {
-          const group = item.item_group?.toUpperCase() || "UNKNOWN";
+          const group = item.BrandGroup?.toUpperCase() || "UNKNOWN";
           if (!acc[group]) acc[group] = [];
           acc[group].push(item.id);
           return acc;
         }, {});
 
-        // If arrive_date is being set, update item_status based on group
+        // If ArriveDate is being set, update item_status based on group
         if (updates.ArriveDate) {
           // Update ODM items
           if (groupedItems.ODM?.length > 0) {
@@ -399,7 +399,7 @@ class UpcomingFreightList {
               .in("id", remainingIds);
           }
         } else {
-          // If no arrive_date, update all items with the same updates
+          // If no ArriveDate, update all items with the same updates
           const itemIds = items.map((item) => item.id);
           const { error } = await supabaseClient
             .from("inventory")
@@ -465,7 +465,7 @@ class UpcomingFreightList {
     if (!item.BrandGroup) return "-";
     const group = item.BrandGroup.toUpperCase();
 
-    // Return item_group for BOHO and PRIMROSE
+    // Return BrandGroup for BOHO and PRIMROSE
     if (group === "BOHO" || group === "PRIMROSE") {
       return group;
     }
@@ -861,8 +861,8 @@ class UpcomingFreightList {
 
       // Sort items by brand (BOHO first, then PRIMROSE, then ODM customers)
       const sortedItems = [...items].sort((a, b) => {
-        const brandA = a.item_group?.toUpperCase() || "";
-        const brandB = b.item_group?.toUpperCase() || "";
+        const brandA = a.BrandGroup?.toUpperCase() || "";
+        const brandB = b.BrandGroup?.toUpperCase() || "";
 
         if (brandA === "BOHO") return -1;
         if (brandB === "BOHO") return 1;
