@@ -32,12 +32,12 @@ class StaffFreightListComponent {
 
   async loadAndDisplayFreight() {
     try {
-      // Fetch items with mfg_date
+      // Fetch items with mfgDate
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
-        .not("mfg_date", "is", null)
-        .order("mfg_date", { ascending: false });
+        .not("mfgDate", "is", null)
+        .order("mfgDate", { ascending: false });
 
       if (error) throw error;
 
@@ -100,14 +100,14 @@ class StaffFreightListComponent {
     };
 
     items.forEach((item) => {
-      const key = `${this.formatDateToSydney(item.mfg_date)}_${
-        item.item_cargo || "unknown"
+      const key = `${this.formatDateToSydney(item.mfgDate)}_${
+        item.Cargo || "unknown"
       }`;
 
-      if (item.arrive_date) {
+      if (item.ArriveDate) {
         if (!groups.arrived[key]) groups.arrived[key] = [];
         groups.arrived[key].push(item);
-      } else if (item.delay_date) {
+      } else if (item.DelayDate) {
         if (!groups.delayed[key]) groups.delayed[key] = [];
         groups.delayed[key].push(item);
       } else {
@@ -138,8 +138,8 @@ class StaffFreightListComponent {
   }
 
   generateGroupHeader(date, cargo, items) {
-    const bagAmount = items[0]?.freight_bags
-      ? `(${items[0].freight_bags} bags)`
+    const bagAmount = items[0]?.FreightBags
+      ? `(${items[0].FreightBags} bags)`
       : "";
     return `
       <div class="Stafffreightlist-group-header">
@@ -154,25 +154,25 @@ class StaffFreightListComponent {
             <div class="Stafffreightlist-date">
               <label>Est. Date</label>
               <span>${
-                this.formatDateToSydney(items[0].est_date) || "Not Set"
+                this.formatDateToSydney(items[0].estDate) || "Not Set"
               }</span>
             </div>
             <div class="Stafffreightlist-date ${
-              items[0].delay_date ? "delayed" : ""
+              items[0].DelayDate ? "delayed" : ""
             }">
               <label>Status</label>
               <span>${
-                items[0].delay_date
-                  ? `Delayed to ${this.formatDateToSydney(items[0].delay_date)}`
+                items[0].DelayDate
+                  ? `Delayed to ${this.formatDateToSydney(items[0].DelayDate)}`
                   : "On Schedule"
               }</span>
             </div>
             <div class="Stafffreightlist-date ${
-              items[0].arrive_date ? "arrived" : ""
+              items[0].ArriveDate ? "arrived" : ""
             }">
               <label>Arrive Date</label>
               <span>${
-                this.formatDateToSydney(items[0].arrive_date) || "Pending"
+                this.formatDateToSydney(items[0].ArriveDate) || "Pending"
               }</span>
             </div>
           </div>
@@ -215,12 +215,12 @@ class StaffFreightListComponent {
               .map(
                 (item) => `
               <tr class="brand-${this.getBrandClass(item)}">
-                <td>${this.escapeHtml(item.code_colour)}</td>
+                <td>${this.escapeHtml(item.Code_Colour)}</td>
                 <td>${this.getBrandInfo(item)}</td>
-                <td>${this.escapeHtml(item.item_category)}</td>
-                <td>${this.formatPackSize(item.pack_size)}</td>
+                <td>${this.escapeHtml(item.Category)}</td>
+                <td>${this.formatPackSize(item.Pack_Size)}</td>
                 <td>${this.formatQuantity(item)}</td>
-                <td>${this.escapeHtml(item.item_note)}</td>
+                <td>${this.escapeHtml(item.Item_Note)}</td>
               </tr>
             `
               )
@@ -245,8 +245,8 @@ class StaffFreightListComponent {
   }
 
   getBrandClass(item) {
-    if (!item.item_group) return "other";
-    const group = item.item_group.toUpperCase();
+    if (!item.BrandGroup) return "other";
+    const group = item.BrandGroup.toUpperCase();
     if (group === "BOHO") return "boho";
     if (group === "PRIMROSE") return "primrose";
     return "other";
@@ -274,7 +274,7 @@ class StaffFreightListComponent {
 
   formatQuantity(item) {
     const qty = item.receive_qty || 0;
-    const group = item.item_group?.toUpperCase();
+    const group = item.BrandGroup?.toUpperCase();
     if (group === "BOHO" || group === "PRIMROSE") {
       return `${qty} packs`;
     }
@@ -282,17 +282,17 @@ class StaffFreightListComponent {
   }
 
   getBrandInfo(item) {
-    if (!item.item_group) return "-";
-    const group = item.item_group.toUpperCase();
+    if (!item.BrandGroup) return "-";
+    const group = item.BrandGroup.toUpperCase();
 
-    // Return item_group for BOHO and PRIMROSE
+    // Return BrandGroup for BOHO and PRIMROSE
     if (group === "BOHO" || group === "PRIMROSE") {
       return group;
     }
 
-    // Return odm_customer for ODM items
+    // Return odmCustomer for ODM items
     if (group === "ODM") {
-      return item.odm_customer || "-";
+      return item.odmCustomer || "-";
     }
 
     return "-";
@@ -347,8 +347,8 @@ class StaffFreightListComponent {
       const doc = new jsPDF("portrait");
 
       // Add title
-      const bagAmount = items[0]?.freight_bags
-        ? `(${items[0].freight_bags} bags)`
+      const bagAmount = items[0]?.FreightBags
+        ? `(${items[0].FreightBags} bags)`
         : "";
       doc.setFontSize(16);
       doc.text(`Freight List: ${date} - ${cargo} ${bagAmount}`, 20, 20);
@@ -357,18 +357,18 @@ class StaffFreightListComponent {
       doc.setFontSize(12);
       doc.text(`Total Items: ${items.length}`, 20, 30);
       doc.text(
-        `Est. Date: ${this.formatDateToSydney(items[0].est_date) || "Not Set"}`,
+        `Est. Date: ${this.formatDateToSydney(items[0].estDate) || "Not Set"}`,
         20,
         35
       );
       doc.text(
-        `Status: ${items[0].delay_date ? "Delayed" : "On Schedule"}`,
+        `Status: ${items[0].DelayDate ? "Delayed" : "On Schedule"}`,
         20,
         40
       );
       doc.text(
         `Arrive Date: ${
-          this.formatDateToSydney(items[0].arrive_date) || "Pending"
+          this.formatDateToSydney(items[0].ArriveDate) || "Pending"
         }`,
         20,
         45
@@ -379,12 +379,12 @@ class StaffFreightListComponent {
 
       // Create table
       const tableData = sortedItems.map((item) => [
-        item.code_colour || "",
+        item.Code_Colour || "",
         this.getBrandInfo(item),
-        item.item_category || "",
-        this.formatPackSize(item.pack_size),
+        item.Category || "",
+        this.formatPackSize(item.Pack_Size),
         this.formatQuantity(item),
-        item.item_note || "",
+        item.Item_Note || "",
       ]);
 
       doc.autoTable({
