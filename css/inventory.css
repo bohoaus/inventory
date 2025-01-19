@@ -2111,7 +2111,7 @@
 
 .all-items-table th {
   background: #f8f9fa;
-  font-weight: 600;
+  font-weight: 200;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -2151,7 +2151,7 @@
 
 /* Add status cell styles */
 .inventory-table td[data-column="item_status"] {
-  font-weight: 500;
+  font-weight: 100;
   text-transform: uppercase;
   font-size: 0.9em;
 }
@@ -2184,7 +2184,7 @@
 
 /* Qty diff column styles */
 .inventory-table td[data-column="qty_diff"] {
-  font-weight: 500;
+  font-weight: 100;
   text-align: right;
 }
 
@@ -2223,7 +2223,7 @@
 
 .detail-row .label {
   min-width: 140px;
-  font-weight: 500;
+  font-weight: 100;
   color: #666;
 }
 
