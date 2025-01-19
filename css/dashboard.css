@@ -86,7 +86,8 @@ header {
 
 .user-info {
   display: flex;
-  align-items: center;
+  //align-items: center;
+  align-items: right;
   gap: 15px;
 }
 
