@@ -88,10 +88,10 @@ class SalesStateDistro {
                 <h3>Agent State Distribution</h3>
                 <div class="chart-row">
                   <div class="chart-section">
-                    <canvas id="agentStateChartWholesale"></canvas>
+                    <canvas id="StateChartWholesale"></canvas>
                   </div>
                   <div class="chart-section">
-                    <canvas id="agentStateChartOdm"></canvas>
+                    <canvas id="StateChartOdm"></canvas>
                   </div>
                 </div>
               </div>
@@ -208,20 +208,20 @@ class SalesStateDistro {
         .select(
           `
           id,
-          customer_name,
-          agent_state,
-          dispatched_state,
-          order_type,
-          status,
-          created_at,
-          order_items (
+          Customer,
+          State,
+          Zip,
+          orderPO,
+          oStatus,
+          Created,
+          TotalItem (
             id,
-            total_pieces
+            iUnit
           )
         `
         )
-        .gte("created_at", startDate.toISOString())
-        .lte("created_at", endDate.toISOString());
+        .gte("Created", startDate.toISOString())
+        .lte("Created", endDate.toISOString());
 
       if (ordersError) throw ordersError;
 
@@ -280,26 +280,26 @@ class SalesStateDistro {
 
     orders.forEach((order) => {
       const type =
-        order.order_type?.toLowerCase() === "wholesale" ? "wholesale" : "odm";
+        order.orderPO?.toLowerCase() === "wholesale" ? "wholesale" : "odm";
 
       // Agent state distribution
-      const agentState = order.agent_state || "Unknown";
-      if (!stateDistribution.agent[type][agentState]) {
-        stateDistribution.agent[type][agentState] = {
+      const State = order.State || "Unknown";
+      if (!stateDistribution.agent[type][State]) {
+        stateDistribution.agent[type][State] = {
           orders: 0,
           items: 0,
         };
       }
-      stateDistribution.agent[type][agentState].orders++;
-      stateDistribution.agent[type][agentState].items +=
-        order.order_items.reduce(
-          (sum, item) => sum + (item.total_pieces || 0),
+      stateDistribution.agent[type][State].orders++;
+      stateDistribution.agent[type][State].items +=
+        order.TotalItem.reduce(
+          (sum, item) => sum + (item.iUnit || 0),
           0
         );
 
       // Dispatched state distribution (only for dispatched orders)
-      if (order.status === "DISPATCHED" && order.dispatched_state) {
-        const dispatchedState = order.dispatched_state;
+      if (order.oStatus === "DISPATCHED" && order.Zip) {
+        const dispatchedState = order.Zip;
         if (!stateDistribution.dispatched[type][dispatchedState]) {
           stateDistribution.dispatched[type][dispatchedState] = {
             orders: 0,
@@ -308,14 +308,14 @@ class SalesStateDistro {
         }
         stateDistribution.dispatched[type][dispatchedState].orders++;
         stateDistribution.dispatched[type][dispatchedState].items +=
-          order.order_items.reduce(
-            (sum, item) => sum + (item.total_pieces || 0),
+          order.TotalItem.reduce(
+            (sum, item) => sum + (item.iUnit || 0),
             0
           );
       }
 
       // Order summary
-      const status = order.status || "Unknown";
+      const status = order.oStatus || "Unknown";
       if (!orderSummary[type][status]) {
         orderSummary[type][status] = {
           orders: 0,
@@ -323,8 +323,8 @@ class SalesStateDistro {
         };
       }
       orderSummary[type][status].orders++;
-      orderSummary[type][status].items += order.order_items.reduce(
-        (sum, item) => sum + (item.total_pieces || 0),
+      orderSummary[type][status].items += order.TotalItem.reduce(
+        (sum, item) => sum + (item.iUnit || 0),
         0
       );
     });
@@ -386,7 +386,7 @@ class SalesStateDistro {
 
     // Update wholesale charts
     updatePieChart(
-      this.charts.agentStateWholesale,
+      this.charts.StateWholesale,
       data.agent,
       "wholesale",
       "Agent State Distribution"
@@ -400,7 +400,7 @@ class SalesStateDistro {
 
     // Update ODM charts
     updatePieChart(
-      this.charts.agentStateOdm,
+      this.charts.StateOdm,
       data.agent,
       "odm",
       "Agent State Distribution"
@@ -631,8 +631,8 @@ class SalesStateDistro {
     };
 
     return {
-      agentWholesale: await getChartImage("#agentStateChartWholesale"),
-      agentOdm: await getChartImage("#agentStateChartOdm"),
+      agentWholesale: await getChartImage("#StateChartWholesale"),
+      agentOdm: await getChartImage("#StateChartOdm"),
       dispatchedWholesale: await getChartImage(
         "#dispatchedStateChartWholesale"
       ),
@@ -691,11 +691,11 @@ class SalesStateDistro {
 
     // Initialize all charts with correct IDs
     this.charts = {
-      agentStateWholesale: createPieChart(
-        this.modal.querySelector("#agentStateChartWholesale").getContext("2d")
+      StateWholesale: createPieChart(
+        this.modal.querySelector("#StateChartWholesale").getContext("2d")
       ),
-      agentStateOdm: createPieChart(
-        this.modal.querySelector("#agentStateChartOdm").getContext("2d")
+      StateOdm: createPieChart(
+        this.modal.querySelector("#StateChartOdm").getContext("2d")
       ),
       dispatchedStateWholesale: createPieChart(
         this.modal
