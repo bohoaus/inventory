@@ -412,7 +412,7 @@
 .main-content {
   flex: 1;
   //margin-left: 250px; /* Match sidebar width left-right*/
-  margin-left: 150px; /* Match sidebar width */
+  margin-left: 190px; /* Match sidebar width */
   padding: 5px;
   overflow-x: hidden; /* Prevent horizontal scroll of the main container */
 }
