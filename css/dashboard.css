@@ -98,16 +98,16 @@ header {
 
   .logo {
     font-size: 16px;
-    padding: 10px;
+    padding: 5px;
   }
 
   .nav-links li {
-    padding: 15px 10px;
+    padding: 10px 5px;
     text-align: center;
   }
 
   .main-content {
-    margin-left: 70px;
+    margin-left: 10px;
   }
 
   .dashboard-grid {
