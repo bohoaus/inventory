@@ -924,7 +924,7 @@
 }
 
 .form-group label {
-  font-weight: 500;
+  font-weight: 100;
   color: #333;
 }
 
@@ -933,7 +933,7 @@
   padding: 4px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .form-group input:focus,
@@ -953,7 +953,7 @@
 /* Warning messages */
 .code-warning,
 .pack-size-warning {
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 4px;
 }
 
