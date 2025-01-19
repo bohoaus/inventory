@@ -46,6 +46,9 @@ class StaffInventoryComponent {
     this.defaultColumns = [
       "Code_Colour",
       "Item_Name",
+      "Qty",
+      "BrandGroup",
+      "Category",
       "Stock",
       "Status",
       "Location",
