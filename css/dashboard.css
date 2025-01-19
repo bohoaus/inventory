@@ -68,7 +68,8 @@ body {
 /* Main Content Styles */
 .main-content {
   flex: 1;
-  margin-left: 10px;
+  //margin-left: 180px; //Orders page's sidebar
+  margin-left: 180px;
   padding: 5px;
 }
 
