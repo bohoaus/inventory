@@ -57,16 +57,17 @@ class AdminInventory {
       "Item_Note",
     ];
 
-    // Define default columns that cannot be unchecked
+    // Define default columns that cannot be unchecked - inventory.html
     this.defaultColumns = [
       "Code_Colour",
-      "item_name",
+      "Item_Name",
       "Category",
+      "Qty",
       "Status",
-      "Stock",
       "ReleaseDate",
-      "Item_Aging",
+      "Stock",
       "Location",
+      "Item_Aging",
       "Item_Note",
     ];
 
@@ -493,7 +494,7 @@ class AdminInventory {
 
       if (searchTerm) {
         query = query.or(
-          `code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`
+          `code_colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
         );
       }
 
