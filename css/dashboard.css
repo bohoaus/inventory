@@ -23,7 +23,7 @@ body {
 
 .dashboard-container {
   display: flex;
-  min-height: 100vh;
+  min-height: 10vh;
 }
 
 /* Sidebar Styles */
@@ -31,7 +31,7 @@ body {
   width: 250px;
   background-color: var(--sidebar-color);
   color: white;
-  padding: 20px 0;
+  padding: 5px 0;
   position: fixed;
   height: 100vh;
 }
