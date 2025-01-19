@@ -1872,24 +1872,3 @@ th[data-sort].sort-desc .sort-icon {
   color: #6c757d;
   opacity: 0.8;
 }
-
-.sidebar-order {
-  //width: 150px;
-  width: 180px;
-  //min-width: 250px; /* Prevent sidebar from shrinking */
-  min-width: 170px; /* Prevent sidebar from shrinking */
-  background: #2c3e50;
-  color: white;
-  padding: 5px;
-  position: fixed;
-  height: 100vh;
-  z-index: 1000;
-}
-
-.main-content-order {
-  flex: 1;
-  //margin-left: 250px; /* Match sidebar width left-right*/
-  margin-left: 190px; /* Match sidebar width */
-  padding: 5px;
-  overflow-x: hidden; /* Prevent horizontal scroll of the main container */
-}
