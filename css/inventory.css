@@ -1000,13 +1000,13 @@
 .warning-details p {
   color: #856404;
   margin: 0 0 4px 0;
-  font-weight: 500;
+  font-weight: 100;
 }
 
 .warning-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .warning-table th,
