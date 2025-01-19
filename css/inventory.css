@@ -1838,17 +1838,17 @@
 }
 
 /* Status-based cell colors in  table */
-.-table td[data-column="soldout_status"].status-new-release {
+.-table td[data-column="Soldout_Status"].status-new-release {
   background-color: #e3f2fd;
   color: #0d47a1;
 }
 
-.inventory-table td[data-column="soldout_status"].status-full-price {
+.inventory-table td[data-column="SoldoutStatus"].status-full-price {
   background-color: #e8f5e9;
   color: #1b5e20;
 }
 
-.inventory-table td[data-column="soldout_status"].status-on-sale {
+.inventory-table td[data-column="Soldout_Status"].status-on-sale {
   background-color: #ffebee;
   color: #b71c1c;
 }
@@ -1856,6 +1856,12 @@
 .inventory-table td[data-column="Item_Name"] {
  // background-color: #ffebee;
   color: grey;
+}
+
+.inventory-table td[data-column="Qty" || data-column="Stock"] {
+ // background-color: #ffebee;
+  align-items: center;
+ // color: grey;
 }
 
 /* Freight List Styles */
