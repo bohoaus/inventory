@@ -213,30 +213,30 @@
 }
 
 /* Table Styles */
-.inventory-table {
+.-table {
   width: 100%;
   min-width: 800px; /* Minimum width to prevent squishing */
   border-collapse: collapse;
   margin-top: 5px;
 }
 
-.inventory-table th,
-.inventory-table td {
+.-table th,
+.-table td {
   padding: 6px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
-.inventory-table th {
+.-table th {
   background-color: #f8f9fa;
   font-weight: 100;
 }
 
-.inventory-table tr:nth-child(even) {
+.-table tr:nth-child(even) {
   background-color: #f8f9fa;
 }
 
-.inventory-table tr:hover {
+.-table tr:hover {
   background-color: #f2f2f2;
 }
 
@@ -313,34 +313,34 @@
 }
 
 /* Make certain columns have fixed widths */
-.inventory-table th.action-column,
-.inventory-table td.action-column {
+.-table th.action-column,
+.-table td.action-column {
   width: 100px;
   min-width: 100px;
 }
 
-.inventory-table th.code-column,
-.inventory-table td.code-column {
+.-table th.code-column,
+.-table td.code-column {
   width: 120px;
   min-width: 120px;
 }
 
-.inventory-table th.qty-column,
-.inventory-table td.qty-column {
+.-table th.qty-column,
+.-table td.qty-column {
   width: 80px;
   min-width: 80px;
 }
 
-.inventory-table th.date-column,
-.inventory-table td.date-column {
+.-table th.date-column,
+.-table td.date-column {
   width: 100px;
   min-width: 100px;
   white-space: nowrap;
 }
 
 /* Sticky first column for better navigation */
-.inventory-table th:first-child,
-.inventory-table td:first-child {
+.-table th:first-child,
+.-table td:first-child {
   position: sticky;
   left: 0;
   background-color: #fff;
@@ -367,7 +367,7 @@
 
 /* Responsive adjustments for controls */
 @media screen and (max-width: 768px) {
-  .inventory-controls {
+  .-controls {
     padding: 10px;
   }
 
@@ -443,8 +443,8 @@
 }
 
 /* Additional column styles */
-.inventory-table th.note-column,
-.inventory-table td.note-column {
+.-table th.note-column,
+.-table td.note-column {
   min-width: 200px;
   max-width: 300px;
   white-space: normal; /* Allow text wrapping for notes */
@@ -1480,7 +1480,7 @@
 }
 
 /* Add specific style for soldout date if needed */
-.inventory-table td[data-column="soldout_date"] {
+.-table td[data-column="soldout_date"] {
   color: #dc3545; /* Red color for sold out dates */
 }
 
@@ -1837,8 +1837,8 @@
   color: #333;
 }
 
-/* Status-based cell colors in inventory table */
-.inventory-table td[data-column="soldout_status"].status-new-release {
+/* Status-based cell colors in  table */
+.-table td[data-column="soldout_status"].status-new-release {
   background-color: #e3f2fd;
   color: #0d47a1;
 }
@@ -2153,7 +2153,8 @@
 .inventory-table td[data-column="item_status"] {
   font-weight: 100;
   text-transform: uppercase;
-  font-size: 0.9em;
+  //font-size: 0.9em;
+  font-size: 11px;
 }
 
 /* Status-specific colors */
@@ -2269,7 +2270,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 5px 0;
-  font-size: 12px;
+  font-size: 11px;
   background: white;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -2391,7 +2392,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .json-data-table th {
