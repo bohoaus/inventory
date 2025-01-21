@@ -54,6 +54,9 @@ class EditOdmItem {
           <label for="item_group">Group*</label>
           <select name="item_group" required>
             <option value="">Select Group</option>
+            <option value="ODM" ${
+              item.item_group === "ODM" ? "selected" : ""
+            }>ODM</option>
             <option value="BOHO" ${
               item.item_group === "BOHO" ? "selected" : ""
             }>BOHO</option>

@@ -1350,6 +1350,14 @@ class AdminInventory {
   closeModal() {
     const modals = document.querySelectorAll(".modal");
     modals.forEach((modal) => {
+      // Reset form state if it's an add item modal
+      const form = modal.querySelector("#addItemForm");
+      if (form) {
+        if (window.wholesaleItem) {
+          window.wholesaleItem.resetForm();
+        }
+      }
+
       // Add closing class for animation
       modal.classList.add("closing");
 

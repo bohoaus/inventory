@@ -845,16 +845,23 @@ class WholesaleItem {
 
   // Add new validation methods
   validateForm(form) {
+    if (!form) return;
+
     const codeInput = form.querySelector('input[name="code_colour"]');
     const groupSelect = form.querySelector('select[name="item_group"]');
-    const submitButton = document.querySelector(".add-item-btn");
+    const submitButton = form.querySelector(".add-item-btn");
+
+    if (!codeInput || !groupSelect || !submitButton) return;
+
+    // Remove any existing warning attribute
+    submitButton.removeAttribute("data-warning");
+
     // Trim the code value to check for empty or whitespace-only input
-    const isValid =
-      codeInput.value.trim() !== "" &&
-      groupSelect.value !== "" &&
-      !submitButton.hasAttribute("data-warning");
+    const isValid = codeInput.value.trim() !== "" && groupSelect.value !== "";
 
     submitButton.disabled = !isValid;
+    submitButton.style.cursor = isValid ? "pointer" : "not-allowed";
+    submitButton.style.backgroundColor = isValid ? "#28a745" : "#ccc";
 
     // Add visual feedback for empty required fields
     if (!codeInput.value.trim()) {
@@ -949,114 +956,25 @@ class WholesaleItem {
     return Math.round(num * 2) / 2;
   }
 
-  // Update the addItem method
-  async addItem(formData) {
-    try {
-      // Convert pack sizes Map to a proper JSON object
-      const packSizeData = {};
-      this.packSizes.forEach((amount, size) => {
-        packSizeData[size] = amount;
-      });
-
-      const itemData = {
-        code_colour: formData.get("code_colour"),
-        item_name: formData.get("item_name"),
-        item_group: formData.get("item_group").toUpperCase(),
-        item_location: formData.get("item_location"),
-        stock_qty: parseInt(formData.get("stock_qty")) || 0,
-        receive_qty: parseInt(formData.get("receive_qty")) || 0,
-        item_status: formData.get("item_status") || "active",
-        created_at: new Date().toISOString(),
-        pack_size: packSizeData,
-        item_cargo: formData.get("item_cargo") || null,
-        mfg_date: formData.get("mfg_date") || null,
-        item_category: formData.get("item_category") || null,
-        release_date: formData.get("release_date") || null,
-        item_note: formData.get("item_note") || null,
-      };
-
-      // Case-insensitive group validation
-      if (!this.validGroups.includes(itemData.item_group.toUpperCase())) {
-        throw new Error("Invalid item group. Must be either BOHO or PRIMROSE.");
+  // Add method to reset form state
+  resetForm() {
+    this.packSizes.clear();
+    this.totalAmount = 0;
+    const form = document.querySelector("#addItemForm");
+    if (form) {
+      form.reset();
+      const submitButton = form.querySelector(".add-item-btn");
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.removeAttribute("data-warning");
+        submitButton.style.cursor = "not-allowed";
+        submitButton.style.backgroundColor = "#ccc";
       }
-
-      // Log the data being sent
-      console.log("Sending data to Supabase:", itemData);
-
-      // Round receive_qty to nearest .5
-      if (itemData.receive_qty) {
-        itemData.receive_qty = this.roundToHalf(
-          parseFloat(itemData.receive_qty)
-        );
+      const warningElement = form.querySelector(".code-warning");
+      if (warningElement) {
+        warningElement.style.display = "none";
       }
-
-      const { data, error } = await supabaseClient
-        .from("inventory")
-        .insert([itemData])
-        .select()
-        .single();
-
-      if (error) {
-        console.error("Supabase error:", error);
-        throw new Error("Error adding wholesale item: " + error.message);
-      }
-
-      return data;
-    } catch (error) {
-      console.error("Error in addItem:", error);
-      throw error;
     }
-  }
-
-  // Update the updateItem method
-  async editItem(itemId, formData) {
-    const updates = {
-      item_name: formData.get("item_name"),
-      item_group: formData.get("item_group").toUpperCase(),
-      item_location: formData.get("item_location"),
-      stock_qty: parseInt(formData.get("stock_qty")) || 0,
-      min_qty: parseInt(formData.get("min_qty")) || 0,
-      wholesale_price: parseFloat(formData.get("wholesale_price")) || 0,
-      moq: parseInt(formData.get("moq")) || 0,
-      pack_size: parseInt(formData.get("pack_size")) || 1,
-      updated_at: new Date().toISOString(),
-    };
-
-    // Case-insensitive group validation
-    if (!this.validGroups.includes(updates.item_group.toUpperCase())) {
-      throw new Error("Invalid item group. Must be either BOHO or PRIMROSE.");
-    }
-
-    // Round receive_qty to nearest .5
-    if (updates.receive_qty) {
-      updates.receive_qty = this.roundToHalf(parseFloat(updates.receive_qty));
-    }
-
-    const { data, error } = await supabaseClient
-      .from("inventory")
-      .update(updates)
-      .eq("id", itemId)
-      .select()
-      .single();
-
-    if (error) {
-      throw new Error("Error updating wholesale item: " + error.message);
-    }
-
-    return data;
-  }
-
-  // Update the validateFormData method if you have one
-  validateFormData(formData) {
-    // ... existing validation code ...
-
-    // Round receive_qty if present
-    if (formData.receive_qty) {
-      formData.receive_qty = this.roundToHalf(parseFloat(formData.receive_qty));
-    }
-
-    // ... rest of the validation ...
-    return formData;
   }
 }
 

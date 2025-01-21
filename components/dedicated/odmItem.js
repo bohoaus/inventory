@@ -12,6 +12,7 @@ class OdmItem {
     const itemData = {
       code_colour: formData.get("code_colour"),
       odm_customer: formData.get("odm_customer"),
+      odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
       receive_qty: formData.get("receive_qty") || 0,
       stock_qty: 0,
@@ -40,6 +41,7 @@ class OdmItem {
     const updates = {
       code_colour: formData.get("code_colour"),
       odm_customer: formData.get("odm_customer"),
+      odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
       receive_qty: formData.get("receive_qty") || 0,
       stock_qty: 0,

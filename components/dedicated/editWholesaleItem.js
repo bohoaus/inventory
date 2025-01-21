@@ -54,7 +54,7 @@ class EditWholesaleItem {
                 <div class="form-group">
           <label for="item_group">Group*</label>
                     <select name="item_group" required>
-            <option value="">Select Group</option>
+            
                         <option value="BOHO" ${
                           item.item_group === "BOHO" ? "selected" : ""
                         }>BOHO</option>
