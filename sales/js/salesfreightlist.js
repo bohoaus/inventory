@@ -59,15 +59,23 @@ class SalesFreightList {
       tabContainer.appendChild(delayedTab);
       tabContainer.appendChild(arrivedTab);
 
-      // Add tabs and initial content to body
+      // Create content area
+      const contentArea = document.createElement("div");
+      contentArea.className = "sale-freight-content-area";
+
+      // Add tabs and content area to body
       body.appendChild(tabContainer);
-      this.showTabContent("In Transit", groupedItems.inTransit, body);
+      body.appendChild(contentArea);
 
       // Assemble modal
       content.appendChild(header);
       content.appendChild(body);
       modal.appendChild(content);
       document.body.appendChild(modal);
+
+      // Show initial content and activate first tab
+      inTransitTab.classList.add("active");
+      this.showTabContent("inTransit", groupedItems.inTransit, contentArea);
 
       // Add click event for closing when clicking outside
       modal.addEventListener("click", (e) => {
@@ -91,10 +99,11 @@ class SalesFreightList {
         .querySelectorAll(".sale-freight-tab")
         .forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
+      const contentArea = document.querySelector(".sale-freight-content-area");
       this.showTabContent(
         label.toLowerCase().replace(" ", ""),
         items,
-        document.querySelector(".sale-freight-content-area")
+        contentArea
       );
     };
     return tab;
@@ -128,14 +137,23 @@ class SalesFreightList {
   }
 
   showTabContent(status, items, container) {
+    if (!container) return;
     container.innerHTML = "";
 
     if (Object.keys(items).length === 0) {
-      container.innerHTML = '<p class="no-data">No items found</p>';
+      container.innerHTML =
+        '<p class="sale-freight-no-data">No items found</p>';
       return;
     }
 
-    Object.entries(items).forEach(([key, groupItems]) => {
+    // Sort items by date (newest first)
+    const sortedItems = Object.entries(items).sort(([dateA], [dateB]) => {
+      const [dateStrA] = dateA.split("_");
+      const [dateStrB] = dateB.split("_");
+      return new Date(dateStrB) - new Date(dateStrA);
+    });
+
+    sortedItems.forEach(([key, groupItems]) => {
       const [date, cargo] = key.split("_");
       const groupDiv = document.createElement("div");
       groupDiv.className = "sale-freight-group";
