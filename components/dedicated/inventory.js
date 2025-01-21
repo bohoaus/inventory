@@ -179,7 +179,13 @@ class InventoryComponent {
                   (col) => `
                 <th class="Salesinventory-th" onclick="window.inventoryComponent.sortBy('${col}')">
                   ${this.formatColumnName(col)}
-                  <span class="Salesinventory-sort-icon">↕</span>
+                  <span class="Salesinventory-sort-icon">${
+                    this.sortColumn === col
+                      ? this.sortDirection === "asc"
+                        ? "↑"
+                        : "↓"
+                      : "↕"
+                  }</span>
                 </th>
               `
                 )
@@ -309,33 +315,11 @@ class InventoryComponent {
 
   async loadInventory() {
     try {
-      console.log("Starting loadInventory...");
+      let query = supabaseClient.from("inventory").select("*");
 
-      // First get total count
-      const { count: totalCount } = await supabaseClient
-        .from("inventory")
-        .select("*", { count: "exact", head: true });
-
-      console.log("Total records:", totalCount);
-
-      // Build query for filtered data
-      let query = supabaseClient
-        .from("inventory")
-        .select("id," + this.selectedColumns.join(","), { count: "exact" });
-
-      // Apply filters
+      // Apply search filters
       const searchTerm = this.searchInput.value.trim().toLowerCase();
       const noteSearchTerm = this.searchNoteInput.value.trim().toLowerCase();
-      const categoryFilter = this.categoryFilter.value;
-      const statusFilter = this.statusFilter.value;
-
-      console.log("Applied filters:", {
-        searchTerm,
-        noteSearchTerm,
-        categoryFilter,
-        statusFilter,
-        groupFilter: this.currentFilter,
-      });
 
       if (searchTerm) {
         query = query.or(
@@ -347,46 +331,36 @@ class InventoryComponent {
         query = query.ilike("item_note", `%${noteSearchTerm}%`);
       }
 
+      // Apply category filter
+      const categoryFilter = document.getElementById("categoryFilter").value;
       if (categoryFilter) {
         query = query.eq("item_category", categoryFilter);
       }
 
+      // Apply status filter
+      const statusFilter = document.getElementById("statusFilter").value;
       if (statusFilter) {
         query = query.eq("item_status", statusFilter);
       }
 
+      // Apply group filter
       if (this.currentFilter !== "all") {
         query = query.eq("item_group", this.currentFilter);
       }
 
-      // Apply repeat filter
+      // Apply repeat items filter
       if (this.isRepeatFilter) {
         query = query.not("repeat_item", "is", null);
       }
 
-      // Execute query
-      console.log("Executing query...");
-      const { data, error, count: filteredCount } = await query;
+      // Get the data
+      const { data, error } = await query;
 
       if (error) {
-        console.error("Error loading inventory:", error);
-        return;
+        throw error;
       }
 
-      if (!data) {
-        console.log("No data received");
-        this.renderInventoryTable([]);
-        this.updateRecordsInfo(totalCount, 0);
-        return;
-      }
-
-      console.log("Received data count:", data.length);
-      console.log("First record:", data[0]);
-
-      // Store the data for re-rendering
-      this.lastData = data;
-
-      // Sort data
+      // Sort the data
       const sortedData = this.sortData(data);
 
       // Apply pagination
@@ -397,19 +371,16 @@ class InventoryComponent {
         startIndex + itemsPerPage
       );
 
-      console.log("Paginated data count:", paginatedData.length);
-
-      // Update records info
-      this.updateRecordsInfo(totalCount, filteredCount);
-
-      // Render table
+      // Update the table with paginated data
       this.renderInventoryTable(paginatedData);
 
-      // Update pagination
-      this.renderPagination(filteredCount);
+      // Update records info
+      this.updateRecordsInfo(data.length, sortedData.length);
+
+      // Render pagination controls
+      this.renderPagination(sortedData.length);
     } catch (error) {
-      console.error("Error in loadInventory:", error);
-      this.renderInventoryTable([]);
+      console.error("Error loading inventory:", error);
     }
   }
 
@@ -446,8 +417,14 @@ class InventoryComponent {
   }
 
   renderInventoryTable(data) {
+    console.log("Rendering inventory table with", data.length, "records");
     const tableBody = document.querySelector(".Salesinventory-table tbody");
     const thead = document.querySelector(".Salesinventory-table thead");
+
+    if (!tableBody || !thead) {
+      console.error("Table body or head not found");
+      return;
+    }
 
     // Update table header
     thead.innerHTML = `
@@ -458,7 +435,13 @@ class InventoryComponent {
             (col) => `
           <th class="Salesinventory-th" onclick="window.inventoryComponent.sortBy('${col}')">
             ${this.formatColumnName(col)}
-            <span class="Salesinventory-sort-icon">↕</span>
+            <span class="Salesinventory-sort-icon">${
+              this.sortColumn === col
+                ? this.sortDirection === "asc"
+                  ? "↑"
+                  : "↓"
+                : "↕"
+            }</span>
           </th>
         `
           )

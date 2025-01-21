@@ -37,70 +37,98 @@ class NoteBoard {
   }
 
   async initialize() {
-    // Add global handler for reply buttons
-    window.handleNoteReply = (noteId) => {
-      console.log("Global reply handler called with noteId:", noteId);
-      if (this && typeof this.showReplyInput === "function") {
-        this.showReplyInput(noteId);
-      } else {
-        console.error("NoteBoard instance or showReplyInput not available");
+    try {
+      // Check authentication first
+      const {
+        data: { session },
+        error: authError,
+      } = await supabaseClient.auth.getSession();
+      if (authError) throw authError;
+      if (!session) {
+        console.log("No active session");
+        this.notesContainer.innerHTML =
+          '<div class="error-message">Please log in to view notes.</div>';
+        return;
       }
-    };
 
-    this.addNoteBtn = document.getElementById("addNote");
-    this.newNoteInput = document.getElementById("newNote");
-    this.notesContainer = document.getElementById("notes");
+      // Add global handler for reply buttons
+      window.handleNoteReply = (noteId) => {
+        console.log("Global reply handler called with noteId:", noteId);
+        if (this && typeof this.showReplyInput === "function") {
+          this.showReplyInput(noteId);
+        } else {
+          console.error("NoteBoard instance or showReplyInput not available");
+        }
+      };
 
-    if (!this.addNoteBtn || !this.newNoteInput || !this.notesContainer) {
-      console.error("Required DOM elements not found");
-      return;
-    }
+      this.addNoteBtn = document.getElementById("addNote");
+      this.newNoteInput = document.getElementById("newNote");
+      this.notesContainer = document.getElementById("notes");
 
-    // Add font size control and emoji picker
-    this.addInputControls();
-
-    // Add event listeners
-    this.addNoteBtn.addEventListener("click", () => this.handleSubmit());
-    this.newNoteInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        this.handleSubmit();
-      }
-    });
-
-    // Add direct event listeners for emoji button and picker
-    const emojiButton = document.querySelector(".emoji-button");
-    const emojiPicker = document.querySelector(".emoji-picker");
-    if (emojiButton && emojiPicker) {
-      emojiButton.addEventListener("click", (e) => {
-        e.stopPropagation();
-        emojiPicker.style.display =
-          emojiPicker.style.display === "none" || !emojiPicker.style.display
-            ? "flex"
-            : "none";
-      });
-
-      // Add click handlers for emoji options
-      emojiPicker.querySelectorAll(".emoji-option").forEach((option) => {
-        option.addEventListener("click", (e) => {
-          this.insertEmoji(this.newNoteInput, e.target.textContent);
-          emojiPicker.style.display = "none";
+      if (!this.addNoteBtn || !this.newNoteInput || !this.notesContainer) {
+        console.error("Required DOM elements not found:", {
+          addNoteBtn: !!this.addNoteBtn,
+          newNoteInput: !!this.newNoteInput,
+          notesContainer: !!this.notesContainer,
         });
-      });
+        return;
+      }
 
-      // Close emoji picker when clicking outside
-      document.addEventListener("click", (e) => {
-        if (
-          !e.target.closest(".emoji-button") &&
-          !e.target.closest(".emoji-picker")
-        ) {
-          emojiPicker.style.display = "none";
+      // Add font size control and emoji picker
+      this.addInputControls();
+
+      // Add event listeners
+      this.addNoteBtn.addEventListener("click", () => this.handleSubmit());
+      this.newNoteInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          this.handleSubmit();
         }
       });
-    }
 
-    this.loadNotes();
-    this.setupRealtimeSubscription();
+      // Add direct event listeners for emoji button and picker
+      const emojiButton = document.querySelector(".emoji-button");
+      const emojiPicker = document.querySelector(".emoji-picker");
+      if (emojiButton && emojiPicker) {
+        emojiButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+          emojiPicker.style.display =
+            emojiPicker.style.display === "none" || !emojiPicker.style.display
+              ? "flex"
+              : "none";
+        });
+
+        // Add click handlers for emoji options
+        emojiPicker.querySelectorAll(".emoji-option").forEach((option) => {
+          option.addEventListener("click", (e) => {
+            this.insertEmoji(this.newNoteInput, e.target.textContent);
+            emojiPicker.style.display = "none";
+          });
+        });
+
+        // Close emoji picker when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !e.target.closest(".emoji-button") &&
+            !e.target.closest(".emoji-picker")
+          ) {
+            emojiPicker.style.display = "none";
+          }
+        });
+      }
+
+      // Load notes after everything is initialized
+      await this.loadNotes();
+      this.setupRealtimeSubscription();
+    } catch (error) {
+      console.error("Error in initialize:", error);
+      if (this.notesContainer) {
+        this.notesContainer.innerHTML =
+          '<div class="error-message">Error initializing note board: ' +
+          error.message +
+          "</div>";
+      }
+    }
   }
 
   setupEventDelegation() {
@@ -169,42 +197,82 @@ class NoteBoard {
 
   async loadNotes() {
     try {
-      // First, get all parent notes (notes without replies)
+      console.log("Loading notes...");
+      // First, get all parent notes (notes with null or empty reply_to)
       const { data: parentNotes, error: parentError } = await supabaseClient
         .from("notes")
-        .select("*, font_size")
-        .is("reply_to", null)
+        .select("*")
+        .or("reply_to.is.null,reply_to.eq.") // Handle both null and empty string
         .order("created_at", { ascending: false });
 
-      if (parentError) throw parentError;
+      if (parentError) {
+        console.error("Error loading parent notes:", parentError);
+        throw parentError;
+      }
 
-      // Then, get all replies
+      console.log("Loaded parent notes:", parentNotes);
+
+      // Then, get all replies (notes with non-null and non-empty reply_to)
       const { data: replies, error: repliesError } = await supabaseClient
         .from("notes")
-        .select("*, font_size")
+        .select("*")
         .not("reply_to", "is", null)
+        .neq("reply_to", "")
         .order("created_at", { ascending: true });
 
-      if (repliesError) throw repliesError;
+      if (repliesError) {
+        console.error("Error loading replies:", repliesError);
+        throw repliesError;
+      }
 
-      // Combine the data
-      const notesWithReplies = parentNotes.map((note) => ({
-        ...note,
-        replies: replies.filter((reply) => reply.reply_to === note.id),
-      }));
+      console.log("Loaded replies:", replies);
 
+      // Initialize empty array if no parent notes
+      const notesWithReplies = parentNotes
+        ? parentNotes.map((note) => ({
+            ...note,
+            replies: replies
+              ? replies.filter((reply) => reply.reply_to === note.id)
+              : [],
+          }))
+        : [];
+
+      console.log("Processed notes with replies:", notesWithReplies);
       this.renderNotes(notesWithReplies);
     } catch (error) {
-      console.error("Error loading notes:", error);
+      console.error("Error in loadNotes:", error);
+      if (this.notesContainer) {
+        // Check if it's an authentication error
+        if (error.message?.includes("authentication")) {
+          this.notesContainer.innerHTML =
+            '<div class="error-message">Please log in to view notes.</div>';
+        } else {
+          this.notesContainer.innerHTML =
+            '<div class="error-message">Failed to load notes. Error: ' +
+            error.message +
+            "</div>";
+        }
+      }
     }
   }
 
   renderNotes(notes) {
-    console.log("Starting renderNotes");
+    console.log("Starting renderNotes with", notes.length, "notes");
+    if (!this.notesContainer) {
+      console.error("Notes container not found");
+      return;
+    }
+
     const startIndex = (this.currentPage - 1) * this.notesPerPage;
     const endIndex = startIndex + this.notesPerPage;
     const pageNotes = notes.slice(startIndex, endIndex);
     console.log("Rendering page notes:", pageNotes.length);
+
+    if (pageNotes.length === 0) {
+      this.notesContainer.innerHTML =
+        '<div class="no-notes">No notes yet. Be the first to add one!</div>';
+      return;
+    }
 
     this.notesContainer.innerHTML = `
       <div class="notes-container">
@@ -355,12 +423,8 @@ class NoteBoard {
         note_board: content,
         user_email: user.email,
         font_size: this.currentFontSize,
+        reply_to: this.replyToId || null, // Use null instead of empty string
       };
-
-      if (this.replyToId) {
-        console.log("Adding reply_to to noteData:", this.replyToId);
-        noteData.reply_to = this.replyToId;
-      }
 
       console.log("Submitting note data:", noteData);
       const { error } = await supabaseClient.from("notes").insert(noteData);
@@ -380,37 +444,43 @@ class NoteBoard {
   }
 
   setupRealtimeSubscription() {
-    const channel = supabaseClient.channel("notes_channel");
+    try {
+      const channel = supabaseClient
+        .channel("notes_channel")
+        .on(
+          "postgres_changes",
+          {
+            event: "*",
+            schema: "public",
+            table: "notes",
+          },
+          (payload) => {
+            console.log("Real-time update received:", payload);
+            this.loadNotes();
+          }
+        )
+        .subscribe((status) => {
+          if (status === "SUBSCRIBED") {
+            console.log("Successfully subscribed to real-time updates");
+          } else {
+            console.log("Subscription status:", status);
+          }
+        });
 
-    channel
-      .on(
-        "postgres_changes",
-        {
-          event: "*",
-          schema: "public",
-          table: "notes",
-        },
-        (payload) => {
-          console.log("Real-time update received:", payload);
-          this.loadNotes();
-        }
-      )
-      .subscribe((status) => {
-        if (status === "SUBSCRIBED") {
-          console.log("Successfully subscribed to real-time updates");
-        }
-      });
-
-    channel.onError((err) => {
-      console.error("Error with real-time subscription:", err);
-    });
-
-    this.realtimeChannel = channel;
+      // Store channel reference for cleanup
+      this.realtimeChannel = channel;
+    } catch (error) {
+      console.error("Error setting up realtime subscription:", error);
+    }
   }
 
   cleanup() {
     if (this.realtimeChannel) {
-      this.realtimeChannel.unsubscribe();
+      try {
+        this.realtimeChannel.unsubscribe();
+      } catch (error) {
+        console.error("Error during cleanup:", error);
+      }
     }
   }
 

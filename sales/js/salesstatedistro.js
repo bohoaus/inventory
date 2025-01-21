@@ -189,9 +189,15 @@ class SalesStateDistro {
 
   async fetchAndDisplayData(startDate, endDate) {
     try {
+      console.log("Fetching data for period:", { startDate, endDate });
+
       // Show loading state
       const wholesaleTable = this.modal.querySelector("#wholesaleTable tbody");
       const odmTable = this.modal.querySelector("#odmTable tbody");
+      if (!wholesaleTable || !odmTable) {
+        throw new Error("Required table elements not found");
+      }
+
       const loadingHtml =
         '<tr><td colspan="2" style="text-align: center;">Loading...</td></tr>';
       wholesaleTable.innerHTML = loadingHtml;
@@ -203,6 +209,13 @@ class SalesStateDistro {
       if (wholesaleTotal) wholesaleTotal.textContent = "(0)";
       if (odmTotal) odmTotal.textContent = "(0)";
 
+      // Validate dates
+      if (!startDate || !endDate) {
+        throw new Error("Invalid date range");
+      }
+
+      console.log("Executing Supabase query...");
+      // Fetch orders with order items
       const { data: orders, error: ordersError } = await supabaseClient
         .from("orders")
         .select(
@@ -221,21 +234,39 @@ class SalesStateDistro {
         `
         )
         .gte("created_at", startDate.toISOString())
-        .lte("created_at", endDate.toISOString());
+        .lte("created_at", endDate.toISOString())
+        .order("created_at", { ascending: false });
 
-      if (ordersError) throw ordersError;
+      if (ordersError) {
+        console.error("Database error:", ordersError);
+        throw ordersError;
+      }
+
+      console.log("Orders received:", orders?.length || 0);
 
       if (!orders || orders.length === 0) {
+        console.log("No orders found for the period");
         this.displayNoData();
         return;
       }
 
+      // Process the data
+      console.log("Processing orders data...");
       const summary = this.summarizeOrders(orders);
+      console.log("Summary generated:", {
+        orderSummary: summary.orderSummary,
+        stateDistribution: summary.stateDistribution,
+      });
+
+      // Display the results
       this.displayOrderSummary(summary.orderSummary);
       this.updateCharts(summary.stateDistribution);
+
+      console.log("Data display completed successfully");
     } catch (error) {
-      console.error("Error details:", error);
-      this.displayError();
+      console.error("Error in fetchAndDisplayData:", error);
+      console.error("Error stack:", error.stack);
+      this.displayError(error.message);
     }
   }
 
@@ -263,76 +294,79 @@ class SalesStateDistro {
   }
 
   summarizeOrders(orders) {
-    const stateDistribution = {
-      agent: {
+    console.log("Starting order summarization...");
+    try {
+      const stateDistribution = {
+        agent: {
+          wholesale: {},
+          odm: {},
+        },
+        dispatched: {
+          wholesale: {},
+          odm: {},
+        },
+      };
+      const orderSummary = {
         wholesale: {},
         odm: {},
-      },
-      dispatched: {
-        wholesale: {},
-        odm: {},
-      },
-    };
-    const orderSummary = {
-      wholesale: {},
-      odm: {},
-    };
+      };
 
-    orders.forEach((order) => {
-      const type =
-        order.order_type?.toLowerCase() === "wholesale" ? "wholesale" : "odm";
+      orders.forEach((order) => {
+        const type =
+          order.order_type?.toLowerCase() === "wholesale" ? "wholesale" : "odm";
 
-      // Agent state distribution
-      const agentState = order.agent_state || "Unknown";
-      if (!stateDistribution.agent[type][agentState]) {
-        stateDistribution.agent[type][agentState] = {
-          orders: 0,
-          items: 0,
-        };
-      }
-      stateDistribution.agent[type][agentState].orders++;
-      stateDistribution.agent[type][agentState].items +=
-        order.order_items.reduce(
-          (sum, item) => sum + (item.total_pieces || 0),
-          0
-        );
-
-      // Dispatched state distribution (only for dispatched orders)
-      if (order.status === "DISPATCHED" && order.dispatched_state) {
-        const dispatchedState = order.dispatched_state;
-        if (!stateDistribution.dispatched[type][dispatchedState]) {
-          stateDistribution.dispatched[type][dispatchedState] = {
+        // Agent state distribution
+        const agentState = order.agent_state || "Unknown";
+        if (!stateDistribution.agent[type][agentState]) {
+          stateDistribution.agent[type][agentState] = {
             orders: 0,
             items: 0,
           };
         }
-        stateDistribution.dispatched[type][dispatchedState].orders++;
-        stateDistribution.dispatched[type][dispatchedState].items +=
-          order.order_items.reduce(
-            (sum, item) => sum + (item.total_pieces || 0),
-            0
-          );
-      }
+        stateDistribution.agent[type][agentState].orders++;
+        stateDistribution.agent[type][agentState].items += (
+          order.order_items || []
+        ).reduce((sum, item) => sum + (item?.total_pieces || 0), 0);
 
-      // Order summary
-      const status = order.status || "Unknown";
-      if (!orderSummary[type][status]) {
-        orderSummary[type][status] = {
-          orders: 0,
-          items: 0,
-        };
-      }
-      orderSummary[type][status].orders++;
-      orderSummary[type][status].items += order.order_items.reduce(
-        (sum, item) => sum + (item.total_pieces || 0),
-        0
-      );
-    });
+        // Dispatched state distribution (only for dispatched orders)
+        if (order.status === "DISPATCHED" && order.dispatched_state) {
+          const dispatchedState = order.dispatched_state;
+          if (!stateDistribution.dispatched[type][dispatchedState]) {
+            stateDistribution.dispatched[type][dispatchedState] = {
+              orders: 0,
+              items: 0,
+            };
+          }
+          stateDistribution.dispatched[type][dispatchedState].orders++;
+          stateDistribution.dispatched[type][dispatchedState].items += (
+            order.order_items || []
+          ).reduce((sum, item) => sum + (item?.total_pieces || 0), 0);
+        }
 
-    return {
-      stateDistribution,
-      orderSummary,
-    };
+        // Order summary
+        const status = order.status || "Unknown";
+        if (!orderSummary[type][status]) {
+          orderSummary[type][status] = {
+            orders: 0,
+            items: 0,
+          };
+        }
+        orderSummary[type][status].orders++;
+        orderSummary[type][status].items += (order.order_items || []).reduce(
+          (sum, item) => sum + (item?.total_pieces || 0),
+          0
+        );
+      });
+
+      console.log("Order summarization completed successfully");
+      return {
+        stateDistribution,
+        orderSummary,
+      };
+    } catch (error) {
+      console.error("Error in summarizeOrders:", error);
+      throw error;
+    }
   }
 
   displayOrderSummary(summary) {
@@ -433,19 +467,22 @@ class SalesStateDistro {
     });
   }
 
-  displayError() {
+  displayError(errorMessage = null) {
+    console.log("Displaying error message");
     // Show error in tables
     const wholesaleTable = this.modal.querySelector("#wholesaleTable tbody");
     const odmTable = this.modal.querySelector("#odmTable tbody");
-    const errorMessage = `
+    const message = errorMessage || "Error loading data. Please try again.";
+    const errorHtml = `
       <tr>
-        <td colspan="3" style="color: #dc3545;">
-          Error loading data. Please try again.
+        <td colspan="2" style="text-align: center; color: #dc3545;">
+          ${message}
         </td>
       </tr>
     `;
-    wholesaleTable.innerHTML = errorMessage;
-    odmTable.innerHTML = errorMessage;
+
+    if (wholesaleTable) wholesaleTable.innerHTML = errorHtml;
+    if (odmTable) odmTable.innerHTML = errorHtml;
 
     // Clear charts
     this.updateCharts({
