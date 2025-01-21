@@ -63,19 +63,19 @@ class PickList {
                     <th>Item Code</th>
                     <th>Name</th>
                     <th>Location</th>
-                    <th>Quantity</th>
+                    <th>Qty</th>
                     <th>Status</th>
                     <th class="no-print">Picked</th>
                 </tr>
             </thead>
             <tbody>
-                ${order.order_items.map(item => `
+                ${order.orderItems.map(item => `
                     <tr>
-                        <td>${item.item_name}</td>
-                        <td>${item.inventory.item_name}</td>
-                        <td>${item.inventory.item_location || 'N/A'}</td>
-                        <td>${item.order_qty}</td>
-                        <td>${item.order_item_status}</td>
+                        <td>${item.itemCode}</td>
+                        <td>${item.inventory.Code_Colour}</td>
+                        <td>${item.inventory.Location || 'N/A'}</td>
+                        <td>${item.iPack}</td>
+                        <td>${item.iStatus}</td>
                         <td class="no-print">
                             <input type="checkbox" class="pick-checkbox">
                         </td>
@@ -93,9 +93,9 @@ class PickList {
         summary.className = 'pick-list-summary';
         summary.innerHTML = `
             <div class="summary-info">
-                <p><strong>Total Items:</strong> ${order.total_items}</p>
-                <p><strong>Agent State:</strong> ${order.agent_state || 'N/A'}</p>
-                <p><strong>Notes:</strong> ${order.order_note || 'No notes'}</p>
+                <p><strong>Total Items:</strong> ${order.totalItems}</p>
+                <p><strong>Agent State:</strong> ${order.agentState || 'N/A'}</p>
+                <p><strong>Notes:</strong> ${order.orderNote || 'No notes'}</p>
             </div>
             <div class="signatures no-print">
                 <div class="signature-line">

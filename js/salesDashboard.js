@@ -48,7 +48,7 @@ class SalesDashboard {
     const { data, error } = await supabaseClient
       .from("inventory")
       .select("*")
-      .gt("stock_qty", 0);
+      .gt("Stock", 0);
 
     if (error) {
       console.error("Error loading available stock:", error.message);
@@ -62,7 +62,7 @@ class SalesDashboard {
     const { data, error } = await supabaseClient
       .from("orders")
       .select("*")
-      .eq("status", "processing");
+      .eq("oStatus", "processing");
 
     if (error) {
       console.error("Error loading orders:", error.message);
@@ -76,8 +76,8 @@ class SalesDashboard {
     const { data, error } = await supabaseClient
       .from("inventory")
       .select("*")
-      .eq("item_status", "new release")
-      .order("release_date", { ascending: false });
+      .eq("Status", "new release")
+      .order("ReleaseDate", { ascending: false });
 
     if (error) {
       console.error("Error loading new releases:", error.message);
@@ -86,8 +86,8 @@ class SalesDashboard {
 
     const releases = data.map(
       (item) =>
-        `${item.item_name} - Released: ${new Date(
-          item.release_date
+        `${item.Item_Name} - Released: ${new Date(
+          item.ReleaseDate
         ).toLocaleDateString()}`
     );
     document.getElementById("newReleases").innerHTML =
@@ -97,8 +97,8 @@ class SalesDashboard {
   async loadOrderStatus() {
     const { data, error } = await supabaseClient
       .from("orders")
-      .select("status, count")
-      .order("created_at", { ascending: false })
+      .select("oStatus, count")
+      .order("Created", { ascending: false })
       .limit(5);
 
     if (error) {

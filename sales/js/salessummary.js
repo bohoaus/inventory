@@ -47,10 +47,10 @@ class SalesSummary {
       // Process future dispatches
       const currentDate = new Date();
       const futureDispatches = orders.filter((order) => {
-        if (!order.dispatched_at) return false;
-        const dispatchDate = new Date(order.dispatched_at);
+        if (!order.DispatchD) return false;
+        const dispatchDate = new Date(order.DispatchD);
         return (
-          dispatchDate > currentDate && order.order_type.toUpperCase() === "ODM"
+          dispatchDate > currentDate && order.orderPO.toUpperCase() === "ODM"
         );
       });
 
@@ -58,9 +58,9 @@ class SalesSummary {
 
       // Calculate summaries
       const inventorySummary = {
-        groups: this.groupBy(inventory, "item_group"),
-        status: this.groupBy(inventory, "item_status"),
-        categories: this.groupBy(inventory, "item_category"),
+        groups: this.groupBy(inventory, "BrandGroup"),
+        status: this.groupBy(inventory, "Status"),
+        categories: this.groupBy(inventory, "Category"),
       };
 
       const ordersSummary = {
@@ -103,7 +103,7 @@ class SalesSummary {
 
   countOrders(orders, type, status) {
     return orders.filter((order) => {
-      const orderType = order.order_type?.toUpperCase();
+      const orderType = order.orderPO?.toUpperCase();
       const orderStatus = order.status?.toUpperCase();
       return (
         orderType === type.toUpperCase() && orderStatus === status.toUpperCase()
@@ -140,29 +140,29 @@ class SalesSummary {
             <div class="salessummary-upcoming-item">
               <div class="salessummary-upcoming-header">
                 <span class="salessummary-customer">${
-                  order.customer_name || "N/A"
+                  order.Customer || "N/A"
                 }</span>
                 <span class="salessummary-dispatch-date">
                   Dispatch: ${new Date(
-                    order.dispatched_at
+                    order.DispatchD
                   ).toLocaleDateString()}
                 </span>
               </div>
               <div class="salessummary-upcoming-details">
                 <span class="salessummary-detail-item">Items: ${
-                  order.total_items || 0
+                  order.TotalItem || 0
                 }</span>
                 <span class="salessummary-detail-item">Invoice: ${
-                  order.invoice_no || "N/A"
+                  order.InvoiceNo || "N/A"
                 }</span>
                 <span class="salessummary-detail-item">Box: ${
-                  order.dispatched_box || "N/A"
+                  order.Box || "N/A"
                 }</span>
                 ${
-                  order.order_note
+                  order.orderNote
                     ? `
                   <div class="salessummary-note">
-                    <strong>Note:</strong> ${order.order_note}
+                    <strong>Note:</strong> ${order.orderNote}
                   </div>
                 `
                     : ""
@@ -307,33 +307,33 @@ class SalesSummary {
         .select(
           `
           id,
-          customer_name,
-          agent_state,
-          dispatched_state,
-          dispatched_box,
-          order_items (
-            item_name,
-            total_pieces
+          Customer,
+          State,
+          Zip,
+          Box,
+          orderItems (
+            itemCode,
+            iUnit
           )
         `
         )
-        .eq("order_type", "ODM")
-        .eq("status", "PROCESSING")
-        .order("created_at", { ascending: true });
+        .eq("orderPO", "ODM")
+        .eq("oStatus", "PROCESSING")
+        .order("Created", { ascending: true });
 
       if (error) throw error;
 
       return orders.map((order) => ({
-        customerName: order.customer_name,
-        agentState: order.agent_state,
-        dispatchedState: order.dispatched_state || "-",
-        dispatchedBox: order.dispatched_box || "-",
-        totalItems: order.order_items.reduce(
-          (sum, item) => sum + (item.total_pieces || 0),
+        customerName: order.Customer,
+        agentState: order.State,
+        dispatchedState: order.Zip || "-",
+        dispatchedBox: order.Box || "-",
+        totalItems: order.order_items.reduce(//not sure ????
+          (sum, item) => sum + (item.iUnit || 0),
           0
         ),
         items: order.order_items
-          .map((item) => `${item.item_name} (${item.total_pieces})`)
+          .map((item) => `${item.itemCode} (${item.iUnit})`)
           .join(", "),
       }));
     } catch (error) {
@@ -356,8 +356,8 @@ class SalesSummary {
       <thead>
         <tr>
           <th>Customer</th>
-          <th>Agent State</th>
-          <th>Dispatched State</th>
+          <th>State</th>
+          <th>Postcode</th>
           <th>Box Info</th>
           <th>Total Items</th>
           <th>Items</th>

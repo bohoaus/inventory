@@ -77,19 +77,19 @@ class OrderView {
             .from('orders')
             .select(`
                 *,
-                order_items (
+                orderItemss (
                     *,
-                    inventory (item_name)
+                    inventory (Code_Colour)
                 )
             `)
-            .order('created_at', { ascending: false });
+            .order('Created', { ascending: false });
 
         if (searchTerm) {
-            query = query.or(`customer_name.ilike.%${searchTerm}%,invoice_no.ilike.%${searchTerm}%`);
+            query = query.or(`customerName.ilike.%${searchTerm}%,invoiceNo.ilike.%${searchTerm}%`);
         }
 
         if (filter !== 'all') {
-            query = query.eq('status', filter);
+            query = query.eq('ooStatus', filter);
         }
 
         const { data, error } = await query;
@@ -109,12 +109,12 @@ class OrderView {
         data.forEach(order => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${order.invoice_no || 'N/A'}</td>
-                <td>${order.customer_name}</td>
-                <td>${order.order_type}</td>
-                <td class="status-${order.status}">${order.status}</td>
+                <td>${order.invoiceNo || 'N/A'}</td>
+                <td>${order.customerName}</td>
+                <td>${order.orderPPO}</td>
+                <td class="oStatus-${order.ooStatus}">${order.oStatus}</td>
                 <td>${order.total_items}</td>
-                <td>${new Date(order.created_at).toLocaleString()}</td>
+                <td>${new Date(order.Created).toLocaleString()}</td>
                 <td>
                     <button onclick="orderView.viewOrderDetails('${order.id}')">View Details</button>
                 </td>
@@ -128,9 +128,9 @@ class OrderView {
             .from('orders')
             .select(`
                 *,
-                order_items (
+                orderItems (
                     *,
-                    inventory (item_name)
+                    inventory (Code_Colour)
                 )
             `)
             .eq('id', orderId)
@@ -142,25 +142,25 @@ class OrderView {
         }
 
         // Populate order details
-        document.getElementById('detailInvoice').textContent = order.invoice_no || 'N/A';
-        document.getElementById('detailCustomer').textContent = order.customer_name;
-        document.getElementById('detailStatus').textContent = order.status;
-        document.getElementById('detailCreated').textContent = new Date(order.created_at).toLocaleString();
-        document.getElementById('detailCarrier').textContent = order.dispatched_carrier || 'N/A';
-        document.getElementById('detailTracking').textContent = order.tracking_no || 'N/A';
+        document.getElementById('detailInvoice').textContent = order.invoiceNo || 'N/A';
+        document.getElementById('detailCustomer').textContent = order.customerName;
+        document.getElementById('detailoStatus').textContent = order.oStatus;
+        document.getElementById('detailCreated').textContent = new Date(order.Created).toLocaleString();
+        document.getElementById('detailCarrier').textContent = order.Courier || 'N/A';
+        document.getElementById('detailTracking').textContent = order.TrackingNo || 'N/A';
 
         // Populate order items
         const itemsContainer = document.getElementById('detailItems');
-        itemsContainer.innerHTML = order.order_items.map(item => `
+        itemsContainer.innerHTML = order.orderItems.map(item => `
             <div class="order-item">
-                <span>${item.inventory.item_name}</span>
-                <span>Quantity: ${item.order_qty}</span>
-                <span>Status: ${item.order_item_status}</span>
+                <span>${item.inventory.Code_Colour}</span>
+                <span>Quantity: ${item.iUnit}</span>
+                <span>oStatus: ${item.iStatus}</span>
             </div>
         `).join('');
 
         // Populate notes
-        document.getElementById('detailNotes').textContent = order.order_note || 'No notes';
+        document.getElementById('detailNotes').textContent = order.orderNote || 'No notes';
 
         // Show modal
         document.getElementById('orderDetailsModal').style.display = 'block';
@@ -182,12 +182,12 @@ class OrderView {
             .subscribe();
 
         supabase
-            .channel('order_items_changes')
+            .channel('orderItems_changes')
             .on('postgres_changes',
                 {
                     event: '*',
                     schema: 'public',
-                    table: 'order_items'
+                    table: 'orderItems'
                 },
                 () => {
                     this.loadOrders();

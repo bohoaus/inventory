@@ -18,8 +18,8 @@ class StaffSoldout {
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
-        .eq("item_status", "OUT OF STOCK")
-        .order("soldout_date", { ascending: false });
+        .eq("Status", "OUT OF STOCK")
+        .order("SoldoutDate", { ascending: false });
 
       if (error) throw error;
 
@@ -61,8 +61,8 @@ class StaffSoldout {
                 <tr>
                   <th>Code</th>
                   <th>Name</th>
-                  <th>Release Date</th>
-                  <th>Sold Out Date</th>
+                  <th>ReleaseDate</th>
+                  <th>SoldOutDate</th>
                   <th>Selling Time</th>
                   <th>Status</th>
                 </tr>
@@ -86,7 +86,7 @@ class StaffSoldout {
 
   getAvailableWeeks(items) {
     const dates = items
-      .map((item) => item.soldout_date)
+      .map((item) => item.SoldoutDate)
       .filter(Boolean)
       .map((date) => new Date(date));
 
@@ -108,8 +108,8 @@ class StaffSoldout {
 
       // Check if there are items in this week
       const hasItems = items.some((item) => {
-        if (!item.soldout_date) return false;
-        const itemDate = new Date(item.soldout_date);
+        if (!item.SoldoutDate) return false;
+        const itemDate = new Date(item.SoldoutDate);
         return itemDate >= currentStart && itemDate <= weekEnd;
       });
 
@@ -152,8 +152,8 @@ class StaffSoldout {
     weekEnd.setDate(weekEnd.getDate() + 7);
 
     const filteredItems = items.filter((item) => {
-      if (!item.soldout_date) return false;
-      const soldOutDate = new Date(item.soldout_date);
+      if (!item.SoldoutDate) return false;
+      const soldOutDate = new Date(item.SoldoutDate);
       return soldOutDate >= weekStart && soldOutDate < weekEnd;
     });
 
@@ -168,8 +168,8 @@ class StaffSoldout {
     };
 
     return [...items].sort((a, b) => {
-      const priorityA = statusPriority[a.soldout_status] || 999;
-      const priorityB = statusPriority[b.soldout_status] || 999;
+      const priorityA = statusPriority[a.SoldoutStatus] || 999;
+      const priorityB = statusPriority[b.SoldoutStatus] || 999;
       return priorityA - priorityB;
     });
   }
@@ -215,16 +215,16 @@ class StaffSoldout {
     return items
       .map(
         (item) => `
-        <tr class="status-${this.getStatusClass(item.soldout_status)}">
-          <td>${item.code_colour || "N/A"}</td>
-          <td>${item.item_name || "N/A"}</td>
-          <td>${this.formatDateToSydney(item.release_date)}</td>
-          <td>${this.formatDateToSydney(item.soldout_date)}</td>
+        <tr class="status-${this.getStatusClass(item.SoldoutStatus)}">
+          <td>${item.Code_Colour || "N/A"}</td>
+          <td>${item.Item_Name || "N/A"}</td>
+          <td>${this.formatDateToSydney(item.ReleaseDate)}</td>
+          <td>${this.formatDateToSydney(item.SoldoutDate)}</td>
           <td>${this.calculateSellingTime(
-            item.release_date,
-            item.soldout_date
+            item.ReleaseDate,
+            item.SoldoutDate
           )}</td>
-          <td>${item.soldout_status || "N/A"}</td>
+          <td>${item.SoldoutStatus || "N/A"}</td>
         </tr>
       `
       )
@@ -273,12 +273,12 @@ class StaffSoldout {
 
       // Create table data
       const tableData = items.map((item) => [
-        item.code_colour || "",
-        item.item_name || "",
-        this.formatDateToSydney(item.release_date),
-        this.formatDateToSydney(item.soldout_date),
-        this.calculateSellingTime(item.release_date, item.soldout_date),
-        item.soldout_status || "",
+        item.Code_Colour || "",
+        item.Item_Name || "",
+        this.formatDateToSydney(item.ReleaseDate),
+        this.formatDateToSydney(item.SoldoutDate),
+        this.calculateSellingTime(item.ReleaseDate, item.SoldoutDate),
+        item.SoldoutStatus || "",
       ]);
 
       // Add table
