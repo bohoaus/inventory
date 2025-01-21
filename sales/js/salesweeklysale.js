@@ -56,7 +56,7 @@ class SalesWeeklySale {
                 <tr>
                   <th>Item Code</th>
                   <th>Item Name</th>
-                  <th>oStatus</th>
+                  <th>Status</th>
                   <th>Ordered Amount (pks/pcs)</th>
                   <th>Ordered Customer Amount</th>
                 </tr>
@@ -139,11 +139,11 @@ class SalesWeeklySale {
       // First fetch wholesale orders in the date range
       const { data: orders, error: ordersError } = await supabaseClient
         .from("orders")
-        .select("id, Customer")
-        .eq("orderPO", "WHOLESALE")
-        .not("oStatus", "eq", "CANCELLED")
-        .gte("Created", startDate.toISOString())
-        .lte("Created", endDate.toISOString());
+        .select("id, customer_name")
+        .eq("order_type", "WHOLESALE")
+        .not("status", "eq", "CANCELLED")
+        .gte("created_at", startDate.toISOString())
+        .lte("created_at", endDate.toISOString());
 
       if (ordersError) {
         console.error("Orders fetch error:", ordersError);
@@ -155,25 +155,25 @@ class SalesWeeklySale {
         return;
       }
 
-      // Then fetch order items with inventory oStatus
+      // Then fetch order items with inventory status
       const orderIds = orders.map((order) => order.id);
       const { data: items, error: itemsError } = await supabaseClient
-        .from("orderItems")
+        .from("order_items")
         .select(
           `
-          itemCode,
-          iPack,
-          iUnit,
-          iStatus,
-          orderID,
-          inventory:Code_Colour(
-            Status
+          item_name,
+          order_qty,
+          total_pieces,
+          order_item_status,
+          order_id,
+          inventory:item_name(
+            item_status
           )
         `
         )
-        .eq("iStatus", "ACTIVE")
-        .in("orderID", orderIds)
-        .order("itemCode", { ascending: true });
+        .eq("order_item_status", "ACTIVE")
+        .in("order_id", orderIds)
+        .order("item_name", { ascending: true });
 
       if (itemsError) {
         console.error("Items fetch error:", itemsError);
@@ -186,7 +186,7 @@ class SalesWeeklySale {
       }
 
       const orderCustomerMap = orders.reduce((acc, order) => {
-        acc[order.id] = order.Customer;
+        acc[order.id] = order.customer_name;
         return acc;
       }, {});
 
@@ -225,22 +225,22 @@ class SalesWeeklySale {
 
     Object.entries(itemSummary)
       .sort(([, a], [, b]) => {
-        // First sort by oStatus priority
-        const oStatusDiff =
-          this.getoStatusPriority(a.inventoryoStatus) -
-          this.getoStatusPriority(b.inventoryoStatus);
-        if (oStatusDiff !== 0) return oStatusDiff;
+        // First sort by status priority
+        const statusDiff =
+          this.getStatusPriority(a.inventoryStatus) -
+          this.getStatusPriority(b.inventoryStatus);
+        if (statusDiff !== 0) return statusDiff;
         // Then by total pieces
-        return b.iUnit - a.iUnit;
+        return b.totalPieces - a.totalPieces;
       })
       .forEach(([itemCode, item]) => {
         const row = document.createElement("tr");
-        row.className = `oStatus-${this.getoStatusClass(item.inventoryoStatus)}`;
+        row.className = `status-${this.getStatusClass(item.inventoryStatus)}`;
         row.innerHTML = `
           <td>${itemCode}</td>
           <td>${item.name}</td>
-          <td>${item.inventoryoStatus || "N/A"}</td>
-          <td>${item.orderQty} / ${item.iUnit}</td>
+          <td>${item.inventoryStatus || "N/A"}</td>
+          <td>${item.orderQty} / ${item.totalPieces}</td>
           <td>${item.customers.size}</td>
         `;
         tbody.appendChild(row);
@@ -251,25 +251,25 @@ class SalesWeeklySale {
     const summary = {};
 
     items.forEach((item) => {
-      if (!summary[item.itemCode]) {
-        summary[item.itemCode] = {
-          name: item.itemCode,
-          inventoryoStatus: item.inventory?.item_oStatus,
+      if (!summary[item.item_name]) {
+        summary[item.item_name] = {
+          name: item.item_name,
+          inventoryStatus: item.inventory?.item_status,
           orderQty: 0,
-          iUnit: 0,
+          totalPieces: 0,
           customers: new Set(),
         };
       }
-      summary[item.itemCode].orderQty += item.iPack || 0;
-      summary[item.itemCode].iUnit += item.iUnit || 0;
-      summary[item.itemCode].customers.add(orderCustomerMap[item.orderID]);
+      summary[item.item_name].orderQty += item.order_qty || 0;
+      summary[item.item_name].totalPieces += item.total_pieces || 0;
+      summary[item.item_name].customers.add(orderCustomerMap[item.order_id]);
     });
 
     return summary;
   }
 
-  getoStatusClass(oStatus) {
-    switch (oStatus?.toUpperCase()) {
+  getStatusClass(status) {
+    switch (status?.toUpperCase()) {
       case "NEW RELEASE":
         return "new-release";
       case "FULL PRICE":
@@ -281,13 +281,13 @@ class SalesWeeklySale {
     }
   }
 
-  getoStatusPriority(oStatus) {
+  getStatusPriority(status) {
     const priorities = {
       "NEW RELEASE": 1,
       "FULL PRICE": 2,
       "ON SALE": 3,
     };
-    return priorities[oStatus?.toUpperCase()] || 999;
+    return priorities[status?.toUpperCase()] || 999;
   }
 
   getTableData() {
@@ -299,7 +299,7 @@ class SalesWeeklySale {
       const itemName = cells[0].textContent;
       data[itemName] = {
         name: cells[1].textContent,
-        inventoryoStatus: cells[2].textContent,
+        inventoryStatus: cells[2].textContent,
         orderInfo: cells[3].textContent,
         customers: cells[4].textContent,
       };
@@ -324,10 +324,10 @@ class SalesWeeklySale {
       // Create table data
       const tableData = Object.entries(items)
         .sort(([, a], [, b]) => {
-          const oStatusDiff =
-            this.getoStatusPriority(a.inventoryoStatus) -
-            this.getoStatusPriority(b.inventoryoStatus);
-          if (oStatusDiff !== 0) return oStatusDiff;
+          const statusDiff =
+            this.getStatusPriority(a.inventoryStatus) -
+            this.getStatusPriority(b.inventoryStatus);
+          if (statusDiff !== 0) return statusDiff;
           const [aQty] = a.orderInfo.split(" / ").map(Number);
           const [bQty] = b.orderInfo.split(" / ").map(Number);
           return bQty - aQty;
@@ -335,7 +335,7 @@ class SalesWeeklySale {
         .map(([itemCode, item]) => [
           itemCode,
           item.name,
-          item.inventoryoStatus,
+          item.inventoryStatus,
           item.orderInfo,
           item.customers,
         ]);
@@ -347,7 +347,7 @@ class SalesWeeklySale {
           [
             "Item Code",
             "Name",
-            "oStatus",
+            "Status",
             "Ordered Amount (pks/pcs)",
             "Customers",
           ],

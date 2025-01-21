@@ -6,7 +6,7 @@ const { jsPDF } = window.jspdf;
 class PDFExport {
   constructor() {
     this.selectedColumns = [];
-    this.sortColumn = "Code_Colour";
+    this.sortColumn = "code_colour";
     this.sortDirection = "asc";
     this.orientation = "portrait";
     this.maxColumnsWarning = {
@@ -24,9 +24,9 @@ class PDFExport {
       content.className = "modal-content";
 
       // Fetch unique values for filters
-      const categories = await this.getUniqueValues("Category");
-      const statuses = await this.getUniqueValues("Status");
-      const groups = await this.getUniqueValues("BrandGroup");
+      const categories = await this.getUniqueValues("item_category");
+      const statuses = await this.getUniqueValues("item_status");
+      const groups = await this.getUniqueValues("item_group");
 
       content.innerHTML = `
             <div class="modal-header">
@@ -182,30 +182,30 @@ class PDFExport {
 
   generateColumnOptions() {
     const columns = [
-      { id: "Code_Colour", label: "Code" },
-      { id: "Item_Name", label: "Item Name" },
-      { id: "BrandGroup", label: "Group" },
-      { id: "Location", label: "Location" },
-      { id: "Category", label: "Category" },
-      { id: "Qty", label: "Qty" },//Received 
-      { id: "ReleaseDate", label: "ReleaseDate" },
-      { id: "Stock", label: "Stock" },
-      { id: "Item_Aging", label: "Item Aging" },
-      { id: "Status", label: "Status" },
-      { id: "SoldoutDate", label: "SoldoutDate" },
-      { id: "UnitP", label: "UnitP" },
-      { id: "Pack_Size", label: "Pack Size" },
-      { id: "Repeat_Item", label: "RepeatItem" },
-      { id: "mfgDate", label: "ManufactureDate" },
-      { id: "Cargo", label: "Cargo" },
-      { id: "estDate", label: "EstimatedDate" },
-      { id: "ArriveDate", label: "ArriveDate" },
-      { id: "DelayDate", label: "DelayDate" },
-      { id: "odmPPO", label: "ODM PPO" },
-      { id: "odmCustomer", label: "ODM Customer" },
-      { id: "Item_Note", label: "Note" },
-      { id: "Created", label: "Created At" },
-      { id: "Updated", label: "Updated At" },
+      { id: "code_colour", label: "Code" },
+      { id: "item_name", label: "Item Name" },
+      { id: "item_group", label: "Group" },
+      { id: "item_location", label: "Location" },
+      { id: "receive_qty", label: "Receive Qty" },
+      { id: "stock_qty", label: "Stock Qty" },
+      { id: "release_date", label: "Release Date" },
+      { id: "item_aging", label: "Item Aging" },
+      { id: "item_status", label: "Status" },
+      { id: "soldout_date", label: "Soldout Date" },
+      { id: "item_category", label: "Category" },
+      { id: "pack_unit", label: "Pack Unit" },
+      { id: "pack_size", label: "Pack Size" },
+      { id: "repeat_item", label: "Repeat Item" },
+      { id: "mfg_date", label: "Manufacture Date" },
+      { id: "item_cargo", label: "Cargo" },
+      { id: "est_date", label: "Estimated Date" },
+      { id: "arrive_date", label: "Arrive Date" },
+      { id: "delay_date", label: "Delay Date" },
+      { id: "odm_ppo", label: "ODM PPO" },
+      { id: "odm_customer", label: "ODM Customer" },
+      { id: "item_note", label: "Note" },
+      { id: "created_at", label: "Created At" },
+      { id: "updated_at", label: "Updated At" },
     ];
 
     return columns
@@ -243,7 +243,7 @@ class PDFExport {
 
       // Get sort settings
       const sortColumn =
-        document.getElementById("sortColumn")?.value || "Code_Colour";
+        document.getElementById("sortColumn")?.value || "code_colour";
       const sortDirection =
         document.getElementById("sortDirection")?.value || "asc";
 
@@ -264,7 +264,7 @@ class PDFExport {
           .map((opt) => opt.value)
           .filter((v) => v);
         if (categories.length > 0) {
-          query = query.in("Category", categories);
+          query = query.in("item_category", categories);
         }
       }
 
@@ -273,7 +273,7 @@ class PDFExport {
           .map((opt) => opt.value)
           .filter((v) => v);
         if (statuses.length > 0) {
-          query = query.in("Status", statuses);
+          query = query.in("item_status", statuses);
         }
       }
 
@@ -282,7 +282,7 @@ class PDFExport {
           .map((opt) => opt.value)
           .filter((v) => v);
         if (groups.length > 0) {
-          query = query.in("BrandGroup", groups);
+          query = query.in("item_group", groups);
         }
       }
 
@@ -348,18 +348,18 @@ class PDFExport {
 
     // Handle special column types
     switch (columnId) {
-      case "Pack_Size":
+      case "pack_size":
         return this.formatPackSize(value);
-      case "Repeat_Item":
+      case "repeat_item":
         return this.formatRepeatItem(value);
-      case "ReleaseDate":
-      case "SoldoutDate":
-      case "mfgDate":
-      case "estDate":
-      case "ArriveDate":
-      case "DelayDate":
-      case "Created":
-      case "Updated":
+      case "release_date":
+      case "soldout_date":
+      case "mfg_date":
+      case "est_date":
+      case "arrive_date":
+      case "delay_date":
+      case "created_at":
+      case "updated_at":
         return value
           ? new Date(value).toLocaleString("en-AU", {
               timeZone: "Australia/Sydney",
@@ -505,13 +505,13 @@ class PDFExport {
 
       // Apply filters
       if (filters.categories?.length > 0) {
-        query = query.in("Category", filters.categories);
+        query = query.in("item_category", filters.categories);
       }
       if (filters.statuses?.length > 0) {
-        query = query.in("Status", filters.statuses);
+        query = query.in("item_status", filters.statuses);
       }
       if (filters.groups?.length > 0) {
-        query = query.in("BrandGroup", filters.groups);
+        query = query.in("item_group", filters.groups);
       }
 
       // Fetch filtered data
@@ -607,10 +607,10 @@ class PDFExport {
             {
               cellWidth: "auto",
               halign: [
-                "Stock",
-                "Qty",
-                "UnitP",
-                "Item_Aging",
+                "stock_qty",
+                "receive_qty",
+                "pack_unit",
+                "item_aging",
               ].includes(col)
                 ? "right"
                 : "left",
@@ -772,17 +772,17 @@ class PDFExport {
     const { categories, statuses, groups } = filters;
 
     // Check category filter
-    if (categories?.length > 0 && !categories.includes(item.Category)) {
+    if (categories?.length > 0 && !categories.includes(item.item_category)) {
       return false;
     }
 
     // Check status filter
-    if (statuses?.length > 0 && !statuses.includes(item.Status)) {
+    if (statuses?.length > 0 && !statuses.includes(item.item_status)) {
       return false;
     }
 
     // Check group filter
-    if (groups?.length > 0 && !groups.includes(item.BrandGroup)) {
+    if (groups?.length > 0 && !groups.includes(item.item_group)) {
       return false;
     }
 

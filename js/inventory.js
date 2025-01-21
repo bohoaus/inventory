@@ -80,8 +80,8 @@ class InventoryView {
     async loadLocations() {
         const { data, error } = await supabase
             .from('inventory')
-            .select('Location')
-            .not('Location', 'is', null);
+            .select('item_location')
+            .not('item_location', 'is', null);
 
         if (error) {
             console.error('Error loading locations:', error.message);
@@ -89,7 +89,7 @@ class InventoryView {
         }
 
         // Get unique locations
-        const locations = [...new Set(data.map(item => item.Location))];
+        const locations = [...new Set(data.map(item => item.item_location))];
         
         // Populate location filter
         this.locationFilter.innerHTML = '<option value="all">All Locations</option>' +
@@ -106,18 +106,18 @@ class InventoryView {
         let query = supabase
             .from('inventory')
             .select('*')
-            .order('Created', { ascending: false });
+            .order('created_at', { ascending: false });
 
         if (searchTerm) {
-            query = query.or(`Item_Name.ilike.%${searchTerm}%,Code_Colour.ilike.%${searchTerm}%`);
+            query = query.or(`item_name.ilike.%${searchTerm}%,code_colour.ilike.%${searchTerm}%`);
         }
 
         if (filter !== 'all') {
-            query = query.eq('BrandGroup', filter);
+            query = query.eq('item_group', filter);
         }
 
         if (location !== 'all') {
-            query = query.eq('Location', location);
+            query = query.eq('item_location', location);
         }
 
         const { data, error } = await query;
@@ -137,12 +137,12 @@ class InventoryView {
         data.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${item.Code_Colour}</td>
-                <td>${item.Item_Name}</td>
-                <td>${item.BrandGroup}</td>
-                ${this.userRole === 'staff' ? `<td>${item.Location || 'N/A'}</td>` : ''}
-                <td>${item.Stock}</td>
-                <td class="status-${this.getStatusClass(item.Status)}">${item.Status}</td>
+                <td>${item.code_colour}</td>
+                <td>${item.item_name}</td>
+                <td>${item.item_group}</td>
+                ${this.userRole === 'staff' ? `<td>${item.item_location || 'N/A'}</td>` : ''}
+                <td>${item.stock_qty}</td>
+                <td class="status-${this.getStatusClass(item.item_status)}">${item.item_status}</td>
                 <td>
                     <button onclick="inventoryView.viewDetails('${item.id}')">View Details</button>
                 </td>
@@ -177,21 +177,21 @@ class InventoryView {
         }
 
         // Populate modal with item details
-        document.getElementById('detailCode').textContent = item.Code_Colour;
-        document.getElementById('detailName').textContent = item.Item_Name;
-        document.getElementById('detailGroup').textContent = item.BrandGroup;
-        document.getElementById('detailStock').textContent = item.Stock;
-        document.getElementById('detailPackUnit').textContent = item.UnitP;
-        document.getElementById('detailLocation').textContent = item.Location || 'N/A';
-        document.getElementById('detailStatus').textContent = item.Status;
-        document.getElementById('detailReleaseDate').textContent = item.ReleaseDate ? 
-            new Date(item.ReleaseDate).toLocaleDateString() : 'N/A';
-        document.getElementById('detailAging').textContent = item.Item_Aging || 'N/A';
+        document.getElementById('detailCode').textContent = item.code_colour;
+        document.getElementById('detailName').textContent = item.item_name;
+        document.getElementById('detailGroup').textContent = item.item_group;
+        document.getElementById('detailStock').textContent = item.stock_qty;
+        document.getElementById('detailPackUnit').textContent = item.pack_unit;
+        document.getElementById('detailLocation').textContent = item.item_location || 'N/A';
+        document.getElementById('detailStatus').textContent = item.item_status;
+        document.getElementById('detailReleaseDate').textContent = item.release_date ? 
+            new Date(item.release_date).toLocaleDateString() : 'N/A';
+        document.getElementById('detailAging').textContent = item.item_aging || 'N/A';
 
         if (this.userRole === 'staff') {
-            document.getElementById('detailMfgDate').textContent = item.mfgDate ? 
-                new Date(item.mfgDate).toLocaleDateString() : 'N/A';
-            document.getElementById('detailNotes').textContent = item.Item_Note || 'No notes';
+            document.getElementById('detailMfgDate').textContent = item.mfg_date ? 
+                new Date(item.mfg_date).toLocaleDateString() : 'N/A';
+            document.getElementById('detailNotes').textContent = item.item_note || 'No notes';
         }
 
         // Show modal

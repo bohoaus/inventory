@@ -45,15 +45,15 @@ class StaffSummary {
 
     items.forEach((item) => {
       // Count by group
-      const group = item.BrandGroup || "Unspecified";
+      const group = item.item_group || "Unspecified";
       summary.groups[group] = (summary.groups[group] || 0) + 1;
 
       // Count by category
-      const category = item.Category || "Unspecified";
+      const category = item.item_category || "Unspecified";
       summary.categories[category] = (summary.categories[category] || 0) + 1;
 
       // Count by status
-      const status = item.Status || "Unspecified";
+      const status = item.item_status || "Unspecified";
       summary.statuses[status] = (summary.statuses[status] || 0) + 1;
     });
 

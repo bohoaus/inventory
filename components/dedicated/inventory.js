@@ -7,52 +7,50 @@ class InventoryComponent {
     this.userRole = "";
     this.userEmail = "";
     this.currentPage = 1;
-    this.sortColumn = "ReleaseDate";
+    this.sortColumn = "release_date";
     this.sortDirection = "desc";
     this.currentFilter = "all";
     this.isRepeatFilter = false;
 
     // Define all available columns
     this.allColumns = [
-      { id: "Code_Colour", label: "Code Color" },
-      { id: "Item_Name", label: "Item Name" },
-      { id: "BrandGroup", label: "Group" },
-      { id: "Location", label: "Location" },
-      { id: "Qty", label: "Receive Qty" },
-      { id: "Stock", label: "Stock Qty" },
-      { id: "ReleaseDate", label: "Release Date" },
-      { id: "Item_Aging", label: "Item Aging" },
-      { id: "Status", label: "Status" },
-      { id: "Category", label: "Category" },
-      { id: "UnitP", label: "Pack Unit" },
-      { id: "Pack_Size", label: "Pack Size" },
-      { id: "Repeat_Item", label: "Repeat Item" },
-      { id: "mfgDate", label: "Manufacture Date" },
-      { id: "Cargo", label: "Cargo" },
-      { id: "estDate", label: "Estimated Date" },
-      { id: "ArriveDate", label: "Arrive Date" },
-      { id: "DelayDate", label: "Delay Date" },
-      { id: "odmPPO", label: "ODM PPO" },
-      { id: "odmCustomer", label: "ODM Customer" },
-      { id: "Item_Note", label: "Note" },
-      { id: "Created", label: "Created At" },
-      { id: "Updated", label: "Updated At" },
-      { id: "SoldoutDate", label: "Sold Out Date" },
-      { id: "SoldoutStatus", label: "Sold Out Status" },
-      { id: "odmQtyDiff", label: "ODM Qty Diff" },
-      { id: "FreightBags", label: "Freight Bags" },
+      { id: "code_colour", label: "Code Color" },
+      { id: "item_name", label: "Item Name" },
+      { id: "item_group", label: "Group" },
+      { id: "item_location", label: "Location" },
+      { id: "receive_qty", label: "Receive Qty" },
+      { id: "stock_qty", label: "Stock Qty" },
+      { id: "release_date", label: "Release Date" },
+      { id: "item_aging", label: "Item Aging" },
+      { id: "item_status", label: "Status" },
+      { id: "item_category", label: "Category" },
+      { id: "pack_unit", label: "Pack Unit" },
+      { id: "pack_size", label: "Pack Size" },
+      { id: "repeat_item", label: "Repeat Item" },
+      { id: "mfg_date", label: "Manufacture Date" },
+      { id: "item_cargo", label: "Cargo" },
+      { id: "est_date", label: "Estimated Date" },
+      { id: "arrive_date", label: "Arrive Date" },
+      { id: "delay_date", label: "Delay Date" },
+      { id: "odm_ppo", label: "ODM PPO" },
+      { id: "odm_customer", label: "ODM Customer" },
+      { id: "item_note", label: "Note" },
+      { id: "created_at", label: "Created At" },
+      { id: "updated_at", label: "Updated At" },
+      { id: "soldout_date", label: "Sold Out Date" },
+      { id: "soldout_status", label: "Sold Out Status" },
+      { id: "odm_qty_diff", label: "ODM Qty Diff" },
+      { id: "freight_bags", label: "Freight Bags" },
     ];
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
-      "Code_Colour",
-      "Item_Name",
-      "Qty",
-      "Category",
-      "Stock",
-      "Location",
-      "Status",
-      "Item_Note",
+      "code_colour",
+      "item_name",
+      "stock_qty",
+      "item_status",
+      "item_location",
+      "item_note",
     ];
 
     // Initialize selected columns with defaults
@@ -215,11 +213,11 @@ class InventoryComponent {
       // Get unique categories
       const { data: categories } = await supabaseClient
         .from("inventory")
-        .select("Category")
-        .not("Category", "is", null);
+        .select("item_category")
+        .not("item_category", "is", null);
 
       const uniqueCategories = [
-        ...new Set(categories.map((item) => item.Category)),
+        ...new Set(categories.map((item) => item.item_category)),
       ].sort();
       uniqueCategories.forEach((category) => {
         const option = document.createElement("option");
@@ -231,11 +229,11 @@ class InventoryComponent {
       // Get unique statuses
       const { data: statuses } = await supabaseClient
         .from("inventory")
-        .select("Status")
-        .not("Status", "is", null);
+        .select("item_status")
+        .not("item_status", "is", null);
 
       const uniqueStatuses = [
-        ...new Set(statuses.map((item) => item.Status)),
+        ...new Set(statuses.map((item) => item.item_status)),
       ].sort();
       uniqueStatuses.forEach((status) => {
         const option = document.createElement("option");
@@ -341,29 +339,29 @@ class InventoryComponent {
 
       if (searchTerm) {
         query = query.or(
-          `Code_Colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
+          `code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`
         );
       }
 
       if (noteSearchTerm) {
-        query = query.ilike("Item_Note", `%${noteSearchTerm}%`);
+        query = query.ilike("item_note", `%${noteSearchTerm}%`);
       }
 
       if (categoryFilter) {
-        query = query.eq("Category", categoryFilter);
+        query = query.eq("item_category", categoryFilter);
       }
 
       if (statusFilter) {
-        query = query.eq("Status", statusFilter);
+        query = query.eq("item_status", statusFilter);
       }
 
       if (this.currentFilter !== "all") {
-        query = query.eq("BrandGroup", this.currentFilter);
+        query = query.eq("item_group", this.currentFilter);
       }
 
       // Apply repeat filter
       if (this.isRepeatFilter) {
-        query = query.not("Repeat_Item", "is", null);
+        query = query.not("repeat_item", "is", null);
       }
 
       // Execute query
@@ -434,7 +432,7 @@ class InventoryComponent {
       // For non-empty values, proceed with normal sorting
       const direction = this.sortDirection === "asc" ? 1 : -1;
 
-      if (this.sortColumn === "Stock") {
+      if (this.sortColumn === "stock_qty") {
         return (Number(aValue) - Number(bValue)) * direction;
       }
 
@@ -498,17 +496,17 @@ class InventoryComponent {
         const td = document.createElement("td");
         td.className = `Salesinventory-td ${this.getColumnClass(col)}`;
 
-        if (col === "Stock") {
+        if (col === "stock_qty") {
           td.textContent = item[col] || "0";
           td.style.textAlign = "right";
-        } else if (col === "Status") {
+        } else if (col === "item_status") {
           td.textContent = item[col] || "";
           td.classList.add(
             `Salesinventory-status-${this.getStatusClass(item[col])}`
           );
         } else if (this.isDateColumn(col)) {
           td.textContent = this.formatDate(item[col]);
-        } else if (col === "Pack_Size" || col === "Repeat_Item") {
+        } else if (col === "pack_size" || col === "repeat_item") {
           const value = item[col];
           if (value && Object.keys(value).length > 0) {
             td.innerHTML = `
@@ -534,14 +532,14 @@ class InventoryComponent {
 
   isDateColumn(columnName) {
     return [
-      "ReleaseDate",
-      "mfgDate",
-      "estDate",
-      "ArriveDate",
-      "DelayDate",
-      "Created",
-      "Updated",
-      "SoldoutDate",
+      "release_date",
+      "mfg_date",
+      "est_date",
+      "arrive_date",
+      "delay_date",
+      "created_at",
+      "updated_at",
+      "soldout_date",
     ].includes(columnName);
   }
 
@@ -684,9 +682,9 @@ class InventoryComponent {
 
   getColumnClass(colName) {
     const classes = ["Salesinventory-td"];
-    if (colName === "Code_Colour") classes.push("Salesinventory-code");
-    if (colName === "Stock") classes.push("Salesinventory-qty");
-    if (colName === "Item_Note") classes.push("Salesinventory-note");
+    if (colName === "code_colour") classes.push("Salesinventory-code");
+    if (colName === "stock_qty") classes.push("Salesinventory-qty");
+    if (colName === "item_note") classes.push("Salesinventory-note");
     return classes.join(" ");
   }
 
@@ -722,50 +720,50 @@ class InventoryComponent {
 
       // Basic Information
       document.getElementById("detailCode").textContent =
-        item.Code_Colour || "";
-      document.getElementById("detailName").textContent = item.Item_Name || "";
+        item.code_colour || "";
+      document.getElementById("detailName").textContent = item.item_name || "";
       document.getElementById("detailGroup").textContent =
-        item.BrandGroup || "";
+        item.item_group || "";
       document.getElementById("detailCategory").textContent =
-        item.Category || "";
+        item.item_category || "";
       document.getElementById("detailStatus").textContent =
-        item.Status || "";
+        item.item_status || "";
       document.getElementById("detailLocation").textContent =
-        item.Location || "";
-      document.getElementById("detailNote").textContent = item.Item_Note || "";
+        item.item_location || "";
+      document.getElementById("detailNote").textContent = item.item_note || "";
 
       // Stock Information
       document.getElementById("detailStock").textContent =
-        item.Stock || "0";
+        item.stock_qty || "0";
       document.getElementById("detailReceiveQty").textContent =
-        item.Qty || "0";
+        item.receive_qty || "0";
       document.getElementById("detailPackUnit").textContent =
-        item.UnitP || "";
+        item.pack_unit || "";
 
       // Pack Size and Repeat Item as tables
       const packSizeContainer = document.getElementById("detailPackSize");
-      packSizeContainer.innerHTML = item.Pack_Size
-        ? this.renderJsonGrid(item.Pack_Size)
+      packSizeContainer.innerHTML = item.pack_size
+        ? this.renderJsonGrid(item.pack_size)
         : "-";
 
       const repeatItemContainer = document.getElementById("detailRepeatItem");
-      repeatItemContainer.innerHTML = item.Repeat_Item
-        ? this.renderJsonGrid(item.Repeat_Item)
+      repeatItemContainer.innerHTML = item.repeat_item
+        ? this.renderJsonGrid(item.repeat_item)
         : "-";
 
       document.getElementById("detailAging").textContent =
-        item.Item_Aging || "";
+        item.item_aging || "";
 
       // Dates
       const dateFields = [
-        "ReleaseDate",
-        "mfgDate",
-        "estDate",
-        "ArriveDate",
-        "DelayDate",
-        "SoldoutDate",
-        "Created",
-        "Updated",
+        "release_date",
+        "mfg_date",
+        "est_date",
+        "arrive_date",
+        "delay_date",
+        "soldout_date",
+        "created_at",
+        "updated_at",
       ];
       dateFields.forEach((field) => {
         const element = document.getElementById(
@@ -779,17 +777,17 @@ class InventoryComponent {
       });
 
       // ODM Information
-      document.getElementById("detailOdmPpo").textContent = item.odmPPO || "";
+      document.getElementById("detailOdmPpo").textContent = item.odm_ppo || "";
       document.getElementById("detailOdmCustomer").textContent =
-        item.odmCustomer || "";
+        item.odm_customer || "";
       document.getElementById("detailOdmQtyDiff").textContent =
-        item.odmQtyDiff || "";
+        item.odm_qty_diff || "";
       document.getElementById("detailCargo").textContent =
-        item.Cargo || "";
+        item.item_cargo || "";
       document.getElementById("detailFreightBags").textContent =
-        item.FreightBags || "";
+        item.freight_bags || "";
       document.getElementById("detailSoldoutStatus").textContent =
-        item.SoldoutStatus || "";
+        item.soldout_status || "";
 
       const modal = document.getElementById("detailsModal");
       modal.style.display = "block";
@@ -976,15 +974,15 @@ class InventoryComponent {
     try {
       const data = JSON.parse(atob(encodedData));
       const modalId =
-        type === "Pack_Size" ? "packSizeModal" : "repeatItemModal";
-      const gridId = type === "Pack_Size" ? "packSizeGrid" : "repeatItemGrid";
+        type === "pack_size" ? "packSizeModal" : "repeatItemModal";
+      const gridId = type === "pack_size" ? "packSizeGrid" : "repeatItemGrid";
 
       // Ensure modal exists
       let modal = document.getElementById(modalId);
       if (!modal) {
         document.body.insertAdjacentHTML(
           "beforeend",
-          this.modalTemplates[type === "Pack_Size" ? "packSize" : "repeatItem"]
+          this.modalTemplates[type === "pack_size" ? "packSize" : "repeatItem"]
         );
         modal = document.getElementById(modalId);
 
@@ -1182,15 +1180,15 @@ class InventoryComponent {
               <h3>Stock Information</h3>
               <div class="Salesinventory-detail-group">
                 <div class="Salesinventory-detail-row">
-                  <label>Stock:</label>
+                  <label>Stock Quantity:</label>
                   <span id="detailStock"></span>
                 </div>
                 <div class="Salesinventory-detail-row">
-                  <label>Qty:</label>
+                  <label>Receive Quantity:</label>
                   <span id="detailReceiveQty"></span>
                 </div>
                 <div class="Salesinventory-detail-row">
-                  <label>UnitP:</label>
+                  <label>Pack Unit:</label>
                   <span id="detailPackUnit"></span>
                 </div>
                 <div class="Salesinventory-detail-row">
@@ -1449,9 +1447,9 @@ class InventoryComponent {
       .from("inventory")
       .select(selectedColumns.join(","));
 
-    if (category) query = query.eq("Category", category);
-    if (status) query = query.eq("Status", status);
-    if (group !== "all") query = query.eq("BrandGroup", group);
+    if (category) query = query.eq("item_category", category);
+    if (status) query = query.eq("item_status", status);
+    if (group !== "all") query = query.eq("item_group", group);
 
     const { data, error } = await query.limit(5);
 
@@ -1524,7 +1522,7 @@ class InventoryComponent {
   formatPreviewValue(value, column) {
     if (value === null || value === undefined) return "";
     if (this.isDateColumn(column)) return this.formatDate(value);
-    if (column === "Pack_Size" || column === "Repeat_Item") {
+    if (column === "pack_size" || column === "repeat_item") {
       return value ? "JSON data" : "";
     }
     return value;
@@ -1555,9 +1553,9 @@ class InventoryComponent {
         .from("inventory")
         .select(selectedColumns.join(","));
 
-      if (category) query = query.eq("Category", category);
-      if (status) query = query.eq("Status", status);
-      if (group !== "all") query = query.eq("BrandGroup", group);
+      if (category) query = query.eq("item_category", category);
+      if (status) query = query.eq("item_status", status);
+      if (group !== "all") query = query.eq("item_group", group);
 
       // Execute query
       const { data, error } = await query;

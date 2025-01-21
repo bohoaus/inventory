@@ -106,19 +106,19 @@ class WeeklySummary {
       const endDate = this.endDateInput.value;
 
       const { data: summaryData, error } = await supabaseClient
-        .from("orderItems")
+        .from("order_items")
         .select(
           `
-          inventory!inner(Code_Colour, iStatus),
-          Item_Name,
-          orderID,
+          inventory!inner(code_colour, item_status),
+          item_name,
+          order_id,
           qty
         `
         )
-        .gte("Created", startDate)
-        .lte("Created", endDate + "T23:59:59")
-        .neq("iStatus", "REMOVED")
-        .in("BrandGroup", ["boho", "primrose"]);
+        .gte("created_at", startDate)
+        .lte("created_at", endDate + "T23:59:59")
+        .neq("order_item_status", "REMOVED")
+        .in("item_group", ["boho", "primrose"]);
 
       if (error) throw error;
 
@@ -135,20 +135,20 @@ class WeeklySummary {
     const aggregated = {};
 
     data.forEach((item) => {
-      const key = `${item.inventory.Code_Colour}-${item.Item_Name}-${item.inventory.Status}`;
+      const key = `${item.inventory.code_colour}-${item.item_name}-${item.inventory.item_status}`;
 
       if (!aggregated[key]) {
         aggregated[key] = {
-          code: item.inventory.Code_Colour,
-          itemName: item.Item_Name,
-          status: item.inventory.Status,
+          code: item.inventory.code_colour,
+          itemName: item.item_name,
+          status: item.inventory.item_status,
           totalQty: 0,
           uniqueOrders: new Set(),
         };
       }
 
       aggregated[key].totalQty += item.qty;
-      aggregated[key].uniqueOrders.add(item.orderID);
+      aggregated[key].uniqueOrders.add(item.order_id);
     });
 
     // Convert to array and sort by status

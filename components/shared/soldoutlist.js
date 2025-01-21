@@ -32,9 +32,9 @@ class SoldOutList {
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
-        .eq("Status", "OUT OF STOCK")
-        .not("SoldoutDate", "is", null)
-        .order("SoldoutDate", { ascending: false });
+        .eq("item_status", "OUT OF STOCK")
+        .not("soldout_date", "is", null)
+        .order("soldout_date", { ascending: false });
 
       if (error) throw error;
 
@@ -132,7 +132,7 @@ class SoldOutList {
         this.updateTable(initialItems, tableContainer);
 
         // Get the week range for the latest week
-        const weekRange = getWeekRange(initialItems[0].SoldoutDate);
+        const weekRange = getWeekRange(initialItems[0].soldout_date);
 
         exportButton.onclick = () => {
           this.generateSoldoutListPDF(
@@ -152,7 +152,7 @@ class SoldOutList {
     const groups = {};
 
     items.forEach((item) => {
-      const weekRange = getWeekRange(item.SoldoutDate);
+      const weekRange = getWeekRange(item.soldout_date);
       const weekKey = weekRange.formatted;
 
       if (!groups[weekKey]) {
@@ -192,16 +192,16 @@ class SoldOutList {
             ${sortedItems
               .map(
                 (item) => `
-                <tr class="status-${this.getStatusClass(item.Status)}">
-                    <td>${item.Code_Colour}</td>
-                    <td>${item.Item_Name || ""}</td>
-                    <td>${formatDateToSydney(item.ReleaseDate)}</td>
-                    <td>${formatDateToSydney(item.SoldoutDate)}</td>
+                <tr class="status-${this.getStatusClass(item.soldout_status)}">
+                    <td>${item.code_colour}</td>
+                    <td>${item.item_name || ""}</td>
+                    <td>${formatDateToSydney(item.release_date)}</td>
+                    <td>${formatDateToSydney(item.soldout_date)}</td>
                     <td>${calculateSellingTime(
-                      item.ReleaseDate,
-                      item.SoldoutDate
+                      item.release_date,
+                      item.soldout_date
                     )}</td>
-                    <td>${item.Status || ""}</td>
+                    <td>${item.soldout_status || ""}</td>
                 </tr>
             `
               )
@@ -222,8 +222,8 @@ class SoldOutList {
     };
 
     return [...items].sort((a, b) => {
-      const priorityA = statusPriority[a.Status] || 999;
-      const priorityB = statusPriority[b.Status] || 999;
+      const priorityA = statusPriority[a.soldout_status] || 999;
+      const priorityB = statusPriority[b.soldout_status] || 999;
       return priorityA - priorityB;
     });
   }
@@ -274,8 +274,8 @@ class SoldOutList {
 
       // Sort items by status first, then by brand
       const sortedItems = [...items].sort((a, b) => {
-        const statusA = (a.SoldoutStatus || "").toUpperCase();
-        const statusB = (b.SoldoutStatus || "").toUpperCase();
+        const statusA = (a.soldout_status || "").toUpperCase();
+        const statusB = (b.soldout_status || "").toUpperCase();
 
         // First sort by status priority
         const priorityA = statusPriority[statusA] || 999;
@@ -294,8 +294,8 @@ class SoldOutList {
         if (brandB === "PRIMROSE") return 1;
 
         // Then by ODM customer
-        const odmA = a.odmCustomer || "";
-        const odmB = b.odmCustomer || "";
+        const odmA = a.odm_customer || "";
+        const odmB = b.odm_customer || "";
         return odmA.localeCompare(odmB);
       });
 
@@ -310,13 +310,13 @@ class SoldOutList {
         "Status",
       ];
       const tableData = sortedItems.map((item) => [
-        item.Code_Colour || "",
+        item.code_colour || "",
         this.getBrandInfo(item),
-        item.Category || "",
-        formatDateToSydney(item.ReleaseDate),
-        formatDateToSydney(item.SoldoutDate),
-        calculateSellingTime(item.ReleaseDate, item.SoldoutDate),
-        item.Status || "-",
+        item.item_category || "",
+        formatDateToSydney(item.release_date),
+        formatDateToSydney(item.soldout_date),
+        calculateSellingTime(item.release_date, item.soldout_date),
+        item.soldout_status || "-",
       ]);
 
       // Add title and info
@@ -405,14 +405,14 @@ class SoldOutList {
 
   // Add helper methods
   getBrandInfo(item) {
-    if (!item.BrandGroup) return "-";
-    const group = item.BrandGroup.toUpperCase();
+    if (!item.item_group) return "-";
+    const group = item.item_group.toUpperCase();
 
     if (group === "BOHO" || group === "PRIMROSE") {
       return group;
     }
 
-    return item.odmCustomer || "-";
+    return item.odm_customer || "-";
   }
 
   formatDate(date) {

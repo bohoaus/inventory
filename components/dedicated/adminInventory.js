@@ -37,7 +37,7 @@ class AdminInventory {
     this.filterGroup = document.getElementById("filterGroup");
     this.rowsPerPage = document.getElementById("rowsPerPage");
     this.currentPage = 1;
-    this.sortColumn = "Code_Colour";
+    this.sortColumn = "code_colour";
     this.sortDirection = "asc";
     this.currentFilter = "All";
 
@@ -46,30 +46,28 @@ class AdminInventory {
 
     // Default selected columns
     this.selectedColumns = [
-      "Code_Colour",
-      "Item_Name",
-      "Category",
-      "Qty",
-      "Status",
-      "ReleaseDate",
-      "Stock",
-      "Location",
-      "Item_Aging",
-      "Item_Note",
+      "code_colour",
+      "item_name",
+      "item_category",
+      "item_status",
+      "stock_qty",
+      "release_date",
+      "item_aging",
+      "item_location",
+      "item_note",
     ];
 
-    // Define default columns that cannot be unchecked - inventory.html
+    // Define default columns that cannot be unchecked
     this.defaultColumns = [
-      "Code_Colour",
-      "Item_Name",
-      "Category",
-      "Qty",
-      "Status",
-      "ReleaseDate",
-      "Stock",
-      "Location",
-      "Item_Aging",
-      "Item_Note",
+      "code_colour",
+      "item_name",
+      "item_category",
+      "item_status",
+      "stock_qty",
+      "release_date",
+      "item_aging",
+      "item_location",
+      "item_note",
     ];
 
     // Initialize selected columns with defaults
@@ -202,37 +200,37 @@ class AdminInventory {
     `;
     panel.appendChild(actionButtons);
 
-    // Define all columns in the desired order - for selection tab-inventory.html
+    // Define all columns in the desired order
     const allColumns = [
       // Default columns first (in specific order)
-      { id: "Code_Colour", label: "Code Color" },
-      { id: "Item_Name", label: "Item Name" },
-      { id: "Category", label: "Category" },
-      { id: "Qty", label: "Qty" },
-      { id: "Status", label: "Status" },
-      { id: "Stock", label: "Inventory" },
-      { id: "ReleaseDate", label: "ReleaseDate" },
-      { id: "Location", label: "Location" },
-      { id: "UnitP", label: "UnitP" },
-      { id: "Pack_Size", label: "Pack Size" },
-      { id: "Item_Aging", label: "Item Aging" },
-      { id: "Item_Note", label: "Note" },
+      { id: "code_colour", label: "Code Color" },
+      { id: "item_name", label: "Item Name" },
+      { id: "item_category", label: "Category" },
+      { id: "item_status", label: "Status" },
+      { id: "stock_qty", label: "Stock Qty" },
+      { id: "item_aging", label: "Item Aging" },
+      { id: "release_date", label: "Release Date" },
+      { id: "item_location", label: "Location" },
+      { id: "item_note", label: "Note" },
       // Other columns after
-      { id: "BrandGroup", label: "Brand" },
-      { id: "Repeat_Item", label: "Repeat Info" },
-      { id: "mfgDate", label: "Manufacture Date" },
-      { id: "SoldoutDate", label: "SoldOut Date" },
-      { id: "Soldouttatus", label: "SoldOut Status" },
-      { id: "Cargo", label: "Cargo" },
-      { id: "estDate", label: "Estimated Date" },
-      { id: "ArriveDate", label: "Arrive Date" },
-      { id: "DelayDate", label: "Delay Date" },
-      { id: "odmPPO", label: "ODM PPO" },
-      { id: "odmCustomer", label: "ODM Customer" },
-      { id: "odmQtyDiff", label: "Produced vs Received" },
-      { id: "FreightBags", label: "Freight Bags" },
-      { id: "Created", label: "Created At" },
-      { id: "Updated", label: "Updated At" },
+      { id: "item_group", label: "Group" },
+      { id: "receive_qty", label: "Receive Qty" },
+      { id: "pack_unit", label: "Pack Unit" },
+      { id: "pack_size", label: "Pack Size" },
+      { id: "repeat_item", label: "Repeat Info" },
+      { id: "mfg_date", label: "Manufacture Date" },
+      { id: "soldout_date", label: "Sold Out Date" },
+      { id: "soldout_status", label: "Sold Out Status" },
+      { id: "item_cargo", label: "Cargo" },
+      { id: "est_date", label: "Estimated Date" },
+      { id: "arrive_date", label: "Arrive Date" },
+      { id: "delay_date", label: "Delay Date" },
+      { id: "odm_ppo", label: "ODM PPO" },
+      { id: "odm_customer", label: "ODM Customer" },
+      { id: "odm_qty_diff", label: "Produced vs Received" },
+      { id: "freight_bags", label: "Freight Bags" },
+      { id: "created_at", label: "Created At" },
+      { id: "updated_at", label: "Updated At" },
     ];
 
     const columnsHtml = allColumns
@@ -335,7 +333,7 @@ class AdminInventory {
     // Add Category Filter
     const categoryFilter = document.createElement("div");
     categoryFilter.className = "filter-group";
-    const categories = await this.getUniqueValues("Category");
+    const categories = await this.getUniqueValues("item_category");
     categoryFilter.innerHTML = `
         <label>Category:</label>
         <select id="categoryFilter">
@@ -349,7 +347,7 @@ class AdminInventory {
     // Add Status Filter
     const statusFilter = document.createElement("div");
     statusFilter.className = "filter-group";
-    const statuses = await this.getUniqueValues("Status");
+    const statuses = await this.getUniqueValues("item_status");
     statusFilter.innerHTML = `
         <label>Status:</label>
         <select id="statusFilter">
@@ -468,10 +466,10 @@ class AdminInventory {
     let query = supabaseClient.from("inventory").select("*");
 
     if (categoryValue) {
-      query = query.eq("Category", categoryValue);
+      query = query.eq("item_category", categoryValue);
     }
     if (statusValue) {
-      query = query.eq("Status", statusValue);
+      query = query.eq("item_status", statusValue);
     }
 
     try {
@@ -495,22 +493,22 @@ class AdminInventory {
 
       if (searchTerm) {
         query = query.or(
-          `Code_Colour.ilike.%${searchTerm}%,Item_Name.ilike.%${searchTerm}%`
+          `code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`
         );
       }
 
       if (noteSearchTerm) {
-        query = query.ilike("Item_Note", `%${noteSearchTerm}%`);
+        query = query.ilike("item_note", `%${noteSearchTerm}%`);
       }
 
       // Apply group filter
       if (this.currentFilter && this.currentFilter !== "All") {
         if (this.currentFilter === "REPEAT") {
           query = query
-            .not("Repeat_Item", "is", null)
-            .not("Repeat_Item", "eq", "{}");
+            .not("repeat_item", "is", null)
+            .not("repeat_item", "eq", "{}");
         } else {
-          query = query.ilike("BrandGroup", this.currentFilter);
+          query = query.ilike("item_group", this.currentFilter);
         }
       }
 
@@ -525,7 +523,7 @@ class AdminInventory {
 
         // Special handling for numeric columns
         if (
-          ["Stock", "Qty", "UnitP", "Item_Aging"].includes(
+          ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(
             this.sortColumn
           )
         ) {
@@ -537,14 +535,14 @@ class AdminInventory {
         // Special handling for dates
         if (
           [
-            "ReleaseDate",
-            "mfgDate",
-            "estDate",
-            "ArriveDate",
-            "DelayDate",
-            "SoldoutDate",
-            "Created",
-            "Updated",
+            "release_date",
+            "mfg_date",
+            "est_date",
+            "arrive_date",
+            "delay_date",
+            "soldout_date",
+            "created_at",
+            "updated_at",
           ].includes(this.sortColumn)
         ) {
           const aDate = aValue ? new Date(aValue).getTime() : 0;
@@ -642,18 +640,18 @@ class AdminInventory {
         // Handle different data types
         if (
           [
-            "ReleaseDate",
-            "mfgDate",
-            "estDate",
-            "ArriveDate",
-            "DelayDate",
-            "SoldoutDate",
-            "Created",
-            "Updated",
+            "release_date",
+            "mfg_date",
+            "est_date",
+            "arrive_date",
+            "delay_date",
+            "soldout_date",
+            "created_at",
+            "updated_at",
           ].includes(colName)
         ) {
           td.textContent = formatDateToSydney(item[colName]);
-        } else if (colName === "Pack_Size") {
+        } else if (colName === "pack_size") {
           if (item[colName]) {
             td.innerHTML = `
                 <button class="view-details-btn pack-size-btn" 
@@ -665,11 +663,11 @@ class AdminInventory {
                 </button>
             `;
           }
-        } else if (colName === "Repeat_Item") {
+        } else if (colName === "repeat_item") {
           // Add console.log to debug
           console.log("Repeat item data:", item[colName]);
 
-          // Check if Repeat_Item exists and has valid data
+          // Check if repeat_item exists and has valid data
           if (
             item[colName] &&
             typeof item[colName] === "object" &&
@@ -678,7 +676,7 @@ class AdminInventory {
           ) {
             td.innerHTML = `
                   <button class="view-details-btn repeat-info-btn" 
-                          onclick="adminInventory.showModal('Repeat_Item', ${JSON.stringify(
+                          onclick="adminInventory.showModal('repeat_item', ${JSON.stringify(
                             item[colName]
                           ).replace(/"/g, "&quot;")})">
                       <span class="repeat-icon"></span>
@@ -689,7 +687,7 @@ class AdminInventory {
             td.textContent = ""; // Empty cell if no repeat info
           }
         } else if (
-          ["Stock", "Qty", "UnitP", "Item_Aging"].includes(
+          ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(
             colName
           )
         ) {
@@ -819,15 +817,15 @@ class AdminInventory {
 
     const title = document.createElement("h2");
     title.textContent =
-      type === "Pack_Size" ? "Pack Size Details" : "Repeat Item Details";
+      type === "pack_size" ? "Pack Size Details" : "Repeat Item Details";
 
     const details = document.createElement("div");
     details.className = "json-details";
 
     // Format JSON data based on type
-    if (type === "Pack_Size") {
+    if (type === "pack_size") {
       details.innerHTML = this.formatPackSize(data);
-    } else if (type === "Repeat_Item") {
+    } else if (type === "repeat_item") {
       details.innerHTML = this.formatRepeatItem(data);
     }
 
@@ -990,26 +988,26 @@ class AdminInventory {
     const classes = ["nowrap"];
 
     // Add specific column classes based on data type
-    if (colName === "Code_Colour") {
+    if (colName === "code_colour") {
       classes.push("code-column");
     } else if (
-      ["Stock", "Qty", "UnitP", "Item_Aging"].includes(colName)
+      ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(colName)
     ) {
       classes.push("qty-column");
     } else if (
       [
-        "ReleaseDate",
-        "mfgDate",
-        "estDate",
-        "ArriveDate",
-        "DelayDate",
-        "SoldoutDate",
-        "Created",
-        "Updated",
+        "release_date",
+        "mfg_date",
+        "est_date",
+        "arrive_date",
+        "delay_date",
+        "soldout_date",
+        "created_at",
+        "updated_at",
       ].includes(colName)
     ) {
       classes.push("date-column");
-    } else if (colName === "Item_Note") {
+    } else if (colName === "item_note") {
       classes.push("note-column");
     }
 
@@ -1150,18 +1148,18 @@ class AdminInventory {
       if (cell) {
         if (
           [
-            "ReleaseDate",
-            "mfgDate",
-            "estDate",
-            "ArriveDate",
-            "DelayDate",
-            "SoldoutDate",
-            "Created",
-            "Updated",
+            "release_date",
+            "mfg_date",
+            "est_date",
+            "arrive_date",
+            "delay_date",
+            "soldout_date",
+            "created_at",
+            "updated_at",
           ].includes(colName)
         ) {
           cell.textContent = formatDateToSydney(data[colName]);
-        } else if (["Pack_Size", "Repeat_Item"].includes(colName)) {
+        } else if (["pack_size", "repeat_item"].includes(colName)) {
           if (data[colName]) {
             cell.innerHTML = `
                             <button onclick="adminInventory.showModal('${colName}', ${JSON.stringify(
@@ -1172,7 +1170,7 @@ class AdminInventory {
                         `;
           }
         } else if (
-          ["Stock", "Qty", "UnitP", "Item_Aging"].includes(
+          ["stock_qty", "receive_qty", "pack_unit", "item_aging"].includes(
             colName
           )
         ) {
@@ -1244,7 +1242,7 @@ class AdminInventory {
     this.updateFilterButtons();
 
     // Reset sorting
-    this.sortColumn = "Code_Colour";
+    this.sortColumn = "code_colour";
     this.sortDirection = "asc";
 
     // Reset page
@@ -1264,7 +1262,7 @@ class AdminInventory {
       this.searchInput.value.trim() !== "" ||
       this.searchNoteInput.value.trim() !== "" ||
       this.currentFilter.toUpperCase() !== "ALL" ||
-      this.sortColumn !== "Code_Colour" ||
+      this.sortColumn !== "code_colour" ||
       this.sortDirection !== "asc";
 
     this.clearButton.style.display = hasFilters ? "flex" : "none";
@@ -1449,7 +1447,7 @@ class AdminInventory {
         // ... existing cases ...
 
         case "qty_diff":
-          const diff = (data.Qty || 0) - (data.Stock || 0);
+          const diff = (data.receive_qty || 0) - (data.stock_qty || 0);
           cell.textContent = diff;
           if (diff < 0) {
             cell.style.color = "#dc3545"; // Red for negative difference
@@ -1458,18 +1456,18 @@ class AdminInventory {
           }
           break;
 
-        case "Status":
-          cell.textContent = data.Status || "-";
+        case "item_status":
+          cell.textContent = data.item_status || "-";
           // Add status-based styling
-          if (data.Status) {
+          if (data.item_status) {
             cell.classList.add(
-              `status-${data.Status.toLowerCase().replace(/\s+/g, "-")}`
+              `status-${data.item_status.toLowerCase().replace(/\s+/g, "-")}`
             );
           }
           break;
 
-        case "FreightBags":
-          cell.textContent = data.FreightBags || "-";
+        case "freight_bags":
+          cell.textContent = data.freight_bags || "-";
           cell.style.textAlign = "right";
           break;
 
@@ -1539,9 +1537,9 @@ class AdminInventory {
 
       let form;
       // Choose editor based on item group
-      if (["BOHO", "PRIMROSE"].includes(item.BrandGroup?.toUpperCase())) {
+      if (["BOHO", "PRIMROSE"].includes(item.item_group?.toUpperCase())) {
         form = await this.loadWholesaleEditor(item);
-      } else if (item.BrandGroup?.toUpperCase() === "ODM") {
+      } else if (item.item_group?.toUpperCase() === "ODM") {
         form = await this.loadOdmEditor(item);
       }
 

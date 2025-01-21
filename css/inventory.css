@@ -7,21 +7,21 @@
 .inventory-controls {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-bottom: 5px;
-  padding: 5px;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
   background: #f8f9fa;
   border-radius: 8px;
 }
 
 .search-container {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 0;
 }
 
 .search-container input {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   flex: 1;
@@ -30,20 +30,20 @@
 /* Filter Buttons */
 .filter-buttons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   margin: 10px 0;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .filter-buttons button {
-  padding: 4px 8px;
+  padding: 8px 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: white;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 90px;
+  min-width: 100px;
   text-align: center;
 }
 
@@ -56,7 +56,7 @@
   background: #007bff;
   color: white;
   border-color: #0056b3;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 /* Add loading state */
@@ -70,11 +70,11 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-  gap: 5px;
+  gap: 20px;
 }
 
 #rowsPerPage {
-  padding: 3px;
+  padding: 6px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -108,7 +108,7 @@
 .column-option {
   display: flex;
   align-items: center;
-  padding: 4px;
+  padding: 8px;
   background: #f8f9fa;
   border-radius: 4px;
   transition: background-color 0.2s;
@@ -119,7 +119,7 @@
 }
 
 .column-option input[type="checkbox"] {
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 /* Search within columns */
@@ -127,14 +127,14 @@
   position: sticky;
   top: 0;
   background: white;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid #ddd;
-  margin: -5px -5px 5px -5px;
+  margin: -10px -10px 10px -10px;
 }
 
 .column-search input {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -171,7 +171,7 @@
   position: absolute;
   right: 10px;
   top: 5px;
-  font-size: 14px;
+  font-size: 24px;
   cursor: pointer;
   color: #666;
 }
@@ -185,11 +185,11 @@
   display: flex;
   justify-content: center;
   gap: 5px;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 .pagination button {
-  padding: 5px 5px;
+  padding: 5px 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
@@ -213,30 +213,30 @@
 }
 
 /* Table Styles */
-.-table {
+.inventory-table {
   width: 100%;
   min-width: 800px; /* Minimum width to prevent squishing */
   border-collapse: collapse;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
-.-table th,
-.-table td {
-  padding: 6px;
+.inventory-table th,
+.inventory-table td {
+  padding: 12px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
-.-table th {
+.inventory-table th {
   background-color: #f8f9fa;
-  font-weight: 100;
+  font-weight: 600;
 }
 
-.-table tr:nth-child(even) {
+.inventory-table tr:nth-child(even) {
   background-color: #f8f9fa;
 }
 
-.-table tr:hover {
+.inventory-table tr:hover {
   background-color: #f2f2f2;
 }
 
@@ -258,7 +258,7 @@
 
 .action-column .edit-btn,
 .action-column .delete-btn {
-  padding: 4px;
+  padding: 8px;
   margin: 0 2px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -313,34 +313,34 @@
 }
 
 /* Make certain columns have fixed widths */
-.-table th.action-column,
-.-table td.action-column {
+.inventory-table th.action-column,
+.inventory-table td.action-column {
   width: 100px;
   min-width: 100px;
 }
 
-.-table th.code-column,
-.-table td.code-column {
+.inventory-table th.code-column,
+.inventory-table td.code-column {
   width: 120px;
   min-width: 120px;
 }
 
-.-table th.qty-column,
-.-table td.qty-column {
+.inventory-table th.qty-column,
+.inventory-table td.qty-column {
   width: 80px;
   min-width: 80px;
 }
 
-.-table th.date-column,
-.-table td.date-column {
+.inventory-table th.date-column,
+.inventory-table td.date-column {
   width: 100px;
   min-width: 100px;
   white-space: nowrap;
 }
 
 /* Sticky first column for better navigation */
-.-table th:first-child,
-.-table td:first-child {
+.inventory-table th:first-child,
+.inventory-table td:first-child {
   position: sticky;
   left: 0;
   background-color: #fff;
@@ -351,11 +351,11 @@
 /* Add horizontal scroll indicator */
 .scroll-indicator {
   display: none;
-  padding: 4px;
+  padding: 8px;
   text-align: center;
   background-color: #f8f9fa;
   border-radius: 4px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 /* Show scroll indicator on smaller screens */
@@ -367,13 +367,13 @@
 
 /* Responsive adjustments for controls */
 @media screen and (max-width: 768px) {
-  .-controls {
+  .inventory-controls {
     padding: 10px;
   }
 
   .search-container {
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
   }
 
   .display-controls {
@@ -397,13 +397,11 @@
 }
 
 .sidebar {
-  //width: 150px;
-  width: 180px;
-  //min-width: 250px; /* Prevent sidebar from shrinking */
-  min-width: 170px; /* Prevent sidebar from shrinking */
+  width: 250px;
+  min-width: 250px; /* Prevent sidebar from shrinking */
   background: #2c3e50;
   color: white;
-  padding: 5px;
+  padding: 20px;
   position: fixed;
   height: 100vh;
   z-index: 1000;
@@ -411,9 +409,8 @@
 
 .main-content {
   flex: 1;
-  //margin-left: 250px; /* Match sidebar width left-right*/
-  margin-left: 190px; /* Match sidebar width */
-  padding: 5px;
+  margin-left: 250px; /* Match sidebar width */
+  padding: 20px;
   overflow-x: hidden; /* Prevent horizontal scroll of the main container */
 }
 
@@ -425,8 +422,8 @@
   }
 
   .main-content {
-    margin-left: 300px;
-    padding: 5px;
+    margin-left: 200px;
+    padding: 15px;
   }
 }
 
@@ -437,14 +434,14 @@
   }
 
   .main-content {
-    margin-left: 380px;
-    padding: 5px;
+    margin-left: 180px;
+    padding: 10px;
   }
 }
 
 /* Additional column styles */
-.-table th.note-column,
-.-table td.note-column {
+.inventory-table th.note-column,
+.inventory-table td.note-column {
   min-width: 200px;
   max-width: 300px;
   white-space: normal; /* Allow text wrapping for notes */
@@ -457,14 +454,14 @@
 
 /* Column Selection Toggle Button */
 .column-toggle-btn {
-  padding: 4px 8px;
+  padding: 8px 16px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 .column-toggle-btn:hover {
@@ -486,7 +483,7 @@
 
 /* JSON Modal Styles */
 .json-details {
-  margin-top: 5px;
+  margin-top: 20px;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -494,20 +491,20 @@
 .json-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 5px;
+  margin-top: 10px;
   background: white;
 }
 
 .json-table th,
 .json-table td {
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
 .json-table th {
   background-color: #f8f9fa;
-  font-weight: 200;
+  font-weight: 600;
 }
 
 .json-table tr:nth-child(even) {
@@ -525,7 +522,7 @@
 
 .modal h2 {
   margin-top: 0;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
 }
 
@@ -547,16 +544,16 @@
 /* Notification styles */
 .notification-container {
   position: fixed;
-  top: 0px;
+  top: 20px;
   right: 20px;
   z-index: 1100;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .notification {
-  padding: 6px 10px;
+  padding: 12px 20px;
   border-radius: 4px;
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -620,16 +617,16 @@
 .clear-button {
   display: none;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
+  gap: 8px;
+  padding: 8px 16px;
   background: #dc3545;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 500;
   transition: all 0.2s ease;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .clear-button:hover {
@@ -724,7 +721,7 @@
 /* Add Item Buttons */
 .add-item-buttons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
@@ -732,10 +729,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 8px;
+  padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 500;
   transition: all 0.2s ease;
   border: none;
   color: white;
@@ -785,14 +782,14 @@
 /* Add Item Modal Styles */
 .add-item-modal {
   min-width: 600px;
-  padding: 10px;
+  padding: 30px;
 }
 
 .add-item-modal form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 10px;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .add-item-modal .form-group {
@@ -802,26 +799,26 @@
 }
 
 .add-item-modal label {
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .add-item-modal input,
 .add-item-modal select {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .add-item-modal button[type="submit"] {
   background: #007bff;
   color: white;
-  padding: 5px;
+  padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 100;
-  margin-top: 5px;
+  font-weight: 500;
+  margin-top: 10px;
 }
 
 .add-item-modal button[type="submit"]:hover {
@@ -832,14 +829,14 @@
 .item-form.two-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
 }
 
 .form-column {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 
 /* Make form actions span both columns */
@@ -847,9 +844,9 @@
   grid-column: 1 / -1;
   display: flex;
   justify-content: flex-end;
-  gap: 5px;
-  margin-top: 10px;
-  padding-top: 10px;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px solid #ddd;
 }
 
@@ -857,19 +854,19 @@
 .add-item-modal {
   max-width: 1000px !important;
   width: 90%;
-  padding: 10px;
+  padding: 30px;
 }
 
 /* Pack Size Group Styles */
 .pack-size-group {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .pack-size-inputs {
   display: flex;
-  gap: 4px;
+  gap: 8px;
 }
 
 .pack-size-inputs input {
@@ -877,7 +874,7 @@
 }
 
 .pack-size-inputs button {
-  padding: 4px 8px;
+  padding: 8px 16px;
   background: #28a745;
   color: white;
   border: none;
@@ -886,21 +883,21 @@
 }
 
 .pack-size-display {
-  margin-top: 5px;
+  margin-top: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .pack-size-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .pack-size-table th,
 .pack-size-table td {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -912,7 +909,7 @@
 .total-amount {
   text-align: right;
   font-weight: bold;
-  padding-top: 5px;
+  padding-top: 10px;
   border-top: 1px solid #ddd;
 }
 
@@ -924,16 +921,16 @@
 }
 
 .form-group label {
-  font-weight: 100;
+  font-weight: 500;
   color: #333;
 }
 
 .form-group input,
 .form-group select {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .form-group input:focus,
@@ -953,7 +950,7 @@
 /* Warning messages */
 .code-warning,
 .pack-size-warning {
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 4px;
 }
 
@@ -968,7 +965,7 @@
   }
 
   .add-item-modal {
-    padding: 5px;
+    padding: 15px;
   }
 
   .pack-size-inputs {
@@ -993,25 +990,25 @@
   background: #fff3cd;
   border: 1px solid #ffeeba;
   border-radius: 4px;
-  padding: 5px;
-  margin-top: 4px;
+  padding: 10px;
+  margin-top: 8px;
 }
 
 .warning-details p {
   color: #856404;
-  margin: 0 0 4px 0;
-  font-weight: 100;
+  margin: 0 0 8px 0;
+  font-weight: 500;
 }
 
 .warning-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .warning-table th,
 .warning-table td {
-  padding: 2px 4px;
+  padding: 4px 8px;
   border: 1px solid #ffeeba;
   text-align: left;
 }
@@ -1039,14 +1036,14 @@
 /* Column Selection Action Buttons */
 .column-actions {
   display: flex;
-  gap: 5px;
-  padding: 5px;
+  gap: 10px;
+  padding: 10px;
   border-bottom: 1px solid #eee;
 }
 
 .column-actions button {
   flex: 1;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #f8f9fa;
@@ -1068,13 +1065,13 @@
 
 /* Update existing column selection styles */
 .column-search {
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid #eee;
 }
 
 .column-search input {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1088,13 +1085,13 @@
 }
 
 .modal-header .add-item-btn {
-  padding: 4px 8px;
+  padding: 8px 16px;
   background: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 500;
   transition: all 0.2s ease;
 }
 
@@ -1104,7 +1101,7 @@
 
 /* Update modal content padding to account for header */
 .add-item-modal {
-  padding-top: 20px;
+  padding-top: 60px;
 }
 
 /* Update close button position */
@@ -1115,13 +1112,13 @@
 /* Add textarea styles */
 .form-group textarea {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   resize: vertical;
   min-height: 80px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .form-group textarea:focus {
@@ -1159,7 +1156,7 @@
   height: 30px;
   border: none;
   background: none;
-  font-size: 13px;
+  font-size: 24px;
   cursor: pointer;
   color: rgb(122, 122, 122);
   z-index: 1;
@@ -1177,7 +1174,7 @@
 /* Edit Form */
 .edit-form {
   background: white;
-  padding: 5px;
+  padding: 20px;
   border-radius: 8px;
   width: 100%;
   height: 100%;
@@ -1200,11 +1197,11 @@
 .edit-form .form-column {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 
 .edit-form .form-group {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .edit-form label {
@@ -1217,7 +1214,7 @@
 .edit-form select,
 .edit-form textarea {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1227,7 +1224,7 @@
   background: #28a745;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -1240,8 +1237,8 @@
 .edit-form.two-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
+  gap: 30px;
+  padding: 30px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -1256,13 +1253,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #eee;
 }
 
 .edit-form .modal-header h2 {
-  font-size: 16px;
+  font-size: 24px;
   color: #333;
   margin: 0;
 }
@@ -1271,7 +1268,7 @@
   background: #28a745;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
@@ -1285,13 +1282,13 @@
 
 /* Form Groups */
 .edit-form .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .edit-form .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 100;
+  font-weight: 500;
   color: #333;
 }
 
@@ -1308,10 +1305,10 @@
 .edit-form select,
 .edit-form textarea {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 14px;
   transition: border-color 0.2s ease;
 }
 
@@ -1326,7 +1323,7 @@
 /* Pack Size Section */
 .edit-form .pack-size-group {
   background: #f8f9fa;
-  padding: 5px;
+  padding: 15px;
   border-radius: 4px;
   border: 1px solid #ddd;
 }
@@ -1334,7 +1331,7 @@
 .edit-form .pack-size-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .edit-form .pack-size-table th,
@@ -1346,21 +1343,21 @@
 
 .edit-form .pack-size-table th {
   background: #f1f3f5;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .edit-form .add-pack-size {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  gap: 5px;
-  margin-top: 5px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .edit-form .add-pack-size button {
   background: #007bff;
   color: white;
   border: none;
-  padding: 4px 5px;
+  padding: 8px 15px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -1372,20 +1369,20 @@
 .edit-form .total-amount {
   text-align: right;
   font-weight: 500;
-  margin-top: 5px;
-  padding-top: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid #ddd;
 }
 
 /* Pack Size Actions */
 .edit-form .pack-size-table button {
-  padding: 2px 4px;
+  padding: 4px 8px;
   margin: 0 2px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: white;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .edit-form .pack-size-table button:hover {
@@ -1395,8 +1392,8 @@
 
 /* Warning Messages */
 .edit-form .pack-size-warning {
-  margin-top: 5px;
-  padding: 4px;
+  margin-top: 10px;
+  padding: 8px;
   border-radius: 4px;
   background: #fff3cd;
   border: 1px solid #ffeeba;
@@ -1413,8 +1410,8 @@
 @media (max-width: 992px) {
   .edit-form.two-column {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 10px;
+    gap: 20px;
+    padding: 20px;
   }
 
   .edit-form .add-pack-size {
@@ -1475,12 +1472,12 @@
 
 /* Add pagination ellipsis style */
 .pagination-ellipsis {
-  padding: 5px 5px;
+  padding: 5px 10px;
   color: #6c757d;
 }
 
 /* Add specific style for soldout date if needed */
-.-table td[data-column="soldout_date"] {
+.inventory-table td[data-column="soldout_date"] {
   color: #dc3545; /* Red color for sold out dates */
 }
 
@@ -1488,20 +1485,20 @@
 .edit-form.three-column {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 20px;
   padding: 20px;
 }
 
 .edit-form .form-full-width {
   grid-column: 1 / -1;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .edit-form .form-actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px solid #ddd;
 }
 
@@ -1539,19 +1536,19 @@
 
 /* Repeat Info Styles */
 .repeat-info-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .repeat-info-inputs {
   display: grid;
   grid-template-columns: 150px 1fr auto;
   gap: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   align-items: center;
 }
 
 .repeat-info-inputs input {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1562,7 +1559,7 @@
 }
 
 .repeat-info-inputs button {
-  padding: 4px 8px;
+  padding: 8px 16px;
   background: #28a745;
   color: white;
   border: none;
@@ -1577,12 +1574,12 @@
 .repeat-info-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .repeat-info-table th,
 .repeat-info-table td {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -1592,7 +1589,7 @@
 }
 
 .repeat-info-table button {
-  padding: 2px 4px;
+  padding: 4px 8px;
   background: #dc3545;
   color: white;
   border: none;
@@ -1607,7 +1604,7 @@
 .no-data {
   color: #6c757d;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   background: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -1642,7 +1639,7 @@
 .view-details-btn {
   display: inline-flex;
   align-items: center;
-  padding: 2px 4px;
+  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1667,26 +1664,26 @@
 /* Sold Out List Styles */
 .soldout-modal .modal-content {
   max-width: 1000px;
-  padding: 10px;
+  padding: 20px;
   position: relative;
   width: 100%;
 }
 
 .soldout-modal .modal-title {
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   padding-right: 30px; /* Space for close button */
 }
 
 .soldout-filter {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .soldout-filter select {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .soldout-filter select:focus {
@@ -1699,9 +1696,9 @@
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border: 1px solid #888888;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 100;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .soldout-modal .export-pdf-btn:hover {
@@ -1716,7 +1713,7 @@
   overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -1735,7 +1732,7 @@
 /* Update Sold Out Modal Styles */
 .soldout-modal .modal-content {
   max-width: 1000px;
-  padding: 10px;
+  padding: 20px;
   position: relative;
   width: 100%;
 }
@@ -1748,14 +1745,14 @@
 
 .soldout-table th,
 .soldout-table td {
-  padding: 6px;
+  padding: 12px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
 .soldout-table th {
   background-color: #f8f9fa;
-  font-weight: 200;
+  font-weight: 600;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -1774,7 +1771,7 @@
   overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -1837,46 +1834,35 @@
   color: #333;
 }
 
-/* Status-based cell colors in  table */
-.-table td[data-column="Soldout_Status"].status-new-release {
+/* Status-based cell colors in inventory table */
+.inventory-table td[data-column="soldout_status"].status-new-release {
   background-color: #e3f2fd;
   color: #0d47a1;
 }
 
-.inventory-table td[data-column="SoldoutStatus"].status-full-price {
+.inventory-table td[data-column="soldout_status"].status-full-price {
   background-color: #e8f5e9;
   color: #1b5e20;
 }
 
-.inventory-table td[data-column="Soldout_Status"].status-on-sale {
+.inventory-table td[data-column="soldout_status"].status-on-sale {
   background-color: #ffebee;
   color: #b71c1c;
-}
-
-.inventory-table td[data-column="Item_Name"] {
- // background-color: #ffebee;
-  color: grey;
-}
-
-.inventory-table td[data-column="Qty" || data-column="Stock"] {
- // background-color: #ffebee;
-  align-items: center;
- // color: grey;
 }
 
 /* Freight List Styles */
 .freight-modal .modal-content {
   max-width: 1200px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .freight-modal .export-pdf-btn {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border: 1px solid #888888;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 100;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .freight-modal .export-pdf-btn:hover {
@@ -1889,11 +1875,11 @@
 .freight-tabs {
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .freight-tab {
-  padding: 4px 8px;
+  padding: 8px 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: white;
@@ -1907,7 +1893,7 @@
 }
 
 .freight-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background: white;
@@ -1916,8 +1902,8 @@
 .freight-group-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  padding: 5px 10px;
+  gap: 20px;
+  padding: 15px 20px;
   background: #f8f9fa;
   border-radius: 8px;
   align-items: center;
@@ -1930,7 +1916,7 @@
 
 .freight-items-table th,
 .freight-items-table td {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -1940,8 +1926,8 @@
 }
 
 .bulk-edit-btn {
-  padding: 4px 8px;
-  margin-left: 5px;
+  padding: 8px 16px;
+  margin-left: 10px;
 }
 
 .bulk-edit-modal .modal-content {
@@ -1949,11 +1935,11 @@
 }
 
 .bulk-edit-form {
-  padding: 5px;
+  padding: 20px;
 }
 
 .bulk-edit-form .form-group {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .bulk-edit-form label {
@@ -1963,16 +1949,16 @@
 
 .bulk-edit-form input {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
 .form-actions {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   justify-content: flex-end;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /* Add truck icon */
@@ -1983,12 +1969,12 @@
 /* Add styles for the freight group buttons */
 .freight-group-buttons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
 }
 
 .view-all-btn {
-  padding: 4px 8px;
+  padding: 8px 16px;
   background: #007bff;
   color: white;
   border: none;
@@ -1996,7 +1982,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   font-weight: 500;
 }
 
@@ -2005,14 +1991,14 @@
 }
 
 .bulk-edit-btn {
-  padding: 4px 8px;
+  padding: 8px 16px;
   margin-left: 10px;
 }
 
 /* All Items Modal Styles */
 .all-items-modal .modal-content {
   max-width: 1200px;
-  padding: 10px;
+  padding: 20px;
   height: 66vh;
   display: flex;
   flex-direction: column;
@@ -2028,15 +2014,15 @@
   overflow: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /* Update freight group header styles */
 .freight-group-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  padding: 5px 10px;
+  gap: 20px;
+  padding: 15px 20px;
   background: #f8f9fa;
   border-radius: 8px;
   align-items: center;
@@ -2044,7 +2030,7 @@
 
 .freight-dates {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   justify-content: center;
 }
 
@@ -2055,13 +2041,13 @@
 }
 
 .freight-date label {
-  font-size: 11px;
+  font-size: 12px;
   color: #666;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .freight-date span {
-  font-size: 12px;
+  font-size: 14px;
   color: #333;
 }
 
@@ -2075,19 +2061,19 @@
 
 /* Update modal header styles */
 .modal-title-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   flex-shrink: 0;
 }
 
 .modal-title-group h2 {
-  margin: 0 0 5px 0;
+  margin: 0 0 15px 0;
   color: #333;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .modal-subtitle {
   color: #666;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .modal-subtitle p {
@@ -2100,7 +2086,7 @@
   overflow: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /* Update table styles */
@@ -2112,7 +2098,7 @@
 
 .all-items-table th,
 .all-items-table td {
-  padding: 6px;
+  padding: 12px;
   border: 1px solid #ddd;
   text-align: left;
   white-space: nowrap;
@@ -2122,7 +2108,7 @@
 
 .all-items-table th {
   background: #f8f9fa;
-  font-weight: 200;
+  font-weight: 600;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -2161,81 +2147,80 @@
 } /* Note */
 
 /* Add status cell styles */
-.inventory-table td[data-column="Status"] {
-  font-weight: 100;
+.inventory-table td[data-column="item_status"] {
+  font-weight: 500;
   text-transform: uppercase;
-  //font-size: 0.9em;
-  font-size: 11px;
+  font-size: 0.9em;
 }
 
 /* Status-specific colors */
-.inventory-table td[data-column="Status"].status-arrived {
+.inventory-table td[data-column="item_status"].status-arrived {
   color: #28a745;
   background-color: #e8f5e9;
 }
 
-.inventory-table td[data-column="Status"].status-shipping {
+.inventory-table td[data-column="item_status"].status-shipping {
   color: #0056b3;
   background-color: #e3f2fd;
 }
 
-.inventory-table td[data-column="Status"].status-not-released {
+.inventory-table td[data-column="item_status"].status-not-released {
   color: #6c757d;
   background-color: #f8f9fa;
 }
 
-.inventory-table td[data-column="Status"].status-processing {
+.inventory-table td[data-column="item_status"].status-processing {
   color: #fd7e14;
   background-color: #fff3e0;
 }
 
-.inventory-table td[data-column="Status"].status-on-hold {
+.inventory-table td[data-column="item_status"].status-on-hold {
   color: #dc3545;
   background-color: #ffebee;
 }
 
 /* Qty diff column styles */
 .inventory-table td[data-column="qty_diff"] {
-  font-weight: 100;
+  font-weight: 500;
   text-align: right;
 }
 
 /* View Item Modal Styles */
 .item-details-container {
   overflow-x: auto;
-  padding: 10px;
+  padding: 20px;
 }
 
 .details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
+  gap: 30px;
   min-width: 900px;
 }
 
 .detail-section {
   background: #f8f9fa;
-  padding: 5px;
+  padding: 20px;
   border-radius: 8px;
   border: 1px solid #e9ecef;
 }
 
 .detail-section h3 {
   color: #333;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #dee2e6;
 }
 
 .detail-row {
   display: flex;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   align-items: flex-start;
 }
 
 .detail-row .label {
   min-width: 140px;
-  font-weight: 100;
+  font-weight: 500;
   color: #666;
 }
 
@@ -2246,14 +2231,14 @@
 
 /* Update action button styles */
 .action-column button {
-  padding: 4px 8px;
+  padding: 8px 16px;
   margin: 0 4px;
   border-radius: 4px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 11px;
+  gap: 6px;
+  font-size: 13px;
   transition: all 0.2s ease;
 }
 
@@ -2281,7 +2266,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 5px 0;
-  font-size: 11px;
+  font-size: 14px;
   background: white;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -2289,7 +2274,7 @@
 
 .json-data-table th,
 .json-data-table td {
-  padding: 4px 6px;
+  padding: 8px 12px;
   text-align: left;
   border: 1px solid #e9ecef;
   word-break: break-word;
@@ -2338,7 +2323,7 @@
 .modal-content {
   max-height: 90vh;
   overflow-y: auto;
-  padding: 5px;
+  padding: 20px;
   position: relative;
 }
 
@@ -2349,7 +2334,7 @@
 .details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
+  gap: 30px;
 }
 
 /* Custom scrollbar for modal content */
@@ -2403,7 +2388,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 0;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .json-data-table th {
@@ -2412,12 +2397,12 @@
   background: #f8f9fa;
   z-index: 1;
   font-weight: 500;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 2px solid #dee2e6;
 }
 
 .json-data-table td {
-  padding: 4px 5px;
+  padding: 8px 10px;
   border-bottom: 1px solid #e9ecef;
 }
 
@@ -2433,7 +2418,7 @@
 
   .modal-content {
     width: 95%;
-    margin: 5px;
+    margin: 10px;
   }
 }
 
@@ -2441,7 +2426,7 @@
 .export-modal .modal-content {
   max-width: 1200px;
   width: 90%;
-  padding: 10px;
+  padding: 20px;
 }
 
 .export-settings {
@@ -2450,15 +2435,15 @@
 
 .settings-section {
   background: #f8f9fa;
-  padding: 5px;
+  padding: 15px;
   border-radius: 8px;
   border: 1px solid #dee2e6;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .settings-section h3 {
-  margin-bottom: 5px;
-  padding-bottom: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #dee2e6;
   color: #333;
 }
@@ -2466,13 +2451,13 @@
 .columns-sort-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
+  gap: 20px;
 }
 
 .dropdown-section {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .dropdown-section label {
@@ -2482,7 +2467,7 @@
 
 .dropdown-section select {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #dee2e6;
   border-radius: 4px;
   background: white;
@@ -2490,7 +2475,7 @@
 
 .column-select-wrapper {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 .column-controls,
@@ -2502,7 +2487,7 @@
 
 .column-controls button,
 .column-order-controls button {
-  padding: 4px 6px;
+  padding: 8px 12px;
   border: 1px solid #dee2e6;
   border-radius: 4px;
   background: white;
@@ -2519,12 +2504,12 @@
 .sort-section {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .sort-section select {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #dee2e6;
   border-radius: 4px;
 }
@@ -2533,35 +2518,35 @@
   color: #856404;
   background-color: #fff3cd;
   border: 1px solid #ffeeba;
-  padding: 5px;
+  padding: 10px;
   border-radius: 4px;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .preview-section {
   background: white;
   border: 1px solid #dee2e6;
   border-radius: 8px;
-  padding: 5px;
-  margin-bottom: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
 .preview-container {
   overflow-x: auto;
   max-height: 300px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .preview-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 11px;
-  margin-top: 5px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .preview-table th,
 .preview-table td {
-  padding: 3px 4px;
+  padding: 6px 8px;
   border: 1px solid #dee2e6;
   text-align: left;
   white-space: nowrap;
@@ -2585,14 +2570,14 @@
 .export-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 5px;
+  gap: 10px;
 }
 
 .export-actions button {
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .export-actions .primary-btn {
@@ -2612,7 +2597,7 @@ select[multiple] {
 }
 
 select[multiple] option {
-  padding: 4px;
+  padding: 8px;
   border-bottom: 1px solid #dee2e6;
 }
 
@@ -2628,14 +2613,14 @@ select[multiple] option:hover {
 .filters-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .filter-group label {
@@ -2645,7 +2630,7 @@ select[multiple] option:hover {
 
 .filter-select {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #dee2e6;
   border-radius: 4px;
   background: white;
@@ -2656,7 +2641,7 @@ select[multiple] option:hover {
 }
 
 .filter-select option {
-  padding: 2px 4px;
+  padding: 4px 8px;
 }
 
 .filter-select option:checked {
@@ -2667,8 +2652,8 @@ select[multiple] option:hover {
 /* Filter dropdowns styles */
 .filter-dropdowns {
   display: flex;
-  gap: 10px;
-  margin-bottom: 5px;
+  gap: 20px;
+  margin-bottom: 15px;
   padding: 10px;
   background: #f8f9fa;
   border-radius: 4px;
@@ -2679,7 +2664,7 @@ select[multiple] option:hover {
 .filter-group {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .filter-group label {
@@ -2689,7 +2674,7 @@ select[multiple] option:hover {
 }
 
 .filter-group select {
-  padding: 3px 6px;
+  padding: 6px 12px;
   border: 1px solid #ced4da;
   border-radius: 4px;
   background: white;
@@ -2710,9 +2695,9 @@ select[multiple] option:hover {
 /* Update filter dropdowns styles */
 .filter-dropdowns {
   display: flex;
-  gap: 10px;
-  margin-bottom: 5px;
-  padding: 5px;
+  gap: 20px;
+  margin-bottom: 15px;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 4px;
   border: 1px solid #dee2e6;
@@ -2725,12 +2710,12 @@ select[multiple] option:hover {
 }
 
 .group-filter-btn {
-  padding: 3px 6px;
+  padding: 6px 12px;
   border: 1px solid #ced4da;
   border-radius: 4px;
   background: white;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 500;
   transition: all 0.2s;
 }
 
@@ -2747,18 +2732,18 @@ select[multiple] option:hover {
 
 .special-buttons {
   display: flex;
-  gap: 5px;
-  margin-top: 5px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .special-buttons button {
   display: flex;
   align-items: center;
-  gap: 3px;
-  padding: 4px 8px;
+  gap: 6px;
+  padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 500;
   transition: all 0.2s;
 }
 
@@ -2767,7 +2752,7 @@ select[multiple] option:hover {
 .error-message,
 .no-data-message {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   color: #666;
   font-style: italic;
 }
@@ -2785,11 +2770,11 @@ select[multiple] option:hover {
 }
 
 .notification {
-  padding: 6px 10px;
-  margin-bottom: 5px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
   border-radius: 4px;
   color: white;
-  font-weight: 100;
+  font-weight: 500;
   animation: slideIn 0.3s ease-out;
 }
 

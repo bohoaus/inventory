@@ -20,12 +20,12 @@ class SalesODMDispatch {
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
-        .eq("BrandGroup", "ODM")
-        .order("mfgDate", { ascending: false });
+        .eq("item_group", "ODM")
+        .order("mfg_date", { ascending: false });
 
       if (error) throw error;
 
-      // Group items by mfgDate and cargo
+      // Group items by mfg_date and cargo
       const groupedItems = this.groupItemsByDispatch(items);
 
       if (Object.keys(groupedItems).length === 0) {
@@ -55,14 +55,14 @@ class SalesODMDispatch {
   groupItemsByDispatch(items) {
     const groups = {};
     items.forEach((item) => {
-      if (!item.mfgDate || !item.Cargo) return;
+      if (!item.mfg_date || !item.item_cargo) return;
 
-      const key = `${item.mfgDate}_${item.Cargo}`;
+      const key = `${item.mfg_date}_${item.item_cargo}`;
       if (!groups[key]) {
         groups[key] = {
-          mfgDate: item.mfgDate,
-          cargo: item.Cargo,
-          ArriveDate: item.ArriveDate,
+          mfg_date: item.mfg_date,
+          cargo: item.item_cargo,
+          arrive_date: item.arrive_date,
           items: [],
           customerCounts: {},
         };
@@ -70,7 +70,7 @@ class SalesODMDispatch {
       groups[key].items.push(item);
 
       // Count items per customer
-      const customer = item.odmCustomer || "Unknown";
+      const customer = item.odm_customer || "Unknown";
       groups[key].customerCounts[customer] =
         (groups[key].customerCounts[customer] || 0) + 1;
     });
@@ -84,7 +84,7 @@ class SalesODMDispatch {
         <div class="salesodmdispatch-group">
           <div class="salesodmdispatch-group-header">
             <div class="salesodmdispatch-header-main">
-              <h3>${this.formatDateToSydney(group.mfgDate)} - ${
+              <h3>${this.formatDateToSydney(group.mfg_date)} - ${
           group.cargo
         }</h3>
             </div>
@@ -97,8 +97,8 @@ class SalesODMDispatch {
                 <span>Total Items: ${group.items.length}</span>
                 <span> | </span>
                 <span>Arrival: ${
-                  group.ArriveDate
-                    ? this.formatDateToSydney(group.ArriveDate)
+                  group.arrive_date
+                    ? this.formatDateToSydney(group.arrive_date)
                     : "Not Arrived"
                 }</span>
               </div>
@@ -125,10 +125,10 @@ class SalesODMDispatch {
               <button class="salesodmdispatch-export-btn" onclick="salesODMDispatch.exportToPDF(${JSON.stringify(
                 {
                   items: group.items,
-                  mfgDate: group.mfgDate,
+                  mfg_date: group.mfg_date,
                   cargo: group.cargo,
                   customerCounts: group.customerCounts,
-                  ArriveDate: group.ArriveDate,
+                  arrive_date: group.arrive_date,
                 }
               ).replace(/"/g, "&quot;")})">
                 <i class="fas fa-file-pdf"></i>
@@ -156,7 +156,7 @@ class SalesODMDispatch {
       // Add group info
       doc.setFontSize(12);
       doc.text(
-        `Manufacturing Date: ${this.formatDateToSydney(groupData.mfgDate)}`,
+        `Manufacturing Date: ${this.formatDateToSydney(groupData.mfg_date)}`,
         14,
         30
       );
@@ -168,8 +168,8 @@ class SalesODMDispatch {
       );
       doc.text(
         `Arrival Date: ${
-          groupData.ArriveDate
-            ? this.formatDateToSydney(groupData.ArriveDate)
+          groupData.arrive_date
+            ? this.formatDateToSydney(groupData.arrive_date)
             : "Not Arrived"
         }`,
         14,
@@ -187,11 +187,11 @@ class SalesODMDispatch {
 
       // Create table data
       const tableData = groupData.items.map((item) => [
-        item.Code_Colour || "N/A",
-        item.odmPPO || "N/A",
-        item.odmCustomer || "N/A",
-        item.Status || "N/A",
-        this.formatDateToSydney(item.Updated),
+        item.code_colour || "N/A",
+        item.odm_ppo || "N/A",
+        item.odm_customer || "N/A",
+        item.item_status || "N/A",
+        this.formatDateToSydney(item.updated_at),
       ]);
 
       // Add table
@@ -225,7 +225,7 @@ class SalesODMDispatch {
 
       // Generate filename
       const filename = `ODM_Dispatch_${
-        groupData.mfgDate
+        groupData.mfg_date
       }_${groupData.cargo.replace(/[^a-z0-9]/gi, "_")}.pdf`;
 
       // Save PDF
@@ -271,11 +271,11 @@ class SalesODMDispatch {
             .map(
               (item) => `
             <tr>
-              <td>${item.Code_Colour || "N/A"}</td>
-              <td>${item.odmPPO || "N/A"}</td>
-              <td>${item.odmCustomer || "N/A"}</td>
-              <td>${item.Status || "N/A"}</td>
-              <td>${this.formatDateToSydney(item.Updated)}</td>
+              <td>${item.code_colour || "N/A"}</td>
+              <td>${item.odm_ppo || "N/A"}</td>
+              <td>${item.odm_customer || "N/A"}</td>
+              <td>${item.item_status || "N/A"}</td>
+              <td>${this.formatDateToSydney(item.updated_at)}</td>
             </tr>
           `
             )

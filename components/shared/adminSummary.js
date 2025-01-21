@@ -80,14 +80,14 @@ class AdminSummary {
 
     inventory.forEach((item) => {
       // Count by category
-      summary.categories[item.Category] =
-        (summary.categories[item.Category] || 0) + 1;
+      summary.categories[item.item_category] =
+        (summary.categories[item.item_category] || 0) + 1;
       // Count by status
-      summary.status[item.Status] =
-        (summary.status[item.Status] || 0) + 1;
+      summary.status[item.item_status] =
+        (summary.status[item.item_status] || 0) + 1;
       // Count by group
-      summary.groups[item.BrandGroup] =
-        (summary.groups[item.BrandGroup] || 0) + 1;
+      summary.groups[item.item_group] =
+        (summary.groups[item.item_group] || 0) + 1;
     });
 
     return summary;

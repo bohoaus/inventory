@@ -3,37 +3,37 @@ class SalesOrdersComponent {
     this.container = null;
     this.searchInput = null;
     this.searchItemCode = null;
-    this.oStatusFilter = null;
-    this.StateFilter = null;
+    this.statusFilter = null;
+    this.agentStateFilter = null;
     this.rowsPerPage = null;
     this.currentPage = 1;
-    this.sortColumn = "Created";
+    this.sortColumn = "created_at";
     this.sortDirection = "desc";
     this.currentFilter = "all";
 
     // Define the initial table structure
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "Created", name: "Created", locked: true, isDate: true },
-      { id: "Customer", name: "Customer Name", locked: true },
-      { id: "orderPO", name: "OrderPO", locked: true },
-      { id: "ooStatus", name: "ooStatus", locked: true },
-      { id: "State", name: "State", locked: true },
-      { id: "TotalItem", name: "TotalItems", locked: true },
-      { id: "orderNote", name: "Order Note", locked: true },
+      { id: "created_at", name: "Created At", locked: true, isDate: true },
+      { id: "customer_name", name: "Customer Name", locked: true },
+      { id: "order_type", name: "Order Type", locked: true },
+      { id: "status", name: "Status", locked: true },
+      { id: "agent_state", name: "Agent State", locked: true },
+      { id: "total_items", name: "Total Items", locked: true },
+      { id: "order_note", name: "Order Note", locked: true },
     ];
 
     // Optional columns that can be added
     this.optionalColumns = [
-      { id: "Canceltem", name: "Removed Items" },
-      { id: "Zip", name: "Dispatched State" },
-      { id: "Courier", name: "Courier" },
-      { id: "Box", name: "Box" },
-      { id: "invoiceNo", name: "InvoiceNo" },
-      { id: "trackingNo", name: "TrackingNo" },
-      { id: "CancelDate", name: "CancelDate", isDate: true },
-      { id: "orderNote", name: "orderNote", isDate: true },
-      { id: "Updated", name: "Updated", isDate: true },
+      { id: "removed_items", name: "Removed Items" },
+      { id: "dispatched_state", name: "Dispatched State" },
+      { id: "dispatched_carrier", name: "Dispatched Carrier" },
+      { id: "dispatched_box", name: "Dispatched Box" },
+      { id: "invoice_no", name: "Invoice No" },
+      { id: "tracking_no", name: "Tracking No" },
+      { id: "cancelled_at", name: "Cancelled At", isDate: true },
+      { id: "dispatched_at", name: "Dispatched At", isDate: true },
+      { id: "updated_at", name: "Updated At", isDate: true },
     ];
 
     // Initialize selected columns with required columns
@@ -92,8 +92,8 @@ class SalesOrdersComponent {
         <div class="Salesorders-search-filter">
           <input type="text" placeholder="Search by customer name" class="Salesorders-search">
           <input type="text" placeholder="Search by item code" class="Salesorders-item-search">
-          <select class="Salesorders-oStatus-filter">
-            <option value="">All oStatus</option>
+          <select class="Salesorders-status-filter">
+            <option value="">All Status</option>
             <option value="PICKING">PICKING</option>
             <option value="AWAITING PAYMENT">AWAITING PAYMENT</option>
             <option value="WHOLESALE ON HOLD">WHOLESALE ON HOLD</option>
@@ -158,10 +158,10 @@ class SalesOrdersComponent {
     this.searchItemCode = this.container.querySelector(
       ".Salesorders-item-search"
     );
-    this.oStatusFilter = this.container.querySelector(
-      ".Salesorders-oStatus-filter"
+    this.statusFilter = this.container.querySelector(
+      ".Salesorders-status-filter"
     );
-    this.StateFilter = this.container.querySelector(
+    this.agentStateFilter = this.container.querySelector(
       ".Salesorders-agent-state-filter"
     );
     this.rowsPerPage = this.container.querySelector(
@@ -305,8 +305,8 @@ class SalesOrdersComponent {
     this.searchItemCode.addEventListener("input", () => this.loadOrders());
 
     // Filters
-    this.oStatusFilter.addEventListener("change", () => this.loadOrders());
-    this.StateFilter.addEventListener("change", () => this.loadOrders());
+    this.statusFilter.addEventListener("change", () => this.loadOrders());
+    this.agentStateFilter.addEventListener("change", () => this.loadOrders());
 
     // Type filter buttons
     document.querySelectorAll(".Salesorders-group-btn").forEach((btn) => {
@@ -344,39 +344,39 @@ class SalesOrdersComponent {
       // Build query
       let query = supabaseClient
         .from("orders")
-        .select("*, orderItems(*)", { count: "exact" });
+        .select("*, order_items(*)", { count: "exact" });
 
       // Apply filters
       const searchTerm = this.searchInput.value.trim().toLowerCase();
       const itemCodeTerm = this.searchItemCode.value.trim().toLowerCase();
-      const oStatusFilter = this.oStatusFilter.value;
-      const StateFilter = this.StateFilter.value;
+      const statusFilter = this.statusFilter.value;
+      const agentStateFilter = this.agentStateFilter.value;
 
       console.log("Applied filters:", {
         searchTerm,
         itemCodeTerm,
-        oStatusFilter,
-        StateFilter,
+        statusFilter,
+        agentStateFilter,
       });
 
       if (searchTerm) {
-        query = query.ilike("Customer", `%${searchTerm}%`);
+        query = query.ilike("customer_name", `%${searchTerm}%`);
       }
 
       if (itemCodeTerm) {
         // First, find orders with matching items
         const { data: matchingItems } = await supabaseClient
-          .from("orderItems")
-          .select("orderID")
-          .ilike("itemCode", `%${itemCodeTerm}%`);
+          .from("order_items")
+          .select("order_id")
+          .ilike("item_name", `%${itemCodeTerm}%`);
 
         if (matchingItems && matchingItems.length > 0) {
           // Get unique order IDs
-          const orderIDs = [
-            ...new Set(matchingItems.map((item) => item.orderID)),
+          const orderIds = [
+            ...new Set(matchingItems.map((item) => item.order_id)),
           ];
           // Filter orders by these IDs
-          query = query.in("id", orderIDs);
+          query = query.in("id", orderIds);
         } else {
           // No matching items found
           this.renderOrdersTable([]);
@@ -385,16 +385,16 @@ class SalesOrdersComponent {
         }
       }
 
-      if (oStatusFilter) {
-        query = query.eq("ioStatus", oStatusFilter);
+      if (statusFilter) {
+        query = query.eq("status", statusFilter);
       }
 
       if (this.currentFilter !== "all") {
-        query = query.eq("orderPO", this.currentFilter.toUpperCase());
+        query = query.eq("order_type", this.currentFilter.toUpperCase());
       }
 
-      if (StateFilter) {
-        query = query.eq("State", StateFilter);
+      if (agentStateFilter) {
+        query = query.eq("agent_state", agentStateFilter);
       }
 
       // Add sorting with NULLS LAST
@@ -511,13 +511,13 @@ class SalesOrdersComponent {
                   ${order[column.id] ? this.formatDate(order[column.id]) : "-"}
                 </td>
               `;
-            } else if (column.id === "oStatus") {
+            } else if (column.id === "status") {
               cells += `
                 <td class="Salesorders-td" data-column="${column.id}">
-                  <span class="Salesorders-oStatus-${order.oStatus
+                  <span class="Salesorders-status-${order.status
                     ?.toLowerCase()
                     ?.replace(/\s+/g, "-")}">
-                    ${order.oStatus || "-"}
+                    ${order.status || "-"}
                   </span>
                 </td>
               `;
@@ -537,15 +537,15 @@ class SalesOrdersComponent {
     // Add click event listeners to view buttons after rendering
     document.querySelectorAll(".Salesorders-view-btn").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const orderID = e.target.dataset.id;
-        console.log("View button clicked for order:", orderID);
-        this.viewDetails(orderID);
+        const orderId = e.target.dataset.id;
+        console.log("View button clicked for order:", orderId);
+        this.viewDetails(orderId);
       });
     });
   }
 
-  async viewDetails(orderID) {
-    console.log("View details clicked for order:", orderID);
+  async viewDetails(orderId) {
+    console.log("View details clicked for order:", orderId);
     try {
       const modal = document.getElementById("orderDetailsModal");
       if (!modal) {
@@ -560,19 +560,19 @@ class SalesOrdersComponent {
         .select(
           `
           *,
-          orderItems (
+          order_items (
             id,
-            orderID,
-            itemCode,
-            iPack,
-            iUnit,
-            ioStatus,
-            Created,
-            Updated
+            order_id,
+            item_name,
+            order_qty,
+            total_pieces,
+            order_item_status,
+            created_at,
+            updated_at
           )
         `
         )
-        .eq("id", orderID)
+        .eq("id", orderId)
         .single();
 
       if (error) {
@@ -580,7 +580,7 @@ class SalesOrdersComponent {
         throw error;
       }
       console.log("Order details fetched:", order);
-      console.log("Order items:", order.orderItems);
+      console.log("Order items:", order.order_items);
 
       // Update modal content
       const updateElement = (id, value) => {
@@ -594,22 +594,22 @@ class SalesOrdersComponent {
 
       // Update all order details
       const orderFields = [
-        { key: "Customer", label: "Customer" },
-        { key: "orderPO", label: "Type" },
-        { key: "oStatus", label: "oStatus" },
-        { key: "State", label: "State" },
-        { key: "Zip", label: "Zip" },
-        { key: "Courier", label: "Courier" },
-        { key: "Box", label: "Box" },
-        { key: "totalItem", label: "TotalItems" },
-        { key: "cancelItem", label: "RemovedItems" },
-        { key: "InvoiceNo", label: "InvoiceNo" },
-        { key: "TrackingNo", label: "TrackingNo" },
-        { key: "orderNote", label: "Notes" },
-        { key: "Created", label: "Created", isDate: true },
-        { key: "Updated", label: "Updated", isDate: true },
-        { key: "DispatchD", label: "DispatchedAt", isDate: true },
-        { key: "CancelDate", label: "CancelledAt", isDate: true },
+        { key: "customer_name", label: "Customer" },
+        { key: "order_type", label: "Type" },
+        { key: "status", label: "Status" },
+        { key: "agent_state", label: "AgentState" },
+        { key: "dispatched_state", label: "DispatchState" },
+        { key: "dispatched_carrier", label: "DispatchCarrier" },
+        { key: "dispatched_box", label: "DispatchBox" },
+        { key: "total_items", label: "TotalItems" },
+        { key: "removed_items", label: "RemovedItems" },
+        { key: "invoice_no", label: "InvoiceNo" },
+        { key: "tracking_no", label: "TrackingNo" },
+        { key: "order_note", label: "Notes" },
+        { key: "created_at", label: "Created", isDate: true },
+        { key: "updated_at", label: "Updated", isDate: true },
+        { key: "dispatched_at", label: "DispatchedAt", isDate: true },
+        { key: "cancelled_at", label: "CancelledAt", isDate: true },
       ];
 
       orderFields.forEach(({ key, label, isDate }) => {
@@ -621,23 +621,23 @@ class SalesOrdersComponent {
         }
       });
 
-      // Sort order items by oStatus and date
-      const sortedItems = [...order.orderItems].sort((a, b) => {
-        // First sort by oStatus (active first)
+      // Sort order items by status and date
+      const sortedItems = [...order.order_items].sort((a, b) => {
+        // First sort by status (active first)
         if (
-          a.iStatus === "active" &&
-          b.iStatus !== "active"
+          a.order_item_status === "active" &&
+          b.order_item_status !== "active"
         )
           return -1;
         if (
-          a.iStatus !== "active" &&
-          b.iStatus === "active"
+          a.order_item_status !== "active" &&
+          b.order_item_status === "active"
         )
           return 1;
 
         // Then sort by date (newest first)
-        const dateA = new Date(a.Created);
-        const dateB = new Date(b.Created);
+        const dateA = new Date(a.created_at);
+        const dateB = new Date(b.created_at);
         return dateB - dateA;
       });
 
@@ -662,22 +662,22 @@ class SalesOrdersComponent {
           ${sortedItems
             .map((item) => {
               console.log("Processing item:", item);
-              console.log("Item oStatus:", item.iStatus);
-              console.log("Item Updated:", item.Updated);
-              const isRemoved = item.iStatus === "REMOVED";
+              console.log("Item status:", item.order_item_status);
+              console.log("Item updated_at:", item.updated_at);
+              const isRemoved = item.order_item_status === "REMOVED";
               return `
               <tr class="Salesorders-item-${
-                item.iStatus || "removed"
+                item.order_item_status || "removed"
               }">
-                <td>${item.itemCode || "-"}</td>
-                <td>${item.iPack || "-"}</td>
-                <td>${item.iUnit || "-"}</td>
+                <td>${item.item_name || "-"}</td>
+                <td>${item.order_qty || "-"}</td>
+                <td>${item.total_pieces || "-"}</td>
                 <td>${
-                  item.Created ? this.formatDate(item.Created) : "-"
+                  item.created_at ? this.formatDate(item.created_at) : "-"
                 }</td>
                 <td>${
-                  isRemoved && item.Updated
-                    ? this.formatDate(item.Updated)
+                  isRemoved && item.updated_at
+                    ? this.formatDate(item.updated_at)
                     : "-"
                 }</td>
               </tr>
@@ -888,8 +888,8 @@ class SalesOrdersComponent {
     this.searchItemCode.value = "";
 
     // Reset filters
-    this.oStatusFilter.value = "";
-    this.StateFilter.value = "";
+    this.statusFilter.value = "";
+    this.agentStateFilter.value = "";
 
     // Reset type filter buttons
     document.querySelectorAll(".Salesorders-group-btn").forEach((btn) => {
@@ -926,10 +926,10 @@ class SalesOrdersComponent {
       activeFilters.push(`item code "<strong>${itemCodeTerm}</strong>"`);
     }
 
-    // oStatus filter
-    const oStatusFilter = this.oStatusFilter.value;
-    if (oStatusFilter) {
-      activeFilters.push(`oStatus "<strong>${oStatusFilter}</strong>"`);
+    // Status filter
+    const statusFilter = this.statusFilter.value;
+    if (statusFilter) {
+      activeFilters.push(`status "<strong>${statusFilter}</strong>"`);
     }
 
     // Type filter
@@ -938,7 +938,7 @@ class SalesOrdersComponent {
     }
 
     // State filter
-    const stateFilter = this.StateFilter.value;
+    const stateFilter = this.agentStateFilter.value;
     if (stateFilter) {
       activeFilters.push(
         `state "<strong>${stateFilter.toUpperCase()}</strong>"`
@@ -1020,12 +1020,12 @@ class SalesOrdersComponent {
                   <span id="detailType"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>oStatus:</label>
-                  <span id="detailoStatus"></span>
+                  <label>Status:</label>
+                  <span id="detailStatus"></span>
                 </div>
                 <div class="Salesorders-detail-row">
                   <label>Agent State:</label>
-                  <span id="detailState"></span>
+                  <span id="detailAgentState"></span>
                 </div>
                 <div class="Salesorders-detail-row">
                   <label>Dispatch State:</label>
