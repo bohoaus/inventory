@@ -122,6 +122,9 @@ class Auth {
         case "staff":
           window.location.href = "staff/dashboard.html";
           break;
+        case "stock":
+          window.location.href = "warehouse/dashboard.html";
+          break;
         default:
           throw new Error(`Invalid user role: ${role}`);
       }
