@@ -252,13 +252,13 @@
 
 .action-column {
   white-space: nowrap;
-  width: 100px;
+  width: 80px;
   position: relative;
 }
 
 .action-column .edit-btn,
 .action-column .delete-btn {
-  padding: 8px;
+  padding: 4px;
   margin: 0 2px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -845,8 +845,8 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid #ddd;
 }
 
@@ -1037,13 +1037,13 @@
 .column-actions {
   display: flex;
   gap: 10px;
-  padding: 10px;
+  padding: 5px;
   border-bottom: 1px solid #eee;
 }
 
 .column-actions button {
   flex: 1;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #f8f9fa;
@@ -1174,7 +1174,7 @@
 /* Edit Form */
 .edit-form {
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   width: 100%;
   height: 100%;
@@ -1201,7 +1201,7 @@
 }
 
 .edit-form .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .edit-form label {
@@ -1237,7 +1237,7 @@
 .edit-form.two-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 15px;
   padding: 30px;
   background: white;
   border-radius: 8px;
@@ -1259,7 +1259,7 @@
 }
 
 .edit-form .modal-header h2 {
-  font-size: 24px;
+  font-size: 16px;
   color: #333;
   margin: 0;
 }
@@ -1282,7 +1282,7 @@
 
 /* Form Groups */
 .edit-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .edit-form .form-group label {
@@ -1497,8 +1497,8 @@
 .edit-form .form-actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid #ddd;
 }
 
@@ -1613,8 +1613,8 @@
 /* Action Button Icons */
 .btn-icon {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   margin-right: 4px;
   vertical-align: text-bottom;
   background-repeat: no-repeat;
@@ -2574,7 +2574,7 @@
 }
 
 .export-actions button {
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
