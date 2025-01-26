@@ -58,6 +58,7 @@ class AdminInventory {
       "item_location",
       "pack_size",
       "mfg_date",
+      "odm_ppo",
       "item_aging",
       "item_note",
     ];
@@ -75,6 +76,7 @@ class AdminInventory {
       "item_location",
       "pack_size",
       "mfg_date",
+      "odm_ppo",
       "item_aging",
       "item_note",
     ];
@@ -222,8 +224,9 @@ class AdminInventory {
       { id: "release_date", label: "ReleaseDate" },
       { id: "item_location", label: "Location" },
       { id: "pack_size", label: "Pack Size" },
-      { id: "mfg_date", label: "MFG Date" },
-      { id: "item_aging", label: "Item Aging" },
+      { id: "mfg_date", label: "MFGdate" },
+      { id: "odm_ppo", label: "odmPPO" },
+      { id: "item_aging", label: "ItemAging" },
       { id: "item_note", label: "Note" },
       // Other columns after
       { id: "item_group", label: "Group" },
@@ -234,7 +237,6 @@ class AdminInventory {
       { id: "item_cargo", label: "Cargo" },
       { id: "est_date", label: "EstimatedDate" },
       { id: "delay_date", label: "DelayDate" },
-      { id: "odm_ppo", label: "ODM PPO" },
       { id: "odm_customer", label: "ODM Customer" },
       { id: "odm_qty_diff", label: "Produced vs Received" },
       { id: "freight_bags", label: "Bags" },
