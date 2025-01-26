@@ -516,10 +516,10 @@ class InventoryComponent {
 
   isDateColumn(columnName) {
     return [
+      "arrive_date",
       "release_date",
       "mfg_date",
       "est_date",
-      "arrive_date",
       "delay_date",
       "created_at",
       "updated_at",
@@ -740,10 +740,10 @@ class InventoryComponent {
 
       // Dates
       const dateFields = [
+        "arrive_date",
         "release_date",
         "mfg_date",
         "est_date",
-        "arrive_date",
         "delay_date",
         "soldout_date",
         "created_at",
