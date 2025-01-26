@@ -219,6 +219,7 @@ class AdminInventory {
       { id: "stock_qty", label: "Stock" },
       { id: "release_date", label: "ReleaseDate" },
       { id: "item_location", label: "Location" },
+      { id: "mfg_date", label: "MFG Date" },
       { id: "item_aging", label: "Item Aging" },
       { id: "item_note", label: "Note" },
       // Other columns after
@@ -226,7 +227,6 @@ class AdminInventory {
       { id: "pack_unit", label: "UnitP" },
       { id: "pack_size", label: "Pack Size" },
       { id: "repeat_item", label: "Repeat Info" },
-      { id: "mfg_date", label: "MFG Date" },
       { id: "soldout_date", label: "SoldOutDate" },
       { id: "soldout_status", label: "SoldOutStatus" },
       { id: "item_cargo", label: "Cargo" },
