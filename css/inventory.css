@@ -217,7 +217,7 @@
   width: 100%;
   min-width: 800px; /* Minimum width to prevent squishing */
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .inventory-table th,
@@ -229,7 +229,7 @@
 
 .inventory-table th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .inventory-table tr:nth-child(even) {
@@ -454,7 +454,7 @@
 
 /* Column Selection Toggle Button */
 .column-toggle-btn {
-  padding: 8px 16px;
+  padding: 4px 8px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -504,7 +504,7 @@
 
 .json-table th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .json-table tr:nth-child(even) {
@@ -782,7 +782,7 @@
 /* Add Item Modal Styles */
 .add-item-modal {
   min-width: 600px;
-  padding: 15px;
+  padding: 10px;
 }
 
 .add-item-modal form {
@@ -1752,7 +1752,7 @@
 
 .soldout-table th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -1771,7 +1771,7 @@
   overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
 }
 
@@ -2557,7 +2557,7 @@
 
 .preview-table th {
   background: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
   position: sticky;
   top: 0;
   z-index: 1;
