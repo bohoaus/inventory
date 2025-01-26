@@ -46,27 +46,31 @@ class AdminInventory {
 
     // Default selected columns
     this.selectedColumns = [
+      "arrive_date",
       "code_colour",
+      "receive_qty",
       "item_name",
       "item_category",
       "item_status",
       "stock_qty",
       "release_date",
-      "item_aging",
       "item_location",
+      "item_aging",
       "item_note",
     ];
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
+      "arrive_date",
       "code_colour",
+      "receive_qty",
       "item_name",
       "item_category",
       "item_status",
       "stock_qty",
       "release_date",
-      "item_aging",
       "item_location",
+      "item_aging",
       "item_note",
     ];
 
@@ -203,32 +207,32 @@ class AdminInventory {
     // Define all columns in the desired order
     const allColumns = [
       // Default columns first (in specific order)
+      { id: "arrive_date", label: "ArriveDate" },
       { id: "code_colour", label: "Code Color" },
+      { id: "receive_qty", label: "Qty" },
       { id: "item_name", label: "Item Name" },
       { id: "item_category", label: "Category" },
       { id: "item_status", label: "Status" },
-      { id: "stock_qty", label: "Stock Qty" },
-      { id: "item_aging", label: "Item Aging" },
-      { id: "release_date", label: "Release Date" },
+      { id: "stock_qty", label: "Stock" },
+      { id: "release_date", label: "ReleaseDate" },
       { id: "item_location", label: "Location" },
+      { id: "item_aging", label: "Item Aging" },
       { id: "item_note", label: "Note" },
       // Other columns after
       { id: "item_group", label: "Group" },
-      { id: "receive_qty", label: "Receive Qty" },
-      { id: "pack_unit", label: "Pack Unit" },
+      { id: "pack_unit", label: "UnitP" },
       { id: "pack_size", label: "Pack Size" },
       { id: "repeat_item", label: "Repeat Info" },
-      { id: "mfg_date", label: "Manufacture Date" },
-      { id: "soldout_date", label: "Sold Out Date" },
-      { id: "soldout_status", label: "Sold Out Status" },
+      { id: "mfg_date", label: "MFG Date" },
+      { id: "soldout_date", label: "SoldOutDate" },
+      { id: "soldout_status", label: "SoldOutStatus" },
       { id: "item_cargo", label: "Cargo" },
-      { id: "est_date", label: "Estimated Date" },
-      { id: "arrive_date", label: "Arrive Date" },
-      { id: "delay_date", label: "Delay Date" },
+      { id: "est_date", label: "EstimatedDate" },
+      { id: "delay_date", label: "DelayDate" },
       { id: "odm_ppo", label: "ODM PPO" },
       { id: "odm_customer", label: "ODM Customer" },
       { id: "odm_qty_diff", label: "Produced vs Received" },
-      { id: "freight_bags", label: "Freight Bags" },
+      { id: "freight_bags", label: "Bags" },
       { id: "created_at", label: "Created At" },
       { id: "updated_at", label: "Updated At" },
     ];
