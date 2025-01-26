@@ -56,6 +56,7 @@ class AdminInventory {
       "stock_qty",
       "release_date",
       "item_location",
+      "mfg_date",
       "item_aging",
       "item_note",
     ];
@@ -71,6 +72,7 @@ class AdminInventory {
       "stock_qty",
       "release_date",
       "item_location",
+      "mfg_date",
       "item_aging",
       "item_note",
     ];
