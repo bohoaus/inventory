@@ -47,6 +47,7 @@ class InventoryComponent {
     this.defaultColumns = [
       "arrive_date",
       "code_colour",
+      "receive_qty",
       "item_name",
       "stock_qty",
       "item_status",
