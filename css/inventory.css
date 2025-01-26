@@ -398,7 +398,7 @@
 
 .sidebar {
   width: 200px;
-  min-width: 250px; /* Prevent sidebar from shrinking */
+  min-width: 200px; /* Prevent sidebar from shrinking */
   background: #2c3e50;
   color: white;
   padding: 10px;
