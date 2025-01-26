@@ -45,6 +45,7 @@ class InventoryComponent {
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
+      "arrive_date",
       "code_colour",
       "item_name",
       "stock_qty",
