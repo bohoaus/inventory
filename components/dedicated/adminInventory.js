@@ -51,9 +51,8 @@ class AdminInventory {
       "code_colour",
       "receive_qty",
       "item_name",
-      "item_category",
-      "item_status",
       "stock_qty",
+      "item_status",
       "release_date",
       "item_location",
       "pack_size",
@@ -61,6 +60,7 @@ class AdminInventory {
       "odm_ppo",
       "item_aging",
       "item_note",
+      "item_category",
     ];
 
     // Define default columns that cannot be unchecked
@@ -69,9 +69,8 @@ class AdminInventory {
       "code_colour",
       "receive_qty",
       "item_name",
-      "item_category",
-      "item_status",
       "stock_qty",
+      "item_status",
       "release_date",
       "item_location",
       "pack_size",
@@ -79,6 +78,7 @@ class AdminInventory {
       "odm_ppo",
       "item_aging",
       "item_note",
+      "item_category",
     ];
 
     // Initialize selected columns with defaults
@@ -218,9 +218,8 @@ class AdminInventory {
       { id: "code_colour", label: "Code Color" },
       { id: "receive_qty", label: "Qty" },
       { id: "item_name", label: "Item Name" },
-      { id: "item_category", label: "Category" },
-      { id: "item_status", label: "Status" },
       { id: "stock_qty", label: "Stock" },
+      { id: "item_status", label: "Status" },
       { id: "release_date", label: "ReleaseDate" },
       { id: "item_location", label: "Location" },
       { id: "pack_size", label: "Pack Size" },
@@ -228,6 +227,7 @@ class AdminInventory {
       { id: "odm_ppo", label: "odmPPO" },
       { id: "item_aging", label: "ItemAging" },
       { id: "item_note", label: "Note" },
+      { id: "item_category", label: "Category" },
       // Other columns after
       { id: "item_group", label: "Group" },
       { id: "pack_unit", label: "UnitP" },
