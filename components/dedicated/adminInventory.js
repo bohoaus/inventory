@@ -1249,7 +1249,8 @@ class AdminInventory {
     this.updateFilterButtons();
 
     // Reset sorting
-    this.sortColumn = "code_colour";
+    //this.sortColumn = "code_colour";
+    this.sortColumn = "arrive_date";
     this.sortDirection = "asc";
 
     // Reset page
@@ -1265,11 +1266,12 @@ class AdminInventory {
   // Add method to update clear button visibility
   updateClearButtonVisibility() {
     // Only check for actual filters, not column selection
+    //  this.sortColumn !== "code_colour" ||
     const hasFilters =
       this.searchInput.value.trim() !== "" ||
       this.searchNoteInput.value.trim() !== "" ||
       this.currentFilter.toUpperCase() !== "ALL" ||
-      this.sortColumn !== "code_colour" ||
+      this.sortColumn !== "arrive_date" ||
       this.sortDirection !== "asc";
 
     this.clearButton.style.display = hasFilters ? "flex" : "none";
