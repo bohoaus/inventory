@@ -17,15 +17,18 @@ class EditWholesaleItem {
     };
 
     const categories = [
+      "CAPE",
       "DRESS",
-      "TOP",
-      "BOTTOM",
-      "SHIRT",
-      "SKIRT",
       "KAFTAN",
       "KIMONO",
-      "JACKET",
+      "MAXI",
+      "PANT",
+      "SHIRT",
+      "SKIRT",
+      "TOP",
+      "TUNIC",
       "COAT",
+      "JACKET",
       "KNITWEAR",
     ];
 
@@ -36,7 +39,8 @@ class EditWholesaleItem {
       "ON SALE",
       "NOT RELEASED",
       "OUT OF STOCK",
-      "CANCELLED RESTOCK",
+      "ISSUE & RESTOCK",
+      "OVERSTOCK",
     ];
 
     form.innerHTML = `
