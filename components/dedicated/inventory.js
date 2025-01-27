@@ -50,6 +50,8 @@ class InventoryComponent {
       "code_colour",
       "stock_qty",
       "item_name",
+      "odm_ppo",
+      "item_cargo",
       "item_location",
       "item_status",
       "receive_qty",
