@@ -242,10 +242,10 @@ class OdmItem {
                 <select name="item_cargo">
                     <option value="">Select Cargo</option>
                     <option value="AIR" ${
-                      item?.item_cargo === "AIR" ? "selected" : ""
+                      item?.item_cargo === "AIR-t" ? "selected" : ""
                     }>AIR</option>
                     <option value="SEA" ${
-                      item?.item_cargo === "SEA" ? "selected" : ""
+                      item?.item_cargo === "SEA-t" ? "selected" : ""
                     }>SEA</option>
                 </select>
             </div>
