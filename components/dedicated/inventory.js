@@ -50,10 +50,11 @@ class InventoryComponent {
       "code_colour",
       "stock_qty",
       "item_name",
+      "release_date",
       "odm_ppo",
+      "item_status",
       "item_cargo",
       "item_location",
-      "item_status",
       "receive_qty",
       "item_note",
     ];
