@@ -47,8 +47,8 @@ class StaffInventoryComponent {
     this.defaultColumns = [
       "arrive_date",
       "code_colour",
-      "item_name",
       "stock_qty",
+      "item_name",
       "release_date",
       "item_status",
       "mfg_date",
