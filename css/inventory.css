@@ -1091,7 +1091,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 300;
   transition: all 0.2s ease;
 }
 
@@ -1156,7 +1156,7 @@
   height: 30px;
   border: none;
   background: none;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   color: rgb(122, 122, 122);
   z-index: 1;
@@ -1745,7 +1745,7 @@
 
 .soldout-table th,
 .soldout-table td {
-  padding: 6px;
+  padding: 3px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -2098,7 +2098,7 @@
 
 .all-items-table th,
 .all-items-table td {
-  padding: 6px;
+  padding: 3px;
   border: 1px solid #ddd;
   text-align: left;
   white-space: nowrap;
@@ -2220,7 +2220,7 @@
 
 .detail-row .label {
   min-width: 140px;
-  font-weight: 500;
+  font-weight: 300;
   color: #666;
 }
 
