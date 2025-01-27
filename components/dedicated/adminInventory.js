@@ -1256,7 +1256,8 @@ class AdminInventory {
     // Reset sorting
     //this.sortColumn = "code_colour";
     this.sortColumn = "arrive_date";
-    this.sortDirection = "asc";
+    //this.sortDirection = "asc";
+    this.sortDirection = "desc";
 
     // Reset page
     this.currentPage = 1;
