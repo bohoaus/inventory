@@ -150,15 +150,18 @@ class WholesaleItem {
 
   generateItemForm(item = null) {
     const categories = [
+      "CAPE",
       "DRESS",
-      "TOP",
-      "BOTTOM",
-      "SHIRT",
-      "SKIRT",
       "KAFTAN",
       "KIMONO",
-      "JACKET",
+      "MAXI",
+      "PANT",
+      "SHIRT",
+      "SKIRT",
+      "TOP",
+      "TUNIC",
       "COAT",
+      "JACKET",
       "KNITWEAR",
     ];
 
@@ -170,6 +173,7 @@ class WholesaleItem {
       "NOT RELEASED",
       "OUT OF STOCK",
       "CANCELLED RESTOCK",
+      "OVERRESTOCK",
     ];
 
     const form = document.createElement("form");
