@@ -1,8 +1,8 @@
 .staffsummary-container {
   background: white;
   border-radius: 8px;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 10px;
+  margin-top: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -10,8 +10,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
   border-bottom: 2px solid #eee;
 }
 
@@ -22,27 +22,27 @@
 }
 
 .staffsummary-section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .staffsummary-section-title {
   font-size: 1.1em;
   color: #666;
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .staffsummary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  gap: 10px;
 }
 
 .staffsummary-card {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 6px;
-  padding: 15px;
+  padding: 10px;
 }
 
 .staffsummary-card-title {
@@ -53,7 +53,7 @@
 
 .staffsummary-card-value {
   font-size: 1.2em;
-  font-weight: 600;
+  font-weight: 300;
   color: #333;
 }
 
@@ -65,14 +65,14 @@
 
 .staffsummary-table th,
 .staffsummary-table td {
-  padding: 10px;
+  padding: 5px;
   text-align: left;
   border: 1px solid #dee2e6;
 }
 
 .staffsummary-table th {
   background: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
   color: #333;
 }
 
