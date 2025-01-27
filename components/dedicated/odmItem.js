@@ -74,7 +74,8 @@ class OdmItem {
       "PROCESSING",
       "ON HOLD",
       "DISPATCHED",
-      "CANCELLED IN WAREHOUSE",
+      "CANCELLED",
+      "QUALITY ISSUE",
     ];
 
     if (!validStatuses.includes(status)) {
@@ -115,15 +116,18 @@ class OdmItem {
 
   generateItemForm(item = null) {
     const categories = [
+      "CAPE",
       "DRESS",
-      "TOP",
-      "BOTTOM",
-      "SHIRT",
-      "SKIRT",
       "KAFTAN",
       "KIMONO",
-      "JACKET",
+      "MAXI",
+      "PANT",
+      "SHIRT",
+      "SKIRT",
+      "TOP",
+      "TUNIC",
       "COAT",
+      "JACKET",
       "KNITWEAR",
     ];
 
@@ -133,7 +137,8 @@ class OdmItem {
       "PROCESSING",
       "ON HOLD",
       "DISPATCHED",
-      "CANCELLED IN WAREHOUSE",
+      "CANCELLED",
+      "QUALITY ISSUE",
     ];
 
     const form = document.createElement("form");
