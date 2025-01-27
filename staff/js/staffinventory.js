@@ -53,6 +53,7 @@ class StaffInventoryComponent {
       "item_status",
       "mfg_date",
       "odm_ppo",
+      "pack_size",
       "item_aging",
       "item_cargo",
       "item_location",
