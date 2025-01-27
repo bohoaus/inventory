@@ -51,11 +51,11 @@ class InventoryComponent {
       "stock_qty",
       "item_name",
       "release_date",
-      "odm_ppo",
       "item_status",
+      "mfg_date",
+      "odm_ppo",
       "item_cargo",
       "item_location",
-      "mfg_date",
       "receive_qty",
       "item_note",
     ];
