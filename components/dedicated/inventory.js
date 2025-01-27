@@ -54,8 +54,10 @@ class InventoryComponent {
       "item_status",
       "mfg_date",
       "odm_ppo",
+      "pack_size",
       "item_cargo",
       "item_location",
+      "repeat_item",
       "receive_qty",
       "item_note",
     ];
