@@ -17,15 +17,18 @@ class EditOdmItem {
     };
 
     const categories = [
+      "CAPE",
       "DRESS",
-      "TOP",
-      "BOTTOM",
-      "SHIRT",
-      "SKIRT",
       "KAFTAN",
       "KIMONO",
-      "JACKET",
+      "MAXI",
+      "PANT",
+      "SHIRT",
+      "SKIRT",
+      "TOP",
+      "TUNIC",
       "COAT",
+      "JACKET",
       "KNITWEAR",
     ];
 
@@ -35,7 +38,8 @@ class EditOdmItem {
       "PROCESSING",
       "DISPATCHED",
       "ON HOLD",
-      "CANCELLED IN WAREHOUSE",
+      "CANCELLED",
+      "QUALITY ISSUE",
     ];
 
     form.innerHTML = `
