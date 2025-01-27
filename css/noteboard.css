@@ -1,6 +1,6 @@
 .note-board {
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
 }
@@ -9,13 +9,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   max-height: 300px;
   overflow-x: auto;
 }
 
 .sticky-note {
-  padding: 10px;
+  padding: 5px;
   height: 250px;
   border-radius: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -63,11 +63,11 @@
 
 .note-content {
   flex: 1;
-  font-size: 14px;
+  font-size: 12px;
   white-space: pre-wrap;
   word-break: break-word;
   line-height: 1.5;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .note-author {
@@ -90,7 +90,7 @@
   padding: 4px 8px;
   font-size: 12px;
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .reply-button:hover {
@@ -100,7 +100,7 @@
 }
 
 .reply-section {
-  margin-top: 10px;
+  margin-top: 5px;
   padding-top: 5px;
   border-top: 1px dashed #ccc;
 }
@@ -111,18 +111,18 @@
 }
 
 .reply-item {
-  padding: 8px;
+  padding: 4px;
   background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 5px;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* Note input section */
 .note-input-section {
-  margin-top: 10px;
+  margin-top: 5px;
   background: white;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -133,14 +133,14 @@
 .note-input-section .input-controls {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 #newNote {
   width: 100%;
   min-height: 100px;
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   resize: vertical;
@@ -163,8 +163,8 @@
 
 /* Pagination */
 .pagination {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -190,7 +190,7 @@
 
 /* Add these styles to your existing CSS */
 .reply-input {
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
@@ -198,10 +198,10 @@
 }
 
 .reply-textarea {
-  font-size: 14px;
+  font-size: 12px;
   width: 100%;
   min-height: 60px;
-  padding: 8px;
+  padding: 4px;
   margin-bottom: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -211,7 +211,7 @@
 .reply-input button {
   background-color: #4caf50;
   color: white;
-  padding: 6px 12px;
+  padding: 3px 6px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -226,7 +226,7 @@
 .emoji-button {
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 4px;
@@ -242,7 +242,7 @@
   background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 10px;
+  padding: 5px;
   display: none;
   flex-wrap: wrap;
   gap: 5px;
@@ -289,14 +289,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .font-size-control {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   background-color: white;
   margin-right: 10px;
@@ -315,9 +315,9 @@
 /* Style for the controls container */
 .note-input-controls {
   background-color: #f8f9fa;
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -329,7 +329,7 @@
   align-items: center;
   margin-bottom: 10px;
   background-color: #f8f9fa;
-  padding: 8px;
+  padding: 4px;
   border-radius: 4px;
 }
 
@@ -339,7 +339,7 @@
   background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 8px;
+  padding: 4px;
   display: none;
   flex-wrap: wrap;
   gap: 5px;
