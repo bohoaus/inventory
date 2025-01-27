@@ -55,6 +55,7 @@ class InventoryComponent {
       "item_status",
       "item_cargo",
       "item_location",
+      "mfg_date",
       "receive_qty",
       "item_note",
     ];
