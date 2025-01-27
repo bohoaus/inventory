@@ -7,31 +7,32 @@ class StaffInventoryComponent {
     this.userRole = "staff";
     this.userEmail = "";
     this.currentPage = 1;
-    this.sortColumn = "release_date";
+    //this.sortColumn = "release_date";
+    this.sortColumn = "arrive_date";
     this.sortDirection = "desc";
     this.currentFilter = "all";
 
     // Define all available columns
     this.allColumns = [
+      { id: "arrive_date", label: "Arrive Date" },
       { id: "code_colour", label: "Code Color" },
+      { id: "stock_qty", label: "Stock Qty" },
       { id: "item_name", label: "Item Name" },
+      { id: "release_date", label: "Release Date" },
+      { id: "item_status", label: "Status" },
+      { id: "mfg_date", label: "Manufacture Date" },
+      { id: "pack_unit", label: "Pack Unit" },
+      { id: "pack_size", label: "Pack Size" },
+      { id: "item_cargo", label: "Cargo" },
+      { id: "odm_ppo", label: "ODM PPO" },
       { id: "item_group", label: "Group" },
       { id: "item_location", label: "Location" },
       { id: "receive_qty", label: "Receive Qty" },
-      { id: "stock_qty", label: "Stock Qty" },
-      { id: "release_date", label: "Release Date" },
       { id: "item_aging", label: "Item Aging" },
-      { id: "item_status", label: "Status" },
       { id: "item_category", label: "Category" },
-      { id: "pack_unit", label: "Pack Unit" },
-      { id: "pack_size", label: "Pack Size" },
       { id: "repeat_item", label: "Repeat Item" },
-      { id: "mfg_date", label: "Manufacture Date" },
-      { id: "item_cargo", label: "Cargo" },
       { id: "est_date", label: "Estimated Date" },
-      { id: "arrive_date", label: "Arrive Date" },
       { id: "delay_date", label: "Delay Date" },
-      { id: "odm_ppo", label: "ODM PPO" },
       { id: "odm_customer", label: "ODM Customer" },
       { id: "item_note", label: "Note" },
       { id: "created_at", label: "Created At" },
@@ -44,10 +45,16 @@ class StaffInventoryComponent {
 
     // Define default columns that cannot be unchecked
     this.defaultColumns = [
+      "arrive_date",
       "code_colour",
       "item_name",
       "stock_qty",
+      "release_date",
       "item_status",
+      "mfg_date",
+      "odm_ppo",
+      "item_aging",
+      "item_cargo",
       "item_location",
       "item_note",
     ];
