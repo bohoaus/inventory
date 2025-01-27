@@ -39,7 +39,8 @@ class AdminInventory {
     this.currentPage = 1;
     //this.sortColumn = "code_colour";
     this.sortColumn = "arrive_date";
-    this.sortDirection = "asc";
+    //this.sortDirection = "asc";
+    this.sortDirection = "desc";
     this.currentFilter = "All";
 
     // Initialize subscriptions array
