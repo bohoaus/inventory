@@ -231,16 +231,16 @@ class WholesaleItem {
             <div class="form-group">
                 <label for="item_name">Name</label>
                 <input type="text" 
-                       name="item_name" 
-                       value="${item?.item_name = "Dress" || ""}" 
+                       name="item_name" placeholder="Dress" 
+                       value="${item?.item_name || ""}" 
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
             <div class="form-group">
                 <label for="item_location">Location</label>
                 <input type="text" 
-                       name="item_location" 
-                       value="${item?.item_location = "Floor" || ""}"
+                       name="item_location" placeholder="Floor" 
+                       value="${item?.item_location || ""}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
