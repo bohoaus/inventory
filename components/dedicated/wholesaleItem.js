@@ -232,7 +232,7 @@ class WholesaleItem {
                 <label for="item_name">Name</label>
                 <input type="text" 
                        name="item_name" 
-                       value="${item?.item_name === "Dress" || ""}" 
+                       value="${item?.item_name = "Dress" || ""}" 
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
@@ -240,7 +240,7 @@ class WholesaleItem {
                 <label for="item_location">Location</label>
                 <input type="text" 
                        name="item_location" 
-                       value="${item?.item_location === "Floor" || ""}"
+                       value="${item?.item_location = "Floor" || ""}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
