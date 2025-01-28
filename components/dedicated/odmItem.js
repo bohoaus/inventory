@@ -264,7 +264,7 @@ class OdmItem {
 
             <div class="form-group">
                 <label for="item_note">Item Note</label>
-                <textarea name="item_note" 
+                <textarea name="item_note" placeholder="OK" 
                           rows="3"
                           onkeyup="this.value = this.value.toUpperCase()">${
                             item?.item_note || ""
