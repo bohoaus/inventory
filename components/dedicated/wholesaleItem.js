@@ -741,6 +741,13 @@ class WholesaleItem {
         ...(formData.get("release_date") && {
           release_date: formData.get("release_date"),
         }),
+        //JIM ADD 2 DATE-------------------------------
+        ...(formData.get("est_date") && {
+          est_date: formData.get("est_date"),
+        }),
+        ...(formData.get("arrive_date") && {
+          arrive_date: formData.get("arrive_date"),
+        }),
         ...(formData.get("item_note") && {
           item_note: formData
             .get("item_note")
@@ -913,6 +920,8 @@ class WholesaleItem {
     const statusSelect = form.querySelector('select[name="item_status"]');
     const cargoSelect = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
+    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
+    const estDateInput = form.querySelector('input[name="est_date"]');
     const hasSizes = this.packSizes.size > 0;
 
     // Trim the code value to check for empty or whitespace-only input
