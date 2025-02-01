@@ -294,25 +294,24 @@ class WholesaleItem {
         <div class="form-column">
             <!-- Right Column -->
             <div class="form-group required">
-                <label for="receive_qty">Received Quantity</label>
-                <input type="number" 
-                       name="receive_qty" 
-                       step="0.5" 
-                       min="0.5"
-                       onchange="wholesaleItem.updateOnHandQty(this.value)">
-                <span class="pack-size-warning" style="display: none; color: #dc3545;">
-                    Please set pack size first
-                </span>
+                <label for="mfg_date">MFG Date</label>
+                <input type="date" name="mfg_date" value="${
+                  item?.mfg_date || ""
+                }">
             </div>
 
             <div class="form-group">
-                <label for="stock_qty">On-Hand Quantity</label>
-                <input type="number" 
-                       name="stock_qty" 
-                       step="0.5" 
-                       min="0.5"
-                       value="${item?.stock_qty || ""}"
-                       onchange="wholesaleItem.updateReceiveQty(this.value)">
+                <label for="arrive_date">Arrive Date</label>
+                <input type="date" name="arrive_date" value="${
+                  item?.arrive_date || ""
+                }">
+            </div>
+
+            <div class="form-group">
+                <label for="est_date">Schedule Date</label>
+                <input type="date" name="est_date" value="${
+                  item?.est_date || ""
+                }">
             </div>
 
             <div class="form-group required">
@@ -362,13 +361,6 @@ class WholesaleItem {
                       item?.item_cargo === "SEA" ? "selected" : ""
                     }>SEA</option>
                 </select>
-            </div>
-
-            <div class="form-group required">
-                <label for="mfg_date">MFG Date</label>
-                <input type="date" name="mfg_date" value="${
-                  item?.mfg_date || ""
-                }">
             </div>
 
             <div class="form-group">
