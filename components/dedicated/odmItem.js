@@ -221,6 +221,7 @@ class OdmItem {
                        name="est_date" 
                        value="${item?.est_date || ""}">
             </div>
+        </div>
 
         <div class="form-column">
             <!-- Right Column -->
@@ -268,7 +269,7 @@ class OdmItem {
                       item?.item_cargo === "AIR-t" ? "selected" : ""
                     }>AIR</option>
                     <option value="SEA" ${
-                      item?.item_cargo === "SEA-t" ? "selected" : ""
+                      item?.item_cargo === "SEA-t" ? "" : ""
                     }>SEA</option>
                 </select>
             </div>
