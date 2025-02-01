@@ -20,6 +20,8 @@ class OdmItem {
       item_status: formData.get("item_status") || "",
       item_cargo: formData.get("item_cargo") || "",
       mfg_date: formData.get("mfg_date") || "",
+      est_date: formData.get("est_date") || "",
+      arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       created_at: new Date().toISOString(),
     };
@@ -49,6 +51,8 @@ class OdmItem {
       item_status: formData.get("item_status") || "",
       item_cargo: formData.get("item_cargo") || "",
       mfg_date: formData.get("mfg_date") || "",
+      est_date: formData.get("est_date") || "",
+      arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       updated_at: new Date().toISOString(),
     };
@@ -203,6 +207,13 @@ class OdmItem {
 
             <input type="hidden" name="stock_qty" value="0">
         </div>
+
+            <div class="form-group">
+                <label for="arrive_date">Arrive Date</label>
+                <input type="date" 
+                       name="arrive_date" 
+                       value="${item?.arrive_date || ""}">
+            </div>
 
         <div class="form-column">
             <!-- Right Column -->
