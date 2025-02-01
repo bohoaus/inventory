@@ -205,8 +205,15 @@ class OdmItem {
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
 
-            <input type="hidden" name="stock_qty" value="0">
-        </div>
+             <div class="form-group required">
+                <label for="stock_qtyreceive_qty">Stock Quantity</label>
+                <input type="number" 
+                       name="stock_qty" value="0" 
+                       step="1" 
+                       min="1"
+                       value="${item?.stock_qty || ""}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
 
             <div class="form-group">
                 <label for="arrive_date">Arrive Date</label>
