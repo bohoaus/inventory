@@ -215,6 +215,13 @@ class OdmItem {
                        value="${item?.arrive_date || ""}">
             </div>
 
+            <div class="form-group">
+                <label for="est_date">Schedule Date</label>
+                <input type="date" 
+                       name="est_date" 
+                       value="${item?.est_date || ""}">
+            </div>
+
         <div class="form-column">
             <!-- Right Column -->
             <div class="form-group required">
