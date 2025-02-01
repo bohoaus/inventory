@@ -25,6 +25,8 @@ class WholesaleItem {
         pack_size: packSizeData,
         item_cargo: formData.get("item_cargo") || null,
         mfg_date: formData.get("mfg_date") || null,
+        est_date: formData.get("est_date") || null,
+        arrive_date: formData.get("arrive_date") || null,
         item_category: formData.get("item_category") || null,
         release_date: formData.get("release_date") || null,
         item_note: formData.get("item_note") || null,
@@ -242,6 +244,28 @@ class WholesaleItem {
                        name="item_location" placeholder="Floor" 
                        value="${item?.item_location || ""}"
                        onkeyup="this.value = this.value.toUpperCase()">
+            </div>
+
+            <div class="form-group required">
+                <label for="receive_qty">Received Quantity</label>
+                <input type="number" 
+                       name="receive_qty" 
+                       step="0.5" 
+                       min="0.5"
+                       onchange="wholesaleItem.updateOnHandQty(this.value)">
+                <span class="pack-size-warning" style="display: none; color: #dc3545;">
+                    Please set pack size first
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="stock_qty">On-Hand Quantity</label>
+                <input type="number" 
+                       name="stock_qty" 
+                       step="0.5" 
+                       min="0.5"
+                       value="${item?.stock_qty || ""}"
+                       onchange="wholesaleItem.updateReceiveQty(this.value)">
             </div>
 
             <div class="form-group pack-size-group required">
