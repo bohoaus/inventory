@@ -153,6 +153,20 @@ class OdmItem {
       "QUALITY ISSUE",
     ];
 
+    const sfabrics = [
+      "Blend",
+      "Rayon",
+      "Bamboo Rayon",
+      "Crinkle Rayon",
+      "Cotton",
+      "Linen",
+      "Nelon",
+      "Polyester",
+      "Silk",
+      "Acrylic",
+      "Wool",
+    ];
+
     const form = document.createElement("form");
     form.id = item ? "editItemForm" : "addItemForm";
     form.className = "item-form two-column";
