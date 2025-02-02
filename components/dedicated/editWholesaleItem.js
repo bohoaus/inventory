@@ -169,6 +169,14 @@ class EditWholesaleItem {
                            name="release_date" 
                            value="${item.release_date || ""}">
             </div>
+
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="text" 
+                   name="price" 
+                   value="${item.price || ""}"
+                   onkeyup="this.value = this.value.toUpperCase()">
+                </div>
       </div>
 
       <!-- Full width sections -->
@@ -437,6 +445,7 @@ class EditWholesaleItem {
         arrive_date: data.arrive_date,
         soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
+        price: data.price,
       };
 
       // Only include release_date if it's not empty
