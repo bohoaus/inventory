@@ -107,6 +107,26 @@ class ViewItem {
       item.item_status || "-"
     }</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Colour:</span>
+                    <span class="value">${item.scolour || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Fabric:</span>
+                    <span class="value">${item.sfabric || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Price:</span>
+                    <span class="value">${item.sprice || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Factory:</span>
+                    <span class="value">${item.sfactory || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Country:</span>
+                    <span class="value">${item.scountry || "-"}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -173,6 +193,36 @@ class ViewItem {
 
             <div class="detail-section">
                 <h3>Additional Information</h3>
+                <div class="detail-row">
+                    <span class="label">Cargo:</span>
+                    <span class="value">${item.item_cargo || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Repeat Item:</span>
+                    <span class="value">${this.formatRepeatItem(
+                      item.repeat_item
+                    )}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Note:</span>
+                    <span class="value">${item.item_note || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Created:</span>
+                    <span class="value">${this.formatDate(
+                      item.created_at
+                    )}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Updated:</span>
+                    <span class="value">${this.formatDate(
+                      item.updated_at
+                    )}</span>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Additional Information8</h3>
                 <div class="detail-row">
                     <span class="label">Cargo:</span>
                     <span class="value">${item.item_cargo || "-"}</span>
