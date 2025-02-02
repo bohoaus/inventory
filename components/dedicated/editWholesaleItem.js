@@ -126,12 +126,12 @@ class EditWholesaleItem {
                 </div>
 
                 <div class="form-group">
-          <label for="item_location">Location</label>
-          <input type="text" 
-                 name="item_location" 
-                 value="${item.item_location || ""}"
-                 onkeyup="this.value = this.value.toUpperCase()">
-        </div>
+                  <label for="item_location">Location</label>
+                  <input type="text" 
+                   name="item_location" 
+                   value="${item.item_location || ""}"
+                   onkeyup="this.value = this.value.toUpperCase()">
+                </div>
 
                 <div class="form-group">
                     <label for="soldout_date">Sold Out Date</label>
