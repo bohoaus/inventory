@@ -345,7 +345,7 @@ class OdmItem {
                     }>CHN+86</option>
                     <option value="VNM+84" ${
                       item?.scountry === "VNM+84" ? "" : ""
-                    }>VIE+84</option>
+                    }>VNM+84</option>
                 </select>
             </div>
 
