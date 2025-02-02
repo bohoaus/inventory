@@ -33,6 +33,8 @@ class WholesaleItem {
         fabric: formData.get("fabric") || null,
         colour: formData.get("colour") || null,
         price: formData.get("price") || null,
+        sfactory: formData.get("sfactory") || null,
+        scountry: formData.get("scountry") || null,
       };
 
       // Case-insensitive group validation
@@ -82,6 +84,8 @@ class WholesaleItem {
       updated_at: new Date().toISOString(),
       fabric: formData.get("fabric"),
       colour: formData.get("colour"),
+      sfactory: formData.get("sfactory"),
+      scountry: formData.get("scountry"),
     };
 
     // Case-insensitive group validation
@@ -375,6 +379,22 @@ class WholesaleItem {
                        name="colour" placeholder="black" 
                        value="${item?.colour || ""}"
                 >
+            </div>
+
+            <div class="form-group required">
+                <label for="fabric">Fabric</label>
+                <select name="fabric">
+                    <option value="">Select Fabric</option>
+                    <option value="Rayon" ${
+                      item?.fabric === "Rayon" ? "selected" : ""
+                    }>Rayon</option>
+                    <option value="Crinkle Rayon" ${
+                      item?.fabric === "Crinkle Rayon" ? "" : ""
+                    }>Crinkle Rayon</option>
+                    <option value="Cotton" ${
+                      item?.fabric === "Cotton" ? "" : ""
+                    }>Cotton</option>
+                </select>
             </div>
 
             <div class="form-group required">
