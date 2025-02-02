@@ -176,13 +176,21 @@ class EditWholesaleItem {
                            value="${item.release_date || ""}">
             </div>
 
-                <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="text" 
-                   name="price" 
-                   value="${item.price || ""}"
-                   onkeyup="this.value = this.value.toUpperCase()">
-                </div>
+            <div class="form-group">
+              <label for="price">Group*</label>
+                    <select name="price" required>
+            
+                        <option value="Full Price" ${
+                          item.price === "Full Price" ? "selected" : ""
+                        }>Full Price</option>
+                        <option value="On Sale" ${
+                          item.price === "On Sale" ? "selected" : ""
+                        }>On Sale</option>
+                        <option value="Special" ${
+                          item.price === "Special" ? "selected" : ""
+                        }>Special</option>
+                    </select>
+            </div>
       </div>
 
       <!-- Full width sections -->
