@@ -44,19 +44,19 @@ class EditWholesaleItem {
     ];
 
     form.innerHTML = `
-            <div class="form-column">
+      <div class="form-column">
         <!-- First Column -->
-        <div class="form-group required">
-          <label for="code_colour">Code/Colour*</label>
+          <div class="form-group required">
+            <label for="code_colour">Code/Colour*</label>
                     <input type="text" 
                            name="code_colour" 
                            value="${item.code_colour || ""}"
                  required 
                            readonly>
-                </div>
+          </div>
 
-                <div class="form-group">
-          <label for="item_group">Group*</label>
+          <div class="form-group">
+            <label for="item_group">Group*</label>
                     <select name="item_group" required>
             
                         <option value="BOHO" ${
@@ -69,25 +69,25 @@ class EditWholesaleItem {
                           item.item_group === "ODM" ? "selected" : ""
                         }>ODM</option>
                     </select>
-                </div>
+          </div>
 
-                <div class="form-group">
-          <label for="item_name">Item Name</label>
+          <div class="form-group">
+            <label for="item_name">Item Name</label>
                     <input type="text" 
                            name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
-                </div>
+          </div>
 
-                <div class="form-group">
+          <div class="form-group">
                     <label for="arrive_date">Arrive Date</label>
                     <input type="date" 
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
-                </div>
-            </div>
+          </div>
+      </div>
 
-            <div class="form-column">
+      <div class="form-column">
         <!-- Second Column -->
                 <div class="form-group">
                     <label for="item_category">Category</label>
@@ -151,24 +151,24 @@ class EditWholesaleItem {
                  min="0"
                  step="0.5"
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
-                </div>
+          </div>
 
-                <div class="form-group">
-          <label for="receive_qty">Receive Quantity (Packs)</label>
-          <input type="number" 
+          <div class="form-group">
+            <label for="receive_qty">Receive Quantity (Packs)</label>
+            <input type="number" 
                  name="receive_qty" 
                  value="${item.receive_qty || 0}"
                  min="0"
                  step="0.5"
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
-                </div>
+            </div>
 
-                <div class="form-group">
+            <div class="form-group">
                     <label for="release_date">Release Date</label>
                     <input type="date" 
                            name="release_date" 
                            value="${item.release_date || ""}">
-                </div>
+            </div>
       </div>
 
       <!-- Full width sections -->
