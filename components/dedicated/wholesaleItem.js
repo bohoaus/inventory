@@ -369,6 +369,22 @@ class WholesaleItem {
                        onchange="wholesaleItem.updateReceiveQty(this.value)">
             </div>
 
+            <div class="form-group required">
+                <label for="colour">Colour</label>
+                <input type="text" 
+                       name="colour" placeholder="black" 
+                       value="${item?.colour || ""}"
+                       onkeyup="this.value = this.value.toUpperCase()">
+            </div>
+
+            <div class="form-group required">
+                <label for="fabric">Fabric</label>
+                <input type="text" 
+                       name="fabric" placeholder="rayon" 
+                       value="${item?.fabric || ""}"
+                       onkeyup="this.value = this.value.toUpperCase()">
+            </div>
+
             <div class="form-group">
                 <label for="item_note">Item Note</label>
                 <textarea name="item_note" placeholder="OK" rows="3">${
