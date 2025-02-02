@@ -78,7 +78,6 @@ class EditWholesaleItem {
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
                 </div>
-            </div>
 
                 <div class="form-group">
                     <label for="arrive_date">Arrive Date</label>
@@ -86,6 +85,7 @@ class EditWholesaleItem {
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
                 </div>
+            </div>
 
             <div class="form-column">
         <!-- Second Column -->
