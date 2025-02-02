@@ -24,8 +24,8 @@ class OdmItem {
       arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       created_at: new Date().toISOString(),
-      fabric: formData.get("fabric"),
-      colour: formData.get("colour"),
+      sfabric: formData.get("fabric"),
+      scolour: formData.get("colour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
     };
@@ -59,8 +59,8 @@ class OdmItem {
       arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       updated_at: new Date().toISOString(),
-      fabric: formData.get("fabric"),
-      colour: formData.get("colour"),
+      sfabric: formData.get("fabric"),
+      scolour: formData.get("colour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
     };
@@ -263,6 +263,32 @@ class OdmItem {
                       )
                       .join("")}
                 </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="sfabric">Fabric</label>
+                <select name="sfabric">
+                    <option value="">Select Fabric</option>
+                    ${sfabrics
+                      .map(
+                        (sfabrics) => `
+                        <option value="${sfabrics}" ${
+                          item?.sfabric === sfabrics ? "selected" : ""
+                        }>
+                            ${sfabrics}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="colour">Colour</label>
+                <input type="text" 
+                       name="colour" placeholder="black" 
+                       value="${item?.colour || ""}"
+                >
             </div>
 
             <div class="form-group required">
