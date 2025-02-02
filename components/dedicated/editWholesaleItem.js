@@ -177,7 +177,7 @@ class EditWholesaleItem {
             </div>
 
             <div class="form-group">
-              <label for="price">Group*</label>
+              <label for="price">Price*</label>
                     <select name="price" required>
             
                         <option value="Full Price" ${
