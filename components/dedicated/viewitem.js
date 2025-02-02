@@ -240,7 +240,7 @@ class ViewItem {
     return `
         <div class="details-grid">
             <div class="detail-section">
-                <h3>Basic Information</h3>
+                <h3>Basic Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
                     <span class="value">${item.code_colour || "-"}</span>
@@ -266,7 +266,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Stock Information</h3>
+                <h3>Stock Information:</h3>
                 <div class="detail-row">
                     <span class="label">Stock Quantity:</span>
                     <span class="value">${item.stock_qty || "0"}</span>
@@ -292,7 +292,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>ODM Information</h3>
+                <h3>ODM Information:</h3>
                 <div class="detail-row">
                     <span class="label">ODM PPO:</span>
                     <span class="value">${item.odm_ppo || "-"}</span>
@@ -316,7 +316,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Dates</h3>
+                <h3>Dates:</h3>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
                     <span class="value">${this.formatDate(item.mfg_date)}</span>
@@ -352,7 +352,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Additional Information</h3>
+                <h3>Additional Information:</h3>
                 <div class="detail-row">
                     <span class="label">Note:</span>
                     <span class="value">${item.item_note || "-"}</span>
@@ -360,10 +360,14 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Production Information</h3>
+                <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">WSP:</span>
                     <span class="value">${item.swsp || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Price:</span>
+                    <span class="value">${item.sprice || "-"}</span>
                 </div>
             </div>
         </div>
