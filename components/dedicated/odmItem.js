@@ -24,6 +24,8 @@ class OdmItem {
       arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       created_at: new Date().toISOString(),
+      fabric: formData.get("fabric"),
+      colour: formData.get("colour"),
     };
 
     const { data, error } = await supabaseClient
@@ -55,6 +57,8 @@ class OdmItem {
       arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       updated_at: new Date().toISOString(),
+      fabric: formData.get("fabric"),
+      colour: formData.get("colour"),
     };
 
     const { data, error } = await supabaseClient
