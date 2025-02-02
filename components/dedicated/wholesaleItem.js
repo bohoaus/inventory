@@ -30,9 +30,9 @@ class WholesaleItem {
         item_category: formData.get("item_category") || null,
         release_date: formData.get("release_date") || null,
         item_note: formData.get("item_note") || null,        
-        fabric: formData.get("fabric") || null,
-        colour: formData.get("colour") || null,
-        price: formData.get("price") || null,
+        sfabric: formData.get("sfabric") || null,
+        scolour: formData.get("scolour") || null,
+        sprice: formData.get("sprice") || null,
         sfactory: formData.get("sfactory") || null,
         scountry: formData.get("scountry") || null,
       };
@@ -82,8 +82,8 @@ class WholesaleItem {
       moq: parseInt(formData.get("moq")) || 0,
       pack_size: parseInt(formData.get("pack_size")) || 1,
       updated_at: new Date().toISOString(),
-      fabric: formData.get("fabric"),
-      colour: formData.get("colour"),
+      sfabric: formData.get("sfabric"),
+      scolour: formData.get("scolour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
     };
@@ -186,6 +186,20 @@ class WholesaleItem {
       "OUT OF STOCK",
       "CANCELLED RESTOCK",
       "OVERRESTOCK",
+    ];
+
+    const sfabrics = [
+      "Blend",
+      "Rayon",
+      "Bamboo Rayon",
+      "Crinkle Rayon",
+      "Cotton",
+      "Linen",
+      "Nelon",
+      "Polyester",
+      "Silk",
+      "Acrylic",
+      "Wool",
     ];
 
     const form = document.createElement("form");
@@ -374,27 +388,29 @@ class WholesaleItem {
             </div>
 
             <div class="form-group required">
+                <label for="sfabric">Fabric</label>
+                <select name="sfabric">
+                    <option value="">Select Fabric</option>
+                    ${sfabrics
+                      .map(
+                        (cat) => `
+                        <option value="${sfabrics}" ${
+                          item?.sfabric === cat ? "selected" : ""
+                        }>
+                            ${sfabrics}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
                 <label for="colour">Colour</label>
                 <input type="text" 
                        name="colour" placeholder="black" 
                        value="${item?.colour || ""}"
                 >
-            </div>
-
-            <div class="form-group required">
-                <label for="fabric">Fabric</label>
-                <select name="fabric">
-                    <option value="">Select Fabric</option>
-                    <option value="Rayon" ${
-                      item?.fabric === "Rayon" ? "selected" : ""
-                    }>Rayon</option>
-                    <option value="Crinkle Rayon" ${
-                      item?.fabric === "Crinkle Rayon" ? "" : ""
-                    }>Crinkle Rayon</option>
-                    <option value="Cotton" ${
-                      item?.fabric === "Cotton" ? "" : ""
-                    }>Cotton</option>
-                </select>
             </div>
 
             <div class="form-group required">
