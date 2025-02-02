@@ -29,7 +29,9 @@ class WholesaleItem {
         arrive_date: formData.get("arrive_date") || null,
         item_category: formData.get("item_category") || null,
         release_date: formData.get("release_date") || null,
-        item_note: formData.get("item_note") || null,
+        fabric: formData.get("fabric") || null,
+        colour: formData.get("colour") || null,
+        price: formData.get("price") || null,
       };
 
       // Case-insensitive group validation
@@ -247,25 +249,52 @@ class WholesaleItem {
             </div>
 
             <div class="form-group required">
-                <label for="receive_qty">Received Quantity</label>
-                <input type="number" 
-                       name="receive_qty" 
-                       step="0.5" 
-                       min="0.5"
-                       onchange="wholesaleItem.updateOnHandQty(this.value)">
-                <span class="pack-size-warning" style="display: none; color: #dc3545;">
-                    Please set pack size first
-                </span>
+                <label for="item_category">Category</label>
+                <select name="item_category">
+                    <option value="">Select Category</option>
+                    ${categories
+                      .map(
+                        (cat) => `
+                        <option value="${cat}" ${
+                          item?.item_category === cat ? "selected" : ""
+                        }>
+                            ${cat}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
             </div>
 
-            <div class="form-group">
-                <label for="stock_qty">On-Hand Quantity</label>
-                <input type="number" 
-                       name="stock_qty" 
-                       step="0.5" 
-                       min="0.5"
-                       value="${item?.stock_qty || ""}"
-                       onchange="wholesaleItem.updateReceiveQty(this.value)">
+            <div class="form-group required">
+                <label for="item_status">Status</label>
+                <select name="item_status">
+                    <option value="">Select Status</option>
+                    ${statuses
+                      .map(
+                        (status) => `
+                        <option value="${status}" ${
+                          item?.item_status === status ? "selected" : ""
+                        }>
+                            ${status}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="item_cargo">Cargo</label>
+                <select name="item_cargo">
+                    <option value="">Select Cargo</option>
+                    <option value="AIR" ${
+                      item?.item_cargo === "AIR" ? "selected" : ""
+                    }>AIR</option>
+                    <option value="SEA" ${
+                      item?.item_cargo === "SEA" ? "selected" : ""
+                    }>SEA</option>
+                </select>
             </div>
 
             <div class="form-group pack-size-group required">
@@ -315,52 +344,25 @@ class WholesaleItem {
             </div>
 
             <div class="form-group required">
-                <label for="item_category">Category</label>
-                <select name="item_category">
-                    <option value="">Select Category</option>
-                    ${categories
-                      .map(
-                        (cat) => `
-                        <option value="${cat}" ${
-                          item?.item_category === cat ? "selected" : ""
-                        }>
-                            ${cat}
-                        </option>
-                    `
-                      )
-                      .join("")}
-                </select>
+                <label for="receive_qty">Received Quantity</label>
+                <input type="number" 
+                       name="receive_qty" 
+                       step="0.5" 
+                       min="0.5"
+                       onchange="wholesaleItem.updateOnHandQty(this.value)">
+                <span class="pack-size-warning" style="display: none; color: #dc3545;">
+                    Please set pack size first
+                </span>
             </div>
 
-            <div class="form-group required">
-                <label for="item_status">Status</label>
-                <select name="item_status">
-                    <option value="">Select Status</option>
-                    ${statuses
-                      .map(
-                        (status) => `
-                        <option value="${status}" ${
-                          item?.item_status === status ? "selected" : ""
-                        }>
-                            ${status}
-                        </option>
-                    `
-                      )
-                      .join("")}
-                </select>
-            </div>
-
-            <div class="form-group required">
-                <label for="item_cargo">Cargo</label>
-                <select name="item_cargo">
-                    <option value="">Select Cargo</option>
-                    <option value="AIR" ${
-                      item?.item_cargo === "AIR" ? "selected" : ""
-                    }>AIR</option>
-                    <option value="SEA" ${
-                      item?.item_cargo === "SEA" ? "selected" : ""
-                    }>SEA</option>
-                </select>
+            <div class="form-group">
+                <label for="stock_qty">On-Hand Quantity</label>
+                <input type="number" 
+                       name="stock_qty" 
+                       step="0.5" 
+                       min="0.5"
+                       value="${item?.stock_qty || ""}"
+                       onchange="wholesaleItem.updateReceiveQty(this.value)">
             </div>
 
             <div class="form-group">
