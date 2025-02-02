@@ -178,15 +178,15 @@ class EditWholesaleItem {
 
             <div class="form-group">
               <label for="price">Price*</label>
-                    <select name="price" required>          
+                    <select name="sprice" required>          
                         <option value="Full Price" ${
-                          item.price === "Full Price" ? "selected" : ""
+                          item.sprice === "Full Price" ? "selected" : ""
                         }>Full Price</option>
                         <option value="On Sale" ${
-                          item.price === "On Sale" ? "selected" : ""
+                          item.sprice === "On Sale" ? "selected" : ""
                         }>On Sale</option>
                         <option value="Special" ${
-                          item.price === "Special" ? "selected" : ""
+                          item.sprice === "Special" ? "selected" : ""
                         }>Special</option>
                     </select>
             </div>
@@ -458,7 +458,7 @@ class EditWholesaleItem {
         arrive_date: data.arrive_date,
         soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
-        price: data.price,
+        sprice: data.price,
       };
 
       // Only include release_date if it's not empty
