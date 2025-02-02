@@ -43,6 +43,12 @@ class EditWholesaleItem {
       "OVERSTOCK",
     ];
 
+    const prices = [
+      "Full Price",
+      "On Sale",
+      "Special",
+    ];
+
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
