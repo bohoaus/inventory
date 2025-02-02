@@ -374,7 +374,8 @@ class WholesaleItem {
                 <input type="text" 
                        name="colour" placeholder="black" 
                        value="${item?.colour || ""}"
-                       onkeyup="this.value = this.value.toUpperCase()">
+//                       onkeyup="this.value = this.value.toUpperCase()"
+                >
             </div>
 
             <div class="form-group required">
@@ -382,7 +383,8 @@ class WholesaleItem {
                 <input type="text" 
                        name="fabric" placeholder="rayon" 
                        value="${item?.fabric || ""}"
-                       onkeyup="this.value = this.value.toUpperCase()">
+//                       onkeyup="this.value = this.value.toUpperCase()"
+                >
             </div>
 
             <div class="form-group">
