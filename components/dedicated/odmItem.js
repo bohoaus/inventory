@@ -26,6 +26,8 @@ class OdmItem {
       created_at: new Date().toISOString(),
       fabric: formData.get("fabric"),
       colour: formData.get("colour"),
+      sfactory: formData.get("sfactory"),
+      scountry: formData.get("scountry"),
     };
 
     const { data, error } = await supabaseClient
@@ -59,6 +61,8 @@ class OdmItem {
       updated_at: new Date().toISOString(),
       fabric: formData.get("fabric"),
       colour: formData.get("colour"),
+      sfactory: formData.get("sfactory"),
+      scountry: formData.get("scountry"),
     };
 
     const { data, error } = await supabaseClient
@@ -194,7 +198,7 @@ class OdmItem {
             <div class="form-group">
                 <label for="odm_ppo">ODM PPO</label>
                 <input type="text" 
-                       name="odm_ppo" 
+                       name="odm_ppo" placeholder="PO" 
                        value="${item?.odm_ppo || ""}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
@@ -217,6 +221,13 @@ class OdmItem {
                        min="1"
                        value="${item?.stock_qty || ""}"
                        onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
+
+            <div class="form-group required">
+                <label for="mfg_date">MFG Date</label>
+                <input type="date" 
+                       name="mfg_date" 
+                       value="${item?.mfg_date || ""}">
             </div>
 
             <div class="form-group">
@@ -286,10 +297,29 @@ class OdmItem {
             </div>
 
             <div class="form-group required">
-                <label for="mfg_date">MFG Date</label>
-                <input type="date" 
-                       name="mfg_date" 
-                       value="${item?.mfg_date || ""}">
+                <label for="scountry">Country</label>
+                <select name="scountry">
+                    <option value="">Select Country</option>
+                    <option value="CHN" ${
+                      item?.scountry === "CHN" ? "selected" : ""
+                    }>CHN</option>
+                    <option value="VIE" ${
+                      item?.scountry === "VIE" ? "" : ""
+                    }>VIE</option>
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="sfactory">Factory</label>
+                <select name="sfactory">
+                    <option value="">Select Factory</option>
+                    <option value="SS" ${
+                      item?.sfactory === "SS" ? "selected" : ""
+                    }>SS</option>
+                    <option value="YJ" ${
+                      item?.sfactory === "YJ" ? "" : ""
+                    }>YJ</option>
+                </select>
             </div>
 
             <div class="form-group">
