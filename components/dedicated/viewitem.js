@@ -84,7 +84,7 @@ class ViewItem {
     return `
         <div class="details-grid">
             <div class="detail-section">
-                <h3>Basic Information</h3>
+                <h3>Basic Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
                     <span class="value">${item.code_colour || "-"}</span>
@@ -116,10 +116,6 @@ class ViewItem {
                     <span class="value">${item.sfabric || "-"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Price:</span>
-                    <span class="value">${item.sprice || "-"}</span>
-                </div>
-                <div class="detail-row">
                     <span class="label">Factory:</span>
                     <span class="value">${item.sfactory || "-"}</span>
                 </div>
@@ -130,7 +126,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Stock Information</h3>
+                <h3>Stock Information:</h3>
                 <div class="detail-row">
                     <span class="label">Stock Quantity:</span>
                     <span class="value">${item.stock_qty || "0"}</span>
@@ -156,7 +152,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Dates</h3>
+                <h3>Dates:</h3>
                 <div class="detail-row">
                     <span class="label">Release Date:</span>
                     <span class="value">${this.formatDate(
@@ -192,7 +188,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Additional Information</h3>
+                <h3>Additional Information:</h3>
                 <div class="detail-row">
                     <span class="label">Cargo:</span>
                     <span class="value">${item.item_cargo || "-"}</span>
@@ -218,10 +214,22 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Notes</h3>
+                <h3>Notes:</h3>
                 <div class="detail-row">
                     <span class="label">Note:</span>
                     <span class="value">${item.item_note || "-"}</span>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Production Info:</h3>
+                <div class="detail-row">
+                    <span class="label">WSP:</span>
+                    <span class="value">${item.sprice || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Price:</span>
+                    <span class="value">${item.swsp || "-"}</span>
                 </div>
             </div>
         </div>
