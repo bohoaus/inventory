@@ -445,7 +445,7 @@ class EditWholesaleItem {
         arrive_date: data.arrive_date,
         soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
-        //price: data.price,
+        price: data.price,
       };
 
       // Only include release_date if it's not empty
