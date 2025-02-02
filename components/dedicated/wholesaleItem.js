@@ -398,12 +398,29 @@ class WholesaleItem {
             </div>
 
             <div class="form-group required">
-                <label for="fabric">Fabric</label>
-                <input type="text" 
-                       name="fabric" placeholder="rayon" 
-                       value="${item?.fabric || ""}"
-//                       onkeyup="this.value = this.value.toUpperCase()"
-                >
+                <label for="scountry">Country</label>
+                <select name="scountry">
+                    <option value="">Select Country</option>
+                    <option value="CHN+86" ${
+                      item?.scountry === "CHN+86" ? "selected" : ""
+                    }>CHN+86</option>
+                    <option value="VNM+84" ${
+                      item?.scountry === "VNM+84" ? "" : ""
+                    }>VIE+84</option>
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="sfactory">Factory</label>
+                <select name="sfactory">
+                    <option value="">Select Factory</option>
+                    <option value="SS+8620" ${
+                      item?.sfactory === "SS+8620" ? "selected" : ""
+                    }>SS+8620</option>
+                    <option value="YJ+8620" ${
+                      item?.sfactory === "YJ+8620" ? "" : ""
+                    }>YJ+8620</option>
+                </select>
             </div>
 
             <div class="form-group">
