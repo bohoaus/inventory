@@ -350,6 +350,14 @@ class ViewItem {
                     <span class="value">${item.item_note || "-"}</span>
                 </div>
             </div>
+
+            <div class="detail-section">
+                <h3>Production Information</h3>
+                <div class="detail-row">
+                    <span class="label">WSP:</span>
+                    <span class="value">${item.swsp || "-"}</span>
+                </div>
+            </div>
         </div>
     `;
   }
