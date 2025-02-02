@@ -300,12 +300,12 @@ class OdmItem {
                 <label for="scountry">Country</label>
                 <select name="scountry">
                     <option value="">Select Country</option>
-                    <option value="CHN" ${
-                      item?.scountry === "CHN" ? "selected" : ""
-                    }>CHN</option>
-                    <option value="VIE" ${
-                      item?.scountry === "VIE" ? "" : ""
-                    }>VIE</option>
+                    <option value="CHN+86" ${
+                      item?.scountry === "CHN+86" ? "selected" : ""
+                    }>CHN+86</option>
+                    <option value="VNM+84" ${
+                      item?.scountry === "VNM+84" ? "" : ""
+                    }>VIE+84</option>
                 </select>
             </div>
 
@@ -313,12 +313,12 @@ class OdmItem {
                 <label for="sfactory">Factory</label>
                 <select name="sfactory">
                     <option value="">Select Factory</option>
-                    <option value="SS" ${
-                      item?.sfactory === "SS" ? "selected" : ""
-                    }>SS</option>
-                    <option value="YJ" ${
-                      item?.sfactory === "YJ" ? "" : ""
-                    }>YJ</option>
+                    <option value="SS+8620" ${
+                      item?.sfactory === "SS+8620" ? "selected" : ""
+                    }>SS+8620</option>
+                    <option value="YJ+8620" ${
+                      item?.sfactory === "YJ+8620" ? "" : ""
+                    }>YJ+8620</option>
                 </select>
             </div>
 
