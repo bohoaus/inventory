@@ -143,7 +143,7 @@ class EditWholesaleItem {
                     <label for="soldout_date">Sold Out Date</label>
                     <input type="date" 
                            name="soldout_date" 
-                           value="${item.soldout_date || ""}">
+                           value="${item.soldout_date || "NULL"}">
                 </div>
       </div>
 
@@ -173,7 +173,7 @@ class EditWholesaleItem {
                     <label for="release_date">Release Date</label>
                     <input type="date" 
                            name="release_date" 
-                           value="${item.release_date || ""}">
+                           value="${item.release_date || "NULL"}">
             </div>
 
             <div class="form-group">
