@@ -204,10 +204,6 @@ class ViewItem {
                     )}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Note:</span>
-                    <span class="value">${item.item_note || "-"}</span>
-                </div>
-                <div class="detail-row">
                     <span class="label">Created:</span>
                     <span class="value">${this.formatDate(
                       item.created_at
@@ -222,32 +218,10 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Additional Information8</h3>
-                <div class="detail-row">
-                    <span class="label">Cargo:</span>
-                    <span class="value">${item.item_cargo || "-"}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Repeat Item:</span>
-                    <span class="value">${this.formatRepeatItem(
-                      item.repeat_item
-                    )}</span>
-                </div>
+                <h3>Notes</h3>
                 <div class="detail-row">
                     <span class="label">Note:</span>
                     <span class="value">${item.item_note || "-"}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Created:</span>
-                    <span class="value">${this.formatDate(
-                      item.created_at
-                    )}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Updated:</span>
-                    <span class="value">${this.formatDate(
-                      item.updated_at
-                    )}</span>
                 </div>
             </div>
         </div>
