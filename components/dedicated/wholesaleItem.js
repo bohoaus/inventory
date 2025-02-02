@@ -80,6 +80,8 @@ class WholesaleItem {
       moq: parseInt(formData.get("moq")) || 0,
       pack_size: parseInt(formData.get("pack_size")) || 1,
       updated_at: new Date().toISOString(),
+      fabric: formData.get("fabric"),
+      colour: formData.get("colour"),
     };
 
     // Case-insensitive group validation
