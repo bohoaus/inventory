@@ -433,6 +433,9 @@ class EditWholesaleItem {
         repeat_item: repeatInfo,
         pack_size: packSizeData,
         pack_unit: totalUnits,
+        release_date: data.release_date,
+        arrive_date: data.arrive_date,
+        soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
       };
 
