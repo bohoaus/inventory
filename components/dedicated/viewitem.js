@@ -273,6 +273,14 @@ class ViewItem {
                       item.pack_size
                     )}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Colour:</span>
+                    <span class="value">${item.scolour || "0"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Fabric:</span>
+                    <span class="value">${item.sfabric || "0"}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -288,6 +296,14 @@ class ViewItem {
                 <div class="detail-row">
                     <span class="label">Cargo:</span>
                     <span class="value">${item.item_cargo || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Factory:</span>
+                    <span class="value">${item.sfactory || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Country:</span>
+                    <span class="value">${item.scountry || "-"}</span>
                 </div>
             </div>
 
