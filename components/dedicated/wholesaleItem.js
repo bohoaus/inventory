@@ -374,7 +374,6 @@ class WholesaleItem {
                 <input type="text" 
                        name="colour" placeholder="black" 
                        value="${item?.colour || ""}"
-//                       onkeyup="this.value = this.value.toUpperCase()"
                 >
             </div>
 
