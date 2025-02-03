@@ -225,11 +225,11 @@ class ViewItem {
                 <h3>Production Info:</h3>
                 <div class="detail-row">
                     <span class="label">WSP:</span>
-                    <span class="value">${item.sprice || "-"}</span>
+                    <span class="value">${item.swsp || "-"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Price:</span>
-                    <span class="value">${item.swsp || "-"}</span>
+                    <span class="label">WSP2:</span>
+                    <span class="value">${item.swsp2 || "-"}</span>
                 </div>
             </div>
         </div>
@@ -366,8 +366,8 @@ class ViewItem {
                     <span class="value">${item.swsp || "-"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Price:</span>
-                    <span class="value">${item.sprice || "-"}</span>
+                    <span class="label">WSP2:</span>
+                    <span class="value">${item.swsp2 || "-"}</span>
                 </div>
             </div>
         </div>
