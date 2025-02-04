@@ -167,6 +167,23 @@ class OdmItem {
       "Wool",
     ];
 
+    const sodm_customer = [
+      "CIRCLE OF FRIEND",
+      "COCO AND BLUSH",
+      "EVERGREEN CLOTHNG",
+      "LIFE STORY DESIGN",
+      "LOVE STYLE CO",
+      "ORANGE SHEBERT",
+      "SALTY CRUSH",
+      "SHE STREET",
+      "SHINE ON",
+      "ST FROCK",
+      "THINGZ",
+      "TULIO",
+      "TWO BIRDS BLUE",
+      "VINE APPAREL",
+    ];
+
     const form = document.createElement("form");
     form.id = item ? "editItemForm" : "addItemForm";
     form.className = "item-form two-column";
@@ -202,11 +219,20 @@ class OdmItem {
 
             <div class="form-group required">
                 <label for="odm_customer">ODM Customer*</label>
-                <input type="text" 
-                       name="odm_customer" 
-                       required
-                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
-                       value="${item?.odm_customer || ""}">
+                <select name="odm_customer">
+                    <option value="">Select Customer</option>
+                    ${sodm_customer
+                      .map(
+                        (cat) => `
+                        <option value="${cat}" ${
+                          item?.odm_customer === cat ? "selected" : ""
+                        }>
+                            ${cat}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
             </div>
 
             <div class="form-group">
