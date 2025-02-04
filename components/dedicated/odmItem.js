@@ -262,7 +262,7 @@ class OdmItem {
              <div class="form-group required">
                 <label for="pack_unit">Pack Unit</label>
                 <input type="number" 
-                       name="pack_unit" value="0" 
+                       name="pack_unit" value="1" 
                        step="1" 
                        min="1"
                        value="${item?.pack_unit || ""}"
