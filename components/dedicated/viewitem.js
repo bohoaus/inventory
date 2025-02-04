@@ -84,7 +84,7 @@ class ViewItem {
     return `
         <div class="details-grid">
             <div class="detail-section">
-                <h3>Basic Information:</h3>
+                <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
                     <span class="value">${item.code_colour || "-"}</span>
@@ -200,7 +200,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Additional Information:</h3>
+                <h3>Logistics Information:</h3>
                 <div class="detail-row">
                     <span class="label">Cargo:</span>
                     <span class="value">${item.item_cargo || "-"}</span>
@@ -222,7 +222,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Production Info:</h3>
+                <h3>Sales Info:</h3>
                 <div class="detail-row">
                     <span class="label">WSP:</span>
                     <span class="value">${item.swsp || "-"}</span>
