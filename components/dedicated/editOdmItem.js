@@ -124,6 +124,14 @@ class EditOdmItem {
               .join("")}
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="item_location">Location</label>
+          <input type="text" 
+                 name="item_location" 
+                 value="${item.item_location || ""}"
+                 onkeyup="this.value = this.value.toUpperCase()">
+        </div>
       </div>
 
       <div class="form-column">
