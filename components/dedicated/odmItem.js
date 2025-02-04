@@ -247,7 +247,7 @@ class OdmItem {
                 <label for="odm_ppo">ODM PPO</label>
                 <input type="text" 
                        name="odm_ppo" placeholder="PO" 
-                       value="${item?.odm_ppo || ""}"
+                       value="${item?.odm_ppo || "PO"}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
