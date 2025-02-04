@@ -419,7 +419,7 @@ class OdmItem {
                 <textarea name="item_note" placeholder="OK" 
                           rows="3"
                           onkeyup="this.value = this.value.toUpperCase()">${
-                            item?.item_note || ""
+                            item?.item_note || "OK"
                           }</textarea>
             </div>
         </div>
