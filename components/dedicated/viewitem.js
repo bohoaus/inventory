@@ -240,7 +240,7 @@ class ViewItem {
     return `
         <div class="details-grid">
             <div class="detail-section">
-                <h3>Basic Information:</h3>
+                <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
                     <span class="value">${item.code_colour || "-"}</span>
@@ -352,7 +352,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Additional Information:</h3>
+                <h3>Notes:</h3>
                 <div class="detail-row">
                     <span class="label">Note:</span>
                     <span class="value">${item.item_note || "-"}</span>
@@ -360,7 +360,7 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Production Information:</h3>
+                <h3>Sales Information:</h3>
                 <div class="detail-row">
                     <span class="label">WSP:</span>
                     <span class="value">${item.swsp || "-"}</span>
