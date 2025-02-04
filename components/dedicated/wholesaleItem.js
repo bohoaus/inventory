@@ -442,7 +442,7 @@ class WholesaleItem {
             <div class="form-group">
                 <label for="item_note">Item Note</label>
                 <textarea name="item_note" placeholder="OK" rows="3">${
-                  item?.item_note || ""
+                  item?.item_note || "OK"
                 }</textarea>
             </div>
         </div>
