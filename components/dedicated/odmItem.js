@@ -206,7 +206,7 @@ class OdmItem {
                     class="add-item-btn" 
                     onclick="odmItem.validateAndSubmit(this.closest('form'))"
                     disabled>
-                ${item ? "Update Item" : "Add Item"}
+                ${item ? "Update Item" : "Add ODM Item"}
             </button>
         </div>
 
