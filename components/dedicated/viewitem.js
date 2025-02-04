@@ -279,6 +279,12 @@ class ViewItem {
                       item.pack_size
                     )}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Delay Date:</span>
+                    <span class="value">${this.formatDate(
+                      item.delay_date
+                    )}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -302,12 +308,6 @@ class ViewItem {
                 <div class="detail-row">
                     <span class="label">Country:</span>
                     <span class="value">${item.scountry || "-"}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Delay Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.delay_date
-                    )}</span>
                 </div>
             </div>
 
