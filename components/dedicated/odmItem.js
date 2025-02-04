@@ -252,7 +252,7 @@ class OdmItem {
             </div>
 
             <div class="form-group required">
-                <label for="pack_size">Pack Size</label>
+                <label for="pack_size">Pack Size{"S+M+L+XL": 1}</label>
                 <input type="text" 
                        name="pack_size" placeholder="{"S+M+L+XL": 1}"
                        value="${item?.pack_size || ""}"
