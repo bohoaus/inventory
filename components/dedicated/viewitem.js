@@ -185,6 +185,18 @@ class ViewItem {
                       item.delay_date
                     )}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Created:</span>
+                    <span class="value">${this.formatDate(
+                      item.created_at
+                    )}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Updated:</span>
+                    <span class="value">${this.formatDate(
+                      item.updated_at
+                    )}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -197,18 +209,6 @@ class ViewItem {
                     <span class="label">Repeat Item:</span>
                     <span class="value">${this.formatRepeatItem(
                       item.repeat_item
-                    )}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Created:</span>
-                    <span class="value">${this.formatDate(
-                      item.created_at
-                    )}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Updated:</span>
-                    <span class="value">${this.formatDate(
-                      item.updated_at
                     )}</span>
                 </div>
             </div>
