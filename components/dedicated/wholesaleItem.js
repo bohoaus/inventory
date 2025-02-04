@@ -216,7 +216,7 @@ class WholesaleItem {
                     class="add-item-btn" 
                     onclick="window.wholesaleItem.validateAndSubmit(this.closest('form'))"
                     disabled>
-                ${item ? "Update Item" : "Add Item"}
+                ${item ? "Update Item" : "Add Boho Item"}
             </button>
         </div>
 
