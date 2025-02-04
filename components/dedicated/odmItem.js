@@ -231,11 +231,11 @@ class OdmItem {
                     <option value="">Select Customer</option>
                     ${sodm_customer
                       .map(
-                        (cat) => `
-                        <option value="${cat}" ${
-                          item?.odm_customer === cat ? "selected" : ""
+                        (sodmc) => `
+                        <option value="${sodmc}" ${
+                          item?.odm_customer === sodmc ? "selected" : ""
                         }>
-                            ${cat}
+                            ${sodmc}
                         </option>
                     `
                       )
