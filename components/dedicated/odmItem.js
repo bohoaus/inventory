@@ -28,6 +28,8 @@ class OdmItem {
       scolour: formData.get("colour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
+      pack_unit: formData.get("pack_unit"),
+      pack_size: formData.get("pack_size"),
     };
 
     const { data, error } = await supabaseClient
@@ -63,6 +65,8 @@ class OdmItem {
       scolour: formData.get("colour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
+      pack_unit: formData.get("pack_unit"),
+      pack_size: formData.get("pack_size"),
     };
 
     const { data, error } = await supabaseClient
@@ -248,6 +252,24 @@ class OdmItem {
             </div>
 
             <div class="form-group required">
+                <label for="pack_size">Pack Size</label>
+                <input type="text" 
+                       name="pack_size" placeholder="{"S+M+L+XL": 1}"
+                       value="${item?.pack_size || ""}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
+
+             <div class="form-group required">
+                <label for="pack_unit">Pack Unit</label>
+                <input type="number" 
+                       name="pack_unit" value="0" 
+                       step="1" 
+                       min="1"
+                       value="${item?.pack_unit || ""}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+           </div>
+
+            <div class="form-group required">
                 <label for="receive_qty">Received Quantity</label>
                 <input type="number" 
                        name="receive_qty" 
@@ -258,7 +280,7 @@ class OdmItem {
             </div>
 
              <div class="form-group required">
-                <label for="stock_qtyreceive_qty">Stock Quantity</label>
+                <label for="stock_qty">Stock Quantity</label>
                 <input type="number" 
                        name="stock_qty" value="0" 
                        step="1" 
