@@ -347,6 +347,7 @@ class EditOdmItem {
         receive_qty: receiveQty,
         stock_qty: stockQty,
         item_note: data.item_note,
+        item_location: data.item_location,
         updated_at: new Date().toISOString(),
       };
 
