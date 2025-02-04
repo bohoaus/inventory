@@ -254,14 +254,12 @@ class ViewItem {
                     <span class="value">${item.item_category || "-"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Location:</span>
-                    <span class="value">${item.item_location || "-"}</span>
+                    <span class="label">Colour:</span>
+                    <span class="value">${item.scolour || "0"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Status:</span>
-                    <span class="value status-${item.item_status?.toLowerCase()}">${
-      item.item_status || "-"
-    }</span>
+                    <span class="label">Fabric:</span>
+                    <span class="value">${item.sfabric || "0"}</span>
                 </div>
             </div>
 
@@ -280,14 +278,6 @@ class ViewItem {
                     <span class="value">${this.formatPackSize(
                       item.pack_size
                     )}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Colour:</span>
-                    <span class="value">${item.scolour || "0"}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Fabric:</span>
-                    <span class="value">${item.sfabric || "0"}</span>
                 </div>
             </div>
 
@@ -313,6 +303,12 @@ class ViewItem {
                     <span class="label">Country:</span>
                     <span class="value">${item.scountry || "-"}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Delay Date:</span>
+                    <span class="value">${this.formatDate(
+                      item.delay_date
+                    )}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -329,12 +325,6 @@ class ViewItem {
                     <span class="label">Arrive Date:</span>
                     <span class="value">${this.formatDate(
                       item.arrive_date
-                    )}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Delay Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.delay_date
                     )}</span>
                 </div>
                 <div class="detail-row">
@@ -368,6 +358,16 @@ class ViewItem {
                 <div class="detail-row">
                     <span class="label">WSP2:</span>
                     <span class="value">${item.swsp2 || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Location:</span>
+                    <span class="value">${item.item_location || "-"}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Status:</span>
+                    <span class="value status-${item.item_status?.toLowerCase()}">${
+      item.item_status || "-"
+    }</span>
                 </div>
             </div>
         </div>
