@@ -452,7 +452,7 @@ class OdmItem {
     if (!form) return;
 
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerInput = form.querySelector('input[name="odm_customer"]');
+    const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector(
       'select[name="item_category"]'
