@@ -265,7 +265,7 @@ class OdmItem {
                        name="pack_unit" value="1" 
                        step="1" 
                        min="1"
-                       value="${item?.pack_unit || ""}"
+                       value="${item?.pack_unit || "1"}"
                        onchange="odmItem.validateForm(this.closest('form'))">
            </div>
 
