@@ -226,7 +226,7 @@ class OdmItem {
             </div>
 
             <div class="form-group required">
-                <label for="odm_customer">ODM Customer*</label>
+                <label for="odm_customer">ODM Customer</label>
                 <select name="odm_customer">
                     <option value="">Select Customer</option>
                     ${sodm_customer
