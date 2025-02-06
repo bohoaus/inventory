@@ -223,7 +223,7 @@ class WholesaleItem {
         <div class="form-column">
             <!-- Left Column -->
             <div class="form-group required">
-                <label for="code_colour">Code/Colour*</label>
+                <label for="code_colour">Code/Colour</label>
                 <input type="text" 
                        name="code_colour" 
                        required 
@@ -236,7 +236,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group required">
-                <label for="item_group">Group*</label>
+                <label for="item_group">Group</label>
                 <select name="item_group" 
                         required 
                         onchange="wholesaleItem.validateForm(this.closest('form'))">
