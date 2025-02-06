@@ -488,16 +488,16 @@ class OdmItem {
       codeInput.classList.remove("invalid");
     }
 
-    if (!customerInput.value.trim()) {
-      customerInput.classList.add("invalid");
+    if (!customerSelect.value.trim()) {
+      customerSelect.classList.add("invalid");
     } else {
-      customerInput.classList.remove("invalid");
+      customerSelect.classList.remove("invalid");
     }
   }
 
   validateAndSubmit(form) {
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerInput = form.querySelector('select[name="odm_customer"]');
+    const customerSelect = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector(
       'select[name="item_category"]'
@@ -510,7 +510,7 @@ class OdmItem {
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
-    const customerValue = customerInput?.value.trim();
+    const customerValue = customerSelect?.value.trim();
 
     if (!codeValue) {
       adminInventory.showNotification("Please enter Code/Colour", "error");
