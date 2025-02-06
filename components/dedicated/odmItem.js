@@ -225,7 +225,8 @@ class OdmItem {
                 </span>
             </div>
 
-            <div class="form-group required">
+            <div class="form-group required"
+                onchange="wholesaleItem.validateForm(this.closest('form'))">           
                 <label for="odm_customer">ODM Customer</label>
                 <select name="odm_customer">
                     <option value="">Select Customer</option>
