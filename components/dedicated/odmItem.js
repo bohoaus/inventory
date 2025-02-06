@@ -452,7 +452,7 @@ class OdmItem {
     if (!form) return;
 
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerInput = form.querySelector('select[name="odm_customer"]');
+    const customerSelect = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector(
       'select[name="item_category"]'
@@ -464,7 +464,7 @@ class OdmItem {
     const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const submitButton = form.querySelector(".add-item-btn");
 
-    if (!codeInput || !customerInput || !submitButton) return;
+    if (!codeInput || !customerSelect || !submitButton) return;
 
     // Trim values to check for empty or whitespace-only input
     //  customerInput.value.trim() !== "" &&
