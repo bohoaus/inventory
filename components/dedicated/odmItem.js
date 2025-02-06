@@ -213,7 +213,7 @@ class OdmItem {
         <div class="form-column">
             <!-- Left Column -->
             <div class="form-group required">
-                <label for="code_colour">Code*</label>
+                <label for="code_colour">Code</label>
                 <input type="text" 
                        name="code_colour" 
                        required 
