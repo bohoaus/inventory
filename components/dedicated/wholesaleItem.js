@@ -406,10 +406,10 @@ class WholesaleItem {
             </div>
 
             <div class="form-group required">
-                <label for="colour">Colour</label>
+                <label for="scolour">Colour</label>
                 <input type="text" 
-                       name="colour" placeholder="black" 
-                       value="${item?.colour || "black"}"
+                       name="scolour" placeholder="black" 
+                       value="${item?.scolour || "black"}"
                 >
             </div>
 
