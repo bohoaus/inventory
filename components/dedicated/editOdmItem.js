@@ -46,7 +46,7 @@ class EditOdmItem {
       <div class="form-column">
         <!-- First Column -->
         <div class="form-group required">
-          <label for="code_colour">Code/Colour*</label>
+          <label for="code_colour">Code/Colour</label>
           <input type="text" 
                  name="code_colour" 
                  value="${item.code_colour || ""}"
@@ -55,7 +55,7 @@ class EditOdmItem {
         </div>
 
         <div class="form-group">
-          <label for="item_group">Group*</label>
+          <label for="item_group">Group</label>
           <select name="item_group" required>
             <option value="">Select Group</option>
             <option value="ODM" ${
