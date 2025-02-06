@@ -62,7 +62,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group">
-            <label for="item_group">Group*</label>
+            <label for="item_group">Group</label>
                     <select name="item_group" required>
             
                         <option value="BOHO" ${
@@ -177,7 +177,7 @@ class EditWholesaleItem {
             </div>
 
             <div class="form-group">
-              <label for="sprice">Price*</label>
+              <label for="sprice">Price</label>
                     <select name="sprice" required>          
                         <option value="Full Price" ${
                           item.sprice === "Full Price" ? "selected" : ""
