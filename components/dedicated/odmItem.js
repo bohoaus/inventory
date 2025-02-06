@@ -350,10 +350,10 @@ class OdmItem {
             </div>
 
             <div class="form-group required">
-                <label for="colour">Colour</label>
+                <label for="scolour">Colour</label>
                 <input type="text" 
-                       name="colour" placeholder="black" 
-                       value="${item?.colour || "black"}"
+                       name="scolour" placeholder="black" 
+                       value="${item?.scolour || "black"}"
                 >
             </div>
 
@@ -467,9 +467,9 @@ class OdmItem {
     if (!codeInput || !customerInput || !submitButton) return;
 
     // Trim values to check for empty or whitespace-only input
+    //  customerInput.value.trim() !== "" &&
     const isValid =
       codeInput.value.trim() !== "" &&
-      customerInput.value.trim() !== "" &&
       itemCategoryInput.value !== "" &&
       itemStatusInput.value !== "" &&
       itemCargoInput.value !== "" &&
