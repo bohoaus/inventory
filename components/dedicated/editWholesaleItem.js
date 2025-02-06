@@ -177,7 +177,7 @@ class EditWholesaleItem {
             </div>
 
             <div class="form-group">
-              <label for="price">Price*</label>
+              <label for="sprice">Price*</label>
                     <select name="sprice" required>          
                         <option value="Full Price" ${
                           item.sprice === "Full Price" ? "selected" : ""
@@ -458,7 +458,7 @@ class EditWholesaleItem {
         arrive_date: data.arrive_date,
         soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
-        sprice: data.price,
+        sprice: data.sprice,
       };
 
       // Only include release_date if it's not empty
