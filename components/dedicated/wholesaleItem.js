@@ -251,6 +251,11 @@ class WholesaleItem {
                         ? "selected"
                         : ""
                     }>PRIMROSE</option>
+                    <option value="ODM" ${
+                      item?.item_group?.toUpperCase() === "ODM"
+                        ? "selected"
+                        : ""
+                    }>ODM</option>
                 </select>
             </div>
 
