@@ -185,6 +185,7 @@ class WholesaleItem {
       "NOT RELEASED",
       "OUT OF STOCK",
       "CANCELLED RESTOCK",
+      "DISPATCHED",
       "OVERRESTOCK",
     ];
 
