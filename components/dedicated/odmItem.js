@@ -148,7 +148,9 @@ class OdmItem {
       "TUNIC",
       "COAT",
       "JACKET",
-      "KNITWEAR",
+      "Knit Top",
+      "Knit Dress",
+      "Knitwear",
     ];
 
     const statuses = [
