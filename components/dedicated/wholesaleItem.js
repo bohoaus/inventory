@@ -328,7 +328,7 @@ class WholesaleItem {
             <div class="form-group pack-size-group required">
                 <label>Pack Size</label>
                 <div class="pack-size-inputs">
-                    <input type="text" name="size" placeholder="2S+2M+2L+2XL" onkeyup="this.value = this.value.toUpperCase()">
+                    <input type="text" name="size" placeholder="S+M+L+XL" onkeyup="this.value = this.value.toUpperCase()">
                     <input type="number" name="amount" placeholder="Amount" step="1" min="0">
                     <button type="button" onclick="wholesaleItem.addPackSize()">Add</button>
                 </div>
