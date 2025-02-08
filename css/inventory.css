@@ -397,8 +397,8 @@
 }
 
 .sidebar {
-  width: 150px;
-  min-width: 150px; /* Prevent sidebar from shrinking */
+  width: 160px;
+  min-width: 160px; /* Prevent sidebar from shrinking */
   background: #2c3e50;
   color: white;
   padding: 10px;
@@ -417,24 +417,24 @@
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .sidebar {
-    width: 150px;
-    min-width: 150px;
+    width: 160px;
+    min-width: 160px;
   }
 
   .main-content {
-    margin-left: 150px;
+    margin-left: 160px;
     padding: 5px;
   }
 }
 
 @media screen and (max-width: 576px) {
   .sidebar {
-    width: 150px;
-    min-width: 150px;
+    width: 160px;
+    min-width: 160px;
   }
 
   .main-content {
-    margin-left: 150px;
+    margin-left: 160px;
     padding: 5px;
   }
 }
