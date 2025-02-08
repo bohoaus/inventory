@@ -30,7 +30,7 @@ class WholesaleItem {
         item_category: formData.get("item_category") || null,
         release_date: formData.get("release_date") || null,
         item_note: formData.get("item_note") || null,        
-        sfabric: formData.get("sfabric") || null,
+        sfabric: formData.get("sfabric"),
         scolour: formData.get("scolour") || null,
         sprice: formData.get("sprice") || null,
         sfactory: formData.get("sfactory") || null,
