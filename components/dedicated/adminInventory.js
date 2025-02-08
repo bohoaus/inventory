@@ -21,7 +21,7 @@ function compareValues(a, b, direction) {
   if (isAEmpty) return 1;
   if (isBEmpty) return -1;
 
-  // For non-empty values, compare normally
+  // For non-empty values, compare normally - jim 2025.02.08
   if (direction === "asc") {
     return a < b ? -1 : a > b ? 1 : 0;
   } else {
