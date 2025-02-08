@@ -36,10 +36,12 @@ class EditWholesaleItem {
 
     const statuses = [
       "SHIPPING",
+      "ON HOLD",
+      "NOT RELEASED",
       "NEW RELEASE",
       "FULL PRICE",
+      "DISPATCHED",
       "ON SALE",
-      "NOT RELEASED",
       "OUT OF STOCK",
       "ISSUE & RESTOCK",
       "OVERSTOCK",
