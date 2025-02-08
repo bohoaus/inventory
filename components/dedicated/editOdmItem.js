@@ -37,11 +37,11 @@ class EditOdmItem {
     const statuses = [
       "SHIPPING",
       "ARRIVED",
+      "ON HOLD",
       "PROCESSING",
       "DISPATCHED",
-      "ON HOLD",
       "CANCELLED",
-      "QUALITY ISSUE",
+      "Issue & Return",
     ];
 
     form.innerHTML = `
