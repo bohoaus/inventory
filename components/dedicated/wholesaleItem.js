@@ -403,11 +403,11 @@ class WholesaleItem {
                     <option value="">Select Fabric</option>
                     ${sfabrics
                       .map(
-                        (sfabrics) => `
-                        <option value="${sfabrics}" ${
-                          item?.sfabric === sfabrics ? "selected" : ""
+                        (sfab) => `
+                        <option value="${sfab}" ${
+                          item?.sfabric === sfab ? "selected" : ""
                         }>
-                            ${sfabrics}
+                            ${sfab}
                         </option>
                     `
                       )
