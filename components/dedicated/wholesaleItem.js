@@ -181,6 +181,7 @@ class WholesaleItem {
 
     const statuses = [
       "SHIPPING",
+      "ARRIVED",
       "ON HOLD",
       "NOT RELEASED",
       "NEW RELEASE",
