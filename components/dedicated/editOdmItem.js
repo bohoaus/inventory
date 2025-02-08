@@ -87,6 +87,13 @@ class EditOdmItem {
                  value="${item.odm_customer || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
+
+        <div class="form-group">
+          <label for="scolour">Colour</label>
+          <input type="text" 
+                 name="scolour" 
+                 value="${item.scolour || ""}"
+        </div>
       </div>
 
       <div class="form-column">
@@ -164,6 +171,20 @@ class EditOdmItem {
                  min="0"
                  step="1"
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
+        </div>
+        
+        <div class="form-group">
+          <label for="swsp">WSP</label>
+          <input type="number" 
+                 name="swsp" 
+                 value="${item.swsp || ""}"
+        </div>
+        
+        <div class="form-group">
+          <label for="swsp2">WSP2</label>
+          <input type="number" 
+                 name="swsp2" 
+                 value="${item.swsp2 || ""}"
         </div>
         
         <div class="form-group">
