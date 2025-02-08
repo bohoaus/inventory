@@ -92,7 +92,7 @@ class EditOdmItem {
           <label for="scolour">Colour</label>
           <input type="text" 
                  name="scolour" 
-                 value="${item.scolour || ""}"
+                 value="${item.scolour || ""}">
         </div>
       </div>
 
@@ -177,14 +177,14 @@ class EditOdmItem {
           <label for="swsp">WSP</label>
           <input type="number" 
                  name="swsp" 
-                 value="${item.swsp || ""}"
+                 value="${item.swsp || ""}">
         </div>
         
         <div class="form-group">
           <label for="swsp2">WSP2</label>
           <input type="number" 
                  name="swsp2" 
-                 value="${item.swsp2 || ""}"
+                 value="${item.swsp2 || ""}">
         </div>
         
         <div class="form-group">
