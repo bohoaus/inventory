@@ -178,15 +178,6 @@ class EditOdmItem {
 
       <!-- Full width sections at the bottom -->
       <div class="form-full-width">
-        <div class="form-group">
-          <label for="item_note">Note</label>
-          <textarea name="item_note" 
-                    rows="3"
-                    onkeyup="this.value = this.value.toUpperCase()">${
-                      item.item_note || ""
-                    }</textarea>
-        </div>
-
         <div class="form-actions">
           <button type="button" 
                   class="save-item-btn" 
