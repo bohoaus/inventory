@@ -165,6 +165,15 @@ class EditOdmItem {
                  step="1"
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
+        
+        <div class="form-group">
+          <label for="item_note">Note</label>
+          <textarea name="item_note" 
+                    rows="3"
+                    onkeyup="this.value = this.value.toUpperCase()">${
+                      item.item_note || ""
+                    }</textarea>
+        </div>
       </div>
 
       <!-- Full width sections at the bottom -->
