@@ -369,6 +369,13 @@ class EditOdmItem {
         item_note: data.item_note,
         item_location: data.item_location,
         updated_at: new Date().toISOString(),
+        sprice: data.sprice,
+        sfabric: data.sfabric,
+        scolour: data.scolour,
+        sfactory: data.sfactory,
+        scountry: data.scountry,
+        swsp: data.swsp,
+        swsp2: data.swsp2,
       };
 
       const { error: updateError } = await supabaseClient
