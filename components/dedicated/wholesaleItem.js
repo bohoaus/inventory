@@ -419,7 +419,7 @@ class WholesaleItem {
                 <label for="scolour">Colour</label>
                 <input type="text" 
                        name="scolour" placeholder="black" 
-                       value="${item?.scolour || "black"}"
+                       value="${item?.scolour || ""}"
                 >
             </div>
 
