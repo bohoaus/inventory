@@ -333,7 +333,7 @@ class WholesaleItem {
                 <label>Pack Size</label>
                 <div class="pack-size-inputs">
                     <input type="text" name="size" placeholder="S+M+L+XL" onkeyup="this.value = this.value.toUpperCase()">
-                    <input type="number" name="amount" placeholder="Amount" step="1" min="0">
+                    <input type="number" name="amount" placeholder="2" step="1" min="0">
                     <button type="button" onclick="wholesaleItem.addPackSize()">Add</button>
                 </div>
                 <div class="pack-size-display">
