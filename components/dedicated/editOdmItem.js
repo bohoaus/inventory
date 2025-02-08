@@ -106,6 +106,14 @@ class EditOdmItem {
               .join("")}
           </select>
         </div>
+        
+          <div class="form-group">
+            <label for="item_name">Item Name</label>
+                    <input type="text" 
+                           name="item_name" 
+                           value="${item.item_name || ""}"
+                           onkeyup="this.value = this.value.toUpperCase()">
+          </div>
 
         <div class="form-group">
           <label for="item_status">Status</label>
@@ -343,6 +351,7 @@ class EditOdmItem {
         odm_ppo: data.odm_ppo,
         odm_customer: data.odm_customer,
         item_category: data.item_category,
+        item_name: data.item_name,
         item_status: data.item_status,
         receive_qty: receiveQty,
         stock_qty: stockQty,
