@@ -235,6 +235,9 @@ class AdminInventory {
       { id: "item_group", label: "Group" },
       { id: "pack_unit", label: "UnitP" },
       { id: "repeat_item", label: "Repeat Info" },
+      { id: "sfabric", label: "Fabric" },
+      { id: "scolour", label: "Colour" },
+      { id: "sprice", label: "Price" },
       { id: "soldout_date", label: "SoldOutDate" },
       { id: "soldout_status", label: "SoldOutStatus" },
       { id: "item_cargo", label: "Cargo" },
@@ -1280,7 +1283,7 @@ class AdminInventory {
       this.searchNoteInput.value.trim() !== "" ||
       this.currentFilter.toUpperCase() !== "ALL" ||
       this.sortColumn !== "arrive_date" ||
-      this.sortDirection !== "asc";
+      this.sortDirection !== "desc";
 
     this.clearButton.style.display = hasFilters ? "flex" : "none";
   }
