@@ -179,10 +179,11 @@ class WholesaleItem {
 
     const statuses = [
       "SHIPPING",
+      "ON HOLD",
+      "NOT RELEASED",
       "NEW RELEASE",
       "FULL PRICE",
       "ON SALE",
-      "NOT RELEASED",
       "OUT OF STOCK",
       "CANCELLED RESTOCK",
       "DISPATCHED",
