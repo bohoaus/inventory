@@ -171,7 +171,7 @@
   position: absolute;
   right: 10px;
   top: 5px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   color: #666;
 }
@@ -328,13 +328,13 @@
 .inventory-table th.qty-column,
 .inventory-table td.qty-column {
   width: 80px;
-  min-width: 70px;
+  min-width: 50px;
 }
 
 .inventory-table th.date-column,
 .inventory-table td.date-column {
   width: 100px;
-  min-width: 100px;
+  min-width: 80px;
   white-space: nowrap;
 }
 
@@ -781,7 +781,7 @@
 
 /* Add Item Modal Styles */
 .add-item-modal {
-  min-width: 600px;
+  min-width: 500px;
   padding: 10px;
 }
 
@@ -829,7 +829,7 @@
 .item-form.two-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -854,7 +854,7 @@
 .add-item-modal {
   max-width: 1000px !important;
   width: 90%;
-  padding: 15px;
+  padding: 10px;
 }
 
 /* Pack Size Group Styles */
@@ -1101,7 +1101,7 @@
 
 /* Update modal content padding to account for header */
 .add-item-modal {
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 /* Update close button position */
@@ -1156,7 +1156,7 @@
   height: 30px;
   border: none;
   background: none;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   color: rgb(122, 122, 122);
   z-index: 1;
@@ -1237,8 +1237,8 @@
 .edit-form.two-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  padding: 30px;
+  gap: 10px;
+  padding: 15px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -1253,8 +1253,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
 
@@ -1393,7 +1393,7 @@
 /* Warning Messages */
 .edit-form .pack-size-warning {
   margin-top: 5px;
-  padding: 8px;
+  padding: 4px;
   border-radius: 4px;
   background: #fff3cd;
   border: 1px solid #ffeeba;
@@ -1485,13 +1485,13 @@
 .edit-form.three-column {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .edit-form .form-full-width {
   grid-column: 1 / -1;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .edit-form .form-actions {
@@ -2030,7 +2030,7 @@
 
 .freight-dates {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
 }
 
@@ -2061,7 +2061,7 @@
 
 /* Update modal header styles */
 .modal-title-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   flex-shrink: 0;
 }
 
