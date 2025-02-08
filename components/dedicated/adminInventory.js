@@ -22,7 +22,7 @@ function compareValues(a, b, direction) {
   if (isBEmpty) return -1;
 
   // For non-empty values, compare normally
-  if (direction === "asc") {
+  if (direction === "desc") {
     return a < b ? -1 : a > b ? 1 : 0;
   } else {
     return a > b ? -1 : a < b ? 1 : 0;
