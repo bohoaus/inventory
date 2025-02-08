@@ -465,6 +465,12 @@ class EditWholesaleItem {
         soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
         sprice: data.sprice,
+        sfabric: data.sfabric,
+        scolour: data.scolour,
+        sfactory: data.sfactory,
+        scountry: data.scountry,
+        swsp: data.swsp,
+        swsp2: data.swsp2,
       };
 
       // Only include release_date if it's not empty
