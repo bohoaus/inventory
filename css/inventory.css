@@ -2200,7 +2200,7 @@
 
 .detail-section {
   background: #f8f9fa;
-  padding: 10px;
+  padding: 5px;
   border-radius: 8px;
   border: 1px solid #e9ecef;
 }
@@ -2253,11 +2253,11 @@
   color: #fff;
 }
 
-/* Make all action buttons the same size */
+/* Make all action buttons the same size 80px*/
 .action-column .view-btn,
 .action-column .edit-btn,
 .action-column .delete-btn {
-  width: 80px;
+  width: 70px;
   justify-content: center;
 }
 
@@ -2323,12 +2323,12 @@
 .modal-content {
   max-height: 90vh;
   overflow-y: auto;
-  padding: 10px;
+  padding: 5px;
   position: relative;
 }
 
 .item-details-container {
-  padding: 10px;
+  padding: 5px;
 }
 
 .details-grid {
@@ -2397,7 +2397,7 @@
   background: #f8f9fa;
   z-index: 1;
   font-weight: 300;
-  padding: 10px;
+  padding: 5px;
   border-bottom: 2px solid #dee2e6;
 }
 
@@ -2426,7 +2426,7 @@
 .export-modal .modal-content {
   max-width: 1200px;
   width: 90%;
-  padding: 10px;
+  padding: 5px;
 }
 
 .export-settings {
@@ -2546,7 +2546,7 @@
 
 .preview-table th,
 .preview-table td {
-  padding: 6px 8px;
+  padding: 3px 4px;
   border: 1px solid #dee2e6;
   text-align: left;
   white-space: nowrap;
