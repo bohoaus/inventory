@@ -326,6 +326,9 @@ class WholesaleItem {
                     <option value="SEA" ${
                       item?.item_cargo === "SEA" ? "selected" : ""
                     }>SEA</option>
+                    <option value="Other" ${
+                      item?.item_cargo === "Other" ? "selected" : ""
+                    }>Other</option>
                 </select>
             </div>
 
@@ -832,6 +835,21 @@ class WholesaleItem {
             .trim()
             .replace(/\s+/g, " ")
             .toUpperCase(),
+        }),
+        ...(formData.get("sfabric") && {
+          sfabric: formData.get("sfabric"),
+        }),
+        ...(formData.get("scolour") && {
+          scolour: formData
+            .get("scolour")
+            .trim()
+            .replace(/\s+/g, " "),
+        }),
+        ...(formData.get("sfactory") && {
+          sfactory: formData.get("sfactory"),
+        }),
+        ...(formData.get("scountry") && {
+          scountry: formData.get("scountry"),
         }),
       };
 
