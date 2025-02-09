@@ -316,13 +316,13 @@
 .inventory-table th.action-column,
 .inventory-table td.action-column {
   width: 100px;
-  min-width: 100px;
+  min-width: 80px;
 }
 
 .inventory-table th.code-column,
 .inventory-table td.code-column {
   width: 120px;
-  min-width: 120px;
+  min-width: 100px;
 }
 
 .inventory-table th.qty-column,
