@@ -206,6 +206,7 @@ class WholesaleItem {
       "Nelon",
       "Polyester",
       "Silk",
+      "Viscose",
       "Acrylic",
       "Wool",
       "Wool+",
