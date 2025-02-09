@@ -36,6 +36,7 @@ class EditWholesaleItem {
 
     const statuses = [
       "SHIPPING",
+      "ARRIVED",
       "ON HOLD",
       "NOT RELEASED",
       "NEW RELEASE",
