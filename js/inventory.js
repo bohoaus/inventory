@@ -106,7 +106,8 @@ class InventoryView {
         let query = supabase
             .from('inventory')
             .select('*')
-            .order('created_at', { ascending: false });
+            .order('arrive_date', { ascending: true });
+        //    .order('created_at', { ascending: false });
 
         if (searchTerm) {
             query = query.or(`item_name.ilike.%${searchTerm}%,code_colour.ilike.%${searchTerm}%`);
