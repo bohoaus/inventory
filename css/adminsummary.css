@@ -211,7 +211,7 @@
 
 .summary-details {
     display: grid;
-    gap: 20px;
+    gap: 10px;
 }
 
 .summary-group h4 {
