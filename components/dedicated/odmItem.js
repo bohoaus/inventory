@@ -173,6 +173,7 @@ class OdmItem {
       "Nelon",
       "Polyester",
       "Silk",
+      "Viscose",
       "Acrylic",
       "Wool",
     ];
