@@ -9,7 +9,8 @@ class InventoryComponent {
     this.currentPage = 1;
     //this.sortColumn = "release_date";
     this.sortColumn = "arrive_date";
-    this.sortDirection = "asc";
+    //this.sortDirection = "asc";
+    this.sortDirection = "desc";
     this.currentFilter = "all";
     this.isRepeatFilter = false;
 
