@@ -196,15 +196,19 @@ class WholesaleItem {
     const sfabrics = [
       "Blend",
       "Rayon",
+      "Rayon+",
       "Bamboo Rayon",
       "Crinkle Rayon",
       "Cotton",
+      "Cotton+",
       "Linen",
+      "Linen+",
       "Nelon",
       "Polyester",
       "Silk",
       "Acrylic",
       "Wool",
+      "Wool+",
     ];
 
     const form = document.createElement("form");
