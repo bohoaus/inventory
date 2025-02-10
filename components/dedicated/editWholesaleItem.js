@@ -180,7 +180,7 @@ class EditWholesaleItem {
                     <label for="release_date">Release Date</label>
                     <input type="date" 
                            name="release_date" 
-                           value="${item.release_date || "NULL"}">
+                           value="${item.release_date || ""}">
             </div>
 
             <div class="form-group">
@@ -461,9 +461,9 @@ class EditWholesaleItem {
         repeat_item: repeatInfo,
         pack_size: packSizeData,
         pack_unit: totalUnits,
-        release_date: data.release_date || null,
+        release_date: data.release_date,
         arrive_date: data.arrive_date,
-        soldout_date: data.soldout_date || null,
+        soldout_date: data.soldout_date,
         updated_at: new Date().toISOString(),
         sprice: data.sprice,
         sfabric: data.sfabric,
