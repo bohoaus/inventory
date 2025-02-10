@@ -38,7 +38,7 @@ class AdminInventory {
     this.rowsPerPage = document.getElementById("rowsPerPage");
     this.currentPage = 1;
     //this.sortColumn = "code_colour";
-    this.sortColumn = "arrive_date";
+    this.sortColumn = "mfg_date";
     //this.sortDirection = "asc";
     this.sortDirection = "desc";
     this.currentFilter = "All";
