@@ -194,6 +194,24 @@ class OdmItem {
       "TWO BIRDS BLUE",
       "VINE APPAREL",
     ];
+    
+    const sfactories = [
+      "SS+8620",
+      "YJ+8620",
+      "K-RD+8620",
+      "K-YP+8620",
+      "K-",
+    ];
+    
+    const scountries = [
+      "CHN+86",
+      "BGD+84",
+      "IDN+84",
+      "IND+84",
+      "JPN+84",
+      "THA+84",
+      "VNM+84",
+    ];
 
     const form = document.createElement("form");
     form.id = item ? "editItemForm" : "addItemForm";
