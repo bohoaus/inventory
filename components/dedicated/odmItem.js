@@ -205,11 +205,11 @@ class OdmItem {
     
     const scountries = [
       "CHN+86",
-      "BGD+84",
-      "IDN+84",
-      "IND+84",
-      "JPN+84",
-      "THA+84",
+      "BGD+880",
+      "IDN+62",
+      "IND+91",
+      "JPN+81",
+      "THA+66",
       "VNM+84",
     ];
 
