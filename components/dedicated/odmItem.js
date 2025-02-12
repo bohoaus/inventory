@@ -175,7 +175,9 @@ class OdmItem {
       "Silk",
       "Viscose",
       "Acrylic",
+      "Acrylic+",
       "Wool",
+      "Wool+",
     ];
 
     const sodm_customer = [
