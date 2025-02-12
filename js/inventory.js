@@ -188,6 +188,7 @@ class InventoryView {
         document.getElementById('detailReleaseDate').textContent = item.release_date ? 
             new Date(item.release_date).toLocaleDateString() : 'N/A';
         document.getElementById('detailAging').textContent = item.item_aging || 'N/A';
+        document.getElementById('detailStatus').textContent = item.item_cargo;
 
         if (this.userRole === 'staff') {
             document.getElementById('detailMfgDate').textContent = item.mfg_date ? 
