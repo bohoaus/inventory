@@ -63,6 +63,7 @@ class AdminInventory {
       "item_aging",
       "item_note",
       "item_category",
+      "item_cargo",
     ];
 
     // Define default columns that cannot be unchecked
@@ -82,6 +83,7 @@ class AdminInventory {
       "item_aging",
       "item_note",
       "item_category",
+      "item_cargo",
     ];
 
     // Initialize selected columns with defaults
