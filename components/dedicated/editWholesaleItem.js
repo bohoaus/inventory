@@ -30,8 +30,8 @@ class EditWholesaleItem {
       "COAT",
       "JACKET",
       "KNIT TOP",
-      "Knit Dress",
-      "Knitwear",
+      "KNIT DRESS",
+      "KNITWEAR",
     ];
 
     const statuses = [
