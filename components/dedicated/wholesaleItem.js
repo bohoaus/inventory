@@ -208,6 +208,7 @@ class WholesaleItem {
       "Silk",
       "Viscose",
       "Acrylic",
+      "Acrylic+",
       "Wool",
       "Wool+",
     ];
