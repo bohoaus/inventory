@@ -29,9 +29,9 @@ class EditOdmItem {
       "TUNIC",
       "COAT",
       "JACKET",
-      "Knit Top",
-      "Knit Dress",
-      "Knitwear",
+      "KNIT Top",
+      "KNIT DRESS",
+      "KNITWEAR",
     ];
 
     const statuses = [
