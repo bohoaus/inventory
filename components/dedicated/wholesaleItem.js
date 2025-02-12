@@ -212,6 +212,24 @@ class WholesaleItem {
       "Wool+",
     ];
 
+    const sfactories = [
+      "SS+8620",
+      "YJ+8620",
+      "K-RD+8620",
+      "K-YP+8620",
+      "K-",
+    ];
+    
+    const scountries = [
+      "CHN+86",
+      "BGD+880",
+      "IDN+62",
+      "IND+91",
+      "JPN+81",
+      "THA+66",
+      "VNM+84",
+    ];
+
     const form = document.createElement("form");
     form.id = item ? "editItemForm" : "addItemForm";
     form.className = "item-form two-column";
