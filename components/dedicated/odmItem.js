@@ -172,6 +172,7 @@ class OdmItem {
       "Linen",
       "Nelon",
       "Polyester",
+      "Polyester+",
       "Silk",
       "Viscose",
       "Acrylic",
