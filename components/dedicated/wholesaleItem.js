@@ -453,12 +453,17 @@ class WholesaleItem {
                 <label for="scountry">Country</label>
                 <select name="scountry">
                     <option value="">Select Country</option>
-                    <option value="CHN+86" ${
-                      item?.scountry === "CHN+86" ? "selected" : ""
-                    }>CHN+86</option>
-                    <option value="VNM+84" ${
-                      item?.scountry === "VNM+84" ? "" : ""
-                    }>VNM+84</option>
+                    ${scountries
+                      .map(
+                        (scount) => `
+                        <option value="${scount}" ${
+                          item?.scountry === scount ? "selected" : ""
+                        }>
+                            ${scount}
+                        </option>
+                    `
+                      )
+                      .join("")}
                 </select>
             </div>
 
@@ -466,12 +471,17 @@ class WholesaleItem {
                 <label for="sfactory">Factory</label>
                 <select name="sfactory">
                     <option value="">Select Factory</option>
-                    <option value="SS+8620" ${
-                      item?.sfactory === "SS+8620" ? "selected" : ""
-                    }>SS+8620</option>
-                    <option value="YJ+8620" ${
-                      item?.sfactory === "YJ+8620" ? "" : ""
-                    }>YJ+8620</option>
+                    ${sfactories
+                      .map(
+                        (sfact) => `
+                        <option value="${sfact}" ${
+                          item?.sfactory === sfact ? "selected" : ""
+                        }>
+                            ${sfact}
+                        </option>
+                    `
+                      )
+                      .join("")}
                 </select>
             </div>
 
