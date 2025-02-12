@@ -29,7 +29,7 @@ class EditWholesaleItem {
       "TUNIC",
       "COAT",
       "JACKET",
-      "Knit Top",
+      "KNIT TOP",
       "Knit Dress",
       "Knitwear",
     ];
