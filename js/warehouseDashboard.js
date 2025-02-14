@@ -1,6 +1,7 @@
+// The supabaseClient is now globally available
 class StockDashboard {
   constructor() {
-    this.initialize();
+    // Don't call initialize in constructor
   }
 
   async initialize() {
