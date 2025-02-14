@@ -48,12 +48,16 @@ class WholesaleOrder {
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state" required>
                             <option value="">Select State</option>
-                            <option value="nsw">NSW</option>
-                            <option value="qld">QLD</option>
-                            <option value="vic">VIC</option>
-                            <option value="sa">SA</option>
-                            <option value="wa">WA</option>
-                            <option value="others">Others</option>
+                            <option value="AUS-ACT">ACT</option>
+                            <option value="AUS-NSW">NSW</option>
+                            <option value="AUS-NT">NT</option>
+                            <option value="AUS-QLD">QLD</option>
+                            <option value="AUS-SA">SA</option>
+                            <option value="AUS-TAS">TAS</option>
+                            <option value="AUS-VIC">VIC</option>
+                            <option value="AUS-WA">WA</option>
+                            <option value="Others">Others</option>
+                            <option value="NZ">NZ</option>
                         </select>
                     </div>
                 </div>
