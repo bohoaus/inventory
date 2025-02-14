@@ -45,12 +45,14 @@ class OdmOrder {
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state">
                             <option value="">Select State</option>
-                            <option value="nsw">NSW</option>
-                            <option value="qld">QLD</option>
-                            <option value="vic">VIC</option>
-                            <option value="sa">SA</option>
-                            <option value="wa">WA</option>
+                            <option value="aus-act">ACT</option>
+                            <option value="aus-nsw">NSW</option>
+                            <option value="aus-qld">QLD</option>
+                            <option value="aus-vic">VIC</option>
+                            <option value="aus-sa">SA</option>
+                            <option value="aus-wa">WA</option>
                             <option value="others">Others</option>
+                            <option value="nz">NZ</option>
                         </select>
                     </div>
                 </div>
