@@ -115,27 +115,59 @@ class EditWholesaleOrder {
                     </div>
               <div class="editwholesaleorder-group">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state" required>
+                      <select id="agent_state" required>
                             <option value="">Select State</option>
-                  <option value="NSW" ${
-                    agentState === "nsw" ? "selected" : ""
-                  }>NSW</option>
-                  <option value="QLD" ${
-                    agentState === "qld" ? "selected" : ""
-                  }>QLD</option>
-                  <option value="VIC" ${
-                    agentState === "vic" ? "selected" : ""
-                  }>VIC</option>
-                  <option value="SA" ${
-                    agentState === "sa" ? "selected" : ""
-                  }>SA</option>
-                  <option value="WA" ${
-                    agentState === "wa" ? "selected" : ""
-                  }>WA</option>
-                  <option value="OTHERS" ${
-                    agentState === "others" ? "selected" : ""
-                  }>Others</option>
-                        </select>
+                        <option value="AUS-ACT" ${
+                          orderData.agent_state?.toUpperCase() === "ACT"
+                            ? "selected"
+                            : ""
+                        }>ACT</option>
+                        <option value="AUS-NSW" ${
+                          orderData.agent_state?.toUpperCase() === "NSW"
+                            ? "selected"
+                            : ""
+                        }>NSW</option>
+                        <option value="AUS-NT" ${
+                          orderData.agent_state?.toUpperCase() === "NT"
+                            ? "selected"
+                            : ""
+                        }>NT</option>
+                        <option value="AUS-QLD" ${
+                          orderData.agent_state?.toUpperCase() === "QLD"
+                            ? "selected"
+                            : ""
+                        }>QLD</option>
+                        <option value="AUS-SA" ${
+                          orderData.agent_state?.toUpperCase() === "SA"
+                            ? "selected"
+                            : ""
+                        }>SA</option>
+                        <option value="AUS-TAS" ${
+                          orderData.agent_state?.toUpperCase() === "TAS"
+                            ? "selected"
+                            : ""
+                        }>TAS</option>
+                        <option value="AUS-VIC" ${
+                          orderData.agent_state?.toUpperCase() === "VIC"
+                            ? "selected"
+                            : ""
+                        }>VIC</option>
+                        <option value="AUS-WA" ${
+                          orderData.agent_state?.toUpperCase() === "WA"
+                            ? "selected"
+                            : ""
+                        }>WA</option>
+                        <option value="Others" ${
+                          orderData.agent_state?.toUpperCase() === "OTHERS"
+                            ? "selected"
+                            : ""
+                        }>Others</option>
+                        <option value="NZ" ${
+                          orderData.agent_state?.toUpperCase() === "NZ"
+                            ? "selected"
+                            : ""
+                        }>NZ</option>
+                      </select>
                     </div>
                 </div>
             <div class="editwholesaleorder-group">
