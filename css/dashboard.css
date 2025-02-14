@@ -45,6 +45,14 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.logoWH {
+  padding: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .nav-links {
   list-style: none;
   margin-top: 10px;
