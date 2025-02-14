@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Inventory Management System</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/inventory.css" />
+    <link rel="stylesheet" href="../css/noteboard.css" />
+    <link rel="stylesheet" href="../css/adminsummary.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../components/shared/noteBoard.js"></script>
+    <script src="../components/shared/adminSummary.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Admin</div>
+        <ul class="nav-links">
+          <li class="active"><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="order.html">Orders</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
 
+      <main class="main-content">
+        <header>
+          <h3>Dashboard</h3>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <div class="note-board">
+          <h2>Note Board</h2>
+          <div id="notes"></div>
+          <div class="note-input-section">
+            <textarea id="newNote" placeholder="Add a new note..."></textarea>
+            <button id="addNote">Add Note</button>
+          </div>
+        </div>
+
+        <div id="adminSummary" class="admin-summary">
+          <!-- Content will be dynamically inserted here -->
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
