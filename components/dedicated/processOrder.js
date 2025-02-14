@@ -62,15 +62,16 @@ class ProcessOrder {
                 <label for="dispatchState">Dispatch State*</label>
                 <select id="dispatchState" required>
                   <option value="">Select State</option>
-                  <option value="NSW">NSW</option>
-                  <option value="QLD">QLD</option>
-                  <option value="SA">SA</option>
-                  <option value="VIC">VIC</option>
-                  <option value="WA">WA</option>
-                  <option value="NZ">NZ</option>
-                  <option value="NT">NT</option>
-                  <option value="ACT">ACT</option>
-                  <option value="OTHERS">OTHERS</option>
+                  <option value="aus-act">ACT</option>
+                  <option value="aus-nsw">NSW</option>
+                  <option value="aus-nt">NT</option>
+                  <option value="aus-qld">QLD</option>
+                  <option value="aus-sa">SA</option>
+                  <option value="aus-tas">TAS</option>
+                  <option value="aus-vic">VIC</option>
+                  <option value="aus-wa">WA</option>
+                  <option value="others">Others</option>
+                  <option value="nz">NZ</option>
                 </select>
               </div>
               <div class="form-group">
