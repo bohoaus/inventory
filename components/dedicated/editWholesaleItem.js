@@ -178,7 +178,7 @@ class EditWholesaleItem {
 
             <div class="form-group">
                     <label for="release_date">Release Date</label>
-                    <input type="time" 
+                    <input type="timestamp" 
                            name="release_date" 
                            value="${item.release_date || ""}">
             </div>
