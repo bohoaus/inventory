@@ -506,7 +506,7 @@ class WholesaleOrder {
   async submitOrder() {
     try {
       const orderDate = document
-        .getElementById("orderdate")
+        .getElementById("orderdate");
       const customerName = document
         .getElementById("customer_name")
         .value.trim()
