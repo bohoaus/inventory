@@ -10,6 +10,8 @@ class AdminOrder {
       { id: "agent_state", name: "Agent State", locked: true },
       { id: "total_items", name: "Total Items", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
+      { id: "invoice_no", name: "Invoice No" },
+      { id: "tracking_no", name: "Tracking No" },
     ];
 
     // Optional columns that can be added
@@ -18,8 +20,6 @@ class AdminOrder {
       { id: "dispatched_state", name: "Dispatched State" },
       { id: "dispatched_carrier", name: "Dispatched Carrier" },
       { id: "dispatched_box", name: "Dispatched Box" },
-      { id: "invoice_no", name: "Invoice No" },
-      { id: "tracking_no", name: "Tracking No" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
