@@ -1,6 +1,6 @@
 class OdmOrder {
   constructor() {
-    this.orderdate = new date();
+    this.orderdate = new Date();
     this.orderType = "odm";
     this.tempOrderList = [];
     this.searchInput = null;
@@ -295,6 +295,7 @@ class OdmOrder {
   async createOrder(formData) {
     try {
       const orderData = {
+        orderdate: formData.get("orderdate"),
         customer_name: formData.get("customer_name"),
         order_type: this.orderType,
         status: "processing",
