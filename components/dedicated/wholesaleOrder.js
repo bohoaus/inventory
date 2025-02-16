@@ -60,6 +60,11 @@ class WholesaleOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="customer_name">Customer Name</label>
+                        <input type="text" id="customer_name" required>
+                        <div id="customerWarning" class="warning-message"></div>
+                    </div>
                 </div>
                 
                 <div class="form-group">
