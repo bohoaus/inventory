@@ -1333,6 +1333,7 @@ class AdminOrder {
           // Format date columns
           if (
             [
+              "orderdate",
               "created_at",
               "cancelled_at",
               "dispatched_at",
@@ -1356,6 +1357,7 @@ class AdminOrder {
           // Format date columns
           if (
             [
+              "orderdate",
               "created_at",
               "cancelled_at",
               "dispatched_at",
