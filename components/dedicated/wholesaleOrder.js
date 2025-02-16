@@ -1,6 +1,6 @@
 class WholesaleOrder {
   constructor() {
-    this.orderdate = new Date().toISOString();
+    //this.orderdate = new Date().toISOString();
     this.orderType = "wholesale";
     this.tempOrderList = [];
     this.tempStockChanges = [];
@@ -64,7 +64,7 @@ class WholesaleOrder {
                     <div class="form-group">
                         <label for="orderdate" required>Order Date</label>
                         <input type="date" id="orderdate" 
-                           value="${this.orderdate || ""}">
+                           value="${this.orderdate = new Date().toISOString()}">
                     </div>
                 </div>
                 
