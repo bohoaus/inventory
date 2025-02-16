@@ -22,6 +22,7 @@ class AdminOrder {
       { id: "dispatched_box", name: "Dispatched Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
+      { id: "ouser", name: "User" },
       { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
     ];
