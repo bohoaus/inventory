@@ -63,7 +63,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="date" id="orderdate">
+                        <input type="date" id="orderdate" 
                            value="${this.orderdate || ""}">
                     </div>
                 </div>
