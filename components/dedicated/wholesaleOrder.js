@@ -41,8 +41,8 @@ class WholesaleOrder {
             <div class="wholesale-form">
                 <div class="customer-info">
                     <div class="form-group">
-                        <label for="customer_name" required>Customer Name</label>
-                        <input type="text" id="customer_name">
+                        <label for="customer_name">Customer Name</label>
+                        <input type="text" id="customer_name" required>
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group required">
