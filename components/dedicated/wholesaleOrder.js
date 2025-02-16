@@ -64,7 +64,7 @@ class WholesaleOrder {
                     <div class="form-group required">
                         <label for="orderdate">Order Date</label>
                         <input type="date" id="orderdate" 
-                          value="<?php echo date('dd/mm/yyyy'); ?>" />                           
+                          value="<?php echo date('d-m-Y'); ?>" />                           
                     </div>
                 </div>
                 
