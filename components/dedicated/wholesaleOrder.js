@@ -1,6 +1,6 @@
 class WholesaleOrder {
   constructor() {
-    this.orderdate = new date();
+    this.orderdate = new Date().toISOString();
     this.orderType = "wholesale";
     this.tempOrderList = [];
     this.tempStockChanges = [];
@@ -64,6 +64,7 @@ class WholesaleOrder {
                     <div class="form-group">
                         <label for="orderdate" required>Order Date</label>
                         <input type="date" id="orderdate">
+                           value="${this.orderdate || ""}">
                     </div>
                 </div>
                 
@@ -504,6 +505,8 @@ class WholesaleOrder {
 
   async submitOrder() {
     try {
+      const orderDate = document
+        .getElementById("orderdate")
       const customerName = document
         .getElementById("customer_name")
         .value.trim()
@@ -522,6 +525,7 @@ class WholesaleOrder {
         .from("orders")
         .insert([
           {
+            orderdate: orderDate,
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
