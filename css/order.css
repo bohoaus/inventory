@@ -1871,3 +1871,15 @@ th[data-sort].sort-desc .sort-icon {
   color: #6c757d;
   opacity: 0.8;
 }
+
+.column2-label-input {
+  float: left;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
