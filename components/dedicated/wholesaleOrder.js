@@ -64,7 +64,7 @@ class WholesaleOrder {
                     <div class="form-group required">
                         <label for="orderdate">Order Date</label>
                         <input type="date" id="orderdate" 
-                           value="${this.orderdate = new Date().toISOString()}">
+                          value="<?php echo date('dd/mm/yyyy'); ?>" />                           
                     </div>
                 </div>
                 
