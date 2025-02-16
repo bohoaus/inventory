@@ -37,13 +37,13 @@ class OdmOrder {
     return `
             <div class="odm-form">
                 <div class="customer-info">
-                    <div class="form-group">
-                        <label for="customer_name" required>Customer Name</label>
+                    <div class="form-group required">
+                        <label for="customer_name">Customer Name</label>
                         <input type="text" id="customer_name">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="agent_state" required>Agent State</label>
+                    <div class="form-group required">
+                        <label for="agent_state">Agent State</label>
                         <select id="agent_state">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">ACT</option>
@@ -58,8 +58,8 @@ class OdmOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="orderdate" required>Order Date</label>
+                    <div class="form-group required">
+                        <label for="orderdate">Order Date</label>
                         <input type="date" id="orderdate">
                     </div>
                 </div>
