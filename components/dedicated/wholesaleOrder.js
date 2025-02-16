@@ -40,7 +40,7 @@ class WholesaleOrder {
     return `
             <div class="wholesale-form">
                 <div class="customer-info">
-                    <div class="form-group.required">
+                    <div class="form-group required">
                         <label for="customer_name">Customer Name</label>
                         <input type="text" id="customer_name">
                         <div id="customerWarning" class="warning-message"></div>
