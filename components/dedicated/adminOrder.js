@@ -8,7 +8,7 @@ class AdminOrder {
       { id: "status", name: "Status", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "agent_state", name: "Agent State", locked: true },
-      { id: "total_items", name: "Total Items", locked: true },
+      { id: "total_items", name: "T-Items", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "invoice_no", name: "Invoice No" },
       { id: "tracking_no", name: "Tracking No" },
