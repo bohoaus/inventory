@@ -920,7 +920,7 @@ th[data-sort].sort-desc .sort-icon {
 .customer-info {
   display: flex;
   gap: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .form-group {
