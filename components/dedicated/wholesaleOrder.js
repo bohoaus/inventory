@@ -61,7 +61,8 @@ class WholesaleOrder {
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                //<div class="form-group">
+                <div class="column2-label-input">
                     <label for="order_note">Order Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order">
                 </div>
