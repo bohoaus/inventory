@@ -3,7 +3,7 @@ class AdminOrder {
     // Define the initial table structure
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "created_at", name: "Created At", locked: true, isDate: true },
+      { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
@@ -22,6 +22,7 @@ class AdminOrder {
       { id: "dispatched_box", name: "Dispatched Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
+      { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
     ];
 
@@ -32,7 +33,7 @@ class AdminOrder {
     this.rowsPerPage = 10;
 
     // Add sorting state
-    this.sortColumn = "created_at";
+    this.sortColumn = "orderdate";
     this.sortDirection = "desc";
 
     // Check if Supabase is already initialized
