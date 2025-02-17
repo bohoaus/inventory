@@ -278,11 +278,12 @@ class ViewOrder {
                 <thead>
                     <tr>
                         <th>Location</th>
-                        <th>Total Pieces</th>
+                        <th>Qty</th>
                         <th>Item Code</th>
-                        <th>Order Qty</th>
+                        <th>Colour</th>
+                        <th>Pack</th>
                         <th>Pack Size</th>
-                        <th>Pack Unit</th>
+                        <th>Unit/P</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -376,6 +377,7 @@ class ViewOrder {
                 <td>${item.inventory?.item_location || "-"}</td>
                 <td>${item.total_pieces}</td>
                 <td>${item.item_name}</td>
+                <td>${item.oicolour}</td>
                 <td>${item.order_qty}</td>
                 <td>${packSizeDisplay}</td>
                 <td>${item.inventory?.pack_unit || "-"}</td>
@@ -442,7 +444,7 @@ class ViewOrder {
                     <tr>
                         <th>Code</th>
                         <th>PPO</th>
-                        <th>Maf Date</th>
+                        <th>Mfg Date</th>
                         <th>Arrive Date</th>
                         <th>Received Qty</th>
                         <th>Pack Size</th>
