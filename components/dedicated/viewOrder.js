@@ -89,6 +89,8 @@ class ViewOrder {
         dispatched_carrier: orderData.dispatched_carrier || "-",
         dispatched_box: orderData.dispatched_box || "-",
         tracking_no: orderData.tracking_no || "-",
+        orderdate: orderData.orderdate,
+        ouser: orderData.ouser,
       };
 
       // Fetch and normalize order items
@@ -213,10 +215,10 @@ class ViewOrder {
 
             <!-- Row 3 -->
             <div class="detail-item">
-                <label>Created At:</label>
+                <label>Order Date:</label>
                 <span>${this.formatValue(
-                  "created_at",
-                  orderData.created_at
+                  "orderdate",
+                  orderData.orderdate
                 )}</span>
             </div>
             <div class="detail-item">
