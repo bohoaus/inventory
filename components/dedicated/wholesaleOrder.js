@@ -44,7 +44,7 @@ class WholesaleOrder {
                         <input type="text" id="customer_name" required>
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group required">
+                    <div class="form-group">
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state">
                             <option value="">Select State</option>
@@ -60,10 +60,10 @@ class WholesaleOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
-                    <div class="form-group required">
+                    <div class="form-group">
                         <label for="orderdate">Order Date</label>
                         <input type="date" id="orderdate" 
-                          value="03/02/2025" />                           
+                          value="03/02/2025" required>                           
                     </div>
                 </div>
                 
