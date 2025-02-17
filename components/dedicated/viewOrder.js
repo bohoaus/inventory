@@ -302,7 +302,9 @@ class ViewOrder {
                 <thead>
                     <tr>
                         <th>Item Code</th>
-                        <th>Order Qty</th>
+                        <th>Colour</th>
+                        <th>Packs</th>
+                        <th>Qty</th>
                         <th>Status</th>
                         <th>Added Date</th>
                         <th>Removed Date</th>
@@ -316,6 +318,8 @@ class ViewOrder {
                               (item) => `
                             <tr>
                                 <td>${item.code}</td>
+                                <td>${item.orderQty}</td>
+                                <td>${item.orderQty}</td>
                                 <td>${item.orderQty}</td>
                                 <td>${item.status || "-"}</td>
                                 <td>${this.formatValue(
