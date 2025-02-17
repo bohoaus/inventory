@@ -281,7 +281,7 @@ class ViewOrder {
                         <th>Qty</th>
                         <th>Item Code</th>
                         <th>Colour</th>
-                        <th>Pack</th>
+                        <th>Packs</th>
                         <th>Pack Size</th>
                         <th>Unit/P</th>
                         <th>Status</th>
