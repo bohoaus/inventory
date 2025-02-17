@@ -41,12 +41,12 @@ class WholesaleOrder {
                 <div class="customer-info">
                     <div class="form-group">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name">
+                        <input type="text" id="customer_name" required>
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state">
+                        <select id="agent_state" required>
                             <option value="">Select State</option>
                             <option value="AUS-ACT">ACT</option>
                             <option value="AUS-NSW">NSW</option>
@@ -60,12 +60,7 @@ class WholesaleOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="orderdate">Order Date</label>
-                        <input type="date" id="orderdate">                           
-                    </div>
                 </div>
-                
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order">
