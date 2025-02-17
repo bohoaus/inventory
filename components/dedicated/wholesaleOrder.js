@@ -1,6 +1,5 @@
 class WholesaleOrder {
   constructor() {
-    //this.orderdate = new Date().toISOString();
     this.orderType = "wholesale";
     this.tempOrderList = [];
     this.tempStockChanges = [];
