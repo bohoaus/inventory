@@ -524,7 +524,6 @@ class WholesaleOrder {
         .from("orders")
         .insert([
           {
-            orderdate: orderDate,
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
