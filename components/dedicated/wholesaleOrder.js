@@ -60,6 +60,10 @@ class WholesaleOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="orderdate" required>Order Date</label>
+                        <input type="Date" id="orderdate">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
