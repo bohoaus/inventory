@@ -41,7 +41,7 @@ class WholesaleOrder {
                 <div class="customer-info">
                     <div class="form-group">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" required>
+                        <input type="text" id="customer_name">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group">
@@ -62,8 +62,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="orderdate">Order Date</label>
-                        <input type="date" id="orderdate" 
-                          value="03/02/2025" required>                           
+                        <input type="date" id="orderdate">                           
                     </div>
                 </div>
                 
