@@ -31,7 +31,7 @@ class AdminOrder {
     this.selectedColumns = new Set(this.tableStructure.map((col) => col.id));
 
     this.currentPage = 1;
-    this.rowsPerPage = 10;
+    this.rowsPerPage = 25;
 
     // Add sorting state
     this.sortColumn = "orderdate";
