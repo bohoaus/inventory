@@ -318,8 +318,8 @@ class ViewOrder {
                               (item) => `
                             <tr>
                                 <td>${item.code}</td>
-                                <td>${item.orderQty}</td>
-                                <td>${item.orderQty}</td>
+                                <td>${item.orderColour}</td>
+                                <td>${item.orderPack}</td>
                                 <td>${item.orderQty}</td>
                                 <td>${item.status || "-"}</td>
                                 <td>${this.formatValue(
@@ -995,6 +995,8 @@ class ViewOrder {
         // For ODM orders - show all history entries
         return items.map((item) => ({
           code: item.item_name,
+          orderColour: item.oicolour,
+          orderPack: item.order_qty,
           orderQty: item.total_pieces || "-",
           addedDate:
             item.order_item_status !== "REMOVED" ? item.created_at : null,
@@ -1013,7 +1015,9 @@ class ViewOrder {
             // Initialize new item entry
             itemHistory[itemKey] = {
               code: item.item_name,
-              orderQty: item.order_qty || "-",
+              orderColour: item.oicolour,
+              orderPack: item.order_qty || "-",
+              orderQty: item.total_pieces || "-",
               addedDate: item.created_at, // Always store created_at as added date
               removedDate: status === "REMOVED" ? item.updated_at : null,
               status: status,
@@ -1038,6 +1042,8 @@ class ViewOrder {
           .sort((a, b) => new Date(a.addedDate) - new Date(b.addedDate))
           .map((item) => ({
             code: item.code,
+            orderColour: item.orderColour,
+            orderPack: item.orderPack,
             orderQty: item.orderQty,
             addedDate: item.addedDate,
             removedDate: item.removedDate,
