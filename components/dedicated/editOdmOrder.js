@@ -1031,14 +1031,15 @@ class EditOdmOrder {
                         <label for="dispatched_state">Dispatch State*</label>
                         <select id="dispatched_state" name="dispatched_state" required>
                             <option value="">Select State</option>
-                            <option value="QLD">QLD</option>
-                            <option value="NSW">NSW</option>
-                            <option value="SA">SA</option>
-                            <option value="VIC">VIC</option>
-                            <option value="WA">WA</option>
+                            <option value="AUS-ACT">AUS-ACT</option>
+                            <option value="AUS-NSW">AUS-NSW</option>
+                            <option value="AUS-NT">AUS-NT</option>
+                            <option value="AUS-QLD">AUS-QLD</option>
+                            <option value="AUS-SA">AUS-SA</option>
+                            <option value="AUS-TAS">AUS-TAS</option>
+                            <option value="AUS-VIC">AUS-VIC</option>
+                            <option value="AUS-WA">AUS-WA</option>
                             <option value="NZ">NZ</option>
-                            <option value="NT">NT</option>
-                            <option value="ACT">ACT</option>
                             <option value="OTHERS">OTHERS</option>
                         </select>
                     </div>
