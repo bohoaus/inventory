@@ -502,6 +502,8 @@ class WholesaleOrder {
 
   async submitOrder() {
     try {
+      const orderDate = document
+        .getElementById("orderdate");
       const customerName = document
         .getElementById("customer_name")
         .value.trim()
@@ -520,6 +522,7 @@ class WholesaleOrder {
         .from("orders")
         .insert([
           {
+            orderdate: orderDate,
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
