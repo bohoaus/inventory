@@ -255,7 +255,7 @@ class OdmItem {
                 <label for="odm_customer">ODM Customer</label>
                 <select name="odm_customer">
                     <option value="">Select Customer</option>
-                    ${sodm_customer
+                    ${sodm_customers
                       .map(
                         (sodmc) => `
                         <option value="${sodmc}" ${
