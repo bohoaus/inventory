@@ -122,7 +122,7 @@ class Auth {
         case "staff":
           window.location.href = "staff/dashboard.html";
           break;
-        case "warehouse":
+        case "stock":
           window.location.href = "warehouse/wdashboard.html";
           break;
         default:
