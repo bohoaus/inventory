@@ -121,42 +121,42 @@ class EditWholesaleOrder {
                           orderData.agent_state?.toUpperCase() === "AUS-ACT"
                             ? "selected"
                             : ""
-                        }>ACT</option>
+                        }>AUS-ACT</option>
                         <option value="AUS-NSW" ${
                           orderData.agent_state?.toUpperCase() === "AUS-NSW"
                             ? "selected"
                             : ""
-                        }>NSW</option>
+                        }>AUS-NSW</option>
                         <option value="AUS-NT" ${
                           orderData.agent_state?.toUpperCase() === "AUS-NT"
                             ? "selected"
                             : ""
-                        }>NT</option>
+                        }>AUS-NT</option>
                         <option value="AUS-QLD" ${
                           orderData.agent_state?.toUpperCase() === "AUS-QLD"
                             ? "selected"
                             : ""
-                        }>QLD</option>
+                        }>AUS-QLD</option>
                         <option value="AUS-SA" ${
                           orderData.agent_state?.toUpperCase() === "AUS-SA"
                             ? "selected"
                             : ""
-                        }>SA</option>
+                        }>AUS-SA</option>
                         <option value="AUS-TAS" ${
                           orderData.agent_state?.toUpperCase() === "AUS-TAS"
                             ? "selected"
                             : ""
-                        }>TAS</option>
+                        }>AUS-TAS</option>
                         <option value="AUS-VIC" ${
                           orderData.agent_state?.toUpperCase() === "AUS-VIC"
                             ? "selected"
                             : ""
-                        }>VIC</option>
+                        }>AUS-VIC</option>
                         <option value="AUS-WA" ${
                           orderData.agent_state?.toUpperCase() === "AUS-WA"
                             ? "selected"
                             : ""
-                        }>WA</option>
+                        }>AUS-WA</option>
                         <option value="Others" ${
                           orderData.agent_state?.toUpperCase() === "OTHERS"
                             ? "selected"
