@@ -227,42 +227,42 @@ class EditOdmOrder {
                     <select id="agent_state" required>
                         <option value="">Select State</option>
                         <option value="AUS-ACT" ${
-                          orderData.agent_state?.toUpperCase() === "ACT"
+                          orderData.agent_state?.toUpperCase() === "AUS-ACT"
                             ? "selected"
                             : ""
                         }>ACT</option>
                         <option value="AUS-NSW" ${
-                          orderData.agent_state?.toUpperCase() === "NSW"
+                          orderData.agent_state?.toUpperCase() === "AUS-NSW"
                             ? "selected"
                             : ""
                         }>NSW</option>
                         <option value="AUS-NT" ${
-                          orderData.agent_state?.toUpperCase() === "NT"
+                          orderData.agent_state?.toUpperCase() === "AUS-NT"
                             ? "selected"
                             : ""
                         }>NT</option>
                         <option value="AUS-QLD" ${
-                          orderData.agent_state?.toUpperCase() === "QLD"
+                          orderData.agent_state?.toUpperCase() === "AUS-QLD"
                             ? "selected"
                             : ""
                         }>QLD</option>
                         <option value="AUS-SA" ${
-                          orderData.agent_state?.toUpperCase() === "SA"
+                          orderData.agent_state?.toUpperCase() === "AUS-SA"
                             ? "selected"
                             : ""
                         }>SA</option>
                         <option value="AUS-TAS" ${
-                          orderData.agent_state?.toUpperCase() === "TAS"
+                          orderData.agent_state?.toUpperCase() === "AUS-TAS"
                             ? "selected"
                             : ""
                         }>TAS</option>
                         <option value="AUS-VIC" ${
-                          orderData.agent_state?.toUpperCase() === "VIC"
+                          orderData.agent_state?.toUpperCase() === "AUS-VIC"
                             ? "selected"
                             : ""
                         }>VIC</option>
                         <option value="AUS-WA" ${
-                          orderData.agent_state?.toUpperCase() === "WA"
+                          orderData.agent_state?.toUpperCase() === "AUS-WA"
                             ? "selected"
                             : ""
                         }>WA</option>
