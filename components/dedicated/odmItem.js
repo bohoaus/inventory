@@ -181,7 +181,7 @@ class OdmItem {
       "Wool+",
     ];
 
-    const sodm_customer = [
+    const sodm_customers = [
       "CIRCLE OF FRIEND",
       "COCO AND BLUSH",
       "EVERGREEN CLOTHNG",
