@@ -413,7 +413,7 @@
 
 /* Table row hover effect */
 #orderTable tbody tr:hover td {
-  background-color: #f8f9fa;
+  background-color: #87CEEB;
 }
 
 #orderTable tbody tr:hover .actions-cell {
