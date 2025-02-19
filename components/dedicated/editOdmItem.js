@@ -188,6 +188,13 @@ class EditOdmItem {
                  value="${item.swsp2 || "0"}">
         </div>
         
+            <div class="form-group">
+                    <label for="release_date">Release Date</label>
+                    <input type="timestamp" 
+                           name="release_date" placeholder="yyyy-mm-dd" 
+                           value="${item.release_date || ""}">
+            </div>
+        
         <div class="form-group">
           <label for="item_note">Note</label>
           <textarea name="item_note" 
