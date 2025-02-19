@@ -196,11 +196,11 @@
 }
 
 .Salesinventory-tr:hover {
-  background-color: #f8f9fa;
+  background-color: #FFFF00;
 }
 
 .Salesinventory-status-out {
-  color: #dc3545;
+  color: #FF0000;
 }
 
 .Salesinventory-status-low {
