@@ -111,6 +111,10 @@ class ViewItem {
                     <span class="label">Colour:</span>
                     <span class="value">${item.scolour || "-"}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Item Aging:</span>
+                    <span class="value">${item.item_aging || "0"}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -180,10 +184,6 @@ class ViewItem {
                     <span class="value">${this.formatDate(
                       item.updated_at
                     )}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Item Aging:</span>
-                    <span class="value">${item.item_aging || "0"}</span>
                 </div>
             </div>
 
