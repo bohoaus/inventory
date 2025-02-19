@@ -115,14 +115,6 @@ class ViewItem {
                     <span class="label">Fabric:</span>
                     <span class="value">${item.sfabric || "-"}</span>
                 </div>
-                <div class="detail-row">
-                    <span class="label">Factory:</span>
-                    <span class="value">${item.sfactory || "-"}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Country:</span>
-                    <span class="value">${item.scountry || "-"}</span>
-                </div>
             </div>
 
             <div class="detail-section">
@@ -221,17 +213,6 @@ class ViewItem {
                 </div>
             </div>
 
-            <div class="detail-section">
-                <h3>Sales Info:</h3>
-                <div class="detail-row">
-                    <span class="label">WSP:</span>
-                    <span class="value">${item.swsp || "-"}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">WSP2:</span>
-                    <span class="value">${item.swsp2 || "-"}</span>
-                </div>
-            </div>
         </div>
     `;
   }
