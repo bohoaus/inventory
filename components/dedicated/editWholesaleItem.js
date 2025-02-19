@@ -39,7 +39,6 @@ class EditWholesaleItem {
       "ARRIVED",
       "ON HOLD",
       "NOT RELEASED",
-      "NEW RELEASE",
       "FULL PRICE",
       "DISPATCHED",
       "ON SALE",
