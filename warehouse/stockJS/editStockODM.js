@@ -150,6 +150,14 @@ class EditOdmItem {
                  value="${item.item_location || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
+        
+          <div class="form-group">
+                    <label for="arrive_date">Arrive Date</label>
+                    <input type="date" 
+                           name="arrive_date" 
+                           value="${item.arrive_date || ""}">
+          </div>
+        
       </div>
 
       <div class="form-column">
