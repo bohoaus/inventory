@@ -40,6 +40,7 @@ class EditOdmItem {
       "ON HOLD",
       "PROCESSING",
       "DISPATCHED",
+      "OUT OF STOCK",
       "CANCELLED",
       "Issue & Return",
     ];
