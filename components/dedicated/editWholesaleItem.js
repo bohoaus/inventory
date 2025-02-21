@@ -151,6 +151,13 @@ class EditWholesaleItem {
                            name="soldout_date" 
                            value="${item.soldout_date || ""}">
                 </div>
+
+                <div class="form-group">
+                  <label for="swsp">WSP</label>
+                  <input type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
+                   name="swsp" 
+                   value="${item.swsp || ""}">
+                </div>
       </div>
 
       <div class="form-column">
@@ -196,6 +203,13 @@ class EditWholesaleItem {
                         }>Special</option>
                     </select>
             </div>
+
+                <div class="form-group">
+                  <label for="swsp2">WSP2</label>
+                  <input type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
+                   name="swsp2" 
+                   value="${item.swsp2 || ""}">
+                </div>
       </div>
 
       <!-- Full width sections -->
@@ -223,13 +237,6 @@ class EditWholesaleItem {
                     Add Size
                 </button>
             </div>
-
-                <div class="form-group">
-                  <label for="swsp">WSP</label>
-                  <input type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
-                   name="swsp" 
-                   value="${item.swsp || ""}">
-                </div>
         </div>
 
         <!-- Repeat Info (after pack size) -->
