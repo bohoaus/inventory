@@ -914,7 +914,7 @@ th[data-sort].sort-desc .sort-icon {
 .wholesale-form {
   min-width: 800px; /* Minimum width to prevent squishing */
   overflow-x: auto;
-  padding: 20px;
+  padding: 15px;
 }
 
 .customer-info {
