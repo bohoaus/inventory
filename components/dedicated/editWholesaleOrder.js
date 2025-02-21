@@ -105,7 +105,6 @@ class EditWholesaleOrder {
       form.innerHTML = `
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
-//                <h3>Order Information</h3>
             <div class="editwholesaleorder-row">
               <div class="editwholesaleorder-group">
                         <label>Customer Name</label>
