@@ -250,6 +250,10 @@ class ViewOrder {
                     <label>Tracking No:</label>
                     <span>${orderData.tracking_no || "-"}</span>
                 </div>
+                <div class="detail-item">
+                    <label>Tracking No:</label>
+                    <span>${orderData.tracking_no || "-"}</span>
+                </div>
             `
                 : ""
             }
