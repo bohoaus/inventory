@@ -228,8 +228,7 @@ class EditWholesaleItem {
                   <label for="swsp">WSP</label>
                   <input type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
                    name="swsp" 
-                   value="${item.swsp || ""}"
-                   onkeyup="this.value = this.value.toUpperCase()">
+                   value="${item.swsp || ""}">
                 </div>
         </div>
 
