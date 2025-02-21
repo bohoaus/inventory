@@ -251,9 +251,13 @@ class ViewOrder {
                     <span>${orderData.tracking_no || "-"}</span>
                 </div>
                 <div class="detail-item">
-                    <label>Tracking No:</label>
-                    <span>${orderData.tracking_no || "-"}</span>
                 </div>
+                <div class="detail-item">
+                </div>
+            <div class="detail-item" style="grid-column: 1 / -1;">
+                <label>Order Note:</label>
+                <span>${orderData.order_note || "-"}</span>
+            </div>
             `
                 : ""
             }
