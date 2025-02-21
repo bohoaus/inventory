@@ -476,8 +476,8 @@ class EditWholesaleItem {
         scolour: data.scolour,
         sfactory: data.sfactory,
         scountry: data.scountry,
-        swsp: data.swsp,
-        swsp2: data.swsp2,
+        swsp: data.swsp || null,
+        swsp2: data.swsp2 || null,
       };
 
       // Only include release_date if it's not empty
