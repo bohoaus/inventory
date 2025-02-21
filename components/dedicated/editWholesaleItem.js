@@ -223,6 +223,14 @@ class EditWholesaleItem {
                     Add Size
                 </button>
             </div>
+
+                <div class="form-group">
+                  <label for="swsp">WSP</label>
+                  <input type="number"  placeholder="0.00" 
+                   name="swsp" 
+                   value="${item.swsp || ""}"
+                   onkeyup="this.value = this.value.toUpperCase()">
+                </div>
         </div>
 
         <!-- Repeat Info (after pack size) -->
