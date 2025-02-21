@@ -186,14 +186,14 @@ class EditOdmItem {
           <label for="swsp">WSP</label>
           <input type="number" placeholder="00.00" 
                  name="swsp" 
-                 value="${item.swsp || "0"}">
+                 value="${item.swsp || "0.00"}">
         </div>
         
         <div class="form-group">
           <label for="swsp2">WSP2</label>
           <input type="number" placeholder="00.00" 
                  name="swsp2" 
-                 value="${item.swsp2 || "0"}">
+                 value="${item.swsp2 || "0.00"}">
         </div>
         
             <div class="form-group">
