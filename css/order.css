@@ -1656,8 +1656,8 @@ th[data-sort].sort-desc .sort-icon {
 /* Table Styles for Edit Wholesale Order */
 .tables-section {
   display: grid;
-  gap: 20px;
-  margin: 20px 0;
+  gap: 15px;
+  margin: 15px 0;
 }
 
 .table-container {
@@ -1674,7 +1674,7 @@ th[data-sort].sort-desc .sort-icon {
   border-bottom: 2px solid #e9ecef;
   color: #495057;
   font-size: 1.1em;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .data-table {
