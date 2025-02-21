@@ -225,11 +225,11 @@ class ViewItem {
                 <h3>Sales Info:</h3>
                 <div class="detail-row">
                     <span class="label">WSP:</span>
-                    <span class="value">${item.swsp || "-"}</span>
+                    <span class="value">${item.toFixed(2)  || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">WSP2:</span>
-                    <span class="value">${item.swsp2 || "-"}</span>
+                    <span class="value">${item.swsp2.toFixed(2) || "-"}</span>
                 </div>
             </div>
         </div>
