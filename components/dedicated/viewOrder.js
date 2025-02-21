@@ -177,8 +177,11 @@ class ViewOrder {
                 <span>${orderData.customer_name || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Order Type:</label>
-                <span>${orderData.order_type || "-"}</span>
+                <label>Order Date:</label>
+                <span>${this.formatValue(
+                  "orderdate",
+                  orderData.orderdate
+                )}</span>
             </div>
             <div class="detail-item">
                 <label>Agent State:</label>
@@ -194,7 +197,11 @@ class ViewOrder {
 
             <!-- Row 2 -->
             <div class="detail-item">
-                <label>Invoice No:</label>
+                <label>Order Type:</label>
+                <span>${orderData.order_type || "-"}</span>
+            </div>
+            <div class="detail-item">
+                <label>Invoice#:</label>
                 <span>${orderData.invoice_no || "-"}</span>
             </div>
             <div class="detail-item">
@@ -205,20 +212,13 @@ class ViewOrder {
                 <label>Dispatched Box:</label>
                 <span>${orderData.dispatched_box || "-"}</span>
             </div>
+
+            <!-- Row 3 -->
             <div class="detail-item">
                 <label>Dispatched At:</label>
                 <span>${this.formatValue(
                   "dispatched_at",
                   orderData.dispatched_at
-                )}</span>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="detail-item">
-                <label>Order Date:</label>
-                <span>${this.formatValue(
-                  "orderdate",
-                  orderData.orderdate
                 )}</span>
             </div>
             <div class="detail-item">
@@ -247,7 +247,7 @@ class ViewOrder {
               )
                 ? `
                 <div class="detail-item">
-                    <label>Tracking No:</label>
+                    <label>Tracking#:</label>
                     <span>${orderData.tracking_no || "-"}</span>
                 </div>
                 <div class="detail-item">
