@@ -252,7 +252,7 @@ class ViewOrder {
                 </div>
                 <div class="detail-item">
                 </div>
-            <div class="detail-item" style="grid-column: 1 / -1;">
+            <div class="detail-item">
                 <label>Order Note:</label>
                 <span>${orderData.order_note || "-"}</span>
             </div>
