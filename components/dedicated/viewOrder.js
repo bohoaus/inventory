@@ -184,15 +184,12 @@ class ViewOrder {
                 )}</span>
             </div>
             <div class="detail-item">
-                <label>Agent State:</label>
-                <span>${orderData.agent_state || "-"}</span>
+                <label>Dispatched State:</label>
+                <span>${orderData.dispatched_state || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Status:</label>
-                <span>${formatStatus(
-                  orderData.status,
-                  orderData.cancelled_at
-                )}</span>
+                <label>Dispatched Box:</label>
+                <span>${orderData.dispatched_box || "-"}</span>
             </div>
 
             <!-- Row 2 -->
@@ -205,12 +202,15 @@ class ViewOrder {
                 <span>${orderData.invoice_no || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Dispatched State:</label>
-                <span>${orderData.dispatched_state || "-"}</span>
+                <label>Status:</label>
+                <span>${formatStatus(
+                  orderData.status,
+                  orderData.cancelled_at
+                )}</span>
             </div>
             <div class="detail-item">
-                <label>Dispatched Box:</label>
-                <span>${orderData.dispatched_box || "-"}</span>
+                <label>Agent State:</label>
+                <span>${orderData.agent_state || "-"}</span>
             </div>
 
             <!-- Row 3 -->
