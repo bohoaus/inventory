@@ -280,7 +280,7 @@ class ViewOrder {
             <table>
                 <thead>
                     <tr>
-                        <th>Location</th>
+                        <th>Site</th>
                         <th>Qty</th>
                         <th>Item Code</th>
                         <th>Colour</th>
