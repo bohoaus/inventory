@@ -42,6 +42,7 @@
 
 .editwholesaleorder-group {
   flex: 1;
+  min-width: 100px;
 }
 
 .editwholesaleorder-group label {
