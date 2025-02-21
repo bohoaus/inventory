@@ -252,6 +252,8 @@ class ViewOrder {
                 </div>
             `
                 <div class="detail-item">
+                    <label></label>
+                    <span></span>
                 </div>
             `
                 <div class="detail-item">
