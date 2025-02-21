@@ -106,7 +106,7 @@ class EditWholesaleOrder {
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
-              <div class="editwholesaleorder-group">
+              <div class="editwholesaleorder-group" style="display:flex;>
                         <label>Customer Name</label>
                         <input type="text" value="${
                           orderData.customer_name || ""
