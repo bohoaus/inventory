@@ -260,11 +260,8 @@ class ViewOrder {
                 : ""
             }
 
-            <!-- Order Note (Full Width) -->
-            <div class="detail-item" style="grid-column: 1 / -1;">
-                <label>Order Note:</label>
-                <span>${orderData.order_note || "-"}</span>
-            </div>
+            <!-- Order Note (Full Width) jim 25.02.22-->
+
         </div>
     `;
   }
