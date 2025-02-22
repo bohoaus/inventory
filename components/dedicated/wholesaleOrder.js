@@ -44,11 +44,11 @@ class WholesaleOrder {
                         <input type="text" id="customer_name" required>
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100px">
                         <label for="orderdate" required>Order Date</label>
                         <input type="Date" id="orderdate">
                     </div>
-                     <div class="form-group">
+                     <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state" required>
                             <option value="">Select State</option>
