@@ -76,21 +76,6 @@ class OdmOrder {
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dispatched_box">Dispatched Box</label>
-                        <input type="text" id="dispatched_box">
-                    </div>
-                    <div class="form-group">
-                        <label for="opo">PPO#</label>
-                        <input type="text" id="opo" placeholder="PO#">
-                    </div>
-                    <div class="form-group">
-                        <label for="dispatched_at">Dispatched At</label>
-                        <input type="datetime-local" id="dispatched_at">
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order">
