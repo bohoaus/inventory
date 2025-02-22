@@ -196,8 +196,8 @@ class ProcessOrder {
         orderData.orderdate?.toUpperCase() || "-";
       document.getElementById("agentState").textContent =
         orderData.agent_state?.toUpperCase() || "-";
-      //document.getElementById("totalItems").textContent =
-      //  orderData.total_items? || "-";
+      document.getElementById("totalItems").textContent =
+        orderData.total_items? || "0";
       document.getElementById("orderType").textContent =
         orderData.order_type?.toUpperCase() || "-";
       document.getElementById("orderStatus").textContent =
