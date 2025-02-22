@@ -64,7 +64,7 @@ class WholesaleOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100px">
                         <label for="opo">PPO#</label>
                         <input type="text" id="opo" placeholder="PO#">
                     </div>
