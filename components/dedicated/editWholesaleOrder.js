@@ -182,7 +182,7 @@ class EditWholesaleOrder {
                     <h3>Order List</h3>
               <div class="table-actions">
                     <h3 style="text-align:left">Order List</h3>
-                <button onclick="editWholesaleOrder.removeAllItems()" class="editwholesaleorder-btn-secondary">
+                <button style="text-align:right" onclick="editWholesaleOrder.removeAllItems()" class="editwholesaleorder-btn-secondary">
                   Remove All
                 </button>
               </div>
