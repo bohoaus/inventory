@@ -194,7 +194,6 @@ class EditWholesaleOrder {
                             <tr>
                                 <th>Code</th>
                                 <th>Colour</th>
-                                <th>Pack Unit</th>
                                 <th>Unit/P</th>
                                 <th>Packs</th>
                                 <th>T-Pieces</th>
