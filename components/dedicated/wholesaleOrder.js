@@ -88,7 +88,7 @@ class WholesaleOrder {
                             <span id="itemCode" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>Clour</label>
+                            <label>Colour</label>
                             <span id="itemColour" class="info-value"></span>
                         </div>
                         <div class="info-card">
@@ -124,7 +124,7 @@ class WholesaleOrder {
                                 <tr>
                                     <th>Item Code</th>
                                     <th>Colour</th>
-                                    <th>Description</th>
+                                    <th>Category</th>
                                     <th>RemainingStock</th>
                                     <th>CurrentStatus</th>
                                     <th>StatusChange</th>
@@ -141,7 +141,7 @@ class WholesaleOrder {
                                 <tr>
                                     <th>Item Code</th>
                                     <th>Colour</th>
-                                    <th>Name</th>
+                                    <th>Category</th>
                                     <th>Unit/P</th>
                                     <th>Packs</th>
                                     <th>T-Pieces</th>
@@ -561,7 +561,7 @@ class WholesaleOrder {
           oiprice: item.swsp2,
           oisales: item.sprice,
           oifabric: item.sfabric,
-          oicategory: item.item_category,
+          oicategory: item.item_name,
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
