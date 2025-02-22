@@ -114,7 +114,7 @@ class EditWholesaleOrder {
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label for="agent_state" style="text-align:center; display: block; width: 200px">Agent State</label>
-                      <select id="agent_state" required>
+                      <select style="color:blue" id="agent_state" required>
                             <option value="">Select State</option>
                         <option value="AUS-ACT" ${
                           orderData.agent_state?.toUpperCase() === "AUS-ACT"
@@ -171,7 +171,7 @@ class EditWholesaleOrder {
                 </div>
             <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                     <label for="order_note" style="text-align:left; display: block; width: 100px">Order Note</label>
-              <textarea id="order_note" rows="1" placeholder="Add note for this order">${
+              <textarea style="color:blue" id="order_note" rows="1" placeholder="Add note for this order">${
                 orderData.order_note || ""
               }</textarea>
                 </div>
