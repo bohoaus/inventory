@@ -248,13 +248,17 @@ class ViewOrder {
                 ? `
                 <div class="detail-item">
                     <label>Tracking#:</label>
-                    <span>${orderData.tracking_no || "-"}</span>
+                    <span style="color:blue">${orderData.tracking_no || "-"}</span>
                 </div>
                 <div class="detail-item">
                 </div>
             <div class="detail-item">
+                <label>PPO#:</label>
+                <span style="color:blue">${orderData.opo || "-"}</span>
+            </div>
+            <div class="detail-item">
                 <label>Order Note:</label>
-                <span>${orderData.order_note || "-"}</span>
+                <span style="color:blue">${orderData.order_note || "-"}</span>
             </div>
             `
                 : ""
