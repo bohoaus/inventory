@@ -168,8 +168,8 @@ class ViewOrder {
         <div class="details-grid" style="
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            padding: 15px;
+            gap: 10px;
+            padding: 10px;
         ">
             <!-- Row 1 -->
             <div class="detail-item">
