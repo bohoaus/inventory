@@ -194,10 +194,10 @@ class ProcessOrder {
         orderData.customer_name || "-";
       document.getElementById("orderDate").textContent =
         orderData.orderdate?.toUpperCase() || "-";
-      //document.getElementById("agentState").textContent =
-      //  orderData.agent_state?.toUpperCase() || "-";
-      document.getElementById("totalItems").textContent =
-        orderData.total_items? || "-";
+      document.getElementById("agentState").textContent =
+        orderData.agent_state?.toUpperCase() || "-";
+      //document.getElementById("totalItems").textContent =
+      //  orderData.total_items? || "-";
       document.getElementById("orderType").textContent =
         orderData.order_type?.toUpperCase() || "-";
       document.getElementById("orderStatus").textContent =
