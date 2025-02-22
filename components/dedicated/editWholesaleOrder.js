@@ -112,7 +112,7 @@ class EditWholesaleOrder {
                           orderData.customer_name || ""
                         }" disabled>
                     </div>
-              <div class="editwholesaleorder-group">
+              <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label for="agent_state">Agent State</label>
                       <select id="agent_state" required>
                             <option value="">Select State</option>
@@ -169,7 +169,7 @@ class EditWholesaleOrder {
                       </select>
                     </div>
                 </div>
-            <div class="editwholesaleorder-group">
+            <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                     <label for="order_note">Order Note</label>
               <textarea id="order_note" rows="2" placeholder="Add note for this order">${
                 orderData.order_note || ""
