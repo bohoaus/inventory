@@ -182,7 +182,7 @@ class ProcessOrder {
       // Update order info in modal
       document.getElementById("customerName").textContent =
         orderData.customer_name || "-";
-      document.getElementById("orderType").textContent =
+      document.getElementById("orderDate").textContent =
         orderData.orderdate?.toUpperCase() || "-";
       document.getElementById("orderType").textContent =
         orderData.order_type?.toUpperCase() || "-";
