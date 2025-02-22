@@ -1196,8 +1196,8 @@ th[data-sort].sort-desc .sort-icon {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 30px;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 8px;
 }
@@ -1205,7 +1205,7 @@ th[data-sort].sort-desc .sort-icon {
 .detail-column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 .detail-item {
@@ -1227,7 +1227,7 @@ th[data-sort].sort-desc .sort-icon {
 
 .no-data {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   color: #666;
   font-style: italic;
   background: #f8f9fa;
@@ -1289,26 +1289,26 @@ th[data-sort].sort-desc .sort-icon {
 
 .export-pdf-btn:before {
   content: "📄";
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* Style for the order items table in PDF */
 .active-items table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .active-items table th,
 .active-items table td {
   border: 1px solid #ddd;
   padding: 12px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .active-items table th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Add item button styling */
@@ -1691,7 +1691,7 @@ th[data-sort].sort-desc .sort-icon {
   padding: 12px;
   border: 1px solid #dee2e6;
   text-align: left;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .data-table th {
