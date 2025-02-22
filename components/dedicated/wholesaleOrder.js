@@ -65,14 +65,14 @@ class WholesaleOrder {
                         <input type="Date" id="orderdate">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group2" style="text-align:left; display: block; width: 100px">
                     <label for="order_note">Order Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order">
                 </div>
 
                 <div class="item-search">
-                    <div class="form-group">
-                        <label for="itemSearch">Search Item</label>
+                    <div class="form-group2">
+                        <label for="itemSearc style="text-align:left; display: block; width: 100px"h">Search Item</label>
                         <input type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
