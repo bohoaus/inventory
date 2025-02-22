@@ -353,8 +353,8 @@ class AdminInventory {
     const categoryFilter = document.createElement("div");
     categoryFilter.className = "filter-group";
     const categories = await this.getUniqueValues("item_category");
+//        <label>Category:</label>
     categoryFilter.innerHTML = `
-        <label>Category:</label>
         <select id="categoryFilter">
             <option value="">All Categories</option>
             ${categories
@@ -367,8 +367,8 @@ class AdminInventory {
     const statusFilter = document.createElement("div");
     statusFilter.className = "filter-group";
     const statuses = await this.getUniqueValues("item_status");
+//        <label>Status:</label>
     statusFilter.innerHTML = `
-        <label>Status:</label>
         <select id="statusFilter">
             <option value="">All Statuses</option>
             ${statuses
