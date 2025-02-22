@@ -3,6 +3,8 @@ class ProcessOrder {
     this.orderId = null;
     this.orderType = null;
     this.orderDate = null;
+    this.agentState = null;
+    this.totalItems = null;
     this.orderData = null;
     this.modal = null;
     this.isHeld = false;
@@ -33,6 +35,14 @@ class ProcessOrder {
                 <div class="info-item">
                   <label>Order Date:</label>
                   <span id="orderDate"></span>
+                </div>
+                <div class="info-item">
+                  <label>D-State:</label>
+                  <span id="agentState"></span>
+                </div>
+                <div class="info-item">
+                  <label>T-Items:</label>
+                  <span id="totalItems"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
@@ -184,6 +194,10 @@ class ProcessOrder {
         orderData.customer_name || "-";
       document.getElementById("orderDate").textContent =
         orderData.orderdate?.toUpperCase() || "-";
+      document.getElementById("agentState").textContent =
+        orderData.agent_state?.toUpperCase() || "-";
+      document.getElementById("totalItems").textContent =
+        orderData.total_items?.toUpperCase() || "-";
       document.getElementById("orderType").textContent =
         orderData.order_type?.toUpperCase() || "-";
       document.getElementById("orderStatus").textContent =
