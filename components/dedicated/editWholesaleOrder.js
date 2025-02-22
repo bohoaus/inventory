@@ -59,6 +59,9 @@ class EditWholesaleOrder {
             *,
             inventory:item_name(
               code_colour,
+              scolour,
+              sprice,
+              swsp2,
               item_name,
               pack_unit,
               item_status
@@ -190,9 +193,12 @@ class EditWholesaleOrder {
                         <thead>
                             <tr>
                                 <th>Code</th>
-                    <th>Pack Unit</th>
-                                <th>Order Qty</th>
-                                <th>Total Pieces</th>
+                                <th>Colour</th>
+                                <th>Pack Unit</th>
+                                <th>Unit/P</th>
+                                <th>Packs</th>
+                                <th>T-Pieces</th>
+                                <th>Price</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -209,7 +215,8 @@ class EditWholesaleOrder {
                             <tr>
                                 <th>Time</th>
                                 <th>Item Code</th>
-                    <th>Status</th>
+                                <th>Colour</th>
+                                <th>Status</th>
                                 <th>Change Type</th>
                                 <th>Old Value</th>
                                 <th>New Value</th>
@@ -562,6 +569,8 @@ class EditWholesaleOrder {
       // Add new item
       this.tempOrderList.push({
         code_colour: this.selectedItem.code_colour,
+        scolour: this.selectedItem.scolour,
+        sprice: this.selectedItem.sprice,
         pack_unit: this.selectedItem.pack_unit,
         order_qty: orderQty,
         total_pieces: isOutOfStock
@@ -703,6 +712,8 @@ class EditWholesaleOrder {
           .upsert({
             order_id: this.orderId,
             item_name: item.code_colour,
+            oicolour: this.scolour,
+            oiprice: this.swsp2,
             order_qty: item.order_qty,
             pack_unit: item.pack_unit,
             order_item_status: item.status,
@@ -795,9 +806,11 @@ class EditWholesaleOrder {
               (item) => `
           <tr>
             <td>${item.code_colour}</td>
+            <td>${item.scolour}</td>
             <td>${item.pack_unit}</td>
             <td>${item.order_qty}</td>
             <td>${item.total_pieces}</td>
+            <td>${item.sprice}</td>
             <td>${item.status}</td>
             <td>
               <button onclick="editWholesaleOrder.removeItem('${item.code_colour}')" 
