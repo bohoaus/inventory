@@ -88,6 +88,10 @@ class WholesaleOrder {
                             <span id="itemCode" class="info-value"></span>
                         </div>
                         <div class="info-card">
+                            <label>Clour</label>
+                            <span id="itemColour" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
                             <label>Item Name</label>
                             <span id="itemName" class="info-value"></span>
                         </div>
@@ -96,11 +100,11 @@ class WholesaleOrder {
                             <span id="itemStatus" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>Pack Unit</label>
+                            <label>Unit/P</label>
                             <span id="packUnit" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>On Hand</label>
+                            <label>OnHand</label>
                             <span id="onHand" class="info-value"></span>
                         </div>
                     </div>
@@ -557,6 +561,7 @@ class WholesaleOrder {
           oiprice: item.swsp2,
           oisales: item.sprice,
           oifabric: item.sfabric,
+          oicategory: item.item_category,
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
