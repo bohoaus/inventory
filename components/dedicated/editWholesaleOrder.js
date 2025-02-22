@@ -81,6 +81,8 @@ class EditWholesaleOrder {
       // Store original order items
       this.originalOrderItems = orderItems.map((item) => ({
         code_colour: item.item_name,
+        scolour: item.oicolour,
+        sprice: item.oisales,
         pack_unit: item.inventory.pack_unit,
         order_qty: item.order_qty,
         total_pieces:
