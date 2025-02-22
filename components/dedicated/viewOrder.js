@@ -194,22 +194,22 @@ class ViewOrder {
 
             <!-- Row 2 -->
             <div class="detail-item">
-                <label>Order Type:</label>
+                <label style="text-align:left; display: block; width: 200px">Order Type:</label>
                 <span>${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Invoice#:</label>
+                <label style="text-align:left; display: block; width: 200px">Invoice#:</label>
                 <span>${orderData.invoice_no || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Status:</label>
+                <label style="text-align:left; display: block; width: 200px">Status:</label>
                 <span>${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
                 )}</span>
             </div>
             <div class="detail-item">
-                <label>Agent State:</label>
+                <label style="text-align:left; display: block; width: 200px">Agent State:</label>
                 <span>${orderData.agent_state || "-"}</span>
             </div>
 
@@ -231,8 +231,8 @@ class ViewOrder {
             <div class="detail-item">
                 <label>Items Count:</label>
                 <span>Total: ${orderData.total_items || "0"} / Removed: ${
-      orderData.removed_items || "0"
-    }</span>
+                  orderData.removed_items || "0"
+                }</span>
             </div>
             <div class="detail-item">
                 <label>Dispatched Carrier:</label>
