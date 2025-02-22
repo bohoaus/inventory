@@ -1214,6 +1214,11 @@ th[data-sort].sort-desc .sort-icon {
   gap: 5px;
 }
 
+.detail-item2 {
+  display: flex;
+  gap: 5px;
+}
+
 .detail-label {
   font-weight: 500;
   color: #666;
