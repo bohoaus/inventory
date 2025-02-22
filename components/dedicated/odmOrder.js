@@ -42,6 +42,10 @@ class OdmOrder {
                         <input type="text" id="customer_name">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
+                    <div class="form-group">
+                        <label for="opo">PPO#</label>
+                        <input type="text" id="opo" placeholder="PO#">
+                    </div>
                     <div class="form-group required">
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state">
