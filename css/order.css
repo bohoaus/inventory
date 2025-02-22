@@ -1216,6 +1216,7 @@ th[data-sort].sort-desc .sort-icon {
 
 .detail-item2 {
   display: flex;
+  flex-direction: row;
   gap: 5px;
 }
 
