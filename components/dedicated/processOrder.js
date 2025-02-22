@@ -2,6 +2,7 @@ class ProcessOrder {
   constructor() {
     this.orderId = null;
     this.orderType = null;
+    this.orderDate = null;
     this.orderData = null;
     this.modal = null;
     this.isHeld = false;
@@ -28,6 +29,10 @@ class ProcessOrder {
                 <div class="info-item">
                   <label>Customer:</label>
                   <span id="customerName"></span>
+                </div>
+                <div class="info-item">
+                  <label>Order Date:</label>
+                  <span id="orderDate"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
@@ -177,6 +182,8 @@ class ProcessOrder {
       // Update order info in modal
       document.getElementById("customerName").textContent =
         orderData.customer_name || "-";
+      document.getElementById("orderType").textContent =
+        orderData.orderdate?.toUpperCase() || "-";
       document.getElementById("orderType").textContent =
         orderData.order_type?.toUpperCase() || "-";
       document.getElementById("orderStatus").textContent =
