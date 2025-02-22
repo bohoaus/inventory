@@ -89,10 +89,10 @@
   color: #495057;
 }
 
+/*  justify-content: flex-end; */
 .table-actions {
   margin-bottom: 10px;
   display: flex;
-  justify-content: flex-end;
 }
 
 .editwholesaleorder-table {
