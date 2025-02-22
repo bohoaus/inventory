@@ -59,7 +59,7 @@ class OdmOrder {
                         </select>
                     </div>
                     <div class="form-group required">
-                        <label for="orderdate">Order Date</label>
+                        <label for="orderdate">Request Date</label>
                         <input type="date" id="orderdate">
                     </div>
                 </div>
@@ -68,6 +68,10 @@ class OdmOrder {
                     <div class="form-group">
                         <label for="dispatched_box">Dispatched Box</label>
                         <input type="text" id="dispatched_box">
+                    </div>
+                    <div class="form-group">
+                        <label for="opo">PPO#</label>
+                        <input type="text" id="opo" placeholder="PO#">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_at">Dispatched At</label>
