@@ -4,7 +4,7 @@ class ProcessOrder {
     this.orderType = null;
     this.orderDate = null;
     this.agentState = null;
-    this.totalItems = null;
+    //this.totalItems = null;
     this.orderData = null;
     this.modal = null;
     this.isHeld = false;
@@ -196,8 +196,8 @@ class ProcessOrder {
         orderData.orderdate?.toUpperCase() || "-";
       document.getElementById("agentState").textContent =
         orderData.agent_state?.toUpperCase() || "-";
-      //document.getElementById("totalItems").textContent =
-      //  orderData.total_items? || "-";
+      document.getElementById("totalItems").textContent =
+        orderData.total_items? || "-";
       document.getElementById("orderType").textContent =
         orderData.order_type?.toUpperCase() || "-";
       document.getElementById("orderStatus").textContent =
