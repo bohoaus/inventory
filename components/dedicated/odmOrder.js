@@ -42,9 +42,13 @@ class OdmOrder {
                         <input type="text" id="customer_name">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
+                    <div class="form-group required">
+                        <label for="orderdate">Request Date</label>
+                        <input type="date" id="orderdate">
+                    </div>
                     <div class="form-group">
-                        <label for="opo">PPO#</label>
-                        <input type="text" id="opo" placeholder="PO#">
+                        <label for="dispatched_at">Dispatched At</label>
+                        <input type="datetime-local" id="dispatched_at">
                     </div>
                     <div class="form-group required">
                         <label for="agent_state">Agent State</label>
@@ -62,9 +66,13 @@ class OdmOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
-                    <div class="form-group required">
-                        <label for="orderdate">Request Date</label>
-                        <input type="date" id="orderdate">
+                    <div class="form-group">
+                        <label for="opo">PPO#</label>
+                        <input type="text" id="opo" placeholder="PO#">
+                    </div>
+                    <div class="form-group">
+                        <label for="dispatched_box">Dispatched Box</label>
+                        <input type="text" id="dispatched_box">
                     </div>
                 </div>
 
