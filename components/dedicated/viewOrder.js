@@ -209,7 +209,7 @@ class ViewOrder {
                 )}</span>
             </div>
             <div class="detail-item2">
-                <label style="text-align:left; display: block; width: 200px">Agent State:</label>
+                <label style="text-align:left; display: block; width: 100px">Agent State:</label>
                 <span>${orderData.agent_state || "-"}</span>
             </div>
 
