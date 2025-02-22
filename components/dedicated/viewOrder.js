@@ -195,22 +195,22 @@ class ViewOrder {
             <!-- Row 2 -->
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Order Type:</label>
-                <span>${orderData.order_type || "-"}</span>
+                <span style="color:skyblue">${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Invoice#:</label>
-                <span>${orderData.invoice_no || "-"}</span>
+                <span style="color:skyblue">${orderData.invoice_no || "-"}</span>
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Status:</label>
-                <span>${formatStatus(
+                <span style="color:skyblue">${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
                 )}</span>
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Agent State:</label>
-                <span>${orderData.agent_state || "-"}</span>
+                <span style="color:skyblue">${orderData.agent_state || "-"}</span>
             </div>
 
             <!-- Row 3 -->
