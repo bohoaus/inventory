@@ -45,8 +45,8 @@ class WholesaleOrder {
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group">
-                        <label for="opo">PPO#</label>
-                        <input type="text" id="opo" placeholder="PO#">
+                        <label for="orderdate" required>Order Date</label>
+                        <input type="Date" id="orderdate">
                     </div>
                      <div class="form-group">
                         <label for="agent_state">Agent State</label>
@@ -65,8 +65,8 @@ class WholesaleOrder {
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate">
+                        <label for="opo">PPO#</label>
+                        <input type="text" id="opo" placeholder="PO#">
                     </div>
                 </div>
                 <div class="form-group">
