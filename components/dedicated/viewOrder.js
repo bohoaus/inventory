@@ -194,15 +194,15 @@ class ViewOrder {
 
             <!-- Row 2 -->
             <div class="detail-item2">
-                <label style="text-align:left; display: block; width: 200px">Order Type:</label>
+                <label style="text-align:left; display: block; width: 100px">Order Type:</label>
                 <span>${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item2">
-                <label style="text-align:left; display: block; width: 200px">Invoice#:</label>
+                <label style="text-align:left; display: block; width: 100px">Invoice#:</label>
                 <span>${orderData.invoice_no || "-"}</span>
             </div>
             <div class="detail-item2">
-                <label style="text-align:left; display: block; width: 200px">Status:</label>
+                <label style="text-align:left; display: block; width: 100px">Status:</label>
                 <span>${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
