@@ -385,6 +385,8 @@ class WholesaleOrder {
           return `
                     <tr>
                         <td>${item.code_colour}</td>
+                        <td>${item.scolour}</td>
+                        <td>${item.item_category}</td>
                         <td>${newStock}</td>
                         <td>${item.item_status}</td>
                         <td>${
