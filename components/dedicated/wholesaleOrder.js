@@ -71,8 +71,8 @@ class WholesaleOrder {
                 </div>
 
                 <div class="item-search">
-                    <div class="form-group2">
-                        <label for="itemSearch style="text-align:left; display: block; width: 100px"h">Search Item</label>
+                    <div class="form-group2" style="text-align:left; display: block; width: 100px">
+                        <label for="itemSearch">Search Item</label>
                         <input type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
