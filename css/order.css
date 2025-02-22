@@ -494,11 +494,11 @@
 
 /* Order Details */
 #orderDetails {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .detail-section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .detail-section h3 {
@@ -512,8 +512,8 @@
 }
 
 .detail-row label {
-  font-weight: 600;
-  width: 150px;
+  font-weight: 500;
+  width: 200px;
 }
 
 /* Print Button */
