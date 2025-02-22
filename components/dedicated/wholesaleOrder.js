@@ -118,10 +118,12 @@ class WholesaleOrder {
                         <table id="stockChangesTable">
                             <thead>
                                 <tr>
-                                    <th>Code</th>
-                                    <th>Remaining Stock</th>
-                                    <th>Current Status</th>
-                                    <th>Status Change</th>
+                                    <th>Item Code</th>
+                                    <th>Colour</th>
+                                    <th>Description</th>
+                                    <th>RemainingStock</th>
+                                    <th>CurrentStatus</th>
+                                    <th>StatusChange</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -133,10 +135,12 @@ class WholesaleOrder {
                         <table id="orderListTable">
                             <thead>
                                 <tr>
-                                    <th>Code</th>
-                                    <th>Pack Unit</th>
-                                    <th>Order Qty</th>
-                                    <th>Total Pieces</th>
+                                    <th>Item Code</th>
+                                    <th>Colour</th>
+                                    <th>Name</th>
+                                    <th>Unit/P</th>
+                                    <th>Packs</th>
+                                    <th>T-Pieces</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -211,6 +215,7 @@ class WholesaleOrder {
 
     document.getElementById("selectedItemDetails").style.display = "block";
     document.getElementById("itemCode").textContent = item.code_colour || "";
+    document.getElementById("itemColour").textContent = item.scolour || "";
     document.getElementById("itemName").textContent = item.item_name || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
@@ -352,6 +357,8 @@ class WholesaleOrder {
           return `
                     <tr>
                         <td>${item.code_colour}</td>
+                        <td>${item.scolour}</td>
+                        <td>${item.item_name}</td>
                         <td>${item.pack_unit}</td>
                         <td>${item.orderQty}</td>
                         <td>${
@@ -546,6 +553,10 @@ class WholesaleOrder {
         return {
           order_id: orderData.id,
           item_name: item.code_colour.toUpperCase(),
+          oicolour: item.scolour,
+          oiprice: item.swsp2,
+          oisales: item.sprice,
+          oifabric: item.sfabric,
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
