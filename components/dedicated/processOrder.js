@@ -4,7 +4,7 @@ class ProcessOrder {
     this.orderType = null;
     this.orderDate = null;
     this.agentState = null;
-    this.totalItems = null;
+    this.totalItems = 0;
     this.orderData = null;
     this.modal = null;
     this.isHeld = false;
