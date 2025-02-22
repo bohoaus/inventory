@@ -102,7 +102,11 @@ class OdmOrder {
                             <span id="odmItemCode" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>Received Qty</label>
+                            <label>Colour</label>
+                            <span id="odmItemColour" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <label>Stock</label>
                             <span id="odmReceiveQty" class="info-value"></span>
                         </div>
                     </div>
@@ -116,11 +120,12 @@ class OdmOrder {
                             <thead>
                                 <tr>
                                     <th>Item Code</th>
-                                    <th>PPO</th>
-                                    <th>Received Qty</th>
+                                    <th>Colour</th>
+                                    <th>PPO#</th>
+                                    <th>Stock</th>
                                     <th>Pack Size</th>
-                                    <th>Counted Amount</th>
-                                    <th>Qty Difference</th>
+                                    <th>CountQty</th>
+                                    <th>QtyDiff</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -273,6 +278,7 @@ class OdmOrder {
         .select(
           `
           code_colour,
+          scolour,
           receive_qty,
           item_status,
           odm_customer,
@@ -301,6 +307,7 @@ class OdmOrder {
       const orderData = {
         orderdate: formData.get("orderdate"),
         customer_name: formData.get("customer_name"),
+        opo: formData.get("opo"),
         order_type: this.orderType,
         status: "processing",
         agent_state: formData.get("agent_state"),
@@ -345,6 +352,7 @@ class OdmOrder {
           .insert({
             order_id: data.id,
             item_name: item.code_colour,
+            oicolour: item.scolour,
             total_pieces: packSizeTotal, // Use pack size total as total_pieces
             order_item_status: "PROCESSING",
             created_at: new Date().toISOString(),
@@ -403,6 +411,7 @@ class OdmOrder {
           {
             order_id: orderId,
             item_name: itemData.item_name,
+            oicolour: itemData.oicolour,
             total_pieces: packSizeTotal,
             order_item_status: "PROCESSING",
           },
@@ -564,6 +573,7 @@ class OdmOrder {
         .select(
           `
           code_colour,
+          scolour,
           receive_qty,
           item_status,
           odm_customer,
@@ -592,6 +602,7 @@ class OdmOrder {
       this.selectedItem = {
         ...item,
         code_colour: item.code_colour.toUpperCase(),
+        scolour: item.scolour,
         item_name: (item.item_name || "").toUpperCase(),
         odm_customer: (item.odm_customer || "").toUpperCase(),
         odm_ppo: item.odm_ppo,
@@ -619,7 +630,13 @@ class OdmOrder {
             }</span>
           </div>
           <div class="info-card">
-            <label>Received Qty</label>
+            <label>Colour</label>
+            <span id="odmItemColour" class="info-value">${
+              this.selectedItem.scolour
+            }</span>
+          </div>
+          <div class="info-card">
+            <label>Stock</label>
             <span id="odmReceiveQty" class="info-value">${
               this.selectedItem.receive_qty || 0
             }</span>
@@ -633,11 +650,11 @@ class OdmOrder {
             }</span>
           </div>
           <div class="info-card">
-            <label>Existing Counted Amount</label>
+            <label>CountQty</label>
             <span class="info-value">${existingTotal}</span>
           </div>
           <div class="info-card">
-            <label>Current Qty Difference</label>
+            <label>QtyDiff</label>
             <span class="info-value ${
               this.selectedItem.odm_qty_diff < 0 ? "negative" : "positive"
             }">
@@ -783,6 +800,7 @@ class OdmOrder {
     // Add to temp order list
     const orderItem = {
       code_colour: this.selectedItem.code_colour,
+      scolour: this.selectedItem.scolour,
       receive_qty: receivedQty,
       existing_pack_size: this.selectedItem.pack_size || {}, // Store existing pack size
       new_pack_size: packSizes, // Store new pack sizes separately
@@ -837,6 +855,7 @@ class OdmOrder {
         return `
           <tr>
             <td>${item.code_colour}</td>
+            <td>${item.scolour}</td>
             <td>${item.odm_ppo || "-"}</td>
             <td>${item.receive_qty}</td>
             <td>${packSizeDisplay}</td>
