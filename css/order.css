@@ -944,15 +944,15 @@ th[data-sort].sort-desc .sort-icon {
 
 .form-group input,
 .form-group select {
-  padding: 8px 12px;
+  padding: 4px 6px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .item-search {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .suggestions-dropdown {
@@ -971,7 +971,7 @@ th[data-sort].sort-desc .sort-icon {
 }
 
 .suggestion-item {
-  padding: 8px 12px;
+  padding: 5px 9px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1033,8 +1033,8 @@ th[data-sort].sort-desc .sort-icon {
 .order-tables {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .order-list table,
@@ -1095,7 +1095,7 @@ th[data-sort].sort-desc .sort-icon {
 .item-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 10px;
   padding: 10px;
   background: white;
@@ -1119,7 +1119,7 @@ th[data-sort].sort-desc .sort-icon {
 
 .info-card .info-value {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #333;
 }
@@ -1140,7 +1140,7 @@ th[data-sort].sort-desc .sort-icon {
 .order-tables {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .stock-changes {
@@ -1203,7 +1203,7 @@ th[data-sort].sort-desc .sort-icon {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   background: #f8f9fa;
   border-radius: 8px;
@@ -1248,7 +1248,7 @@ th[data-sort].sort-desc .sort-icon {
 
 .active-items,
 .removed-items {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .active-items table,
@@ -1282,7 +1282,7 @@ th[data-sort].sort-desc .sort-icon {
 .export-pdf-btn {
   background: linear-gradient(145deg, #28a745, #218838);
   color: white;
-  padding: 12px 24px;
+  padding: 6px 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1302,7 +1302,7 @@ th[data-sort].sort-desc .sort-icon {
 
 .export-pdf-btn:before {
   content: "📄";
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /* Style for the order items table in PDF */
@@ -1315,8 +1315,8 @@ th[data-sort].sort-desc .sort-icon {
 .active-items table th,
 .active-items table td {
   border: 1px solid #ddd;
-  padding: 12px;
-  font-size: 15px;
+  padding: 10px;
+  font-size: 13px;
 }
 
 .active-items table th {
@@ -1328,14 +1328,14 @@ th[data-sort].sort-desc .sort-icon {
 #addToOrder {
   background: linear-gradient(145deg, #2196f3, #1976d2);
   color: white;
-  padding: 12px 24px;
+  padding: 8px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin-left: 15px;
@@ -1362,7 +1362,7 @@ th[data-sort].sort-desc .sort-icon {
 
 /* ODM Order Form Styles */
 .odm-form {
-  padding: 20px;
+  padding: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1371,12 +1371,12 @@ th[data-sort].sort-desc .sort-icon {
 .odm-form .customer-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .odm-form .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .odm-form label {
@@ -1392,13 +1392,13 @@ th[data-sort].sort-desc .sort-icon {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Selected Item Details */
 #selectedOdmItemDetails {
   background: #f8f9fa;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   margin: 20px 0;
 }
@@ -1406,13 +1406,13 @@ th[data-sort].sort-desc .sort-icon {
 .item-info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin: 15px 0;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 .info-card {
   background: white;
-  padding: 15px;
+  padding: 10px;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -1471,7 +1471,7 @@ th[data-sort].sort-desc .sort-icon {
 
 #odmOrderListTable th,
 #odmOrderListTable td {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -1527,7 +1527,7 @@ th[data-sort].sort-desc .sort-icon {
   color: white;
   border: none;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -1658,8 +1658,8 @@ th[data-sort].sort-desc .sort-icon {
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 15px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .form-row .form-group {
@@ -1669,8 +1669,8 @@ th[data-sort].sort-desc .sort-icon {
 /* Table Styles for Edit Wholesale Order */
 .tables-section {
   display: grid;
-  gap: 15px;
-  margin: 15px 0;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 .table-container {
@@ -1678,7 +1678,7 @@ th[data-sort].sort-desc .sort-icon {
   border: 1px solid #dee2e6;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  padding: 15px;
+  padding: 10px;
 }
 
 .table-container h3 {
@@ -1754,7 +1754,7 @@ th[data-sort].sort-desc .sort-icon {
   border: 1px solid #dc3545;
   background-color: #fff;
   color: #dc3545;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -1805,7 +1805,7 @@ th[data-sort].sort-desc .sort-icon {
   padding: 12px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   width: 100%;
   transition: all 0.2s ease;
 }
@@ -1814,7 +1814,7 @@ th[data-sort].sort-desc .sort-icon {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h.01M7 12h.01M7 17h.01M12 7h.01M12 12h.01M12 17h.01M17 7h.01M17 12h.01M17 17h.01"/></svg>');
   background-repeat: no-repeat;
   background-position: 12px center;
-  background-size: 16px;
+  background-size: 15px;
   padding-left: 40px;
 }
 
@@ -1831,7 +1831,7 @@ th[data-sort].sort-desc .sort-icon {
   padding: 10px 12px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   background-color: white;
   cursor: pointer;
   width: 100%;
