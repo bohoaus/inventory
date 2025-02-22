@@ -45,6 +45,10 @@ class WholesaleOrder {
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group">
+                        <label for="opo">PPO#</label>
+                        <input type="text" id="opo" placeholder="PO#">
+                    </div>
+                     <div class="form-group">
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state" required>
                             <option value="">Select State</option>
@@ -521,6 +525,10 @@ class WholesaleOrder {
         .getElementById("customer_name")
         .value.trim()
         .toUpperCase();
+      const PPO = document
+        .getElementById("opo")
+        .value.trim()
+        .toUpperCase();
       const agentState = document
         .getElementById("agent_state")
         .value.toUpperCase();
@@ -537,6 +545,7 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             customer_name: customerName,
+            opo: PPO,
             agent_state: agentState,
             total_items: totalItems,
             order_note: orderNote,
