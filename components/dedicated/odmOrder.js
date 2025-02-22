@@ -72,7 +72,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Dispatched Box</label>
-                        <input type="text" id="dispatched_box">
+                        <input type="text" id="dispatched_box" value="1">
                     </div>
                 </div>
 
