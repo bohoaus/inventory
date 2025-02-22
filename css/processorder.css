@@ -70,17 +70,17 @@
 
 .order-info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
 }
 
 .info-item {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .info-item label {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
   color: #6c757d;
   margin-bottom: 5px;
 }
