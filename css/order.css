@@ -930,6 +930,13 @@ th[data-sort].sort-desc .sort-icon {
   gap: 8px;
 }
 
+.form-group2 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
 .form-group label {
   font-weight: 500;
   color: #333;
