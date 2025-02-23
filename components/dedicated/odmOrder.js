@@ -1087,6 +1087,12 @@ class OdmOrder {
 
       // Get and format form data
       const orderData = {
+        orderdate: document
+          .getElementById("orderdate"),
+        osite: document
+          .getElementById("osite"),
+        opo: document
+          .getElementById("opo"),
         customer_name: document
           .getElementById("customer_name")
           .value.trim()
