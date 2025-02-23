@@ -481,14 +481,12 @@ class OdmItem {
     const customerInput = form.querySelector('input[name="odm_customer"]');
 //    const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
-    const itemCategoryInput = form.querySelector(
-      'select[name="item_category"]'
-    );
+    const itemCategoryInput = form.querySelector('select[name="item_category"]');
     const itemStatusInput = form.querySelector('select[name="item_status"]');
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
-    const mfgDateInput = form.querySelector('input[name="mfg_date"]');
-    const estDateInput = form.querySelector('input[name="est_date"]');
-    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
+    const mfgDateInput = form.querySelector('select[name="mfg_date"]');
+    const estDateInput = form.querySelector('select[name="est_date"]');
+    const arriveDateInput = form.querySelector('select[name="arrive_date"]');
     const submitButton = form.querySelector(".add-item-btn");
 
     if (!codeInput || !customerInput || !submitButton) return;
@@ -527,14 +525,12 @@ class OdmItem {
     const codeInput = form.querySelector('input[name="code_colour"]');
     const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
-    const itemCategoryInput = form.querySelector(
-      'select[name="item_category"]'
-    );
+    const itemCategoryInput = form.querySelector('select[name="item_category"]');
     const itemStatusInput = form.querySelector('select[name="item_status"]');
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
-    const mfgDateInput = form.querySelector('input[name="mfg_date"]');
-    const estDateInput = form.querySelector('input[name="est_date"]');
-    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
+    const mfgDateInput = form.querySelector('select[name="mfg_date"]');
+    const estDateInput = form.querySelector('select[name="est_date"]');
+    const arriveDateInput = form.querySelector('select[name="arrive_date"]');
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
