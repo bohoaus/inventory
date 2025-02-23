@@ -254,7 +254,7 @@ class OdmItem {
             <div class="form-group required">           
                 <label for="odm_customer">ODM Customer</label>
                 <select name="odm_customer" 
-                onchange="odmItem.validateForm(this.closest('form'))">
+                onchange="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
                     ${sodm_customers
                       .map(
