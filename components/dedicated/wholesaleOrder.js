@@ -79,13 +79,13 @@ class WholesaleOrder {
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input style="width: 400px" type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
                     <div class="form-group">
                         <label for="itemSearch">Search Item</label>
-                        <input style="width: 400px" type="text" 
+                        <input style="width: 400px" maxlength="20" type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
@@ -122,7 +122,7 @@ class WholesaleOrder {
                     </div>
                     <div class="qty-input">
                         <label for="orderQty">Order Quantity</label>
-                        <input type="number" id="orderQty" min="0" step="0.5" style="height: 25px; font-size: 15px; padding-left: 5px;">
+                        <input type="number" id="orderQty" min="0" step="0.5" style="height: 25px; font-size: 15px; padding-left: 5px;" maxlength="3">
                         <button type="button" id="addToOrder">Add to Order</button>
                     </div>
                     <div id="qtyWarning" class="warning-message"></div>
