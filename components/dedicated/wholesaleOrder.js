@@ -224,8 +224,6 @@ class WholesaleOrder {
     document.getElementById("selectedItemDetails").style.display = "block";
     document.getElementById("itemCode").textContent = item.code_colour || "";
     document.getElementById("itemColour").textContent = item.scolour || "";
-    document.getElementById("itemSales").textContent = item.sprice || "";
-    document.getElementById("itemPrice").textContent = item.swsp2 || "";
     document.getElementById("itemName").textContent = item.item_name || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
@@ -527,7 +525,7 @@ class WholesaleOrder {
         .getElementById("customer_name")
         .value.trim()
         .toUpperCase();
-      const orderPPO = document
+      const PPO = document
         .getElementById("opo")
         .value.trim()
         .toUpperCase();
@@ -547,7 +545,7 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             customer_name: customerName,
-            opo: orderPPO,
+            opo: PPO,
             agent_state: agentState,
             total_items: totalItems,
             order_note: orderNote,
@@ -574,7 +572,7 @@ class WholesaleOrder {
           oiprice: item.swsp2,
           oisales: item.sprice,
           oifabric: item.sfabric,
-          oicategory: item.item_category,
+          oicategory: item.item_name,
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
