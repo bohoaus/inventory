@@ -224,7 +224,7 @@ class EditOdmOrder {
                 </div>
                 <div class="form-group">
                     <label for="agent_state">Agent State</label>
-                    <select id="agent_state" required>
+                    <select id="agent_state" required style="width: 150px">
                         <option value="">Select State</option>
                         <option value="AUS-ACT" ${
                           orderData.agent_state?.toUpperCase() === "AUS-ACT"
@@ -284,14 +284,14 @@ class EditOdmOrder {
             <div class="form-row">
                 <div class="form-group">
                     <label for="dispatched_box">Dispatched Box</label>
-                    <input type="text" 
+                    <input type="text" style="width: 60px" 
                            id="dispatched_box" 
                            value="${orderData.dispatched_box || ""}" 
                            placeholder="Enter dispatched box">
                 </div>
                 <div class="form-group">
                     <label for="dispatched_at">Dispatch Date</label>
-                    <input type="datetime-local" 
+                    <input type="datetime-local" style="width: 250px" 
                            id="dispatched_at" 
                            value="${orderData.dispatched_at || ""}">
                 </div>
