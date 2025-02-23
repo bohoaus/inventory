@@ -1166,6 +1166,11 @@ class OdmOrder {
           const orderItem = {
             order_id: order.id,
             item_name: item.code_colour.toUpperCase(),
+            oicolour: item.scolour,
+            oiprice: item.swsp2,
+            oifabric: item.sfabric,
+            oisales: item.sprice,
+            oicategory: item.item_category,
             total_pieces: item.new_total, // Only store new pieces in order_items
             order_item_status: "ACTIVE",
             created_at: new Date().toISOString(),
