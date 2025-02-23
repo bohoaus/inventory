@@ -39,7 +39,7 @@ class OdmOrder {
                 <div class="customer-info">
                     <div class="form-group required">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" style="width: 250px">
+                        <input type="text" id="customer_name" style="width: 350px">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group required">
@@ -48,7 +48,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="dispatched_at">Dispatched At</label>
-                        <input type="datetime-local" id="dispatched_at" style="width: 150px">
+                        <input type="datetime-local" id="dispatched_at" style="width: 200px">
                     </div>
                     <div class="form-group required">
                         <label for="agent_state">Agent State</label>
