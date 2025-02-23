@@ -255,7 +255,7 @@ class WholesaleItem {
             <!-- Left Column -->
             <div class="form-group required">
                 <label for="code_colour">Code/Colour</label>
-                <input type="text" 
+                <input type="text" maxlength="30" 
                        name="code_colour" 
                        required 
                        onkeyup="this.value = this.value.toUpperCase(); wholesaleItem.validateForm(this.closest('form'))"
@@ -292,7 +292,7 @@ class WholesaleItem {
 
             <div class="form-group">
                 <label for="item_name">Name</label>
-                <input type="text" 
+                <input type="text" maxlength="15" 
                        name="item_name" placeholder="New Dress" 
                        value="${item?.item_name || "New Dress"}" 
                        onkeyup="this.value = this.value.toUpperCase()">
@@ -300,7 +300,7 @@ class WholesaleItem {
 
             <div class="form-group">
                 <label for="item_location">Location</label>
-                <input type="text" 
+                <input type="text" maxlength="15" 
                        name="item_location" placeholder="Floor" 
                        value="${item?.item_location || "Floor"}"
                        onkeyup="this.value = this.value.toUpperCase()">
@@ -406,7 +406,7 @@ class WholesaleItem {
 
             <div class="form-group required">
                 <label for="receive_qty">Received Quantity</label>
-                <input type="number" 
+                <input type="number" maxlength="4" 
                        name="receive_qty" 
                        step="0.5" 
                        min="0.5"
@@ -418,7 +418,7 @@ class WholesaleItem {
 
             <div class="form-group">
                 <label for="stock_qty">On-Hand Quantity</label>
-                <input type="number" 
+                <input type="number" maxlength="4" 
                        name="stock_qty" 
                        step="0.5" 
                        min="0.5"
@@ -446,7 +446,7 @@ class WholesaleItem {
 
             <div class="form-group required">
                 <label for="scolour">Colour</label>
-                <input type="text" 
+                <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
                        value="${item?.scolour || ""}"
                 >
