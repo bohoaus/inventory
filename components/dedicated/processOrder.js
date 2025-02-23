@@ -30,7 +30,7 @@ class ProcessOrder {
               <div class="order-info-grid">
                 <div class="info-item">
                   <label>Customer:</label>
-                  <span id="customerName"></span>
+                  <span style="width:200px" id="customerName"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
@@ -41,16 +41,16 @@ class ProcessOrder {
                   <span id="agentState"></span>
                 </div>
                 <div class="info-item">
-                  <label>T-Items:</label>
-                  <span id="totalItems"></span>
+                  <label>Items:</label>
+                  <span style="width:60px" id="totalItems"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
-                  <span id="orderType"></span>
+                  <span style="width:80px" id="orderType"></span>
                 </div>
                 <div class="info-item">
                   <label>Status:</label>
-                  <span id="orderStatus"></span>
+                  <span style="width:80px" id="orderStatus"></span>
                 </div>
               </div>
             </div>
