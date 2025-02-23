@@ -548,7 +548,7 @@ class OdmItem {
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
-    const customerValue = customerSelect?.value.trim();
+    const customerValue = customerInput?.value.trim();
 
     if (!codeValue) {
       adminInventory.showNotification("Please enter Code/Colour", "error");
