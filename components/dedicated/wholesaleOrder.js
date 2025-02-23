@@ -41,7 +41,7 @@ class WholesaleOrder {
                 <div class="customer-info">
                     <div class="form-group">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" required style="width: 350px">
+                        <input type="text" id="customer_name" required style="width: 350px" maxlength="20">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group" style="width: 100px">
@@ -66,11 +66,11 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="opo">PPO#</label>
-                        <input style="width: 120px" type="text" id="opo" placeholder="PO#" value="PO#">
+                        <input style="width: 120px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="osite">Location</label>
-                        <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor">
+                        <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group">
