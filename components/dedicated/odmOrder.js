@@ -417,6 +417,8 @@ class OdmOrder {
             oicolour: itemData.scolour,
             oiprice: itemData.swsp2,
             oisales: itemData.sprice,
+            oicategory: itemData.item_category,
+            oifabric: itemData.sfabric,
             total_pieces: packSizeTotal,
             order_item_status: "PROCESSING",
           },
