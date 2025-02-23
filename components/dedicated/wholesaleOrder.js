@@ -529,8 +529,7 @@ class WholesaleOrder {
         .getElementById("customer_name")
         .value.trim().toUpperCase();
       const orderPPO = document
-        .getElementById("opo")
-        .value.trim().toUpperCase();
+        .getElementById("opo").value || null;
       const orderLocation = document
         .getElementById("osite").value || null;
       const agentState = document
