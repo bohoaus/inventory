@@ -48,7 +48,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="dispatched_at">Dispatched At</label>
-                        <input type="date" id="dispatched_at" style="width: 200px">
+                        <input type="datetime-local" id="dispatched_at" style="width: 200px">
                     </div>
                     <div class="form-group required">
                         <label for="agent_state">Agent State</label>
