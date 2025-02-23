@@ -224,6 +224,8 @@ class WholesaleOrder {
     document.getElementById("selectedItemDetails").style.display = "block";
     document.getElementById("itemCode").textContent = item.code_colour || "";
     document.getElementById("itemColour").textContent = item.scolour || "";
+    document.getElementById("itemSales").textContent = item.sprice || "";
+    document.getElementById("itemPrice").textContent = item.swsp2 || "";
     document.getElementById("itemName").textContent = item.item_name || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
