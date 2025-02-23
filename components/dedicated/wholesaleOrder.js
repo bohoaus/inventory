@@ -71,13 +71,13 @@ class WholesaleOrder {
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                    <input style="width: 400px" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
                     <div class="form-group">
                         <label for="itemSearch">Search Item</label>
-                        <input type="text" 
+                        <input style="width: 400px" type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
