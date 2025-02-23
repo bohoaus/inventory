@@ -12,6 +12,7 @@ class OdmItem {
     const itemData = {
       code_colour: formData.get("code_colour"),
       odm_customer: formData.get("odm_customer"),
+      odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
       receive_qty: formData.get("receive_qty") || 0,
       stock_qty: 0,
@@ -19,8 +20,16 @@ class OdmItem {
       item_status: formData.get("item_status") || "",
       item_cargo: formData.get("item_cargo") || "",
       mfg_date: formData.get("mfg_date") || "",
+      est_date: formData.get("est_date") || "",
+      arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       created_at: new Date().toISOString(),
+      sfabric: formData.get("sfabric"),
+      scolour: formData.get("scolour"),
+      sfactory: formData.get("sfactory"),
+      scountry: formData.get("scountry"),
+      pack_unit: formData.get("pack_unit"),
+      pack_size: formData.get("pack_size"),
     };
 
     const { data, error } = await supabaseClient
@@ -40,6 +49,7 @@ class OdmItem {
     const updates = {
       code_colour: formData.get("code_colour"),
       odm_customer: formData.get("odm_customer"),
+      odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
       receive_qty: formData.get("receive_qty") || 0,
       stock_qty: 0,
@@ -47,8 +57,16 @@ class OdmItem {
       item_status: formData.get("item_status") || "",
       item_cargo: formData.get("item_cargo") || "",
       mfg_date: formData.get("mfg_date") || "",
+      est_date: formData.get("est_date") || "",
+      arrive_date: formData.get("arrive_date") || "",
       item_note: formData.get("item_note") || "",
       updated_at: new Date().toISOString(),
+      sfabric: formData.get("sfabric"),
+      scolour: formData.get("scolour"),
+      sfactory: formData.get("sfactory"),
+      scountry: formData.get("scountry"),
+      pack_unit: formData.get("pack_unit"),
+      pack_size: formData.get("pack_size"),
     };
 
     const { data, error } = await supabaseClient
@@ -67,12 +85,17 @@ class OdmItem {
 
   async updateItemStatus(itemId, status) {
     const validStatuses = [
-      "SHIPPING",
       "ARRIVED",
+      "SHIPPING",
+      "NOT RELEASED",
+      "RELEASED",
+      "IN STOCK",
+      "OUT OF STOCK",
       "PROCESSING",
       "ON HOLD",
       "DISPATCHED",
-      "CANCELLED IN WAREHOUSE",
+      "CANCELLED",
+      "QUALITY ISSUE",
     ];
 
     if (!validStatuses.includes(status)) {
@@ -113,15 +136,20 @@ class OdmItem {
 
   generateItemForm(item = null) {
     const categories = [
+      "CAPE",
       "DRESS",
-      "TOP",
-      "BOTTOM",
-      "SHIRT",
-      "SKIRT",
       "KAFTAN",
       "KIMONO",
-      "JACKET",
+      "MAXI",
+      "PANT",
+      "SHIRT",
+      "SKIRT",
+      "TOP",
+      "TUNIC",
       "COAT",
+      "JACKET",
+      "KNIT TOP",
+      "KNIT DRESS",
       "KNITWEAR",
     ];
 
@@ -131,7 +159,62 @@ class OdmItem {
       "PROCESSING",
       "ON HOLD",
       "DISPATCHED",
-      "CANCELLED IN WAREHOUSE",
+      "CANCELLED",
+      "QUALITY ISSUE",
+    ];
+
+    const sfabrics = [
+      "Blend",
+      "Rayon",
+      "Bamboo Rayon",
+      "Crinkle Rayon",
+      "Cotton",
+      "Linen",
+      "Nelon",
+      "Polyester",
+      "Polyester+",
+      "Silk",
+      "Viscose",
+      "Acrylic",
+      "Acrylic+",
+      "polyamide+",
+      "Wool",
+      "Wool+",
+    ];
+
+    const sodm_customers = [
+      "CIRCLE OF FRIEND",
+      "COCO AND BLUSH",
+      "EVERGREEN CLOTHNG",
+      "LIFE STORY DESIGN",
+      "LOVE STYLE CO",
+      "ORANGE SHEBERT",
+      "SALTY CRUSH",
+      "SHE STREET",
+      "SHINE ON",
+      "ST FROCK",
+      "THINGZ",
+      "TULIO",
+      "TWO BIRDS BLUE",
+      "VINE APPAREL",
+    ];
+    
+    const sfactories = [
+      "SS+8620",
+      "YJ+8620",
+      "K-RD+8620",
+      "K-YP+8620",
+      "K-",
+    ];
+    
+    const scountries = [
+      "CHN+86",
+      "BGD+880",
+      "IDN+62",
+      "IND+91",
+      "JPN+81",
+      "THA+66",
+      "VNM+84",
     ];
 
     const form = document.createElement("form");
@@ -148,14 +231,14 @@ class OdmItem {
                     class="add-item-btn" 
                     onclick="odmItem.validateAndSubmit(this.closest('form'))"
                     disabled>
-                ${item ? "Update Item" : "Add Item"}
+                ${item ? "Update Item" : "Add ODM Item"}
             </button>
         </div>
 
         <div class="form-column">
             <!-- Left Column -->
             <div class="form-group required">
-                <label for="code_colour">Code*</label>
+                <label for="code_colour">Code</label>
                 <input type="text" 
                        name="code_colour" 
                        required 
@@ -167,22 +250,51 @@ class OdmItem {
                 </span>
             </div>
 
-            <div class="form-group required">
-                <label for="odm_customer">ODM Customer*</label>
-                <input type="text" 
-                       name="odm_customer" 
-                       required
-                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
-                       value="${item?.odm_customer || ""}">
+            <!-- jim changed -->
+            <div class="form-group required">           
+                <label for="odm_customer">ODM Customer</label>
+                <select name="odm_customer"
+                onchange="odmItem.validateForm(this.closest('form'))">
+                    <option value="">Select Customer</option>
+                    ${sodm_customers
+                      .map(
+                        (sodmc) => `
+                        <option value="${sodmc}" ${
+                          item?.odm_customer === sodmc ? "selected" : ""
+                        }>
+                            ${sodmc}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="odm_ppo">ODM PPO</label>
                 <input type="text" 
-                       name="odm_ppo" 
-                       value="${item?.odm_ppo || ""}"
+                       name="odm_ppo" placeholder="PO" 
+                       value="${item?.odm_ppo || "PO"}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
+
+            <div class="form-group required">
+                <label for="pack_size">Pack Size{"S+M+L+XL": 1}</label>
+                <input type="text" 
+                       name="pack_size" placeholder=""
+                       value="${item?.pack_size || ""}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
+
+             <div class="form-group required">
+                <label for="pack_unit">Pack Unit</label>
+                <input type="number" 
+                       name="pack_unit" value="1" 
+                       step="1" 
+                       min="1"
+                       value="${item?.pack_unit || "1"}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+           </div>
 
             <div class="form-group required">
                 <label for="receive_qty">Received Quantity</label>
@@ -194,7 +306,36 @@ class OdmItem {
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
 
-            <input type="hidden" name="stock_qty" value="0">
+             <div class="form-group required">
+                <label for="stock_qty">Stock Quantity</label>
+                <input type="number" 
+                       name="stock_qty" value="0" 
+                       step="1" 
+                       min="1"
+                       value="${item?.stock_qty || ""}"
+                       onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
+
+            <div class="form-group required">
+                <label for="mfg_date">MFG Date</label>
+                <input type="date" 
+                       name="mfg_date" 
+                       value="${item?.mfg_date || ""}">
+            </div>
+
+            <div class="form-group">
+                <label for="arrive_date">Arrive Date</label>
+                <input type="date" 
+                       name="arrive_date" 
+                       value="${item?.arrive_date || ""}">
+            </div>
+
+            <div class="form-group">
+                <label for="est_date">Schedule Date</label>
+                <input type="date" 
+                       name="est_date" 
+                       value="${item?.est_date || ""}">
+            </div>
         </div>
 
         <div class="form-column">
@@ -215,6 +356,32 @@ class OdmItem {
                       )
                       .join("")}
                 </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="sfabric">Fabric</label>
+                <select name="sfabric">
+                    <option value="">Select Fabric</option>
+                    ${sfabrics
+                      .map(
+                        (sfabrics) => `
+                        <option value="${sfabrics}" ${
+                          item?.sfabric === sfabrics ? "selected" : ""
+                        }>
+                            ${sfabrics}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="scolour">Colour</label>
+                <input type="text" 
+                       name="scolour" placeholder="black" 
+                       value="${item?.scolour || "black"}"
+                >
             </div>
 
             <div class="form-group required">
@@ -240,27 +407,56 @@ class OdmItem {
                 <select name="item_cargo">
                     <option value="">Select Cargo</option>
                     <option value="AIR" ${
-                      item?.item_cargo === "AIR" ? "selected" : ""
+                      item?.item_cargo === "AIR-t" ? "selected" : ""
                     }>AIR</option>
                     <option value="SEA" ${
-                      item?.item_cargo === "SEA" ? "selected" : ""
+                      item?.item_cargo === "SEA-t" ? "" : ""
                     }>SEA</option>
                 </select>
             </div>
 
             <div class="form-group required">
-                <label for="mfg_date">MFG Date</label>
-                <input type="date" 
-                       name="mfg_date" 
-                       value="${item?.mfg_date || ""}">
+                <label for="scountry">Country</label>
+                <select name="scountry">
+                    <option value="">Select Country</option>
+                    ${scountries
+                      .map(
+                        (scount) => `
+                        <option value="${scount}" ${
+                          item?.scountry === scount ? "selected" : ""
+                        }>
+                            ${scount}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
+
+            <div class="form-group required">
+                <label for="sfactory">Factory</label>
+                <select name="sfactory">
+                    <option value="">Select Factory</option>
+                    ${sfactories
+                      .map(
+                        (sfact) => `
+                        <option value="${sfact}" ${
+                          item?.sfactory === sfact ? "selected" : ""
+                        }>
+                            ${sfact}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="item_note">Item Note</label>
-                <textarea name="item_note" 
+                <textarea name="item_note" placeholder="OK" 
                           rows="3"
                           onkeyup="this.value = this.value.toUpperCase()">${
-                            item?.item_note || ""
+                            item?.item_note || "OK"
                           }</textarea>
             </div>
         </div>
@@ -293,26 +489,28 @@ class OdmItem {
     if (!form) return;
 
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerInput = form.querySelector('input[name="odm_customer"]');
+    const customerSelect = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
-    const itemCategoryInput = form.querySelector(
-      'select[name="item_category"]'
-    );
+    const itemCategoryInput = form.querySelector('select[name="item_category"]');
     const itemStatusInput = form.querySelector('select[name="item_status"]');
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
+    const estDateInput = form.querySelector('input[name="est_date"]');
+    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const submitButton = form.querySelector(".add-item-btn");
 
-    if (!codeInput || !customerInput || !submitButton) return;
+    if (!codeInput || !customerSelect || !submitButton) return;
 
     // Trim values to check for empty or whitespace-only input
+    //  customerInput.value.trim() !== "" &&
     const isValid =
       codeInput.value.trim() !== "" &&
-      customerInput.value.trim() !== "" &&
       itemCategoryInput.value !== "" &&
       itemStatusInput.value !== "" &&
       itemCargoInput.value !== "" &&
       mfgDateInput.value !== "" &&
+      estDateInput.value !== "" &&
+      arriveDateInput.value !== "" &&
       receiveQtyInput.value !== "" &&
       !submitButton.hasAttribute("data-warning");
 
@@ -325,16 +523,16 @@ class OdmItem {
       codeInput.classList.remove("invalid");
     }
 
-    if (!customerInput.value.trim()) {
-      customerInput.classList.add("invalid");
+    if (!customerSelect.value.trim()) {
+      customerSelect.classList.add("invalid");
     } else {
-      customerInput.classList.remove("invalid");
+      customerSelect.classList.remove("invalid");
     }
   }
 
   validateAndSubmit(form) {
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerInput = form.querySelector('input[name="odm_customer"]');
+    const customerSelect = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector(
       'select[name="item_category"]'
@@ -342,10 +540,12 @@ class OdmItem {
     const itemStatusInput = form.querySelector('select[name="item_status"]');
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
+    const estDateInput = form.querySelector('input[name="est_date"]');
+    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
-    const customerValue = customerInput?.value.trim();
+    const customerValue = customerSelect?.value.trim();
 
     if (!codeValue) {
       adminInventory.showNotification("Please enter Code/Colour", "error");
