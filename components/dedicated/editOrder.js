@@ -173,7 +173,7 @@ class EditOrder {
             <form id="editOrderForm" class="order-form">
                 <div class="form-group">
                     <label for="customer_name">Customer Name*</label>
-                    <input type="text" name="customer_name" value="${order.customer_name}" required>
+                    <input maxlength="30" type="text" name="customer_name" value="${order.customer_name}" required>
                 </div>
                 <div class="form-group">
                     <label for="agent_state">Agent State</label>
@@ -190,7 +190,7 @@ class EditOrder {
                 <div class="shipping-info" ${order.status !== 'completed' ? 'style="display: none;"' : ''}>
                     <div class="form-group">
                         <label for="dispatched_carrier">Dispatch Carrier</label>
-                        <input type="text" name="dispatched_carrier" value="${order.dispatched_carrier || ''}">
+                        <input maxlength="20" type="text" name="dispatched_carrier" value="${order.dispatched_carrier || ''}">
                     </div>
                     <div class="form-group">
                         <label for="tracking_no">Tracking Number</label>
@@ -204,7 +204,7 @@ class EditOrder {
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <textarea name="order_note">${order.order_note || ''}</textarea>
+                    <textarea maxlength="50" name="order_note">${order.order_note || ''}</textarea>
                 </div>
                 <button type="submit">Update Order</button>
             </form>
@@ -216,11 +216,11 @@ class EditOrder {
             <form id="addOrderItemForm" class="order-item-form">
                 <div class="form-group">
                     <label for="item_name">Item Code/Colour*</label>
-                    <input type="text" name="item_name" required>
+                    <input maxlength="20" type="text" name="item_name" required>
                 </div>
                 <div class="form-group">
                     <label for="order_qty">Quantity*</label>
-                    <input type="number" name="order_qty" min="1" required>
+                    <input maxlength="3" type="number" name="order_qty" min="1" required>
                 </div>
                 <button type="submit">Add Item</button>
             </form>
