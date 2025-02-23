@@ -501,7 +501,7 @@ class OdmItem {
     const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const submitButton = form.querySelector(".add-item-btn");
 
-    if (!codeInput || customerInput || !submitButton) return;
+    if (!codeInput || !customerInput || !submitButton) return;
 
     // Trim values to check for empty or whitespace-only input
     //  customerInput.value.trim() !== "" &&
