@@ -68,17 +68,17 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="opo">PPO#</label>
-                        <input type="text" id="opo" placeholder="PO#" value="PO#">
+                        <input style="width: 60px" type="text" id="opo" placeholder="PO#" value="PO#">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Dispatched Box</label>
-                        <input type="text" id="dispatched_box" value="1">
+                        <input style="width: 60px" type="text" id="dispatched_box" value="1">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                    <input style="width: 150px" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
