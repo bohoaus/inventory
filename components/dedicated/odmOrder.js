@@ -1092,9 +1092,9 @@ class OdmOrder {
         orderdate: document
           .getElementById("orderdate").value || null,
         osite: document
-          .getElementById("osite"),
+          .getElementById("osite").value || null,
         opo: document
-          .getElementById("opo"),
+          .getElementById("opo").value || null,
         customer_name: document
           .getElementById("customer_name")
           .value.trim()
