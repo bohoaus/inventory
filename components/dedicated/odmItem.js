@@ -250,24 +250,13 @@ class OdmItem {
                 </span>
             </div>
 
-            <!-- jim changed -->
-            <div class="form-group required">           
-                <label for="odm_customer">ODM Customer</label>
-                <select name="odm_customer" 
-                onchange="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))">
-                    <option value="">Select Customer</option>
-                    ${sodm_customers
-                      .map(
-                        (sodmc) => `
-                        <option value="${sodmc}" ${
-                          item?.odm_customer === sodmc ? "selected" : ""
-                        }>
-                            ${sodmc}
-                        </option>
-                    `
-                      )
-                      .join("")}
-                </select>
+            <div class="form-group required">
+                <label for="odm_customer">ODM Customer*</label>
+                <input type="text" 
+                       name="odm_customer" 
+                       required
+                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
+                       value="${item?.odm_customer || ""}">
             </div>
 
             <div class="form-group">
@@ -489,7 +478,8 @@ class OdmItem {
     if (!form) return;
 
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerInput = form.querySelector('select[name="odm_customer"]');
+    const customerInput = form.querySelector('input[name="odm_customer"]');
+//    const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector(
       'select[name="item_category"]'
