@@ -526,10 +526,10 @@ class OdmItem {
       codeInput.classList.remove("invalid");
     }
 
-    if (!customerSelect.value.trim()) {
-      customerSelect.classList.add("invalid");
+    if (!customerInput.value.trim()) {
+      customerInput.classList.add("invalid");
     } else {
-      customerSelect.classList.remove("invalid");
+      customerInput.classList.remove("invalid");
     }
   }
 
