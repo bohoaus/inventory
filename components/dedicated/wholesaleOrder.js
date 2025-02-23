@@ -73,7 +73,7 @@ class WholesaleOrder {
                         <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
                     <div class="form-group">
-                        <label for="dispatched_box">Box</label>
+                        <label for="dispatched_box">Boxes</label>
                         <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
                 </div>
