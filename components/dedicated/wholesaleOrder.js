@@ -72,6 +72,10 @@ class WholesaleOrder {
                         <label for="osite">Location</label>
                         <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
+                    <div class="form-group">
+                        <label for="dispatched_box">Box</label>
+                        <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
@@ -530,6 +534,8 @@ class WholesaleOrder {
         .value.trim().toUpperCase();
       const orderPPO = document
         .getElementById("opo").value || null;
+      const orderBox = document
+        .getElementById("dispatched_box").value || null;
       const orderLocation = document
         .getElementById("osite").value || null;
       const agentState = document
@@ -548,6 +554,7 @@ class WholesaleOrder {
             orderdate: orderDate,
             opo: orderPPO,
             osite: orderLocation,
+            dispatched_box: orderBox,
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
