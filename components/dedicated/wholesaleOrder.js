@@ -527,19 +527,18 @@ class WholesaleOrder {
         .getElementById("orderdate").value || null;
       const customerName = document
         .getElementById("customer_name")
-        .value.trim()
-        .toUpperCase();
+        .value.trim().toUpperCase();
       const orderPPO = document
         .getElementById("opo")
-        .value.trim()
-        .toUpperCase();
+        .value.trim().toUpperCase();
+      const orderLocation = document
+        .getElementById("osite").value || null;
       const agentState = document
         .getElementById("agent_state")
         .value.toUpperCase();
       const orderNote = document
         .getElementById("order_note")
-        .value.trim()
-        .toUpperCase();
+        .value.trim().toUpperCase();
       const totalItems = this.tempOrderList.length;
 
       // Create new order with uppercase values
@@ -548,6 +547,8 @@ class WholesaleOrder {
         .insert([
           {
             orderdate: orderDate,
+            opo: orderPPO,
+            osite: orderLocation,
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
