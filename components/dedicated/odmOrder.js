@@ -414,9 +414,9 @@ class OdmOrder {
           {
             order_id: orderId,
             item_name: itemData.item_name,
-            oicolour: itemData.oicolour,
-            oiprice: itemData.oiprice,
-            oisales: itemData.oisales,
+            oicolour: itemData.scolour,
+            oiprice: itemData.swsp2,
+            oisales: itemData.sprice,
             total_pieces: packSizeTotal,
             order_item_status: "PROCESSING",
           },
