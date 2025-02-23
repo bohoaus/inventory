@@ -1090,7 +1090,7 @@ class OdmOrder {
       // Get and format form data
       const orderData = {
         orderdate: document
-          .getElementById("orderdate"),
+          .getElementById("orderdate").value || null,
         osite: document
           .getElementById("osite"),
         opo: document
