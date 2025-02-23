@@ -60,7 +60,7 @@ class EditWholesaleItem {
         <!-- First Column -->
           <div class="form-group required">
             <label for="code_colour">Code/Colour</label>
-                    <input type="text" 
+                    <input type="text" maxlength="30" 
                            name="code_colour" 
                            value="${item.code_colour || ""}"
                  required 
@@ -85,7 +85,7 @@ class EditWholesaleItem {
 
           <div class="form-group">
             <label for="item_name">Item Name</label>
-                    <input type="text" 
+                    <input type="text" maxlength="30" 
                            name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
@@ -139,7 +139,7 @@ class EditWholesaleItem {
 
                 <div class="form-group">
                   <label for="item_location">Location</label>
-                  <input type="text" 
+                  <input type="text" maxlength="15" 
                    name="item_location" 
                    value="${item.item_location || ""}"
                    onkeyup="this.value = this.value.toUpperCase()">
@@ -154,7 +154,7 @@ class EditWholesaleItem {
 
                 <div class="form-group">
                   <label for="swsp">WSP</label>
-                  <input type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
+                  <input maxlength="5" type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
                    name="swsp" 
                    value="${item.swsp || ""}">
                 </div>
@@ -164,7 +164,7 @@ class EditWholesaleItem {
         <!-- Third Column -->
         <div class="form-group">
           <label for="stock_qty">Stock Quantity (Packs)</label>
-          <input type="number" 
+          <input type="number" maxlength="5" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
                  min="0"
@@ -174,7 +174,7 @@ class EditWholesaleItem {
 
           <div class="form-group">
             <label for="receive_qty">Receive Quantity (Packs)</label>
-            <input type="number" 
+            <input type="number" maxlength="5" 
                  name="receive_qty" 
                  value="${item.receive_qty || 0}"
                  min="0"
@@ -206,7 +206,7 @@ class EditWholesaleItem {
 
                 <div class="form-group">
                   <label for="swsp2">WSP2</label>
-                  <input type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
+                  <input maxlength="5" type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
                    name="swsp2" 
                    value="${item.swsp2 || ""}">
                 </div>
@@ -243,7 +243,7 @@ class EditWholesaleItem {
         <div class="form-group repeat-info-group">
             <label>Repeat Info</label>
             <div class="repeat-info-inputs">
-                <input type="text" 
+                <input type="text" maxlength="25" 
                        name="new_repeat_number" 
                        value="${this.getOrdinalRepeat(
                          this.getNextRepeatNumber(item.repeat_item)
@@ -261,7 +261,7 @@ class EditWholesaleItem {
         <!-- Note field -->
         <div class="form-group">
             <label for="item_note">Note</label>
-            <textarea name="item_note" 
+            <textarea maxlength="50" name="item_note" 
                       rows="3"
                       onkeyup="this.value = this.value.toUpperCase()">${
                         item.item_note || ""
