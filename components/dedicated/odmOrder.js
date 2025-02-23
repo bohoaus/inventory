@@ -81,13 +81,13 @@ class OdmOrder {
 
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input style="width: 400px" type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
                     <div class="form-group">
                         <label for="odmItemSearch">Search ODM Item</label>
-                        <input style="width: 400px" type="text" 
+                        <input style="width: 400px" maxlength="20" type="text" 
                                id="odmItemSearch"
                                placeholder="Enter item code">
                         <div id="odmSuggestions" class="suggestions-dropdown"></div>
