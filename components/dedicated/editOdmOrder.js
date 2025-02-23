@@ -209,7 +209,7 @@ class EditOdmOrder {
             <div class="form-row">
                 <div class="form-group">
                     <label>Customer Name</label>
-                    <input type="text" 
+                    <input type="text" maxlength="30" 
                            value="${orderData.customer_name || ""}" 
                            disabled 
                            style="
@@ -284,7 +284,7 @@ class EditOdmOrder {
             <div class="form-row">
                 <div class="form-group">
                     <label for="dispatched_box">Dispatched Box</label>
-                    <input type="text" style="width: 60px" 
+                    <input type="text" style="width: 60px" maxlength="3" 
                            id="dispatched_box" 
                            value="${orderData.dispatched_box || ""}" 
                            placeholder="Enter dispatched box">
@@ -301,7 +301,7 @@ class EditOdmOrder {
             <div class="form-row">
                 <div class="form-group full-width">
                     <label for="order_note">Order Note</label>
-                    <textarea 
+                    <textarea  maxlength="50" 
                         id="order_note" 
                         placeholder="Add note for this order"
                         style="
