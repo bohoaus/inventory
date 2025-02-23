@@ -279,24 +279,6 @@ class OdmItem {
             </div>
 
             <div class="form-group required">
-                <label for="pack_size">Pack Size{"S+M+L+XL": 1}</label>
-                <input type="text" 
-                       name="pack_size" placeholder=""
-                       value="${item?.pack_size || ""}"
-                       onchange="odmItem.validateForm(this.closest('form'))">
-            </div>
-
-             <div class="form-group required">
-                <label for="pack_unit">Pack Unit</label>
-                <input type="number" 
-                       name="pack_unit" value="1" 
-                       step="1" 
-                       min="1"
-                       value="${item?.pack_unit || "1"}"
-                       onchange="odmItem.validateForm(this.closest('form'))">
-           </div>
-
-            <div class="form-group required">
                 <label for="receive_qty">Received Quantity</label>
                 <input type="number" 
                        name="receive_qty" 
