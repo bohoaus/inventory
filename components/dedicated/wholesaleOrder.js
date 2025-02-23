@@ -525,7 +525,7 @@ class WholesaleOrder {
         .getElementById("customer_name")
         .value.trim()
         .toUpperCase();
-      const PPO = document
+      const orderPPO = document
         .getElementById("opo")
         .value.trim()
         .toUpperCase();
@@ -545,7 +545,7 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             customer_name: customerName,
-            opo: PPO,
+            opo: orderPPO,
             agent_state: agentState,
             total_items: totalItems,
             order_note: orderNote,
