@@ -496,8 +496,8 @@ class OdmItem {
     // Trim values to check for empty or whitespace-only input
     //  customerInput.value.trim() !== "" &&
     const isValid =
-      customerInput.value.trim() !== "" &&
       codeInput.value.trim() !== "" &&
+      customerInput.value.trim() !== "" &&
       itemCategoryInput.value !== "" &&
       itemStatusInput.value !== "" &&
       itemCargoInput.value !== "" &&
