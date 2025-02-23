@@ -38,7 +38,7 @@ class OdmOrder {
                 <div class="customer-info">
                     <div class="form-group required">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" style="width: 350px" maxlength="20">
+                        <input type="text" id="customer_name" style="width: 350px" maxlength="30">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group required">
