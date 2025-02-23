@@ -525,7 +525,7 @@ class WholesaleOrder {
         .getElementById("customer_name")
         .value.trim()
         .toUpperCase();
-      const PPO = document
+      const orderPPO = document
         .getElementById("opo")
         .value.trim()
         .toUpperCase();
@@ -545,13 +545,13 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             customer_name: customerName,
-            opo: PPO,
             agent_state: agentState,
             total_items: totalItems,
             order_note: orderNote,
             order_type: "WHOLESALE",
             status: "PICKING",
             created_at: new Date().toISOString(),
+            opo: orderPPO,
           },
         ])
         .select()
@@ -568,14 +568,14 @@ class WholesaleOrder {
         return {
           order_id: orderData.id,
           item_name: item.code_colour.toUpperCase(),
+          order_qty: item.orderQty,
+          total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
+          order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
           oicolour: item.scolour,
           oiprice: item.swsp2,
           oisales: item.sprice,
           oifabric: item.sfabric,
           oicategory: item.item_name,
-          order_qty: item.orderQty,
-          total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
-          order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
         };
       });
 
