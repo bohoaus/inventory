@@ -38,7 +38,7 @@ class OdmOrder {
                 <div class="customer-info">
                     <div class="form-group required">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" style="width: 350px">
+                        <input type="text" id="customer_name" style="width: 350px" maxlength="20">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group required">
@@ -67,15 +67,15 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="opo">PPO#</label>
-                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#">
+                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
                     </div>
                     <div class="form-group">
                         <label for="osite">Location</label>
-                        <input style="width:100px" type="text" id="osite" placeholder="Floor" value="Floor">
+                        <input style="width:100px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Dispatched Box</label>
-                        <input style="width: 60px" type="text" id="dispatched_box" value="1">
+                        <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
                 </div>
 
