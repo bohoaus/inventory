@@ -68,7 +68,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="opo">PPO#</label>
-                        <input type="text" id="opo" placeholder="PO#">
+                        <input type="text" id="opo" placeholder="PO#" value="PO#">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Dispatched Box</label>
