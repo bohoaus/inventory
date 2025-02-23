@@ -68,6 +68,10 @@ class WholesaleOrder {
                         <label for="opo">PPO#</label>
                         <input style="width: 120px" type="text" id="opo" placeholder="PO#" value="PO#">
                     </div>
+                    <div class="form-group" style="width: 100px">
+                        <label for="osite">Location</label>
+                        <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
@@ -520,7 +524,7 @@ class WholesaleOrder {
   async submitOrder() {
     try {
       const orderDate = document
-        .getElementById("orderdate");
+        .getElementById("orderdate").value || null;
       const customerName = document
         .getElementById("customer_name")
         .value.trim()
