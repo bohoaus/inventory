@@ -405,7 +405,7 @@ class EditOdmItem {
         swsp: data.swsp,
         swsp2: data.swsp2,
         arrive_date: data.arrive_date,
-        release_date: data.release_date,
+        release_date: data.release_date || null,
       };
 
       const { error: updateError } = await supabaseClient
