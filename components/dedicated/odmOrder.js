@@ -52,7 +52,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group" required>
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state">
+                        <select id="agent_state" style="width: 150px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
@@ -68,7 +68,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="opo">PPO#</label>
-                        <input style="width: 60px" type="text" id="opo" placeholder="PO#" value="PO#">
+                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#">
                     </div>
                     <div class="form-group">
                         <label for="osite">Location</label>
@@ -82,7 +82,7 @@ class OdmOrder {
 
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input style="width: 150px" type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
