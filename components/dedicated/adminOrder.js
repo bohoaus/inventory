@@ -7,7 +7,7 @@ class AdminOrder {
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
-      { id: "agent_state", name: "Agent State", locked: true },
+      { id: "agent_state", name: "AgentState", locked: true },
       { id: "total_items", name: "Items", locked: true },
       { id: "osite", name: "Location", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
