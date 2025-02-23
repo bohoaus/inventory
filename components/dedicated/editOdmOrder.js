@@ -305,8 +305,8 @@ class EditOdmOrder {
                         id="order_note" 
                         placeholder="Add note for this order"
                         style="
-                            font-size: 18px; 
-                            padding: 15px; 
+                            font-size: 15px; 
+                            padding: 10px; 
                             min-height: 100px; 
                             width: 100%; 
                             border: 1px solid #ddd; 
