@@ -41,7 +41,7 @@ class WholesaleOrder {
                 <div class="customer-info">
                     <div class="form-group">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" required>
+                        <input type="text" id="customer_name" required style="width: 250px">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group" style="width: 100px">
@@ -50,7 +50,7 @@ class WholesaleOrder {
                     </div>
                      <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state" required>
+                        <select id="agent_state" required style="width: 150px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
@@ -66,7 +66,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="opo">PPO#</label>
-                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#">
+                        <input style="width: 120px" type="text" id="opo" placeholder="PO#" value="PO#">
                     </div>
                 </div>
                 <div class="form-group">
