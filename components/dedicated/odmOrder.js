@@ -78,7 +78,7 @@ class OdmOrder {
 
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
