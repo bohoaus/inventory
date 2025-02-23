@@ -37,12 +37,12 @@ class OdmOrder {
     return `
             <div class="odm-form">
                 <div class="customer-info">
-                    <div class="form-group required">
+                    <div class="form-group" required>
                         <label for="customer_name">Customer Name</label>
                         <input type="text" id="customer_name" style="width: 350px">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group required">
+                    <div class="form-group" required>
                         <label for="orderdate">Request Date</label>
                         <input type="date" id="orderdate" style="width: 150px">
                     </div>
@@ -50,7 +50,7 @@ class OdmOrder {
                         <label for="dispatched_at">Dispatched At</label>
                         <input type="datetime-local" id="dispatched_at" style="width: 200px">
                     </div>
-                    <div class="form-group required">
+                    <div class="form-group" required>
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state">
                             <option value="">Select State</option>
@@ -69,6 +69,10 @@ class OdmOrder {
                     <div class="form-group">
                         <label for="opo">PPO#</label>
                         <input style="width: 60px" type="text" id="opo" placeholder="PO#" value="PO#">
+                    </div>
+                    <div class="form-group">
+                        <label for="osite">Location</label>
+                        <input style="width:100px" type="text" id="osite" placeholder="Floor" value="Floor">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Dispatched Box</label>
@@ -305,6 +309,8 @@ class OdmOrder {
         orderdate: formData.get("orderdate"),
         customer_name: formData.get("customer_name"),
         opo: formData.get("opo"),
+        dispatched_box: formData.get("dispatched_box"),
+        osite: formData.get("osite"),
         order_type: this.orderType,
         status: "processing",
         agent_state: formData.get("agent_state"),
@@ -408,6 +414,8 @@ class OdmOrder {
           {
             order_id: orderId,
             item_name: itemData.item_name,
+            oicolour: itemData.oicolour,
+            oicolour: itemData.oicolour,
             oicolour: itemData.oicolour,
             total_pieces: packSizeTotal,
             order_item_status: "PROCESSING",
