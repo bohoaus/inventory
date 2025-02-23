@@ -574,7 +574,7 @@ class WholesaleOrder {
           oiprice: item.swsp2,
           oisales: item.sprice,
           oifabric: item.sfabric,
-          oicategory: item.item_name,
+          oicategory: item.item_category,
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
