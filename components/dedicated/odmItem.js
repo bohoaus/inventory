@@ -239,7 +239,7 @@ class OdmItem {
             <!-- Left Column -->
             <div class="form-group required">
                 <label for="code_colour">Code</label>
-                <input type="text" 
+                <input type="text" maxlength="30" 
                        name="code_colour" 
                        required 
                        onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
@@ -272,7 +272,7 @@ class OdmItem {
 
             <div class="form-group">
                 <label for="odm_ppo">ODM PPO</label>
-                <input type="text" 
+                <input type="text" maxlength="15" 
                        name="odm_ppo" placeholder="PO" 
                        value="${item?.odm_ppo || "PO"}"
                        onkeyup="this.value = this.value.toUpperCase()">
@@ -280,7 +280,7 @@ class OdmItem {
 
             <div class="form-group required">
                 <label for="receive_qty">Received Quantity</label>
-                <input type="number" 
+                <input type="number" maxlength="4" 
                        name="receive_qty" 
                        step="1" 
                        min="1"
@@ -290,7 +290,7 @@ class OdmItem {
 
              <div class="form-group required">
                 <label for="stock_qty">Stock Quantity</label>
-                <input type="number" 
+                <input type="number" maxlength="4" 
                        name="stock_qty" value="0" 
                        step="1" 
                        min="1"
@@ -360,7 +360,7 @@ class OdmItem {
 
             <div class="form-group required">
                 <label for="scolour">Colour</label>
-                <input type="text" 
+                <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
                        value="${item?.scolour || "black"}"
                 >
@@ -435,7 +435,7 @@ class OdmItem {
 
             <div class="form-group">
                 <label for="item_note">Item Note</label>
-                <textarea name="item_note" placeholder="OK" 
+                <textarea maxlength="50" name="item_note" placeholder="OK" 
                           rows="3"
                           onkeyup="this.value = this.value.toUpperCase()">${
                             item?.item_note || "OK"
