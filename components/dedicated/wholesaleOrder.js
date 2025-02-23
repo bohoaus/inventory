@@ -66,12 +66,12 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="opo">PPO#</label>
-                        <input style="width: 100px" type="text" id="opo" placeholder="PO#">
+                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK">
                 </div>
 
                 <div class="item-search">
