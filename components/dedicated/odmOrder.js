@@ -581,6 +581,9 @@ class OdmOrder {
           `
           code_colour,
           scolour,
+          sfabric,
+          sprice,
+          swsp2,
           receive_qty,
           item_status,
           odm_customer,
