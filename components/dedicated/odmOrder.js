@@ -1,6 +1,5 @@
 class OdmOrder {
   constructor() {
-    //this.orderdate = new Date();
     this.orderType = "odm";
     this.tempOrderList = [];
     this.searchInput = null;
