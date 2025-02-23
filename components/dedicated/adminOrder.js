@@ -8,18 +8,19 @@ class AdminOrder {
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "Agent State", locked: true },
-      { id: "total_items", name: "T-Items", locked: true },
+      { id: "osite", name: "Location", locked: true },
+      { id: "total_items", name: "Items", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
-      { id: "invoice_no", name: "Invoice No" },
-      { id: "tracking_no", name: "Tracking No" },
+      { id: "invoice_no", name: "Invoice#" },
+      { id: "tracking_no", name: "Tracking#" },
     ];
 
     // Optional columns that can be added
     this.optionalColumns = [
       { id: "removed_items", name: "Removed Items" },
-      { id: "dispatched_carrier", name: "Dispatched Carrier" },
-      { id: "dispatched_box", name: "Dispatched Box" },
+      { id: "dispatched_carrier", name: "Courier" },
+      { id: "dispatched_box", name: "D-Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "ouser", name: "User" },
