@@ -164,6 +164,7 @@ class SalesWeeklySale {
           `
           item_name,
           oicolour,
+          oicategory,
           order_qty,
           total_pieces,
           order_item_status,
@@ -257,6 +258,7 @@ class SalesWeeklySale {
       if (!summary[item.item_name]) {
         summary[item.item_name] = {
           name: item.item_name,
+          colour: item.oicolour,
           inventoryStatus: item.inventory?.item_status,
           orderQty: 0,
           totalPieces: 0,
@@ -337,6 +339,7 @@ class SalesWeeklySale {
         })
         .map(([itemCode, item]) => [
           itemCode,
+          item.colour,
           item.name,
           item.inventoryStatus,
           item.orderInfo,
@@ -349,6 +352,7 @@ class SalesWeeklySale {
         head: [
           [
             "Item Code",
+            "Colour",
             "Name",
             "Status",
             "Ordered Amount (pks/pcs)",
