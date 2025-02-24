@@ -31,7 +31,8 @@ class SalesSoldout {
         .from("inventory")
         .select("*")
         .eq("item_status", "OUT OF STOCK")
-        .order("soldout_date", { ascending: false });
+        .order("soldout_date", { descending: false });
+//        .order("soldout_date", { ascending: false });
 
       if (error) throw error;
 
@@ -72,6 +73,7 @@ class SalesSoldout {
               <thead>
                 <tr>
                   <th>Code</th>
+                  <th>Colour</th>
                   <th>Name</th>
                   <th>Release Date</th>
                   <th>Sold Out Date</th>
@@ -229,6 +231,7 @@ class SalesSoldout {
         (item) => `
         <tr class="status-${this.getStatusClass(item.soldout_status)}">
           <td>${item.code_colour || "N/A"}</td>
+          <td>${item.scolour || "N/A"}</td>
           <td>${item.item_name || "N/A"}</td>
           <td>${this.formatDateToSydney(item.release_date)}</td>
           <td>${this.formatDateToSydney(item.soldout_date)}</td>
@@ -236,7 +239,7 @@ class SalesSoldout {
             item.release_date,
             item.soldout_date
           )}</td>
-          <td>${item.soldout_status || "N/A"}</td>
+          <td>${item.sprice || "N/A"}</td>
         </tr>
       `
       )
@@ -286,11 +289,12 @@ class SalesSoldout {
       // Create table data
       const tableData = items.map((item) => [
         item.code_colour || "",
+        item.scolour || "",
         item.item_name || "",
         this.formatDateToSydney(item.release_date),
         this.formatDateToSydney(item.soldout_date),
         this.calculateSellingTime(item.release_date, item.soldout_date),
-        item.soldout_status || "",
+        item.sprice || "",
       ]);
 
       // Add table
@@ -299,6 +303,7 @@ class SalesSoldout {
         head: [
           [
             "Code",
+            "Colour",
             "Name",
             "Release Date",
             "Sold Out Date",
