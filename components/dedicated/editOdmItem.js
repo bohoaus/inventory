@@ -157,6 +157,24 @@ class EditOdmItem {
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
           </div>
+
+                <div class="form-group">
+                    <label for="sprice">Sales Price</label>
+                    <select name="sprice">
+                        <option value="">Select Price</option>
+                        ${prices
+                          .map(
+                            (sprices) => `
+                            <option value="${sprices}" ${
+                              item.sprice === sprices ? "selected" : ""
+                            }>
+                                ${sprices}
+                            </option>
+                        `
+                          )
+                          .join("")}
+                    </select>
+                </div>
         
       </div>
 
