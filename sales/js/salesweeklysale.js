@@ -56,9 +56,10 @@ class SalesWeeklySale {
                 <tr>
                   <th>Item Code</th>
                   <th>Item Name</th>
+                  <th>Item Name</th>
                   <th>Status</th>
-                  <th>Ordered Amount (pks/pcs)</th>
-                  <th>Ordered Customer Amount</th>
+                  <th>OrderPacks (pks/pcs)</th>
+                  <th>Amount</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -162,6 +163,7 @@ class SalesWeeklySale {
         .select(
           `
           item_name,
+          oicolour,
           order_qty,
           total_pieces,
           order_item_status,
@@ -238,6 +240,7 @@ class SalesWeeklySale {
         row.className = `status-${this.getStatusClass(item.inventoryStatus)}`;
         row.innerHTML = `
           <td>${itemCode}</td>
+          <td>${item.oicolour}</td>
           <td>${item.name}</td>
           <td>${item.inventoryStatus || "N/A"}</td>
           <td>${item.orderQty} / ${item.totalPieces}</td>
