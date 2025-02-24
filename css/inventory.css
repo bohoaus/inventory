@@ -217,12 +217,12 @@
   width: 100%;
   min-width: 800px; /* Minimum width to prevent squishing */
   border-collapse: collapse;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .inventory-table th,
 .inventory-table td {
-  padding: 6px;
+  padding: 3px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -316,7 +316,7 @@
 .inventory-table th.action-column,
 .inventory-table td.action-column {
   width: 100px;
-  min-width: 80px;
+  min-width: 70px;
 }
 
 .inventory-table th.code-column,
@@ -328,7 +328,7 @@
 .inventory-table th.qty-column,
 .inventory-table td.qty-column {
   width: 80px;
-  min-width: 50px;
+  min-width: 40px;
 }
 
 .inventory-table th.date-column,
@@ -442,7 +442,7 @@
 /* Additional column styles */
 .inventory-table th.note-column,
 .inventory-table td.note-column {
-  min-width: 200px;
+  min-width: 100px;
   max-width: 300px;
   white-space: normal; /* Allow text wrapping for notes */
 }
@@ -722,7 +722,7 @@
 .add-item-buttons {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .add-item-btn {
