@@ -1086,10 +1086,10 @@ class SalesOrdersComponent {
                   <thead>
                     <tr>
                       <th>Item Code & Colour</th>
-                      <th>Order Quantity</th>
-                      <th>Total Pieces</th>
+                      <th>Packs</th>
+                      <th>Pieces</th>
                       <th>Added At</th>
-                      <th>Removed At</th>
+                      <th>Removed</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
