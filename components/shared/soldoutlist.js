@@ -34,7 +34,8 @@ class SoldOutList {
         .select("*")
         .eq("item_status", "OUT OF STOCK")
         .not("soldout_date", "is", null)
-        .order("soldout_date", { ascending: false });
+        .order("soldout_date", { descending: false }); 
+//        .order("soldout_date", { ascending: false }); 
 
       if (error) throw error;
 
