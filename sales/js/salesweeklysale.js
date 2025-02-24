@@ -241,7 +241,7 @@ class SalesWeeklySale {
         row.className = `status-${this.getStatusClass(item.inventoryStatus)}`;
         row.innerHTML = `
           <td>${itemCode}</td>
-          <td>${item.oicolour}</td>
+          <td>${item.colour}</td>
           <td>${item.name}</td>
           <td>${item.inventoryStatus || "N/A"}</td>
           <td>${item.orderQty} / ${item.totalPieces}</td>
