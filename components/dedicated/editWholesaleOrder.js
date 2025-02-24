@@ -82,6 +82,7 @@ class EditWholesaleOrder {
       this.originalOrderItems = orderItems.map((item) => ({
         code_colour: item.item_name,
         scolour: item.oicolour,
+        oiprice: item.oiprice,
         sprice: item.oisales,
         pack_unit: item.inventory.pack_unit,
         order_qty: item.order_qty,
@@ -199,7 +200,7 @@ class EditWholesaleOrder {
                                 <th>Unit/P</th>
                                 <th>Packs</th>
                                 <th>T-Pieces</th>
-                                <th>Price</th>
+                                <th>Sales</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
