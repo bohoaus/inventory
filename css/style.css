@@ -54,11 +54,11 @@ h1 {
   text-align: center;
   color: #333;
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 label {
@@ -84,7 +84,7 @@ input:focus {
 
 button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   background: #007bff;
   color: white;
   border: none;
@@ -107,8 +107,8 @@ button:hover {
 
 .readme-link {
   text-align: center;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid #eee;
 }
 
