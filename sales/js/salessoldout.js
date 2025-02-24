@@ -75,9 +75,9 @@ class SalesSoldout {
                   <th>Code</th>
                   <th>Colour</th>
                   <th>Name</th>
-                  <th>Release Date</th>
-                  <th>Sold Out Date</th>
-                  <th>Selling Time</th>
+                  <th>ReleaseDate</th>
+                  <th>SoldOutDate</th>
+                  <th>SellingTime</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -305,9 +305,9 @@ class SalesSoldout {
             "Code",
             "Colour",
             "Name",
-            "Release Date",
-            "Sold Out Date",
-            "Selling Time",
+            "ReleaseDate",
+            "SoldOutDate",
+            "SellingTime",
             "Status",
           ],
         ],
