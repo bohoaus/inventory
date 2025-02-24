@@ -212,6 +212,24 @@ class EditWholesaleItem {
             </div>
 
                 <div class="form-group">
+                    <label for="sprice">Sales Price</label>
+                    <select name="sprice">
+                        <option value="">Select Status</option>
+                        ${prices
+                          .map(
+                            (sprices) => `
+                            <option value="${sprices}" ${
+                              item.sprice === sprices ? "selected" : ""
+                            }>
+                                ${sprices}
+                            </option>
+                        `
+                          )
+                          .join("")}
+                    </select>
+                </div>
+
+                <div class="form-group">
                   <label for="swsp2">WSP2</label>
                   <input maxlength="5" type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
                    name="swsp2" 
