@@ -56,9 +56,9 @@ class SalesWeeklySale {
                 <tr>
                   <th>Item Code</th>
                   <th>Colour</th>
-                  <th>Item Name</th>
+                  <th>Category</th>
                   <th>Status</th>
-                  <th>OrderPacks (pks/pcs)</th>
+                  <th>Packs (pks/pcs)</th>
                   <th>Amount</th>
                 </tr>
               </thead>
@@ -257,7 +257,8 @@ class SalesWeeklySale {
     items.forEach((item) => {
       if (!summary[item.item_name]) {
         summary[item.item_name] = {
-          name: item.item_name,
+          name: item.oicategory,
+          name2: item.item_name,        
           colour: item.oicolour,
           inventoryStatus: item.inventory?.item_status,
           orderQty: 0,
