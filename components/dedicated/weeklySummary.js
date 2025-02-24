@@ -121,6 +121,7 @@ class WeeklySummary {
         .select(
           `
           item_name,
+          oicolour,
           order_qty,
           order_id,
           created_at,
