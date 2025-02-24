@@ -55,7 +55,7 @@ class SalesWeeklySale {
               <thead>
                 <tr>
                   <th>Item Code</th>
-                  <th>Item Name</th>
+                  <th>Colour</th>
                   <th>Item Name</th>
                   <th>Status</th>
                   <th>OrderPacks (pks/pcs)</th>
