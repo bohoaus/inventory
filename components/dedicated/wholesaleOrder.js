@@ -583,7 +583,7 @@ class WholesaleOrder {
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
           oicolour: item.scolour || null,
-          oiprice: item.swsp2 || null,
+          oiprice: item.swsp2 || "0",
           oisales: item.sprice || null,
           oifabric: item.sfabric || null,
           oicategory: item.item_name || null,
