@@ -570,7 +570,7 @@ class WholesaleOrder {
 
       if (orderError) throw orderError;
 
-      // Insert order items with appropriate status
+      // Insert order items with appropriate status - jim's 
       const orderItems = this.tempOrderList.map((item) => {
         const isOutOfStock =
           item.item_status.toLowerCase() === "out of stock" ||
@@ -582,11 +582,11 @@ class WholesaleOrder {
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
-          oicolour: item.scolour,
-          oiprice: item.swsp2,
-          oisales: item.sprice,
-          oifabric: item.sfabric,
-          oicategory: item.item_name,
+          oicolour: item.scolour || null,
+          oiprice: item.swsp2 || null,
+          oisales: item.sprice || null,
+          oifabric: item.sfabric || null,
+          oicategory: item.item_name || null,
         };
       });
 
