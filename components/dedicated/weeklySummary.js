@@ -122,6 +122,7 @@ class WeeklySummary {
           `
           item_name,
           oicolour,
+          oicategory,
           order_qty,
           order_id,
           created_at,
@@ -129,7 +130,8 @@ class WeeklySummary {
             code_colour,
             item_name,
             item_status,
-            item_group
+            item_group,
+            release_date,
           )
         `
         )
