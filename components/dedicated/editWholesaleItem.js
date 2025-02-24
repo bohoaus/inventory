@@ -92,6 +92,13 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group">
+            <label for="scolour">Colour</label>
+                    <input type="text" maxlength="20" 
+                           name="scolour" 
+                           value="${item.scolour || ""}">
+          </div>
+
+          <div class="form-group">
                     <label for="arrive_date">Arrive Date</label>
                     <input type="date" 
                            name="arrive_date" 
