@@ -196,25 +196,10 @@ class EditWholesaleItem {
                            value="${item.release_date || ""}">
             </div>
 
-            <div class="form-group">
-              <label for="sprice">Price</label>
-                    <select name="sprice" required>          
-                        <option value="Full Price" ${
-                          item.sprice === "Full Price" ? "selected" : ""
-                        }>Full Price</option>
-                        <option value="On Sale" ${
-                          item.sprice === "On Sale" ? "selected" : ""
-                        }>On Sale</option>
-                        <option value="Special" ${
-                          item.sprice === "Special" ? "selected" : ""
-                        }>Special</option>
-                    </select>
-            </div>
-
                 <div class="form-group">
                     <label for="sprice">Sales Price</label>
                     <select name="sprice">
-                        <option value="">Select Status</option>
+                        <option value="">Select Price</option>
                         ${prices
                           .map(
                             (sprices) => `
