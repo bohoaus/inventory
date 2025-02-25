@@ -309,9 +309,9 @@ class SoldOutList {
         "Code",
         "Brand",
         "Category",
-        "Release Date",
-        "Soldout Date",
-        "Selling Time",
+        "ReleaseDate",
+        "SoldoutDate",
+        "SellingTime",
         "Status",
       ];
       const tableData = sortedItems.map((item) => [
@@ -343,9 +343,9 @@ class SoldOutList {
         1: 0.13, // Brand - 13%
         2: 0.13, // Category - 13%
         3: 0.15, // Release Date - 15%
-        4: 0.15, // Soldout Date - 11%
-        5: 0.12, // Selling Time - 11%
-        6: 0.15, // Status - 10%
+        4: 0.11, // Soldout Date - 11%
+        5: 0.11, // Selling Time - 11%
+        6: 0.10, // Status - 10%
       };
 
       // Convert percentages to actual widths
