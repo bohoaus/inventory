@@ -586,7 +586,7 @@ class WholesaleOrder {
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
           oicolour: item.scolour,
           oiprice: item.swsp2,
-//          osales: item.sprice,
+          osales: item.sprice,
           oifabric: item.sfabric,
           oicategory: item.item_name,
         };
