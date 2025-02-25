@@ -534,8 +534,6 @@ class WholesaleOrder {
         .value.trim().toUpperCase();
       const orderPPO = document
         .getElementById("opo").value || null;
-      const totalAmount = document
-        .getElementById("oamount").value || null;
       const orderBox = document
         .getElementById("dispatched_box").value || null;
       const orderLocation = document
