@@ -182,8 +182,8 @@ class SoldOutList {
         <thead>
             <tr>
                 <th>Code</th>
-                <th>Colour</th>
                 <th>Name</th>
+                <th>Colour</th>
                 <th>ReleaseDate</th>
                 <th>SoldOutDate</th>
                 <th>SellingTime</th>
@@ -196,8 +196,8 @@ class SoldOutList {
                 (item) => `
                 <tr class="status-${this.getStatusClass(item.soldout_status)}">
                     <td>${item.code_colour}</td>
-                    <td>${item.scolour || ""}</td>
                     <td>${item.item_name || ""}</td>
+                    <td>${item.scolour || ""}</td>
                     <td>${formatDateToSydney(item.release_date)}</td>
                     <td>${formatDateToSydney(item.soldout_date)}</td>
                     <td>${calculateSellingTime(
