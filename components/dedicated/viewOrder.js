@@ -312,8 +312,8 @@ class ViewOrder {
                         <th>Colour</th>
                         <th>Packs</th>
                         <th>Qty</th>
-                        <th>Status</th>
                         <th>Sales</th>
+                        <th>Status</th>
                         <th>Added Date</th>
                         <th>Removed Date</th>
                     </tr>
