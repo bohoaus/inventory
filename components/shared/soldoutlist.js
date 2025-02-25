@@ -58,7 +58,7 @@ class SoldOutList {
       closeBtn.onclick = () => modal.remove();
 
       // Add title
-      const title = document.createElement("h2");
+      const title = document.createElement("h3");
       title.className = "modal-title";
       title.textContent = "Weekly Sold Out Items";
 
