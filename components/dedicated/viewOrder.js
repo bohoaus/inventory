@@ -329,7 +329,7 @@ class ViewOrder {
                                 <td>${item.orderColour}</td>
                                 <td>${item.orderPack}</td>
                                 <td>${item.orderQty}</td>
-                                <td>${item.oisales}</td>
+                                <td>${item.oisales || null}</td>
                                 <td>${item.status || "-"}</td>
                                 <td>${this.formatValue(
                                   "created_at",
