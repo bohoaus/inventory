@@ -233,7 +233,6 @@ class WholesaleOrder {
     document.getElementById("itemCode").textContent = item.code_colour || "";
     document.getElementById("itemColour").textContent = item.scolour || "";
     document.getElementById("itemName").textContent = item.item_name || "";
-    document.getElementById("itemSales").textContent = item.sprice || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
     document.getElementById("onHand").textContent = availableStock;
@@ -536,7 +535,7 @@ class WholesaleOrder {
       const orderPPO = document
         .getElementById("opo").value || null;
       const totalAmount = document
-        .getElementById("oamount").value || "0";
+        .getElementById("oamount").value || null;
       const orderBox = document
         .getElementById("dispatched_box").value || null;
       const orderLocation = document
@@ -586,7 +585,7 @@ class WholesaleOrder {
           order_item_status: isOutOfStock ? "SOLD OUT" : "ACTIVE",
           oicolour: item.scolour,
           oiprice: item.swsp2,
-          oisales: item.sprice,
+//          oisales: item.sprice,
           oifabric: item.sfabric,
           oicategory: item.item_name,
         };
