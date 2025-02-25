@@ -187,8 +187,8 @@ class SoldOutList {
                 <th>Colour</th>
                 <th>Category</th>
                 <th>Release Date</th>
-                <th>Sold Out Date</th>
-                <th>Selling Time</th>
+                <th>SoldOutDate</th>
+                <th>SellingTime</th>
                 <th>Status</th>
             </tr>
         </thead>
