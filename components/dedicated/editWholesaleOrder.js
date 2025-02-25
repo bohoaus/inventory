@@ -812,7 +812,7 @@ class EditWholesaleOrder {
             <td>${item.pack_unit}</td>
             <td>${item.order_qty}</td>
             <td>${item.total_pieces}</td>
-            <td>${item.sprice}</td>
+            <td>${item.oisales}</td>
             <td>${item.status}</td>
             <td>
               <button onclick="editWholesaleOrder.removeItem('${item.code_colour}')" 
