@@ -91,6 +91,7 @@ class ViewOrder {
         tracking_no: orderData.tracking_no || "-",
         orderdate: orderData.orderdate,
         ouser: orderData.ouser,
+        opo: orderData.opo,
       };
 
       // Fetch and normalize order items
@@ -169,7 +170,7 @@ class ViewOrder {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-            padding: 10px;
+            padding: 5px;
         ">
             <!-- Row 1 -->
             <div class="detail-item">
@@ -693,6 +694,8 @@ class ViewOrder {
               item_location,
               pack_unit,
               item_name,
+              scolour,
+              sprice,
               pack_size
             )
           `
@@ -1055,6 +1058,7 @@ class ViewOrder {
           .map((item) => ({
             code: item.code,
             orderColour: item.orderColour,
+            orderSales: item.orderSales,
             orderPack: item.orderPack,
             orderQty: item.orderQty,
             addedDate: item.addedDate,
