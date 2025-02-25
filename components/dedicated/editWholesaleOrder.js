@@ -83,7 +83,7 @@ class EditWholesaleOrder {
         code_colour: item.item_name,
         scolour: item.oicolour,
         oiprice: item.oiprice,
-        sprice: item.oisales,
+        oisales: item.oisales,
         pack_unit: item.inventory.pack_unit,
         order_qty: item.order_qty,
         total_pieces:
