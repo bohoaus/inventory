@@ -32,6 +32,7 @@ class SoldOutList {
       const { data: items, error } = await supabaseClient
         .from("inventory")
         .select("*")
+        .or("item_status", "OUT OF STOCK")
         .not("soldout_date", "is", null)
         .order("soldout_date", { ascending: false });
 //jim change        .select("*")
