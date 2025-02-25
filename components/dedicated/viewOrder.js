@@ -289,7 +289,7 @@ class ViewOrder {
                         <th>Item Code</th>
                         <th>Colour</th>
                         <th>Packs</th>
-                        <th>Pack Size</th>
+                        <th>PackSize</th>
                         <th>Unit/P</th>
                         <th>Status</th>
                     </tr>
@@ -329,7 +329,7 @@ class ViewOrder {
                                 <td>${item.orderColour}</td>
                                 <td>${item.orderPack}</td>
                                 <td>${item.orderQty}</td>
-                                <td>${item.oisales || null}</td>
+                                <td>${item.orderSales}</td>
                                 <td>${item.status || "-"}</td>
                                 <td>${this.formatValue(
                                   "created_at",
@@ -1027,6 +1027,7 @@ class ViewOrder {
             itemHistory[itemKey] = {
               code: item.item_name,
               orderColour: item.oicolour,
+              orderSales: item.oisales,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
               addedDate: item.created_at, // Always store created_at as added date
