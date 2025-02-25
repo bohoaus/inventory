@@ -565,7 +565,6 @@ class WholesaleOrder {
             order_type: "WHOLESALE",
             status: "PICKING",
             created_at: new Date().toISOString(),
-            opo: orderPPO,
           },
         ])
         .select()
