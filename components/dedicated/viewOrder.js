@@ -516,9 +516,9 @@ class ViewOrder {
                 <thead>
                     <tr>
                         <th>Item Code</th>
-                        <th>Counted Qty</th>
-                        <th>Added Date</th>
-                        <th>Removed Date</th>
+                        <th>CountQty</th>
+                        <th>AddedDate</th>
+                        <th>RemovedDate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -907,6 +907,8 @@ class ViewOrder {
                 order_items (
                     id,
                     item_name,
+                    oicolour,
+                    oisales,
                     order_qty,
                     total_pieces,
                     order_item_status,
