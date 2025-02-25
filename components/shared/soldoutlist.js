@@ -177,11 +177,12 @@ class SoldOutList {
     const table = document.createElement("table");
     table.className = "soldout-table";
 
+//jim add
     table.innerHTML = `
         <thead>
             <tr>
                 <th>Code</th>
-                <th>Colour</th>//jim add
+                <th>Colour</th>
                 <th>Name</th>
                 <th>ReleaseDate</th>
                 <th>SoldOutDate</th>
@@ -203,14 +204,14 @@ class SoldOutList {
                       item.release_date,
                       item.soldout_date
                     )}</td>
-                    <td>${item.oisales || ""}</td>//jim change
-//                    <td>${item.soldout_status || ""}</td>
+                    <td>${item.oisales || ""}</td>
                 </tr>
             `
               )
               .join("")}
         </tbody>
     `;
+//                    <td>${item.soldout_status || ""}</td>
 
     container.innerHTML = "";
     container.appendChild(table);
