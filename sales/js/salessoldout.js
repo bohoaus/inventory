@@ -31,8 +31,7 @@ class SalesSoldout {
         .from("inventory")
         .select("*")
         .eq("item_status", "OUT OF STOCK")
-        .order("soldout_date", { descending: false });
-//        .order("soldout_date", { ascending: false });
+        .order("soldout_date", { ascending: false });
 
       if (error) throw error;
 
