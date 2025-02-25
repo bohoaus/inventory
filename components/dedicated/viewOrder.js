@@ -1027,7 +1027,7 @@ class ViewOrder {
             itemHistory[itemKey] = {
               code: item.item_name,
               orderColour: item.oicolour,
-              orderSales: item.oisales,              
+              orderSales: item.oisales || null,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
               addedDate: item.created_at, // Always store created_at as added date
