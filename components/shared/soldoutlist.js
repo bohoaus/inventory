@@ -34,10 +34,7 @@ class SoldOutList {
         .select("*")
         .eq("item_status", "OUT OF STOCK")
         .not("soldout_date", "is", null)
-        .not("soldout_date", "is", "")
-        .not("mfg_date", "is", null)
-        .order("soldout_date", { descending: false }); 
-//        .order("soldout_date", { ascending: false }); 
+        .order("soldout_date", { ascending: false });
 
       if (error) throw error;
 
@@ -184,11 +181,10 @@ class SoldOutList {
         <thead>
             <tr>
                 <th>Code</th>
-                <th>Colour</th>
-                <th>Category</th>
+                <th>Name</th>
                 <th>Release Date</th>
-                <th>SoldOutDate</th>
-                <th>SellingTime</th>
+                <th>Sold Out Date</th>
+                <th>Selling Time</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -198,7 +194,6 @@ class SoldOutList {
                 (item) => `
                 <tr class="status-${this.getStatusClass(item.soldout_status)}">
                     <td>${item.code_colour}</td>
-                    <td>${item.scolour || ""}</td>
                     <td>${item.item_name || ""}</td>
                     <td>${formatDateToSydney(item.release_date)}</td>
                     <td>${formatDateToSydney(item.soldout_date)}</td>
@@ -206,7 +201,7 @@ class SoldOutList {
                       item.release_date,
                       item.soldout_date
                     )}</td>
-                    <td>${item.sprice || ""}</td>
+                    <td>${item.soldout_status || ""}</td>
                 </tr>
             `
               )
