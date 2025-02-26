@@ -308,6 +308,8 @@ class SalesSummary {
           `
           id,
           customer_name,
+          orderdate,
+          opo,
           agent_state,
           dispatched_state,
           dispatched_box,
