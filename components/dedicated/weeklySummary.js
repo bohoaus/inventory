@@ -152,6 +152,7 @@ class WeeklySummary {
           summaryMap.set(key, {
             code_colour: item.inventory.code_colour,
             oicolour: item.oicolour,
+            total_pieces: item.total_pieces,
             oisales: item.oisales,
             item_name: item.inventory.item_name,
             item_status: item.inventory.item_status,
