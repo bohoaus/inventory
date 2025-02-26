@@ -207,7 +207,7 @@ class WeeklySummary {
         <td>${item.item_name}</td>
         <td>${item.oisales || "-"}</td>
         <td>${item.total_qty}</td>
-        <td>${item.total_units.size}</td>
+        <td>${item.total_units}</td>
       `;
       tbody.appendChild(row);
     });
