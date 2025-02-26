@@ -345,7 +345,7 @@ class SoldOutList {
         3: 0.15, // Release Date - 15%
         4: 0.11, // Soldout Date - 11%
         5: 0.11, // Selling Time - 11%
-        6: 0.10, // Status - 10%
+        6: 0.20, // Status - 20%
       };
 
       // Convert percentages to actual widths
