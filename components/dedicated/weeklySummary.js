@@ -162,8 +162,8 @@ class WeeklySummary {
 
         const summary = summaryMap.get(key);
         summary.total_qty += item.order_qty;
-        summary.customer_count.add(item.item_name);
-//        summary.customer_count.add(item.order_id);
+        summary.customer_count.add(item.order_id);
+        summary.total_units += item.total_pieces;
       });
 
       // Convert to array and sort by status
@@ -207,11 +207,12 @@ class WeeklySummary {
         <td>${item.item_name}</td>
         <td>${item.oisales || "-"}</td>
         <td>${item.total_qty}</td>
-        <td>${item.customer_count.size}</td>
+        <td>${item.total_units.size}</td>
       `;
       tbody.appendChild(row);
     });
   }
+//        <td>${item.customer_count.size}</td>
 
   closeModal() {
     if (this.modal) {
