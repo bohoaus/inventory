@@ -652,9 +652,11 @@ class SalesOrdersComponent {
       itemsTable.innerHTML = `
         <thead>
           <tr>
-            <th>Item Code & Colour</th>
-            <th>Order Quantity</th>
-            <th>Total Pieces</th>
+            <th>Item</th>
+            <th>Colour</th>
+            <th>Sales</th>
+            <th>Packs</th>
+            <th>Qty</th>
             <th>Added At</th>
             <th>Removed At</th>
           </tr>
@@ -671,6 +673,8 @@ class SalesOrdersComponent {
                 item.order_item_status || "removed"
               }">
                 <td>${item.item_name || "-"}</td>
+                <td>${item.oicolour || "-"}</td>
+                <td>${item.oisales || "-"}</td>
                 <td>${item.order_qty || "-"}</td>
                 <td>${item.total_pieces || "-"}</td>
                 <td>${
@@ -1025,15 +1029,15 @@ class SalesOrdersComponent {
                   <span id="detailStatus"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Agent State:</label>
+                  <label>AgentState:</label>
                   <span id="detailAgentState"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Dispatch State:</label>
+                  <label>DispatchState:</label>
                   <span id="detailDispatchState"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Dispatch Carrier:</label>
+                  <label>DispatchCarrier:</label>
                   <span id="detailDispatchCarrier"></span>
                 </div>
                 <div class="Salesorders-detail-row">
@@ -1041,19 +1045,19 @@ class SalesOrdersComponent {
                   <span id="detailDispatchBox"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Total Items:</label>
+                  <label>T-Items:</label>
                   <span id="detailTotalItems"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Removed Items:</label>
+                  <label>RemovedItems:</label>
                   <span id="detailRemovedItems"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Invoice No:</label>
+                  <label>Invoice#:</label>
                   <span id="detailInvoiceNo"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Tracking No:</label>
+                  <label>Tracking#:</label>
                   <span id="detailTrackingNo"></span>
                 </div>
                 <div class="Salesorders-detail-row">
@@ -1069,11 +1073,11 @@ class SalesOrdersComponent {
                   <span id="detailUpdated"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Dispatched At:</label>
+                  <label>DispatchedAt:</label>
                   <span id="detailDispatchedAt"></span>
                 </div>
                 <div class="Salesorders-detail-row">
-                  <label>Cancelled At:</label>
+                  <label>CancelledAt:</label>
                   <span id="detailCancelledAt"></span>
                 </div>
               </div>
@@ -1085,7 +1089,8 @@ class SalesOrdersComponent {
                 <table id="orderItemsTable" class="Salesorders-items-table">
                   <thead>
                     <tr>
-                      <th>Item Code & Colour</th>
+                      <th>Item</th>
+                      <th>Colour</th>
                       <th>Packs</th>
                       <th>Pieces</th>
                       <th>Added At</th>
