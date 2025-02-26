@@ -157,6 +157,7 @@ class WeeklySummary {
             item_name: item.inventory.item_name,
             item_status: item.inventory.item_status,
             total_qty: 0,
+            total_units: 0,
             customer_count: new Set(),
           });
         }
