@@ -165,6 +165,7 @@ class SalesWeeklySale {
           item_name,
           oicolour,
           oicategory,
+          oisales,
           order_qty,
           total_pieces,
           order_item_status,
