@@ -52,12 +52,10 @@ class WeeklySummary {
                 <thead>
                   <tr>
                     <th>Item Code</th>
-                    <th>Colour</th>
                     <th>Item Name</th>
-                    <th>ReleaseDate</th>
                     <th>Status</th>
-                    <th>Ordered</th>
-                    <th>Customer</th>
+                    <th>Ordered Amount</th>
+                    <th>Customer Amount</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -121,8 +119,6 @@ class WeeklySummary {
         .select(
           `
           item_name,
-          oicolour,
-          oicategory,
           order_qty,
           order_id,
           created_at,
@@ -130,8 +126,7 @@ class WeeklySummary {
             code_colour,
             item_name,
             item_status,
-            item_group,
-            release_date,
+            item_group
           )
         `
         )
@@ -152,9 +147,7 @@ class WeeklySummary {
         if (!summaryMap.has(key)) {
           summaryMap.set(key, {
             code_colour: item.inventory.code_colour,
-            scolour: item.inventory.scolour,
             item_name: item.inventory.item_name,
-            release_date: item.inventory.release_date,
             item_status: item.inventory.item_status,
             total_qty: 0,
             customer_count: new Set(),
@@ -203,9 +196,7 @@ class WeeklySummary {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${item.code_colour}</td>
-        <td>${item.scolour}</td>
         <td>${item.item_name}</td>
-        <td>${item.release_date}</td>
         <td>${item.item_status || "-"}</td>
         <td>${item.total_qty}</td>
         <td>${item.customer_count.size}</td>
