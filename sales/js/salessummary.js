@@ -313,6 +313,8 @@ class SalesSummary {
           dispatched_box,
           order_items (
             item_name,
+            oicolour,
+            oisales,
             total_pieces
           )
         `
