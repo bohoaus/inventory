@@ -52,10 +52,11 @@ class WeeklySummary {
                 <thead>
                   <tr>
                     <th>Item Code</th>
+                    <th>Colour</th>
                     <th>Item Name</th>
                     <th>Status</th>
-                    <th>Ordered Amount</th>
-                    <th>Customer Amount</th>
+                    <th>Packs</th>
+                    <th>Qty</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -119,6 +120,8 @@ class WeeklySummary {
         .select(
           `
           item_name,
+          oicolour,
+          oisales,
           order_qty,
           order_id,
           created_at,
@@ -147,6 +150,8 @@ class WeeklySummary {
         if (!summaryMap.has(key)) {
           summaryMap.set(key, {
             code_colour: item.inventory.code_colour,
+            oicolour: item.oicolour,
+            oisales: item.oisales,
             item_name: item.inventory.item_name,
             item_status: item.inventory.item_status,
             total_qty: 0,
@@ -196,8 +201,9 @@ class WeeklySummary {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${item.code_colour}</td>
+        <td>${item.oicolour}</td>
         <td>${item.item_name}</td>
-        <td>${item.item_status || "-"}</td>
+        <td>${item.oisales || "-"}</td>
         <td>${item.total_qty}</td>
         <td>${item.customer_count.size}</td>
       `;
