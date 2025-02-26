@@ -124,6 +124,7 @@ class WeeklySummary {
           oisales,
           order_qty,
           order_id,
+          total_pieces,
           created_at,
           inventory:item_name (
             code_colour,
@@ -161,7 +162,8 @@ class WeeklySummary {
 
         const summary = summaryMap.get(key);
         summary.total_qty += item.order_qty;
-        summary.customer_count.add(item.order_id);
+        summary.customer_count.add(item.item_name);
+//        summary.customer_count.add(item.order_id);
       });
 
       // Convert to array and sort by status
