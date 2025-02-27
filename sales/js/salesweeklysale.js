@@ -246,7 +246,7 @@ class SalesWeeklySale {
           <td>${item.colour}</td>
           <td>${item.name}</td>
           <td>${item.inventoryStatus || "N/A"}</td>
-          <td>${item.orderQty} / (${item.inventory?.pack_unit})</td>
+          <td>${item.orderQty} / (${item.inventoryUnit})</td>
           <td>${item.customers.size}</td>
         `;
         tbody.appendChild(row);
@@ -263,6 +263,7 @@ class SalesWeeklySale {
           name2: item.item_name,        
           colour: item.oicolour,
           inventoryStatus: item.inventory?.item_status,
+          inventoryUnit: item.inventory?.pack_unit,
           orderQty: 0,
           totalPieces: 0,
           customers: new Set(),
