@@ -164,7 +164,7 @@
   top: 0;
   z-index: 2;
   background-color: #f8f9fa !important;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* First header cell (actions) */
@@ -181,7 +181,7 @@
 
 .Salesorders-td[data-column="order_note"],
 .Salesorders-th[onclick*="order_note"] {
-  min-width: 250px;
+  min-width: 200px;
 }
 
 .Salesorders-td[data-column="shipping_address"],
@@ -306,7 +306,7 @@
   position: relative;
   background-color: #fff;
   margin: 5% auto;
-  padding: 20px;
+  padding: 10px;
   width: 50%;
   max-width: none;
   border-radius: 8px;
@@ -315,12 +315,12 @@
 }
 
 .Salesorders-detail-section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .Salesorders-detail-section h3 {
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding-bottom: 8px;
   border-bottom: 2px solid #007bff;
 }
@@ -340,7 +340,7 @@
 }
 
 .Salesorders-detail-row label {
-  font-weight: 600;
+  font-weight: 500;
   width: 150px;
   color: #666;
 }
@@ -351,17 +351,17 @@
 
 .Salesorders-no-data {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   color: #666;
 }
 
 .Salesorders-records-info {
   margin: 15px 0;
-  padding: 12px 15px;
+  padding: 8px 10px;
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .Salesorders-records-count {
@@ -375,14 +375,14 @@
 }
 
 .Salesorders-clear-btn {
-  padding: 8px 16px;
+  padding: 5px 10px;
   border: 1px solid #dc3545;
   border-radius: 4px;
   background: #fff;
   color: #dc3545;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 14px;
+  font-size: 12px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -399,7 +399,7 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
   opacity: 0.5;
   transition: all 0.3s ease;
@@ -426,7 +426,7 @@
 
 .Salesorders-items-table th {
   background: #f8f9fa;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .Salesorders-items-table tbody tr:hover {
@@ -449,22 +449,22 @@
 /* Status colors */
 .Salesorders-td .Salesorders-status-pending {
   color: #ffc107;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-td .Salesorders-status-processing {
   color: #17a2b8;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-td .Salesorders-status-completed {
   color: #28a745;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-td .Salesorders-status-cancelled {
   color: #dc3545;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* Responsive adjustments */
@@ -491,13 +491,13 @@
 }
 
 .Salesorders-column-select-btn {
-  padding: 8px 16px;
+  padding: 5px 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 14px;
+  font-size: 12px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -551,7 +551,7 @@
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .column-select-actions button:hover {
@@ -572,28 +572,28 @@
 /* Update status colors */
 .Salesorders-status-picking {
   color: #17a2b8;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-status-awaiting-payment {
   color: #ffc107;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-status-wholesale-on-hold,
 .Salesorders-status-odm-on-hold {
   color: #6c757d;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-status-dispatched {
   color: #28a745;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .Salesorders-status-cancelled {
   color: #dc3545;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* Group buttons */
@@ -603,13 +603,13 @@
 }
 
 .Salesorders-group-btn {
-  padding: 8px 16px;
+  padding: 5px 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 14px;
+  font-size: 12px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -641,7 +641,7 @@
 .Salesorders-table th,
 .Salesorders-table td {
   border: 1px solid #dee2e6;
-  padding: 12px;
+  padding: 10px;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -686,7 +686,7 @@
 
 .Salesorders-items-table th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .Salesorders-items-table tr:hover {
