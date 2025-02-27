@@ -119,7 +119,7 @@ class EditWholesaleOrder {
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label for="agent_state" style="text-align:center; display: block; width: 200px">Agent State</label>
-                      <select style="width: 150px" style="color:blue" id="agent_state" required>
+                      <select style="width: 200px" style="color:blue" id="agent_state" required>
                             <option value="">Select State</option>
                         <option value="AUS-ACT" ${
                           orderData.agent_state?.toUpperCase() === "AUS-ACT"
@@ -174,9 +174,9 @@ class EditWholesaleOrder {
                       </select>
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
-                        <label style="text-align:left; display: block; width: 80px">PO#</label>
+                        <label style="text-align:left; display: block; width: 50px">Invoice#</label>
                         <input type="text" style="text-align:left; display: block; width: 50px" maxlength="10" 
-                          value="${orderData.opo || ""}">
+                          value="${orderData.invoice_no || ""}">
                     </div>
                 </div>
             <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
@@ -576,6 +576,7 @@ class EditWholesaleOrder {
       this.tempOrderList.push({
         code_colour: this.selectedItem.code_colour,
         scolour: this.selectedItem.scolour,
+        invoice_no: this.selectedItem.invoice_no,
         sprice: this.selectedItem.sprice,
         pack_unit: this.selectedItem.pack_unit,
         order_qty: orderQty,
