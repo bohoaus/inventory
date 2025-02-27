@@ -114,9 +114,8 @@ class EditWholesaleOrder {
             <div class="editwholesaleorder-row">
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label style="text-align:left; display: block; width: 200px">Customer Name</label>
-                        <input type="text" value="${
-                          orderData.customer_name || ""
-                        }" disabled>
+                        <input type="text" style="text-align:left; display: block; width: 200px" 
+                          value="${orderData.customer_name || ""}" disabled>
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label for="agent_state" style="text-align:center; display: block; width: 200px">Agent State</label>
@@ -175,8 +174,8 @@ class EditWholesaleOrder {
                       </select>
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
-                        <label style="text-align:left; display: block; width: 100px">PO#</label>
-                        <input type="text" maxlength="10" 
+                        <label style="text-align:left; display: block; width: 80px">PO#</label>
+                        <input type="text" style="text-align:left; display: block; width: 50px" maxlength="10" 
                           value="${orderData.opo || ""}">
                     </div>
                 </div>
