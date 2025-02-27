@@ -58,7 +58,7 @@ class SalesWeeklySale {
                   <th>Colour</th>
                   <th>Category</th>
                   <th>Status</th>
-                  <th>Packs (pks/pcs)</th>
+                  <th>Packs(Unit)</th>
                   <th>Qty</th>
                 </tr>
               </thead>
