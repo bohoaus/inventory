@@ -246,12 +246,13 @@ class SalesWeeklySale {
           <td>${item.colour}</td>
           <td>${item.name}</td>
           <td>${item.inventoryStatus || "N/A"}</td>
-          <td>${item.orderQty} / (${item.inventoryUnit})</td>
-          <td>${item.customers.size}</td>
+          <td>${item.orderPack} / (${item.inventoryUnit})</td>
+          <td>${item.totalPieces}</td>
         `;
         tbody.appendChild(row);
       });
   }
+//          <td>${item.customers.size}</td>
 
   summarizeItems(items, orderCustomerMap) {
     const summary = {};
@@ -264,11 +265,13 @@ class SalesWeeklySale {
           colour: item.oicolour,
           inventoryStatus: item.inventory?.item_status,
           inventoryUnit: item.inventory?.pack_unit,
+          orderPack: 0,
           orderQty: 0,
           totalPieces: 0,
           customers: new Set(),
         };
       }
+      summary[item.item_name].orderPack += item.order_qty || 0;
       summary[item.item_name].orderQty += item.order_qty || 0;
       summary[item.item_name].totalPieces += item.total_pieces || 0;
       summary[item.item_name].customers.add(orderCustomerMap[item.order_id]);
