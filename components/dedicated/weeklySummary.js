@@ -210,7 +210,7 @@ class WeeklySummary {
         <td>${item.oicolour}</td>
         <td>${item.item_name}</td>
         <td>${item.oisales || "-"}</td>
-        <td>${item.total_qty} / (${item.inventory.pack_unit})</td>
+        <td>${item.total_qty} / (${item.inventory?.pack_unit})</td>
         <td>${item.total_units}</td>
       `;
       tbody.appendChild(row);
