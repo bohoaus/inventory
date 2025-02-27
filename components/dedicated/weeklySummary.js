@@ -130,6 +130,7 @@ class WeeklySummary {
             code_colour,
             item_name,
             item_status,
+            pack_unit,
             item_group
           )
         `
@@ -201,6 +202,7 @@ class WeeklySummary {
       return;
     }
 
+//        <td>${item.orderQty} / (${item.totalPieces})</td> - jim will do
     data.forEach((item) => {
       const row = document.createElement("tr");
       row.innerHTML = `
@@ -208,7 +210,7 @@ class WeeklySummary {
         <td>${item.oicolour}</td>
         <td>${item.item_name}</td>
         <td>${item.oisales || "-"}</td>
-        <td>${item.total_qty}</td>
+        <td>${item.total_qty} / (${item.inventory.pack_unit})</td>
         <td>${item.total_units}</td>
       `;
       tbody.appendChild(row);
