@@ -360,10 +360,10 @@ class SalesSummary {
       <thead>
         <tr>
           <th>Customer</th>
-          <th>Agent State</th>
-          <th>Dispatched State</th>
+          <th>AgentState</th>
+          <th>DispatchedState</th>
           <th>Box Info</th>
-          <th>Total Items</th>
+          <th>Items</th>
           <th>Items</th>
         </tr>
       </thead>
