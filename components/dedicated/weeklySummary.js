@@ -157,6 +157,7 @@ class WeeklySummary {
             oisales: item.oisales,
             item_name: item.inventory.item_name,
             item_status: item.inventory.item_status,
+            itemUnit: item.inventory.pack_unit,
             total_qty: 0,
             total_units: 0,
             customer_count: new Set(),
@@ -210,7 +211,7 @@ class WeeklySummary {
         <td>${item.oicolour}</td>
         <td>${item.item_name}</td>
         <td>${item.oisales || "-"}</td>
-        <td>${item.total_qty} / (${item.inventory?.pack_unit})</td>
+        <td>${item.total_qty} / (${item.itemUnit})</td>
         <td>${item.total_units}</td>
       `;
       tbody.appendChild(row);
