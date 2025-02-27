@@ -77,6 +77,10 @@ class OdmOrder {
                         <label for="dispatched_box">Boxes</label>
                         <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
+                    <div class="form-group">
+                        <label for="invoice_no">Invoice#</label>
+                        <input style="width: 60px" type="text" id="invoice_no" value="1" maxlength="3">
+                    </div>
                 </div>
 
                 <div class="form-group">
