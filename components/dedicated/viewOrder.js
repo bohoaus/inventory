@@ -315,8 +315,8 @@ class ViewOrder {
                         <th>Qty</th>
                         <th>Sales</th>
                         <th>Status</th>
-                        <th>Added Date</th>
-                        <th>Removed Date</th>
+                        <th>AddedDate</th>
+                        <th>RemovedDate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -460,10 +460,10 @@ class ViewOrder {
                         <th>PPO</th>
                         <th>Mfg Date</th>
                         <th>Arrive Date</th>
-                        <th>Received Qty</th>
+                        <th>Stock</th>
                         <th>Pack Size</th>
-                        <th>Counted Qty</th>
-                        <th>Qty Difference</th>
+                        <th>CountQty</th>
+                        <th>QtyDiff</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -942,9 +942,10 @@ class ViewOrder {
                     <thead>
                         <tr>
                             <th>Code</th>
-                            <th>Order Qty</th>
-                            <th>Added Date</th>
-                            <th>Removed Date</th>
+                            <th>Colour</th>
+                            <th>Packs</th>
+                            <th>AddedDate</th>
+                            <th>RemovedDate</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -953,6 +954,7 @@ class ViewOrder {
                             (item) => `
                             <tr>
                                 <td>${item.code}</td>
+                                <td>${item.orderColopur}</td>
                                 <td>${item.orderQty}</td>
                                 <td>${this.formatValue(
                                   "created_at",
