@@ -566,6 +566,8 @@ class SalesOrdersComponent {
             id,
             order_id,
             item_name,
+            oicolour,
+            oisales,
             order_qty,
             total_pieces,
             order_item_status,
@@ -658,8 +660,8 @@ class SalesOrdersComponent {
             <th>Sales</th>
             <th>Packs</th>
             <th>Qty</th>
-            <th>Added At</th>
-            <th>Removed At</th>
+            <th>AddedAt</th>
+            <th>RemovedAt</th>
           </tr>
         </thead>
         <tbody>
