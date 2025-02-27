@@ -120,7 +120,7 @@ class EditWholesaleOrder {
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label for="agent_state" style="text-align:center; display: block; width: 200px">Agent State</label>
-                      <select style="color:blue" id="agent_state" required>
+                      <select style="width: 150px" style="color:blue" id="agent_state" required>
                             <option value="">Select State</option>
                         <option value="AUS-ACT" ${
                           orderData.agent_state?.toUpperCase() === "AUS-ACT"
@@ -173,6 +173,11 @@ class EditWholesaleOrder {
                             : ""
                         }>NZ</option>
                       </select>
+                    </div>
+              <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <label style="text-align:left; display: block; width: 100px">PO#</label>
+                        <input type="text" 
+                          value="${orderData.opo || ""}">
                     </div>
                 </div>
             <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
