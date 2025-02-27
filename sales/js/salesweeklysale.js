@@ -246,7 +246,7 @@ class SalesWeeklySale {
           <td>${item.colour}</td>
           <td>${item.name}</td>
           <td>${item.inventoryStatus || "N/A"}</td>
-          <td>${item.orderQty} / (${item.inventory.pack_unit})</td>
+          <td>${item.orderQty} / (${item.inventory?.pack_unit})</td>
           <td>${item.customers.size}</td>
         `;
         tbody.appendChild(row);
