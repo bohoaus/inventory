@@ -176,7 +176,7 @@ class EditWholesaleOrder {
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label style="text-align:left; display: block; width: 100px">PO#</label>
-                        <input type="text" 
+                        <input type="text" maxlength="10" 
                           value="${orderData.opo || ""}">
                     </div>
                 </div>
