@@ -218,9 +218,10 @@ class WholesaleItem {
     const sfactories = [
       "SS+8620",
       "YJ+8620",
+      "K-MX+8620",
       "K-RD+8620",
       "K-YP+8620",
-      "K-",
+      "K-Z",
     ];
     
     const scountries = [
