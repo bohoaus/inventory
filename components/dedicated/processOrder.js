@@ -473,24 +473,12 @@ class ProcessOrder {
   async dispatchOrder() {
     try {
       // Get form values
-      const invoiceNo = document
-        .getElementById("invoiceNumber")
-        .value.trim()
-        .toUpperCase();
+      const invoiceNo = document.getElementById("invoiceNumber").value.trim().toUpperCase();
       const dispatchState = document.getElementById("dispatchState").value;
-      const dispatchBox = document
-        .getElementById("dispatchBox")
-        .value.trim()
-        .toUpperCase();
+      const dispatchBox = document.getElementById("dispatchBox").value.trim().toUpperCase();
       const dispatchCarrier = document.getElementById("dispatchCarrier").value;
-      const trackingNo = document
-        .getElementById("trackingNumber")
-        .value.trim()
-        .toUpperCase();
-      const orderNote = document
-        .getElementById("orderNotes")
-        .value.trim()
-        .toUpperCase();
+      const trackingNo = document.getElementById("trackingNumber").value.trim().toUpperCase();
+      const orderNote = document.getElementById("orderNotes").value.trim().toUpperCase();
 
       // Validate required fields
       if (!invoiceNo || !dispatchState || !dispatchBox || !dispatchCarrier) {
