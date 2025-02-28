@@ -207,12 +207,12 @@
 }
 
 .column-select-actions button {
-  padding: 5px 15px;
+  padding: 5px 10px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 5px;
   background: white;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
   flex: 1;
 }
 
