@@ -43,7 +43,7 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>Items:</label>
-                  <span style="width:50px" id="totalItems"></span>
+                  <span style="width:40px" id="totalItems"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
