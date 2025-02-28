@@ -79,7 +79,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 60px" type="text" id="invoice_no" value="1217" maxlength="10">
+                        <input style="width: 80px" type="text" id="invoice_no" value="12170000" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group">
@@ -541,6 +541,8 @@ class WholesaleOrder {
         .getElementById("opo").value || null;
       const orderBox = document
         .getElementById("dispatched_box").value || null;
+      const orderInvoice = document
+        .getElementById("invoice_no").value || null;
       const orderLocation = document
         .getElementById("osite").value || null;
       const agentState = document
@@ -560,6 +562,7 @@ class WholesaleOrder {
             opo: orderPPO,
             osite: orderLocation,
             dispatched_box: orderBox,
+            invoice_no: orderInvoice,
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
