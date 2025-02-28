@@ -316,7 +316,7 @@
 .inventory-table th.action-column,
 .inventory-table td.action-column {
   width: 100px;
-  min-width: 70px;
+  min-width: 60px;
 }
 
 .inventory-table th.code-column,
