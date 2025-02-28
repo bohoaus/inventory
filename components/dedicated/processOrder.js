@@ -39,7 +39,7 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>D-State:</label>
-                  <span id="agentState"></span>
+                  <span style="width:50px" id="agentState"></span>
                 </div>
                 <div class="info-item">
                   <label>Items:</label>
@@ -51,11 +51,11 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>Status:</label>
-                  <span style="width:80px" id="orderStatus"></span>
+                  <span style="width:70px" id="orderStatus"></span>
                 </div>
                 <div class="info-item">
                   <label>Invoice#:</label>
-                  <span style="width:80px" id="invoiceNumber"></span>
+                  <span style="width:70px" id="invoiceNumber"></span>
                 </div>
               </div>
             </div>
