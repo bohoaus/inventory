@@ -585,7 +585,7 @@
 #orderTable td:first-child {
   position: static;
   z-index: 1;
-  width: 120px;
+  width: 100px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
