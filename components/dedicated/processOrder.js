@@ -53,6 +53,10 @@ class ProcessOrder {
                   <label>Status:</label>
                   <span style="width:80px" id="orderStatus"></span>
                 </div>
+                <div class="info-item">
+                  <label>Invoice#:</label>
+                  <span style="width:80px" id="invoiceNumber"></span>
+                </div>
               </div>
             </div>
             <div class="process-options">
