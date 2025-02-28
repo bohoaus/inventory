@@ -79,7 +79,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 80px" type="text" id="invoice_no" value="12170000" maxlength="10">
+                        <input style="width: 90px" type="text" id="invoice_no" value="12170000" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group">
