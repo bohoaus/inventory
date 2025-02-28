@@ -79,7 +79,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 80px" type="text" id="invoice_no" value="1" maxlength="10">
+                        <input style="width: 80px" type="text" id="invoice_no" value="12171300px" maxlength="10">
                     </div>
                 </div>
 
