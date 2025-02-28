@@ -132,12 +132,13 @@ class AdminOrder {
     });
 
     // Add order contribution button
+//      padding: 8px 16px;
     const orderContributionBtn = document.createElement("button");
     orderContributionBtn.className = "order-contribution-btn";
     orderContributionBtn.innerHTML =
       '<span class="material-icons">pie_chart</span> Orders Contribution';
     orderContributionBtn.style.cssText = `
-      padding: 8px 16px;
+      padding: 5px 10px;
       margin-left: 10px;
       background-color: #9C27B0;
       color: white;
@@ -147,7 +148,7 @@ class AdminOrder {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
+      font-size: 13px;
       transition: background-color 0.3s;
     `;
     orderContributionBtn.addEventListener("mouseover", () => {
@@ -1300,7 +1301,7 @@ class AdminOrder {
         display: flex;
         align-items: center;
         gap: 8px;
-        padding: 8px;
+        padding: 5px;
       `;
 
       // Check if order is dispatched or cancelled
@@ -1588,7 +1589,7 @@ document.head.insertAdjacentHTML(
       background: white;
       border: 1px solid #ddd;
       border-radius: 4px;
-      padding: 10px;
+      padding: 5px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
       min-width: 200px;
