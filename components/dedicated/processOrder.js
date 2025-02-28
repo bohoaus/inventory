@@ -76,7 +76,7 @@ class ProcessOrder {
             <form id="dispatchForm" style="display: none;">
               <div class="form-group">
                 <label for="invoiceNumber">Invoice Number*</label>
-                <input type="text" id="invoiceNumber" value="invoiceNumber" required style="width: 100px" maxlength="15">
+                <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 100px" maxlength="15">
               </div>
               <div class="form-group">
                 <label for="dispatchState">Dispatch State*</label>
