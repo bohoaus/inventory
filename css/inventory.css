@@ -1477,6 +1477,7 @@
 }
 
 /* Add specific style for soldout date if needed */
+.inventory-table td[data-column="out of stock"],
 .inventory-table td[data-column="soldout_date"] {
   color: #dc3545; /* Red color for sold out dates */
 }
