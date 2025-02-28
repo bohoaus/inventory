@@ -30,7 +30,7 @@ class ProcessOrder {
               <div class="order-info-grid">
                 <div class="info-item">
                   <label>Customer:</label>
-                  <span maxlength="30" style="width:200px" id="customerName"></span>
+                  <span maxlength="30" style="width:300px" id="customerName"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
