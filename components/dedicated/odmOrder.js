@@ -79,7 +79,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 60px" type="text" id="invoice_no" value="1" maxlength="3">
+                        <input style="width: 80px" type="text" id="invoice_no" value="1" maxlength="10">
                     </div>
                 </div>
 
@@ -313,6 +313,7 @@ class OdmOrder {
         customer_name: formData.get("customer_name"),
         opo: formData.get("opo"),
         dispatched_box: formData.get("dispatched_box"),
+        invoice_no: formData.get("invoice_no"),
         osite: formData.get("osite"),
         order_type: this.orderType,
         status: "processing",
@@ -1093,24 +1094,19 @@ class OdmOrder {
 
       // Get and format form data
       const orderData = {
-        orderdate: document
-          .getElementById("orderdate").value || null,
-        osite: document
-          .getElementById("osite").value || null,
-        opo: document
-          .getElementById("opo").value || null,
-        customer_name: document
-          .getElementById("customer_name")
-          .value.trim()
-          .toUpperCase(),
+        orderdate: document.getElementById("orderdate").value || null,
+        osite: document.getElementById("osite").value || null,
+        opo: document.getElementById("opo").value || null,
+        customer_name: document.getElementById("customer_name")
+          .value.toUpperCase(),
         agent_state: document.getElementById("agent_state").value.toUpperCase(),
         dispatched_box: (document.getElementById("dispatched_box")?.value || "")
-          .trim()
-          .toUpperCase(),
+          .trim().toUpperCase(),
+        invoice_no: (document.getElementById("invoice_no")?.value || "")
+          .trim(),
         dispatched_at: document.getElementById("dispatched_at")?.value || null,
         order_note: (document.getElementById("order_note")?.value || "")
-          .trim()
-          .toUpperCase(),
+          .trim().toUpperCase(),
         order_type: "ODM",
         status: "PROCESSING",
         total_items: this.tempOrderList.length,
