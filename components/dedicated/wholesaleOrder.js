@@ -42,12 +42,12 @@ class WholesaleOrder {
                 <div class="customer-info">
                     <div class="form-group">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" required style="width: 350px" maxlength="30">
+                        <input type="text" id="customer_name" required style="width: 400px" maxlength="40">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate" style="width: 150px">
+                        <input type="Date" id="orderdate" style="width: 200px">
                     </div>
                      <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
