@@ -6,6 +6,7 @@ class ProcessOrder {
     this.agentState = null;
     this.totalItems = 0;
     this.orderData = null;
+    this.invoiceNumber = null;    
     this.modal = null;
     this.isHeld = false;
     this.setupModal();
@@ -100,7 +101,7 @@ class ProcessOrder {
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
                   <option value="AUSTRALIA POST EXPRESS">AUSTRALIA POST EXPRESS</option>
                   <option value="AUSTRALIA POST">AUSTRALIA POST</option>
-                  <option value="DHL">DHL</option>
+                  <option value="DHL">DHL Express</option>
                   <option value="PICK UP">PICK UP</option>
                   <option value="OTHERS">OTHERS</option>
                 </select>
