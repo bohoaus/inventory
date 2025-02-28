@@ -35,7 +35,7 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
-                  <span id="orderDate"></span>
+                  <span style="width:80px" id="orderDate"></span>
                 </div>
                 <div class="info-item">
                   <label>D-State:</label>
@@ -43,11 +43,11 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>Items:</label>
-                  <span style="width:60px" id="totalItems"></span>
+                  <span style="width:50px" id="totalItems"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
-                  <span style="width:80px" id="orderType"></span>
+                  <span style="width:70px" id="orderType"></span>
                 </div>
                 <div class="info-item">
                   <label>Status:</label>
