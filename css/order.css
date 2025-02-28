@@ -207,7 +207,7 @@
 }
 
 .column-select-actions button {
-  padding: 5px 10px;
+  padding: 5px 5px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
   background: white;
