@@ -592,7 +592,7 @@
 /* Make specific columns wider */
 #orderTable td[data-column="customer_name"],
 #orderTable td[data-column="order_note"] {
-  min-width: 200px;
+  min-width: 100px;
 }
 
 /* Ensure table header stays visible */
