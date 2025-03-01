@@ -35,27 +35,27 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
-                  <span style="width:70px" id="orderDate"></span>
+                  <span style="width:70px; color:blue" id="orderDate"></span>
                 </div>
                 <div class="info-item">
                   <label>D-State:</label>
-                  <span style="width:50px" id="agentState"></span>
+                  <span style="width:50px; color:blue" id="agentState"></span>
                 </div>
                 <div class="info-item">
                   <label>Items:</label>
-                  <span style="width:40px" id="totalItems"></span>
+                  <span style="width:40px; color:blue" id="totalItems"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
-                  <span style="width:70px" id="orderType"></span>
+                  <span style="width:70px; color:blue" id="orderType"></span>
                 </div>
                 <div class="info-item">
                   <label>Status:</label>
-                  <span style="width:70px" id="orderStatus"></span>
+                  <span style="width:70px; color:blue" id="orderStatus"></span>
                 </div>
                 <div class="info-item">
                   <label>Invoice#:</label>
-                  <span style="width:70px" id="invoiceNumber"></span>
+                  <span style="width:70px; color:blue" id="invoiceNumber"></span>
                 </div>
               </div>
             </div>
