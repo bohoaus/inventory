@@ -25,8 +25,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 2px solid #f0f0f0;
 }
 
@@ -41,7 +41,7 @@
   position: absolute;
   right: 25px;
   top: 20px;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   color: #666;
@@ -55,14 +55,14 @@
 /* Order Info Section */
 .order-info {
   background-color: #f8f9fa;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border: 1px solid #e9ecef;
 }
 
 .order-info h3 {
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   font-size: 18px;
   color: #495057;
   font-weight: 600;
@@ -101,12 +101,12 @@
 .dispatch-btn,
 .cancel-btn {
   flex: 1;
-  padding: 15px 20px;
+  padding: 8px 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,13 +152,13 @@
 /* Dispatch Form */
 #dispatchForm {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 5px;
+  border-radius: 5px;
   border: 1px solid #e9ecef;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .form-group label {
@@ -166,17 +166,17 @@
   margin-bottom: 8px;
   font-weight: 500;
   color: #495057;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 12px;
+  padding: 6px;
   border: 1px solid #ced4da;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 12px;
   transition: border-color 0.3s ease;
 }
 
@@ -197,19 +197,19 @@
 .form-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 15px;
-  margin-top: 25px;
-  padding-top: 20px;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
   border-top: 1px solid #e9ecef;
 }
 
 .cancel-dispatch,
 .confirm-dispatch {
-  padding: 12px 24px;
+  padding: 6px 12px;
   border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -234,16 +234,16 @@
 
 /* Material Icons */
 .material-icons {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 /* Status Badges */
 .status-badge {
   display: inline-block;
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -272,12 +272,12 @@
   .process-modal-content {
     width: 95%;
     margin: 2% auto;
-    padding: 20px;
+    padding: 10px;
   }
 
   .process-options {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
 
   .order-info-grid {
