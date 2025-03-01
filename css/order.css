@@ -619,7 +619,7 @@
 }
 
 #orderTable td[data-column="agent_state"] {
-  min-width: 100px;
+  min-width: 80px;
 }
 
 /* Ensure header styling matches */
