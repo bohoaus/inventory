@@ -139,7 +139,7 @@ class SalesSummary {
               (order) => `
             <div class="salessummary-upcoming-item">
               <div class="salessummary-upcoming-header">
-                <span class="salessummary-customer">${
+                <span style="color:blue" class="salessummary-customer">${
                   order.customer_name || "N/A"
                 }</span>
                 <span class="salessummary-dispatch-date">
@@ -184,7 +184,7 @@ class SalesSummary {
         <div class="salessummary-stats">
           <div class="salessummary-stat">
             <span class="salessummary-label">Picking</span>
-            <span class="salessummary-value">${summary.wholesale.picking}</span>
+            <span style="color:blue" class="salessummary-value">${summary.wholesale.picking}</span>
           </div>
           <div class="salessummary-stat">
             <span class="salessummary-label">Awaiting Payment</span>
