@@ -73,7 +73,7 @@ class ProcessOrder {
                 Cancel Order
               </button>
             </div>
-            <form id="dispatchForm" style="display: none;">
+            <form id="dispatchForm" style="display: block;">
               <div class="form-group">
                 <label for="invoiceNumber">Invoice Number*</label>
                 <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 100px" maxlength="15">
