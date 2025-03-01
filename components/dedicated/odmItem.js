@@ -48,6 +48,7 @@ class OdmItem {
   async editItem(itemId, formData) {
     const updates = {
       code_colour: formData.get("code_colour"),
+      item_name: formData.get("item_name"),
       odm_customer: formData.get("odm_customer"),
       odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
@@ -307,17 +308,17 @@ class OdmItem {
             </div>
 
             <div class="form-group">
-                <label for="arrive_date">Arrive Date</label>
-                <input type="date" 
-                       name="arrive_date" 
-                       value="${item?.arrive_date || ""}">
-            </div>
-
-            <div class="form-group">
                 <label for="est_date">Schedule Date</label>
                 <input type="date" 
                        name="est_date" 
                        value="${item?.est_date || ""}">
+            </div>
+
+            <div class="form-group">
+                <label for="arrive_date">Arrive Date</label>
+                <input type="date" 
+                       name="arrive_date" 
+                       value="${item?.arrive_date || ""}">
             </div>
         </div>
 
@@ -339,6 +340,14 @@ class OdmItem {
                       )
                       .join("")}
                 </select>
+            </div>
+            
+            <div class="form-group required">
+                <label for="item_name">Item Name</label>
+                <input type="text" maxlength="15" 
+                       name="item_name" placeholder="new dress" 
+                       value="${item?.item_name || "new dress"}"
+                >
             </div>
 
             <div class="form-group required">
@@ -472,7 +481,7 @@ class OdmItem {
     if (!form) return;
 
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerSelect = form.querySelector('select[name="odm_customer"]');
+    const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector('select[name="item_category"]');
     const itemStatusInput = form.querySelector('select[name="item_status"]');
@@ -482,7 +491,7 @@ class OdmItem {
     const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const submitButton = form.querySelector(".add-item-btn");
 
-    if (!codeInput || !customerSelect || !submitButton) return;
+    if (!codeInput || !customerInput || !submitButton) return;
 
     // Trim values to check for empty or whitespace-only input
     //  customerInput.value.trim() !== "" &&
@@ -506,16 +515,16 @@ class OdmItem {
       codeInput.classList.remove("invalid");
     }
 
-    if (!customerSelect.value.trim()) {
-      customerSelect.classList.add("invalid");
+    if (!customerInput.value.trim()) {
+      customerInput.classList.add("invalid");
     } else {
-      customerSelect.classList.remove("invalid");
+      customerInput.classList.remove("invalid");
     }
   }
 
   validateAndSubmit(form) {
     const codeInput = form.querySelector('input[name="code_colour"]');
-    const customerSelect = form.querySelector('select[name="odm_customer"]');
+    const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
     const itemCategoryInput = form.querySelector(
       'select[name="item_category"]'
@@ -528,7 +537,7 @@ class OdmItem {
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
-    const customerValue = customerSelect?.value.trim();
+    const customerValue = customerInput?.value.trim();
 
     if (!codeValue) {
       adminInventory.showNotification("Please enter Code/Colour", "error");
