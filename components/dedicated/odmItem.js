@@ -11,6 +11,7 @@ class OdmItem {
   async addItem(formData) {
     const itemData = {
       code_colour: formData.get("code_colour"),
+      item_name: formData.get("item_name"),
       odm_customer: formData.get("odm_customer"),
       odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
