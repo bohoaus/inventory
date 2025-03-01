@@ -614,8 +614,8 @@
 }
 
 #orderTable td[data-column="order_note"] {
-  min-width: 200px;
-  max-width: 400px;
+  min-width: 100px;
+  max-width: 300px;
 }
 
 #orderTable td[data-column="agent_state"] {
