@@ -96,7 +96,7 @@ class ProcessOrder {
               </div>
               <div class="form-group">
                 <label for="dispatchBox">Dispatch Box*</label>
-                <input type="text" id="dispatchBox" style="width: 50px; color:blue; maxlength:3" required>
+                <input type="text" id="dispatchBox" value="1" style="width: 50px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group">
                 <label for="dispatchCarrier">Dispatch Carrier*</label>
@@ -116,7 +116,7 @@ class ProcessOrder {
               </div>
               <div class="form-group">
                 <label for="orderNotes">Order Notes</label>
-                <textarea id="orderNotes" rows="3" style="width: 200px; color:blue; maxlength:50"></textarea>
+                <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
