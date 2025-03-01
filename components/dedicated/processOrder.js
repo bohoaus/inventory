@@ -18,6 +18,7 @@ class ProcessOrder {
     if (this.modal) return;
 
     // Create modal HTML
+//30              <h3>Order Information</h3>
     const modalHTML = `
       <div id="processOrderModal" class="modal">
         <div class="modal-content">
@@ -27,7 +28,6 @@ class ProcessOrder {
           </div>
           <div class="modal-body">
             <div class="order-info">
-              <h3>Order Information</h3>
               <div class="order-info-grid">
                 <div class="info-item">
                   <label>Customer:</label>
