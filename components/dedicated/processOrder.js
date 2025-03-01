@@ -96,11 +96,11 @@ class ProcessOrder {
               </div>
               <div class="form-group">
                 <label for="dispatchBox">Dispatch Box*</label>
-                <input type="text" id="dispatchBox" style="width: 100px; color:blue; maxlength:3" required>
+                <input type="text" id="dispatchBox" style="width: 50px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group">
                 <label for="dispatchCarrier">Dispatch Carrier*</label>
-                <select id="dispatchCarrier" style="width: 100px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
+                <select id="dispatchCarrier" style="width: 200px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
                   <option value="AUSTRALIA POST EXPRESS">AUSTRALIA POST EXPRESS</option>
@@ -112,11 +112,11 @@ class ProcessOrder {
               </div>
               <div class="form-group" id="trackingNumberGroup">
                 <label for="trackingNumber">Tracking Number*</label>
-                <input type="text" id="trackingNumber" style="width: 100px; color:blue; maxlength:15" required>
+                <input type="text" id="trackingNumber" style="width: 150px; color:blue; maxlength:25" required>
               </div>
               <div class="form-group">
                 <label for="orderNotes">Order Notes</label>
-                <textarea id="orderNotes" rows="3" style="width: 100px; color:blue; maxlength:50"></textarea>
+                <textarea id="orderNotes" rows="3" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
