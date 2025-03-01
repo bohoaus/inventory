@@ -175,7 +175,7 @@ class EditWholesaleOrder {
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                         <label style="text-align:left; display: block; width: 50px">Invoice#</label>
-                        <input type="text" style="text-align:left; display: block; width: 100px" maxlength="10" 
+                        <input type="text" style="text-align:left; display: block; width: 90px" maxlength="10" 
                           value="${orderData.invoice_no || ""}">
                     </div>
                 </div>
