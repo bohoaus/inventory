@@ -672,8 +672,8 @@
 
 /* Make note column wider */
 td[data-column="order_note"] {
-  min-width: 250px !important;
-  max-width: 400px !important;
+  min-width: 100px !important;
+  max-width: 300px !important;
 }
 
 /* Invoice search styles */
