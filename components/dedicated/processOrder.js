@@ -35,7 +35,7 @@ class ProcessOrder {
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
-                  <span style="width:80px" id="orderDate"></span>
+                  <span style="width:70px" id="orderDate"></span>
                 </div>
                 <div class="info-item">
                   <label>D-State:</label>
@@ -76,7 +76,7 @@ class ProcessOrder {
             <form id="dispatchForm" style="display: block;">
               <div class="form-group">
                 <label for="invoiceNumber">Invoice Number*</label>
-                <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 100px" maxlength="15">
+                <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 80px" maxlength="15">
               </div>
               <div class="form-group">
                 <label for="dispatchState">Dispatch State*</label>
