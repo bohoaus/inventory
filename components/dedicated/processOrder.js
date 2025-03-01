@@ -80,7 +80,7 @@ class ProcessOrder {
               </div>
               <div class="form-group">
                 <label for="dispatchState">Dispatch State*</label>
-                <select id="dispatchState" required>
+                <select id="dispatchState" style="width: 100px; color:blue" required>
                   <option value="">Select State</option>
                   <option value="AUS-ACT">AUS-ACT</option>
                   <option value="AUS-NSW">AUS-NSW</option>
@@ -96,11 +96,11 @@ class ProcessOrder {
               </div>
               <div class="form-group">
                 <label for="dispatchBox">Dispatch Box*</label>
-                <input type="text" id="dispatchBox" required>
+                <input type="text" id="dispatchBox" style="width: 100px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group">
                 <label for="dispatchCarrier">Dispatch Carrier*</label>
-                <select id="dispatchCarrier" required onchange="processOrder.toggleTrackingNumber()">
+                <select id="dispatchCarrier" style="width: 100px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
                   <option value="AUSTRALIA POST EXPRESS">AUSTRALIA POST EXPRESS</option>
@@ -112,11 +112,11 @@ class ProcessOrder {
               </div>
               <div class="form-group" id="trackingNumberGroup">
                 <label for="trackingNumber">Tracking Number*</label>
-                <input type="text" id="trackingNumber" required>
+                <input type="text" id="trackingNumber" style="width: 100px; color:blue; maxlength:15" required>
               </div>
               <div class="form-group">
                 <label for="orderNotes">Order Notes</label>
-                <textarea id="orderNotes" rows="3"></textarea>
+                <textarea id="orderNotes" rows="3" style="width: 100px; color:blue; maxlength:50"></textarea>
               </div>
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
