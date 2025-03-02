@@ -257,10 +257,9 @@ class WholesaleItem {
             <div class="form-group required">
                 <label for="code_colour">Code/Colour</label>
                 <input type="text" maxlength="30" 
-                       name="code_colour" 
-                       required 
-                       onkeyup="this.value = this.value.toUpperCase(); wholesaleItem.validateForm(this.closest('form'))"
-                       onblur="wholesaleItem.checkCodeExists(this.value)"
+                       name="code_colour" required 
+                       onkeyup="this.value = this.value.toUpperCase(); wholesaleItem.validateForm(this.closest('form'))" 
+                       onblur="wholesaleItem.checkCodeExists(this.value)" 
                        ${item ? "disabled" : ""}>
                 <span class="code-warning" style="display: none; color: #dc3545;">
                     Warning: This code already exists
