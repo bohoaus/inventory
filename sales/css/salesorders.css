@@ -176,17 +176,17 @@
 /* Column widths */
 .Salesorders-td[data-column="customer_name"],
 .Salesorders-th[onclick*="customer_name"] {
-  min-width: 180px;
+  min-width: 160px;
 }
 
 .Salesorders-td[data-column="order_note"],
 .Salesorders-th[onclick*="order_note"] {
-  min-width: 200px;
+  min-width: 150px;
 }
 
 .Salesorders-td[data-column="shipping_address"],
 .Salesorders-th[onclick*="shipping_address"] {
-  min-width: 250px;
+  min-width: 200px;
 }
 
 /* Right align number columns */
@@ -195,19 +195,19 @@
 .Salesorders-td[data-column="removed_items"],
 .Salesorders-th[onclick*="removed_items"] {
   text-align: left !important;
-  min-width: 100px;
+  min-width: 50px;
 }
 
 /* Date columns */
 .Salesorders-td[data-column*="_at"],
 .Salesorders-th[onclick*="_at"] {
-  min-width: 150px;
+  min-width: 100px;
 }
 
 /* Status column */
 .Salesorders-td[data-column="status"],
 .Salesorders-th[onclick*="status"] {
-  min-width: 130px;
+  min-width: 100px;
 }
 
 /* Type and state columns */
@@ -215,7 +215,7 @@
 .Salesorders-th[onclick*="type"],
 .Salesorders-td[data-column*="state"],
 .Salesorders-th[onclick*="state"] {
-  min-width: 120px;
+  min-width: 100px;
 }
 
 /* Remove fixed table layout */
@@ -603,7 +603,7 @@
 }
 
 .Salesorders-group-btn {
-  padding: 5px 10px;
+  padding: 5px 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #fff;
