@@ -1,4 +1,4 @@
-var invoiceNumber2 = null;
+//var invoiceNumber2 = null;
 
 class ProcessOrder {
   constructor() {
