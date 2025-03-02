@@ -390,16 +390,16 @@ class WholesaleItem {
             </div>
 
             <div class="form-group">
-                <label for="arrive_date">Arrive Date</label>
-                <input type="date" name="arrive_date" value="${
-                  item?.arrive_date || ""
+                <label for="est_date">Schedule Date</label>
+                <input type="date" name="est_date" value="${
+                  item?.est_date || ""
                 }">
             </div>
 
             <div class="form-group">
-                <label for="est_date">Schedule Date</label>
-                <input type="date" name="est_date" value="${
-                  item?.est_date || ""
+                <label for="arrive_date">Arrive Date</label>
+                <input type="date" name="arrive_date" value="${
+                  item?.arrive_date || ""
                 }">
             </div>
 
