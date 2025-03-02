@@ -609,7 +609,7 @@
 
 /* Column widths */
 #orderTable td[data-column="customer_name"] {
-  min-width: 200px;
+  min-width: 100px;
   max-width: 300px;
 }
 
