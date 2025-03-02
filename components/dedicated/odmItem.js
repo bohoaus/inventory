@@ -16,7 +16,7 @@ class OdmItem {
       odm_ppo: formData.get("odm_ppo"),
       item_group: this.itemGroup,
       receive_qty: formData.get("receive_qty") || 0,
-      stock_qty: 0,
+      stock_qty: formData.get("stock_qty") ||  0,
       item_category: formData.get("item_category") || "",
       item_status: formData.get("item_status") || "",
       item_cargo: formData.get("item_cargo") || "",
