@@ -201,8 +201,6 @@ class ProcessOrder {
         orderData.customer_name || "-";
       document.getElementById("invoiceNumber").textContent =
         orderData.invoice_no || "-";
-      document.getElementById("invoiceNumber2").textContent =
-        orderData.invoice_no || "-";
       document.getElementById("orderDate").textContent =
         orderData.orderdate?.toUpperCase() || "-";
       document.getElementById("agentState").textContent =
