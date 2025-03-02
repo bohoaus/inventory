@@ -298,8 +298,8 @@
 .actions-header {
   position: static !important;
   background-color: #f8f9fa !important;
-  width: 160px !important;
-  min-width: 160px !important;
+  width: 150px !important;
+  min-width: 100px !important;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -308,8 +308,8 @@
   left: 0;
   z-index: 2;
   background-color: white !important;
-  width: 160px !important;
-  min-width: 160px !important;
+  width: 150px !important;
+  min-width: 100px !important;
   padding: 5px !important;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -325,11 +325,11 @@
   background: white;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .actions-cell .material-icons {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .actions-cell .delete-btn {
@@ -431,7 +431,7 @@
 }
 
 .pagination button {
-  padding: 5px 10px;
+  padding: 5px 5px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: white;
@@ -521,7 +521,7 @@
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
