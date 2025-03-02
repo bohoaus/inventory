@@ -256,8 +256,7 @@ class WholesaleItem {
             <!-- Left Column -->
             <div class="form-group required">
                 <label for="code_colour">Code/Colour</label>
-                <input type="text" maxlength="30" 
-                       name="code_colour" required 
+                <input type="text" maxlength="30" name="code_colour" required 
                        onkeyup="this.value = this.value.toUpperCase(); wholesaleItem.validateForm(this.closest('form'))" 
                        onblur="wholesaleItem.checkCodeExists(this.value)" 
                        ${item ? "disabled" : ""}>
