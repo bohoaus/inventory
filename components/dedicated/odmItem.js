@@ -282,41 +282,34 @@ class OdmItem {
             <div class="form-group required">
                 <label for="receive_qty">Received Quantity</label>
                 <input type="number" maxlength="4" 
-                       name="receive_qty" 
-                       step="1" 
-                       min="1"
-                       value="${item?.receive_qty || ""}"
+                       name="receive_qty" step="1" min="1" 
+                       value="${item?.receive_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
 
              <div class="form-group required">
                 <label for="stock_qty">Stock Quantity</label>
                 <input type="number" maxlength="4" 
-                       name="stock_qty" value="0" 
-                       step="1" 
-                       min="1"
-                       value="${item?.stock_qty || ""}"
+                       name="stock_qty" value="0" step="1" min="1" 
+                       value="${item?.stock_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
 
             <div class="form-group required">
                 <label for="mfg_date">MFG Date</label>
-                <input type="date" 
-                       name="mfg_date" 
+                <input type="date" name="mfg_date" 
                        value="${item?.mfg_date || ""}">
             </div>
 
             <div class="form-group">
                 <label for="est_date">Schedule Date</label>
-                <input type="date" 
-                       name="est_date" 
+                <input type="date" name="est_date" 
                        value="${item?.est_date || ""}">
             </div>
 
             <div class="form-group">
                 <label for="arrive_date">Arrive Date</label>
-                <input type="date" 
-                       name="arrive_date" 
+                <input type="date" name="arrive_date" 
                        value="${item?.arrive_date || ""}">
             </div>
         </div>
@@ -500,7 +493,6 @@ class OdmItem {
       itemCargoInput.value !== "" &&
       mfgDateInput.value !== "" &&
       estDateInput.value !== "" &&
-      arriveDateInput.value !== "" &&
       receiveQtyInput.value !== "" &&
       !submitButton.hasAttribute("data-warning");
 
