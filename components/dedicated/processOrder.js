@@ -1,5 +1,4 @@
-//var invoiceNumber2 = null;
-
+//
 class ProcessOrder {
   constructor() {
     this.orderId = null;
