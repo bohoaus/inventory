@@ -371,7 +371,7 @@ class OdmItem {
                 <label for="scolour">Colour</label>
                 <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
-                       value="${item?.scolour || "black"}"
+                       value="${item?.scolour || ""}"
                 >
             </div>
 
