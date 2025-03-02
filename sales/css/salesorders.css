@@ -652,7 +652,7 @@
 .Salesorders-table th:first-child,
 .Salesorders-table td:first-child {
   width: 100px;
-  min-width: 100px;
+  min-width: 50px;
 }
 
 /* Right align number columns */
