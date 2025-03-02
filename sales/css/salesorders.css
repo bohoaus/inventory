@@ -155,7 +155,7 @@
   z-index: 1;
   background-color: #fff;
   width: 100px;
-  min-width: 100px;
+  min-width: 50px;
 }
 
 /* Header styling */
