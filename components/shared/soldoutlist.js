@@ -68,7 +68,7 @@ class SoldOutList {
 
       const weekSelect = document.createElement("select");
       weekSelect.innerHTML = `
-                <option value="">Select Week</option>
+                <option style="width:200px; color:blue" value="">Select Week</option>
                 ${Object.keys(weekGroups)
                   .map(
                     (week) => `
