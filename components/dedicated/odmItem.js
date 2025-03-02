@@ -487,7 +487,6 @@ class OdmItem {
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
-    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const submitButton = form.querySelector(".add-item-btn");
 
     if (!codeInput || !customerInput || !submitButton) return;
@@ -532,7 +531,6 @@ class OdmItem {
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
-    const arriveDateInput = form.querySelector('input[name="arrive_date"]');
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
