@@ -861,9 +861,6 @@ class WholesaleItem {
         ...(formData.get("est_date") && {
           est_date: formData.get("est_date"),
         }),
-        ...(formData.get("arrive_date") && {
-          arrive_date: formData.get("arrive_date"),
-        }),
         ...(formData.get("item_note") && {
           item_note: formData
             .get("item_note")
