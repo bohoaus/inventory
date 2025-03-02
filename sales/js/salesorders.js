@@ -1021,7 +1021,7 @@ class SalesOrdersComponent {
               <div class="Salesorders-detail-group">
                 <div class="Salesorders-detail-row">
                   <label>Customer Name:</label>
-                  <span id="detailCustomer"></span>
+                  <span style="color:blue" id="detailCustomer"></span>
                 </div>
                 <div class="Salesorders-detail-row">
                   <label>Order Type:</label>
