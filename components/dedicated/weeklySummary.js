@@ -41,9 +41,9 @@ class WeeklySummary {
               <div class="date-filter">
                 <label>Select Week Period:</label>
                 <div class="date-inputs">
-                  <input type="date" id="weekStart" class="date-input">
+                  <input style="width:100px; color:blue" type="date" id="weekStart" class="date-input">
                   <span>to</span>
-                  <input type="date" id="weekEnd" class="date-input" disabled>
+                  <input style="width:100px; color:blue" type="date" id="weekEnd" class="date-input" disabled>
                 </div>
               </div>
             </div>
