@@ -1,3 +1,5 @@
+var invoiceNumber2 = null;
+
 class ProcessOrder {
   constructor() {
     this.orderId = null;
@@ -76,7 +78,7 @@ class ProcessOrder {
             <form id="dispatchForm" style="display: block;">
               <div class="form-group">
                 <label for="invoiceNumber">Invoice Number*</label>
-                <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 80px" maxlength="15">
+                <input type="text" id="invoiceNumber" value="${this.invoiceNumber2 || ""}" required style="width: 80px" maxlength="15">
               </div>
               <div class="form-group">
                 <label for="dispatchState">Dispatch State*</label>
@@ -198,6 +200,8 @@ class ProcessOrder {
       document.getElementById("customerName").textContent =
         orderData.customer_name || "-";
       document.getElementById("invoiceNumber").textContent =
+        orderData.invoice_no || "-";
+      document.getElementById("invoiceNumber2").textContent =
         orderData.invoice_no || "-";
       document.getElementById("orderDate").textContent =
         orderData.orderdate?.toUpperCase() || "-";
