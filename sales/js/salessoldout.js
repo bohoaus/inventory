@@ -55,7 +55,7 @@ class SalesSoldout {
             </div>
           </div>
           <div class="salessoldout-filters">
-            <select class="salessoldout-week-filter">
+            <select style="width:200px; color:blue" class="salessoldout-week-filter">
               ${weeks
                 .map(
                   (week) => `
