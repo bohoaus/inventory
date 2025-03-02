@@ -336,7 +336,7 @@
   width: 100px;
   min-width: 80px;
   white-space: nowrap;
-  align ="center";
+  align-items: center;
 }
 
 /* Sticky first column for better navigation */
