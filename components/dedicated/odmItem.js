@@ -242,10 +242,9 @@ class OdmItem {
             <!-- Left Column -->
             <div class="form-group required">
                 <label for="code_colour">Code</label>
-                <input type="text" maxlength="30" 
-                       name="code_colour" required 
-                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))"
-                       onblur="odmItem.checkCodeExists(this.value)"
+                <input type="text" maxlength="30" name="code_colour" required 
+                       onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))" 
+                       onblur="odmItem.checkCodeExists(this.value)" 
                        ${item ? "disabled" : ""}>
                 <span class="code-warning" style="display: none; color: #dc3545;">
                     Warning: This code already exists
