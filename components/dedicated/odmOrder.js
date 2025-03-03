@@ -108,11 +108,6 @@ class OdmOrder {
                 </div>
 
                 <div class="customer-info">
-                  <div class="form-group">
-                    <label for="order_note">Order Note</label>
-                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
-                  </div>
-
                   <div class="item-search">
                     <div class="form-group">
                         <label for="odmItemSearch">Search ODM Item</label>
@@ -121,6 +116,11 @@ class OdmOrder {
                                placeholder="Enter item code">
                         <div id="odmSuggestions" class="suggestions-dropdown"></div>
                     </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="order_note">Order Note</label>
+                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                   </div>
                 </div>
 
