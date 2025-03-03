@@ -136,9 +136,12 @@ class WeeklySummary {
         `
         )
         .eq("order_item_status", "ACTIVE")
-        .gte("created_at", this.currentWeekStart.toISOString())
-        .lte("created_at", this.currentWeekEnd.toISOString())
+        .gte("orderdate", this.currentWeekStart.toISOString())
+        .lte("orderdate", this.currentWeekEnd.toISOString())
         .in("inventory.item_group", ["BOHO", "PRIMROSE"]);
+      
+//        .gte("created_at", this.currentWeekStart.toISOString())
+//        .lte("created_at", this.currentWeekEnd.toISOString())     
 
       if (itemsError) throw itemsError;
 
