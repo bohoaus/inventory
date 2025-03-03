@@ -51,7 +51,7 @@ class WholesaleOrder {
                     </div>
                      <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state" required style="width: 120px">
+                        <select id="agent_state" required style="width: 110px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
