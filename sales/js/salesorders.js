@@ -26,6 +26,7 @@ class SalesOrdersComponent {
       { id: "dispatched_state", name: "D-State" },
       { id: "invoice_no", name: "Invoice#" },
       { id: "tracking_no", name: "Tracking#" },
+      { id: "ocountry", name: "Country", locked: true },
     ];
 
     // Optional columns that can be added
