@@ -339,6 +339,7 @@ class OdmOrder {
         orderdate: formData.get("orderdate"),
         customer_name: formData.get("customer_name"),
         opo: formData.get("opo"),
+        ocountry: formData.get("ocountry"),
         dispatched_box: formData.get("dispatched_box"),
         invoice_no: formData.get("invoice_no"),
         osite: formData.get("osite"),
@@ -1124,6 +1125,7 @@ class OdmOrder {
         orderdate: document.getElementById("orderdate").value || null,
         osite: document.getElementById("osite").value || null,
         opo: document.getElementById("opo").value || null,
+        ocountry: document.getElementById("ocountry").value || null,
         customer_name: document.getElementById("customer_name")
           .value.toUpperCase(),
         agent_state: document.getElementById("agent_state").value.toUpperCase(),
