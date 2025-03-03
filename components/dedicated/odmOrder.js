@@ -31,12 +31,6 @@ class OdmOrder {
 
     this.setupEventListeners();
   }
-    
-    const ocountries = [
-      "AUS+61",
-      "NZL+64",
-      "SAMOA+685",
-    ];
 
   generateFormHTML() {
     return `
@@ -90,19 +84,10 @@ class OdmOrder {
 
                     <div class="form-group required">
                       <label for="ocountry">Country</label>
-                      <select name="ocountry">
-                        <option value="">Select Country</option>
-                          ${ocountries
-                           .map(
-                          (ocount) => `
-                        <option value="${ocount}" ${
-                          item?.scountry === ocount ? "selected" : ""
-                        }>
-                            ${ocount}
-                        </option>
-                      `
-                        )
-                        .join("")}
+                      <select name="ocountry" style="width: 150px">
+                        <option value="AUS+61" selected>AUS+61</option>
+                        <option value="NZL+64">NZL+64</option>
+                        <option value="Samoa+685">Samoa+685</option>
                       </select>
                     </div>
                 </div>
