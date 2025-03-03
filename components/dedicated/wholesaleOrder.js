@@ -95,8 +95,12 @@ class WholesaleOrder {
                   </div>
 
                     <div class="form-group">
-                        <label for="ocountry">Country</label>
-                        <input style="width: 100px" type="text" id="ocountry" value="12170000" maxlength="10">
+                      <label for="ocountry">Country</label>
+                      <select name="ocountry" style="width: 150px">
+                        <option value="AUS+61" selected>AUS+61</option>
+                        <option value="NZL+64">NZL+64</option>
+                        <option value="Samoa+685">Samoa+685</option>
+                      </select>
                     </div>
 
                   <div class="form-group">
