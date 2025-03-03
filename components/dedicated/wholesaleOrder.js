@@ -35,12 +35,6 @@ class WholesaleOrder {
 
     this.setupEventListeners();
   }
-      
-    const ocountries = [
-      "AUS+61",
-      "NZL+64",
-      "SAMOA+685",
-    ];
 
   generateFormHTML() {
     return `
