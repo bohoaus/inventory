@@ -88,9 +88,23 @@ class OdmOrder {
                         <label for="invoice_no">Invoice#</label>
                         <input style="width: 90px" type="text" id="invoice_no" value="12171300px" maxlength="10">
                     </div>
-                    <div class="form-group">
-                        <label for="ocountry">Country</label>
-                        <input style="width: 90px" type="text" id="ocountry" value="AUS+61" maxlength="15">
+
+                    <div class="form-group required">
+                      <label for="ocountry">Country</label>
+                      <select name="ocountry">
+                        <option value="">Select Country</option>
+                          ${ocountries
+                           .map(
+                          (ocount) => `
+                        <option value="${ocount}" ${
+                          item?.scountry === ocount ? "selected" : ""
+                        }>
+                            ${ocount}
+                        </option>
+                      `
+                        )
+                        .join("")}
+                      </select>
                     </div>
                 </div>
 
