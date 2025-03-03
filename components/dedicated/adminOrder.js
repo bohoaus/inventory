@@ -15,6 +15,7 @@ class AdminOrder {
       { id: "dispatched_state", name: "D-State" },
       { id: "invoice_no", name: "Invoice#" },
       { id: "tracking_no", name: "Tracking#" },
+      { id: "ocountry", name: "Country" },
     ];
 
     // Optional columns that can be added
