@@ -16,6 +16,7 @@ class SalesOrdersComponent {
       { id: "actions", name: "Actions", locked: true },
       { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
       { id: "opo", name: "PO#", locked: true },
+      { id: "ocountry", name: "Country", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
@@ -106,14 +107,14 @@ class SalesOrdersComponent {
           </select>
           <select class="Salesorders-agent-state-filter">
             <option value="">All Agent States</option>
-            <option value="NSW">NSW</option>
-            <option value="VIC">VIC</option>
-            <option value="QLD">QLD</option>
-            <option value="SA">SA</option>
-            <option value="WA">WA</option>
-            <option value="TAS">TAS</option>
-            <option value="NT">NT</option>
-            <option value="ACT">ACT</option>
+            <option value="AUS-ACT">AUS-ACT</option>
+            <option value="AUS-NSW">AUS-NSW</option>
+            <option value="AUS-NT">AUS-NT</option>
+            <option value="AUS-QLD">AUS-QLD</option>
+            <option value="AUS-SA">AUS-SA</option>
+            <option value="AUS-TAS">AUS-TAS</option>
+            <option value="AUS-VIC">AUS-VIC</option>
+            <option value="AUS-WA">AUS-WA</option>
           </select>
           <button class="Salesorders-clear-btn">Clear Filters</button>
         </div>
@@ -600,6 +601,8 @@ class SalesOrdersComponent {
       const orderFields = [
         { key: "customer_name", label: "Customer" },
         { key: "order_type", label: "Type" },
+        { key: "orderdate", label: "OrderDate" },
+        { key: "ocountry", label: "Country" },
         { key: "status", label: "Status" },
         { key: "agent_state", label: "AgentState" },
         { key: "dispatched_state", label: "DispatchState" },
