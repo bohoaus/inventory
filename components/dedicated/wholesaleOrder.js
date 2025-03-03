@@ -47,7 +47,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate" style="width: 200px">
+                        <input type="Date" id="orderdate" style="width: 100px">
                     </div>
                      <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
