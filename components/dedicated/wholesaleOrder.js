@@ -35,6 +35,12 @@ class WholesaleOrder {
 
     this.setupEventListeners();
   }
+      
+    const ocountries = [
+      "AUS+61",
+      "NZL+64",
+      "SAMOA+685",
+    ];
 
   generateFormHTML() {
     return `
@@ -84,11 +90,6 @@ class WholesaleOrder {
                 </div>
                 
                 <div class="customer-info">
-                  <div class="form-group">
-                    <label for="order_note">Order Note</label>
-                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
-                  </div>
-
                   <div class="item-search">
                     <div class="form-group">
                         <label for="itemSearch">Search Item</label>
@@ -97,6 +98,16 @@ class WholesaleOrder {
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
                     </div>
+                  </div>
+
+                    <div class="form-group">
+                        <label for="ocountry">Country</label>
+                        <input style="width: 100px" type="text" id="ocountry" value="12170000" maxlength="10">
+                    </div>
+
+                  <div class="form-group">
+                    <label for="order_note">Order Note</label>
+                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                   </div>
                 </div>
 
