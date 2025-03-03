@@ -126,6 +126,7 @@ class WeeklySummary {
           order_id,
           total_pieces,
           created_at,
+          oiadddate,
           inventory:item_name (
             code_colour,
             item_name,
@@ -136,8 +137,8 @@ class WeeklySummary {
         `
         )
         .eq("order_item_status", "ACTIVE")
-        .gte("orderdate", this.currentWeekStart.toISOString())
-        .lte("orderdate", this.currentWeekEnd.toISOString())
+        .gte("oiadddate", this.currentWeekStart.toISOString())
+        .lte("oiadddate", this.currentWeekEnd.toISOString())
         .in("inventory.item_group", ["BOHO", "PRIMROSE"]);
       
 //        .gte("created_at", this.currentWeekStart.toISOString())
