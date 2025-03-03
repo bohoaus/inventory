@@ -81,14 +81,19 @@ class OdmOrder {
                         <label for="invoice_no">Invoice#</label>
                         <input style="width: 90px" type="text" id="invoice_no" value="12171300px" maxlength="10">
                     </div>
+                    <div class="form-group">
+                        <label for="ocountry">Country</label>
+                        <input style="width: 90px" type="text" id="ocountry" value="AUS+61" maxlength="15">
+                    </div>
                 </div>
 
-                <div class="form-group">
+                <div class="customer-info">
+                  <div class="form-group">
                     <label for="order_note">Order Note</label>
                     <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
-                </div>
+                  </div>
 
-                <div class="item-search">
+                  <div class="item-search">
                     <div class="form-group">
                         <label for="odmItemSearch">Search ODM Item</label>
                         <input style="width: 400px" maxlength="20" type="text" 
@@ -96,6 +101,7 @@ class OdmOrder {
                                placeholder="Enter item code">
                         <div id="odmSuggestions" class="suggestions-dropdown"></div>
                     </div>
+                  </div>
                 </div>
 
                 <div class="selected-item-details" id="selectedOdmItemDetails" style="display: none;">
