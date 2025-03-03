@@ -92,6 +92,7 @@ class ViewOrder {
         orderdate: orderData.orderdate,
         ouser: orderData.ouser,
         opo: orderData.opo,
+        ocountry: orderData.ocountry,
       };
 
       // Fetch and normalize order items
