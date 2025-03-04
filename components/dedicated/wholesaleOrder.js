@@ -91,7 +91,7 @@ class WholesaleOrder {
                   
                     <div class="form-group">
                       <label for="ocountry">Country</label>
-                      <select name="ocountry" style="width: 150px">
+                      <select name="ocountry" style="width: 120px">
                         <option value="AUS+61" selected>AUS+61</option>
                         <option value="NZL+64">NZL+64</option>
                         <option value="Samoa+685">Samoa+685</option>
@@ -101,7 +101,7 @@ class WholesaleOrder {
                   <div class="item-search">
                       <div class="form-group">
                         <label for="itemSearch">Search Item</label>
-                        <input style="width: 400px" maxlength="20" type="text" 
+                        <input style="width: 300px" maxlength="20" type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
