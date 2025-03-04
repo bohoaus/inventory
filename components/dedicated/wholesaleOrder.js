@@ -88,6 +88,15 @@ class WholesaleOrder {
                     <label for="order_note">Order Note</label>
                     <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                   </div>
+                  
+                    <div class="form-group">
+                      <label for="ocountry">Country</label>
+                      <select name="ocountry" style="width: 150px">
+                        <option value="AUS+61" selected>AUS+61</option>
+                        <option value="NZL+64">NZL+64</option>
+                        <option value="Samoa+685">Samoa+685</option>
+                      </select>
+                    </div>                 
 
                   <div class="item-search">
                       <div class="form-group">
