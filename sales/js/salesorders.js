@@ -17,7 +17,6 @@ class SalesOrdersComponent {
       { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
       { id: "invoice_no", name: "Invoice#" },
       { id: "opo", name: "PO#", locked: true },
-      { id: "ocountry", name: "Country", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
