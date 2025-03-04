@@ -1,4 +1,4 @@
-//jimm-this one is ok-2025.02.25
+//this one is ok-2025.02.25
 class WholesaleOrder {
   constructor() {
     this.orderType = "wholesale";
@@ -47,11 +47,11 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate" style="width: 100px">
+                        <input type="Date" id="orderdate" style="width: 200px">
                     </div>
                      <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state" required style="width: 110px">
+                        <select id="agent_state" required style="width: 150px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
@@ -79,12 +79,15 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 100px" type="text" id="invoice_no" value="12171305" maxlength="10">
+                        <input style="width: 100px" type="text" id="invoice_no" value="12170000" maxlength="10">
                     </div>
                 </div>
-                
-                <div class="customer-info">
-                  <div class="item-search">
+                <div class="form-group">
+                    <label for="order_note">Order Note</label>
+                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                </div>
+
+                <div class="item-search">
                     <div class="form-group">
                         <label for="itemSearch">Search Item</label>
                         <input style="width: 400px" maxlength="20" type="text" 
@@ -92,21 +95,6 @@ class WholesaleOrder {
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
                     </div>
-                  </div>
-
-                    <div class="form-group">
-                      <label for="ocountry">Country</label>
-                      <select name="ocountry" style="width: 150px">
-                        <option value="AUS+61" selected>AUS+61</option>
-                        <option value="NZL+64">NZL+64</option>
-                        <option value="Samoa+685">Samoa+685</option>
-                      </select>
-                    </div>
-
-                  <div class="form-group">
-                    <label for="order_note">Order Note</label>
-                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
-                  </div>
                 </div>
 
                 <div class="selected-item-details" id="selectedItemDetails" style="display: none;">
@@ -551,8 +539,6 @@ class WholesaleOrder {
         .value.trim().toUpperCase();
       const orderPPO = document
         .getElementById("opo").value || null;
-      const orderCountry = document
-        .getElementById("ocountry").value || null;
       const orderBox = document
         .getElementById("dispatched_box").value || null;
       const orderInvoice = document
@@ -574,7 +560,6 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             opo: orderPPO,
-            ocountry: orderCountry,
             osite: orderLocation,
             dispatched_box: orderBox,
             invoice_no: orderInvoice,
@@ -766,3 +751,5 @@ let wholesaleOrder;
 document.addEventListener("DOMContentLoaded", () => {
   wholesaleOrder = new WholesaleOrder();
 });
+
+//jimm-this one is ok-2025.02.25
