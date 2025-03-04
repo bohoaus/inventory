@@ -372,6 +372,7 @@ class OdmOrder {
             order_id: data.id,
             item_name: item.code_colour,
             oicolour: item.scolour,
+            oiadddate: item.scolour,
             total_pieces: packSizeTotal, // Use pack size total as total_pieces
             order_item_status: "PROCESSING",
             created_at: new Date().toISOString(),
@@ -431,6 +432,7 @@ class OdmOrder {
             order_id: orderId,
             item_name: itemData.item_name,
             oicolour: itemData.scolour,
+            oiadddate: itemData.scolour,
             oiprice: itemData.swsp2,
             oisales: itemData.sprice,
             oicategory: itemData.item_category,
@@ -928,6 +930,7 @@ class OdmOrder {
           customer_name,
           status,
           created_at,
+          orderdate,
           total_items,
           order_note,
           order_items (
@@ -1180,6 +1183,7 @@ class OdmOrder {
           // Create new order item entry
           const orderItem = {
             order_id: order.id,
+            oiadddate: order.orderdate,
             item_name: item.code_colour.toUpperCase(),
             oicolour: item.scolour,
             oiprice: item.swsp2,
