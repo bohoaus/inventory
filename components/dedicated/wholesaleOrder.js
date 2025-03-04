@@ -45,11 +45,11 @@ class WholesaleOrder {
                         <input type="text" id="customer_name" required style="width: 400px" maxlength="40">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group" style="width: 100px">
+                    <div class="form-group" style="width: 150px">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate" style="width: 200px">
+                        <input type="Date" id="orderdate" style="width: 150px">
                     </div>
-                     <div class="form-group" style="width: 100px">
+                     <div class="form-group" style="width: 150px">
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state" required style="width: 150px">
                             <option value="">Select State</option>
@@ -79,22 +79,25 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 100px" type="text" id="invoice_no" value="12171300" maxlength="10">
+                        <input style="width: 100px" type="text" id="invoice_no" value="12171305" maxlength="10">
                     </div>
                 </div>
-                <div class="form-group">
+                
+                <div class="customer-info">
+                  <div class="form-group">
                     <label for="order_note">Order Note</label>
                     <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
-                </div>
+                  </div>
 
-                <div class="item-search">
-                    <div class="form-group">
+                  <div class="item-search">
+                      <div class="form-group">
                         <label for="itemSearch">Search Item</label>
                         <input style="width: 400px" maxlength="20" type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
-                    </div>
+                      </div>
+                  </div>
                 </div>
 
                 <div class="selected-item-details" id="selectedItemDetails" style="display: none;">
