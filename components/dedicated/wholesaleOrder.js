@@ -45,13 +45,13 @@ class WholesaleOrder {
                         <input type="text" id="customer_name" required style="width: 400px" maxlength="40">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group" style="width: 150px">
+                    <div class="form-group" style="width: 100px">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate" style="width: 150px">
+                        <input type="Date" id="orderdate" style="width: 100px">
                     </div>
-                     <div class="form-group" style="width: 150px">
+                     <div class="form-group" style="width: 120px">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state" required style="width: 150px">
+                        <select id="agent_state" required style="width: 120px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
@@ -67,15 +67,15 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="opo">PPO#</label>
-                        <input style="width: 120px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
+                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="osite">Location</label>
-                        <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
+                        <input style="width: 100px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Boxes</label>
-                        <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
+                        <input style="width: 50px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
