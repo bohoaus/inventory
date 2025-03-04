@@ -93,7 +93,6 @@ class WholesaleOrder {
                         <div id="suggestions" class="suggestions-dropdown"></div>
                       </div>
                   </div>
-                </div>
                   
                     <div class="form-group">
                       <label for="ocountry">Country</label>
@@ -108,6 +107,7 @@ class WholesaleOrder {
                     <label for="order_note">Order Note</label>
                     <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                   </div>
+                </div>
 
                 <div class="selected-item-details" id="selectedItemDetails" style="display: none;">
                     <h3>Selected Item Details</h3>
