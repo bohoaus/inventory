@@ -71,15 +71,15 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="osite">Location</label>
-                        <input style="width: 100px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
+                        <input style="width: 90px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Boxes</label>
-                        <input style="width: 50px" type="text" id="dispatched_box" value="1" maxlength="3">
+                        <input style="width: 40px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 100px" type="text" id="invoice_no" value="12171305" maxlength="10">
+                        <input style="width: 90px" type="text" id="invoice_no" value="12171305" maxlength="10">
                     </div>
                 </div>
                 
