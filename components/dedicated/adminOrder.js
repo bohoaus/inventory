@@ -4,6 +4,7 @@ class AdminOrder {
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
       { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
+      { id: "invoice_no", name: "Invoice#" },
       { id: "opo", name: "PO#", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "order_type", name: "Order Type", locked: true },
@@ -13,7 +14,6 @@ class AdminOrder {
       { id: "osite", name: "Location", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
-      { id: "invoice_no", name: "Invoice#" },
       { id: "tracking_no", name: "Tracking#" },
       { id: "ocountry", name: "Country" },
     ];
