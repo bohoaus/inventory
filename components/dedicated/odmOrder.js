@@ -84,7 +84,7 @@ class OdmOrder {
 
                     <div class="form-group required">
                       <label for="ocountry">Country</label>
-                      <select name="ocountry" style="width: 150px">
+                      <select id="ocountry" style="width: 150px">
                         <option value="AUS+61" selected>AUS+61</option>
                         <option value="NZL+64">NZL+64</option>
                         <option value="Samoa+685">Samoa+685</option>
