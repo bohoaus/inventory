@@ -549,8 +549,8 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  padding: 10px;
+  min-height: 100vh;
+  padding: 5px;
   overflow-y: auto;
 }
 
