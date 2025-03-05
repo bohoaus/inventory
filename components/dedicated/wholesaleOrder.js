@@ -601,6 +601,7 @@ class WholesaleOrder {
 
         return {
           order_id: orderData.id,
+          oiadddate: orderData.orderdate,
           item_name: item.code_colour.toUpperCase(),
           order_qty: item.orderQty,
           total_pieces: isOutOfStock ? 0 : item.pack_unit * item.orderQty,
