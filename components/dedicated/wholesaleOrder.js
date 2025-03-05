@@ -575,6 +575,7 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             opo: orderPPO,
+            ocountry: orderCountry,
             osite: orderLocation,
             dispatched_box: orderBox,
             invoice_no: orderInvoice,
