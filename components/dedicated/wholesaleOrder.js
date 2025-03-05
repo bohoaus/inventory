@@ -552,6 +552,8 @@ class WholesaleOrder {
         .value.trim().toUpperCase();
       const orderPPO = document
         .getElementById("opo").value || null;
+      const orderCountry = document
+        .getElementById("ocountry").value || null;
       const orderBox = document
         .getElementById("dispatched_box").value || null;
       const orderInvoice = document
