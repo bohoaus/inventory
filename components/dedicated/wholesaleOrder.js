@@ -1,4 +1,5 @@
 //this one is ok-2025.02.25
+
 class WholesaleOrder {
   constructor() {
     this.orderType = "wholesale";
@@ -42,16 +43,16 @@ class WholesaleOrder {
                 <div class="customer-info">
                     <div class="form-group">
                         <label for="customer_name">Customer Name</label>
-                        <input type="text" id="customer_name" required style="width: 400px" maxlength="40">
+                        <input type="text" id="customer_name" required style="width: 350px" maxlength="30">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="orderdate" required>Order Date</label>
-                        <input type="Date" id="orderdate" style="width: 100px">
+                        <input type="Date" id="orderdate" style="width: 150px">
                     </div>
-                     <div class="form-group" style="width: 120px">
+                     <div class="form-group" style="width: 100px">
                         <label for="agent_state">Agent State</label>
-                        <select id="agent_state" required style="width: 120px">
+                        <select id="agent_state" required style="width: 150px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
@@ -67,46 +68,34 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="opo">PPO#</label>
-                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
+                        <input style="width: 120px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
                     </div>
                     <div class="form-group" style="width: 100px">
                         <label for="osite">Location</label>
-                        <input style="width: 90px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
+                        <input style="width: 120px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
                     <div class="form-group">
                         <label for="dispatched_box">Boxes</label>
-                        <input style="width: 40px" type="text" id="dispatched_box" value="1" maxlength="3">
+                        <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 90px" type="text" id="invoice_no" value="12171300" maxlength="10">
+                        <input style="width: 90px" type="text" id="invoice_no" value="12170000" maxlength="10">
                     </div>
                 </div>
-                
-                <div class="customer-info">
-                  <div class="item-search">
-                      <div class="form-group">
+                <div class="form-group">
+                    <label for="order_note">Order Note</label>
+                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                </div>
+
+                <div class="item-search">
+                    <div class="form-group">
                         <label for="itemSearch">Search Item</label>
-                        <input style="width: 300px" maxlength="20" type="text" 
+                        <input style="width: 400px" maxlength="20" type="text" 
                                id="itemSearch"
                                placeholder="Enter item code or name">
                         <div id="suggestions" class="suggestions-dropdown"></div>
-                      </div>
-                  </div>
-                  
-                    <div class="form-group">
-                      <label for="ocountry">Country</label>
-                      <select name="ocountry" style="width: 120px">
-                        <option value="AUS+61" selected>AUS+61</option>
-                        <option value="NZL+64">NZL+64</option>
-                        <option value="Samoa+685">Samoa+685</option>
-                      </select>
-                    </div>                 
-
-                  <div class="form-group">
-                    <label for="order_note">Order Note</label>
-                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
-                  </div>
+                    </div>
                 </div>
 
                 <div class="selected-item-details" id="selectedItemDetails" style="display: none;">
@@ -551,8 +540,6 @@ class WholesaleOrder {
         .value.trim().toUpperCase();
       const orderPPO = document
         .getElementById("opo").value || null;
-      const orderCountry = document
-        .getElementById("ocountry").value || null;
       const orderBox = document
         .getElementById("dispatched_box").value || null;
       const orderInvoice = document
@@ -574,7 +561,6 @@ class WholesaleOrder {
           {
             orderdate: orderDate,
             opo: orderPPO,
-            ocountry: orderCountry,
             osite: orderLocation,
             dispatched_box: orderBox,
             invoice_no: orderInvoice,
