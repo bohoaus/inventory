@@ -848,6 +848,7 @@ class EditWholesaleOrder {
           <tr>
             <td>${new Date(change.time).toLocaleString()}</td>
             <td>${change.code_colour}</td>
+            <td>${change.scolour}</td>
             <td>${change.status || "ACTIVE"}</td>
             <td>${change.change_type}</td>
             <td>${change.old_value}</td>
