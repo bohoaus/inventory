@@ -629,6 +629,7 @@ class EditWholesaleOrder {
     this.orderChanges.push({
       time: new Date().toISOString(),
       code_colour: code,
+      code_colour: code,
       status: removedItem.status,
       change_type: removedItem.isOriginal
         ? "original_item_removed"
