@@ -57,6 +57,7 @@ class WeeklySummary {
                     <th>Status</th>
                     <th>Packs(Unit)</th>
                     <th>Qty</th>
+                    <th>Inventory</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -130,6 +131,8 @@ class WeeklySummary {
           inventory:item_name (
             code_colour,
             item_name,
+            stock_qty,
+            receive_qty,
             item_status,
             pack_unit,
             item_group
@@ -160,6 +163,8 @@ class WeeklySummary {
             total_pieces: item.total_pieces,
             oisales: item.oisales,
             item_name: item.inventory.item_name,
+            stock_qty: item.inventory.stock_qty,
+            receive_qty: item.inventory.receive_qty,
             item_status: item.inventory.item_status,
             itemUnit: item.inventory.pack_unit,
             total_qty: 0,
@@ -217,6 +222,7 @@ class WeeklySummary {
         <td>${item.oisales || "-"}</td>
         <td>${item.total_qty} / (${item.itemUnit})</td>
         <td>${item.total_units}</td>
+        <td>${item.stock_qty} / (${item.receive_qty})</td>
       `;
       tbody.appendChild(row);
     });
