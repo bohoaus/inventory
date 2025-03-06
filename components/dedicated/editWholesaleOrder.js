@@ -574,7 +574,7 @@ class EditWholesaleOrder {
       // Add new item
       this.tempOrderList.push({
         code_colour: this.selectedItem.code_colour,
-        scolour: this.selectedItem.scolour,
+        oicolour: this.selectedItem.oicolour,
         invoice_no: this.selectedItem.invoice_no,
         sprice: this.selectedItem.sprice,
         swsp2: this.selectedItem.swsp2,
