@@ -205,6 +205,7 @@ class EditWholesaleOrder {
                                 <th>Packs</th>
                                 <th>T-Pieces</th>
                                 <th>Sales</th>
+                                <th>Price</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -578,6 +579,7 @@ class EditWholesaleOrder {
         scolour: this.selectedItem.scolour,
         invoice_no: this.selectedItem.invoice_no,
         sprice: this.selectedItem.sprice,
+        swsp2: this.selectedItem.swsp2,
         pack_unit: this.selectedItem.pack_unit,
         order_qty: orderQty,
         total_pieces: isOutOfStock
@@ -818,6 +820,7 @@ class EditWholesaleOrder {
             <td>${item.order_qty}</td>
             <td>${item.total_pieces}</td>
             <td>${item.oisales}</td>
+            <td>${item.oiprice}</td>
             <td>${item.status}</td>
             <td>
               <button onclick="editWholesaleOrder.removeItem('${item.code_colour}')" 
