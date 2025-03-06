@@ -185,6 +185,7 @@ class OdmItem {
     ];
 
     const sodm_customers = [
+      "Billy J Btq",
       "CIRCLE OF FRIEND",
       "COCO AND BLUSH",
       "EVERGREEN CLOTHNG",
