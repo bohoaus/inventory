@@ -315,6 +315,7 @@ class OrderContribution {
               "olive",
               "maroon",
               "blue",
+              "pink",
             ],
           },
           {
@@ -329,6 +330,7 @@ class OrderContribution {
               "silver",
               "navy",
               "lime",
+              "pink",
             ],
           },
         ],
@@ -387,6 +389,7 @@ class OrderContribution {
               "olive",
               "maroon",
               "blue",
+              "pink",
             ],
           },
           {
@@ -401,6 +404,7 @@ class OrderContribution {
               "silver",
               "navy",
               "lime",
+              "pink",
             ],
           },
         ],
