@@ -112,8 +112,8 @@ class EditWholesaleOrder {
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
-              <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
-                        <label style="text-align:left; display: block; width: 400px">Customer Name</label>
+              <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 400px">
+                        <label style="text-align:left; display: block">Customer Name</label>
                         <input type="text" style="text-align:left; display: block; width: 400px" 
                           value="${orderData.customer_name || ""}" disabled>
                     </div>
