@@ -864,7 +864,7 @@ class EditWholesaleOrder {
         `
             )
             .join("")
-        : '<tr><td colspan="7" class="empty-message">No changes recorded</td></tr>';
+        : '<tr><td colspan="8" class="empty-message">No changes recorded</td></tr>';
     }
   }
 
