@@ -43,11 +43,11 @@ class SalesStateDistro {
           </div>
         </div>
         <div class="modal-body">
-          <div class="filter-section">
+          <div class="filter-section" style="display:inline">
             <div class="date-filter">
               <label>Select Week Period:</label>
               <div class="date-inputs">
-                <input type="date" id="weekStart" class="date-input">
+                <input style="width:100px; color:blue" type="date" id="weekStart" class="date-input">
                 <span>to</span>
                 <input type="date" id="weekEnd" class="date-input" disabled>
               </div>
