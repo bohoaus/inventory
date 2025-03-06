@@ -176,7 +176,7 @@ class ViewOrder {
             <!-- Row 1 -->
             <div class="detail-item">
                 <label>Customer Name:</label>
-                <span>${orderData.customer_name || "-"}</span>
+                <span style="color:blue">${orderData.customer_name || "-"}</span>
             </div>
             <div class="detail-item">
                 <label>Order Date:</label>
