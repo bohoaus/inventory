@@ -629,7 +629,7 @@ class EditWholesaleOrder {
     this.orderChanges.push({
       time: new Date().toISOString(),
       code_colour: code,
-      code_colour: code,
+      oicolour: code,
       status: removedItem.status,
       change_type: removedItem.isOriginal
         ? "original_item_removed"
@@ -657,6 +657,7 @@ class EditWholesaleOrder {
       this.orderChanges.push({
         time: new Date().toISOString(),
         code_colour: item.code_colour,
+        oicolour: item.oicolour,
         status: item.status,
         change_type: item.isOriginal ? "original_item_removed" : "item_removed",
         old_value: item.order_qty,
