@@ -227,7 +227,7 @@ class EditWholesaleOrder {
                                 <th>Change Type</th>
                                 <th>Old Value</th>
                                 <th>New Value</th>
-                    <th>Actions</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
