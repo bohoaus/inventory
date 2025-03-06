@@ -387,10 +387,8 @@ class EditWholesaleOrder {
       // Get form values with correct column names and convert to uppercase
       const orderUpdate = {
         agent_state: document.getElementById("agent_state").value.toUpperCase(),
-        order_note: document
-          .getElementById("order_note")
-          .value.trim()
-          .toUpperCase(),
+        order_note: document.getElementById("order_note")
+          .value.trim().toUpperCase(),
         updated_at: new Date().toISOString(),
       };
 
@@ -724,7 +722,7 @@ class EditWholesaleOrder {
           .upsert({
             order_id: this.orderId,
             item_name: item.code_colour,
-            oicolour: this.scolour,
+            oicolour: item.scolour,
             oiprice: this.swsp2,
             order_qty: item.order_qty,
             pack_unit: item.pack_unit,
