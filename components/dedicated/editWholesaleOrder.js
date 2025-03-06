@@ -600,6 +600,7 @@ class EditWholesaleOrder {
     this.orderChanges.push({
       time: new Date().toISOString(),
       code_colour: this.selectedItem.code_colour,
+      scolour: this.selectedItem.scolour,
       status: this.selectedItem.item_status,
       change_type: existingItemIndex !== -1 ? "quantity_added" : "item_added",
       old_value: oldQty,
