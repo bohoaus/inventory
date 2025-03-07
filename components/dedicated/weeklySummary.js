@@ -226,7 +226,7 @@ class WeeklySummary {
         <td>${item.total_qty} / (${item.itemUnit})</td>
         <td>${item.total_units}</td>
         <td>${item.stock_qty} / (${item.receive_qty})</td>
-        <td>new Date('Y-M-d D',${item.release_date})</td>
+        <td>${item.release_date}</td>
       `;
       tbody.appendChild(row);
     });
