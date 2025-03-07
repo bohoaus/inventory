@@ -58,6 +58,7 @@ class WeeklySummary {
                     <th>Packs(Unit)</th>
                     <th>Qty</th>
                     <th>Inventory</th>
+                    <th>ReleaseDate</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -132,6 +133,7 @@ class WeeklySummary {
             code_colour,
             item_name,
             stock_qty,
+            release_date,
             receive_qty,
             item_status,
             pack_unit,
@@ -223,6 +225,7 @@ class WeeklySummary {
         <td>${item.total_qty} / (${item.itemUnit})</td>
         <td>${item.total_units}</td>
         <td>${item.stock_qty} / (${item.receive_qty})</td>
+        <td>${item.release_date}</td>
       `;
       tbody.appendChild(row);
     });
