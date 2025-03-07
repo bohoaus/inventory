@@ -1227,10 +1227,10 @@ class AdminOrder {
 
   adjustTableHeight() {
     const tableContainer = document.querySelector(".order-table-container");
-    const headerHeight = 53; // Height of header row
-    const rowHeight = 53; // Height of each data row
-    const padding = 20; // Padding for container
-    const footerOffset = 100; // Space for pagination and bottom margin
+    const headerHeight = 50; // Height of header row
+    const rowHeight = 50; // Height of each data row
+    const padding = 10; // Padding for container
+    const footerOffset = 90; // Space for pagination and bottom margin
 
     // Calculate desired height based on number of visible rows
     const visibleRows = Math.min(this.rowsPerPage, 100); // Cap at 100 rows for performance
@@ -1340,7 +1340,6 @@ class AdminOrder {
           if (
             [
               "orderdate",
-              "orderdate",
               "created_at",
               "cancelled_at",
               "dispatched_at",
@@ -1364,7 +1363,6 @@ class AdminOrder {
           // Format date columns
           if (
             [
-              "orderdate",
               "orderdate",
               "created_at",
               "cancelled_at",
@@ -1471,6 +1469,7 @@ class AdminOrder {
                 </div>
             </td>
             <td>${order.id}</td>
+            <td>${order.orderdate || "-"}</td>
             <td>${order.invoice_no || "-"}</td>
             <td>${order.customer_name || "-"}</td>
             <td>${order.agent_state || "-"}</td>
@@ -1509,6 +1508,7 @@ class AdminOrder {
                             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
                         ">Actions</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Order ID</th>
+                        <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">OrderDate</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Invoice No</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Customer Name</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Agent State</th>
