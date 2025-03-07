@@ -109,6 +109,7 @@ class OrderView {
         data.forEach(order => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td>${order.orderdate || 'N/A'}</td>
                 <td>${order.invoice_no || 'N/A'}</td>
                 <td>${order.customer_name}</td>
                 <td>${order.order_type}</td>
@@ -142,6 +143,7 @@ class OrderView {
         }
 
         // Populate order details
+        document.getElementById('detailOrderDate').textContent = order.orderdate || 'N/A';
         document.getElementById('detailInvoice').textContent = order.invoice_no || 'N/A';
         document.getElementById('detailCustomer').textContent = order.customer_name;
         document.getElementById('detailStatus').textContent = order.status;
