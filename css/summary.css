@@ -17,7 +17,7 @@
   border: none;
   border-radius: 12px;
   width: 90%;
-  max-width: 1200px;
+  max-width: 1300px;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -26,8 +26,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 2px solid #f0f0f0;
 }
 
@@ -55,7 +55,7 @@
 
 /* Filter Section */
 .filter-section {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -109,7 +109,7 @@
 
 #summaryTable th,
 #summaryTable td {
-  padding: 12px 15px;
+  padding: 6px 10px;
   text-align: left;
   border-bottom: 1px solid #e9ecef;
 }
@@ -130,7 +130,7 @@
 
 #summaryTable td {
   color: #212529;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* Status Colors */
@@ -159,11 +159,11 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .weekly-summary-content {
     width: 95%;
     margin: 2% auto;
-    padding: 20px;
+    padding: 10px;
   }
 
   .date-filter {
@@ -183,11 +183,11 @@
   }
 
   #summaryTable {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   #summaryTable th,
   #summaryTable td {
-    padding: 8px 10px;
+    padding: 5px 8px;
   }
 }
