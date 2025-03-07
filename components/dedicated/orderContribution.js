@@ -25,7 +25,7 @@ class OrderContribution {
                         <div class="order-contribution-filters">
                             <div class="week-selector">
                                 <label>Select Week:</label>
-                                <input type="week" id="weekSelector">
+                                <input style="width:150px; color:blue" type="week" id="weekSelector">
                             </div>
                         </div>
                         <div class="weekly-stats">
