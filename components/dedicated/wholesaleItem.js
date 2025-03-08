@@ -1050,6 +1050,11 @@ class WholesaleItem {
     const categorySelect = form.querySelector('select[name="item_category"]');
     const statusSelect = form.querySelector('select[name="item_status"]');
     const cargoSelect = form.querySelector('select[name="item_cargo"]');
+    const fabricSelect = form.querySelector('select[name="sfabric"]');
+    const countrySelect = form.querySelector('select[name="scountry"]');
+    const factorySelect = form.querySelector('select[name="sfactory"]');
+    const itemNameInput = form.querySelector('input[name="item_name"]');
+    const colourInput = form.querySelector('input[name="scolour"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
