@@ -443,7 +443,7 @@
 /* Additional column styles */
 .inventory-table th.note-column,
 .inventory-table td.note-column {
-  min-width: 100px;
+  min-width: 200px;
   max-width: 300px;
   white-space: normal; /* Allow text wrapping for notes */
 }
