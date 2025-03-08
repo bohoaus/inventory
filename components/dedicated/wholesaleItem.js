@@ -209,6 +209,7 @@ class WholesaleItem {
       "Polyester+",
       "Silk",
       "Viscose",
+      "Viscose+",
       "Acrylic",
       "Acrylic+",
       "polyamide+",
