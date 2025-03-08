@@ -1653,6 +1653,8 @@ class AdminInventory {
         return "on-sale";
       case "OUT OF STOCK":
         return "out-of-stock";
+      case "DISPATCHED":
+        return "dispatched";
       default:
         return "default";
     }
