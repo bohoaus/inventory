@@ -1651,6 +1651,8 @@ class AdminInventory {
         return "full-price";
       case "ON SALE":
         return "on-sale";
+      case "OUT OF STOCK":
+        return "out-of-stock";
       default:
         return "default";
     }
