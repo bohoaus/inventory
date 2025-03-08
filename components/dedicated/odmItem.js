@@ -180,6 +180,7 @@ class OdmItem {
       "Polyester+",
       "Silk",
       "Viscose",
+      "Viscose+",
       "Acrylic",
       "Acrylic+",
       "polyamide+",
