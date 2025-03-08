@@ -176,6 +176,7 @@ class WholesaleItem {
       "JACKET",
       "Knit Top",
       "Knit Dress",
+      "Knit Skirt",
       "Knitwear",
     ];
 
