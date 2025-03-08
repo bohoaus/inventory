@@ -2826,3 +2826,10 @@ th[data-column] {
 th[data-column]:hover .sort-indicator {
   color: #666;
 }
+
+
+
+/* Add status-based row colors - JIM ON 08/03/2025*/
+.soldout-table tr.status-new-release {
+  background-color: #e3f2fd !important; /* Light blue */
+}
