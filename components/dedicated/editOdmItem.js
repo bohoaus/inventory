@@ -127,7 +127,7 @@ class EditOdmItem {
         
           <div class="form-group">
             <label for="item_name">Item Name</label>
-                    <input type="text" maxlength="25" 
+                    <input type="text" maxlength="30" 
                            name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
