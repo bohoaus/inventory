@@ -291,7 +291,7 @@ class WholesaleItem {
 
             <div class="form-group">
                 <label for="item_name">Name</label>
-                <input type="text" maxlength="15" 
+                <input type="text" maxlength="30" 
                        name="item_name" placeholder="New Dress" 
                        value="${item?.item_name || "New Dress"}" 
                        onkeyup="this.value = this.value.toUpperCase()">
