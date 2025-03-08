@@ -1662,12 +1662,3 @@ let adminInventory;
 document.addEventListener("DOMContentLoaded", () => {
   adminInventory = new AdminInventory();
 });
-
-{% case product_status %}
-  {% when 'Sold out' %}
-    <div class="product-list-thumb-status-so">{{ product_status }}</div>
-  {% when 'On sale' %}
-    <div class="product-list-thumb-status">{{ product_status }}</div> 
-  {% when 'Coming soon' %}
-    <div class="product-list-thumb-status">{{ product_status }}</div> 
-{% endcase %}
