@@ -487,6 +487,11 @@ class OdmItem {
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
     const submitButton = form.querySelector(".add-item-btn");
+    const itemNameInput = form.querySelector('input[name="item_name"]');
+    const fabricSelect = form.querySelector('select[name="sfabric"]');
+    const colourInput = form.querySelector('input[name="scolour"]');
+    const countrySelect = form.querySelector('select[name="scountry"]');
+    const factorySelect = form.querySelector('select[name="sfactory"]');
 
     if (!codeInput || !customerInput || !submitButton) return;
 
@@ -576,6 +581,51 @@ class OdmItem {
         "error"
       );
       receiveQtyInput?.focus();
+      return;
+    }
+
+    if (!itemNameInput.value) {//-jim
+      adminInventory.showNotification(
+        "Please enter Item Name",
+        "error"
+      );
+      itemNameInput?.focus();
+      return;
+    }
+
+    if (!fabricSelect.value) {
+      adminInventory.showNotification(
+        "Please Select Fabric",
+        "error"
+      );
+      fabricSelect?.focus();
+      return;
+    }
+
+    if (!colourInput.value) {
+      adminInventory.showNotification(
+        "Please Enter Colour",
+        "error"
+      );
+      colourInput?.focus();
+      return;
+    }
+
+    if (!countrySelect.value) {
+      adminInventory.showNotification(
+        "Please Select Coutry",
+        "error"
+      );
+      countrySelect?.focus();
+      return;
+    }
+
+    if (!factorySelect.value) {
+      adminInventory.showNotification(
+        "Please Select Factory",
+        "error"
+      );
+      factorySelect?.focus();
       return;
     }
 
