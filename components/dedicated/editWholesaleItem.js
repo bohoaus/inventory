@@ -37,7 +37,7 @@ class EditWholesaleItem {
     const statuses = [
       "SHIPPING",
       "ARRIVED",
-      "Full Price",
+      "FULL PRICE",
       "DISPATCHED",
       "ON SALE",
       "OUT OF STOCK",
@@ -476,7 +476,7 @@ class EditWholesaleItem {
         item_group: data.item_group,
         item_name: data.item_name,
         item_category: data.item_category,
-        item_status: data.item_status,
+        item_status: data.item_status.toUpperCase(),
         item_location: data.item_location,
         stock_qty: data.stock_qty,
         receive_qty: data.receive_qty,
