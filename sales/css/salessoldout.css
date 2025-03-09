@@ -103,7 +103,7 @@
 }
 
 .salessoldout-code {
-  font-weight: 500;
+  font-weight: 300;
   color: #2c3e50;
 }
 
@@ -159,7 +159,7 @@
 
 .salessoldout-table th {
   background-color: #f8f9fa;
-  font-weight: 500;
+  font-weight: 300;
   color: #495057;
   white-space: nowrap;
 }
@@ -169,7 +169,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 868px) {
+@media (max-width: 968px) {
   .salessoldout-filters {
     flex-direction: column;
   }
