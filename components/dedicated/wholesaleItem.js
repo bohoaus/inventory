@@ -799,16 +799,10 @@ class WholesaleItem {
       // Prepare item data with clean text and pack_unit
       const itemData = {
         // Required fields with clean text
-        code_colour: formData
-          .get("code_colour")
-          .trim()
-          .replace(/\s+/g, " ")
-          .toUpperCase(),
-        item_group: formData
-          .get("item_group")
-          .trim()
-          .replace(/\s+/g, " ")
-          .toUpperCase(),
+        code_colour: formData.get("code_colour")
+          .trim().replace(/\s+/g, " ").toUpperCase(),
+        item_group: formData.get("item_group")
+          .trim().replace(/\s+/g, " ").toUpperCase(),
         pack_size: packSizeData,
         // Add pack_unit based on total pack size amount
         pack_unit: this.totalAmount,
@@ -816,18 +810,12 @@ class WholesaleItem {
 
         // Optional fields with clean text
         ...(formData.get("item_name") && {
-          item_name: formData
-            .get("item_name")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase(),
+          item_name: formData.get("item_name")
+            .trim().replace(/\s+/g, " ").toUpperCase(),
         }),
         ...(formData.get("item_location") && {
-          item_location: formData
-            .get("item_location")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase(),
+          item_location: formData.get("item_location")
+            .trim().replace(/\s+/g, " ").toUpperCase(),
         }),
         ...(formData.get("stock_qty") && {
           stock_qty: parseFloat(formData.get("stock_qty")),
@@ -836,25 +824,16 @@ class WholesaleItem {
           receive_qty: parseFloat(formData.get("receive_qty")),
         }),
         ...(formData.get("item_status") && {
-          item_status: formData
-            .get("item_status")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase(),
+          item_status: formData.get("item_status")
+            .trim().replace(/\s+/g, " ").toUpperCase(),
         }),
         ...(formData.get("item_category") && {
-          item_category: formData
-            .get("item_category")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase(),
+          item_category: formData.get("item_category")
+            .trim().replace(/\s+/g, " ").toUpperCase(),
         }),
         ...(formData.get("item_cargo") && {
-          item_cargo: formData
-            .get("item_cargo")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase(),
+          item_cargo: formData.get("item_cargo")
+            .trim().replace(/\s+/g, " ").toUpperCase(),
         }),
         ...(formData.get("mfg_date") && {
           mfg_date: formData.get("mfg_date"),
@@ -867,20 +846,15 @@ class WholesaleItem {
           est_date: formData.get("est_date"),
         }),
         ...(formData.get("item_note") && {
-          item_note: formData
-            .get("item_note")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase(),
+          item_note: formData.get("item_note")
+            .trim().replace(/\s+/g, " ").toUpperCase(),
         }),
         ...(formData.get("sfabric") && {
           sfabric: formData.get("sfabric"),
         }),
         ...(formData.get("scolour") && {
-          scolour: formData
-            .get("scolour")
-            .trim()
-            .replace(/\s+/g, " "),
+          scolour: formData.get("scolour")
+            .trim().replace(/\s+/g, " "),
         }),
         ...(formData.get("sfactory") && {
           sfactory: formData.get("sfactory"),
