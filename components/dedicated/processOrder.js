@@ -80,6 +80,12 @@ class ProcessOrder {
                 <label for="invoiceNumb">Invoice Number</label>
                 <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
               </div>
+              
+            <div class="form-group required">
+                <label for="dispatchDate8">MFG Date</label>
+                <input type="date" id="dispatchDate8" style="width: 80px; color:blue" maxlength="15" required>
+            </div>
+              
               <div class="form-group">
                 <label for="dispatchState">Dispatch State</label>
                 <select id="dispatchState" style="width: 150px; color:blue" required>
