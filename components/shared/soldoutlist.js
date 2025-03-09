@@ -341,13 +341,15 @@ class SoldOutList {
 
       // Calculate column widths as percentages of usable width
       const columnWidths = {
-        0: 0.17, // Code - 17%
+        0: 0.20, // Code - 20%
         1: 0.13, // Brand - 13%
         2: 0.13, // Category - 13%
         3: 0.15, // Release Date - 15%
-        4: 0.11, // Soldout Date - 11%
-        5: 0.11, // Selling Time - 11%
-        6: 0.20, // Status - 20%
+        4: 0.09, // Soldout Date - 9%
+        5: 0.09, // Selling Time - 9%
+        6: 0.09, // Status - 10%
+        7: 0.10, // Status - 10%
+        8: 0.10, // Status - 10%
       };
 
       // Convert percentages to actual widths
