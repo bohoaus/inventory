@@ -809,7 +809,7 @@ body.modal-open {
 /* Calculate container heights based on rows - jim */
 .order-table-container[data-rows="10"] {
   height: auto;
-  min-height: 480px; /* Header (40px) + 10 rows (440px) */
+  min-height: 330px; /* Header (40px) + 10 rows (330px) */
 }
 
 .order-table-container[data-rows="25"] {
