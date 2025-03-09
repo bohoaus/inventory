@@ -34,7 +34,7 @@
   padding: 10px;
   border-radius: 8px;
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   max-height: 90vh;
   overflow-y: auto;
 }
@@ -92,7 +92,7 @@
 .salessoldout-item {
   background: #f8f9fa;
   border-radius: 6px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -169,7 +169,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 968px) {
+@media (max-width: 1068px) {
   .salessoldout-filters {
     flex-direction: column;
   }
