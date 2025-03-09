@@ -1,4 +1,5 @@
-//
+//It's ok on 28/02/2025
+
 class ProcessOrder {
   constructor() {
     this.orderId = null;
@@ -19,7 +20,6 @@ class ProcessOrder {
     if (this.modal) return;
 
     // Create modal HTML
-//30              <h3>Order Information</h3>
     const modalHTML = `
       <div id="processOrderModal" class="modal">
         <div class="modal-content">
@@ -29,34 +29,35 @@ class ProcessOrder {
           </div>
           <div class="modal-body">
             <div class="order-info">
+              <h3>Order Information</h3>
               <div class="order-info-grid">
                 <div class="info-item">
                   <label>Customer:</label>
-                  <span maxlength="30" style="width:350px; color:blue" id="customerName"></span>
+                  <span maxlength="30" style="width:300px" id="customerName"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
-                  <span style="width:70px; color:blue" id="orderDate"></span>
+                  <span style="width:80px" id="orderDate"></span>
                 </div>
                 <div class="info-item">
                   <label>D-State:</label>
-                  <span style="width:50px; color:blue" id="agentState"></span>
+                  <span id="agentState"></span>
                 </div>
                 <div class="info-item">
                   <label>Items:</label>
-                  <span style="width:40px; color:blue" id="totalItems"></span>
+                  <span style="width:50px" id="totalItems"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Type:</label>
-                  <span style="width:70px; color:blue" id="orderType"></span>
+                  <span style="width:70px" id="orderType"></span>
                 </div>
                 <div class="info-item">
                   <label>Status:</label>
-                  <span style="width:70px; color:blue" id="orderStatus"></span>
+                  <span style="width:80px" id="orderStatus"></span>
                 </div>
                 <div class="info-item">
                   <label>Invoice#:</label>
-                  <span style="width:70px; color:blue" id="invoiceNumber"></span>
+                  <span style="width:80px" id="invoiceNumber"></span>
                 </div>
               </div>
             </div>
@@ -74,14 +75,14 @@ class ProcessOrder {
                 Cancel Order
               </button>
             </div>
-            <form id="dispatchForm" style="display: block;">
+            <form id="dispatchForm" style="display: none;">
               <div class="form-group">
-                <label for="invoiceNumb">Invoice Number</label>
-                <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
+                <label for="invoiceNumber">Invoice Number*</label>
+                <input type="text" id="invoiceNumber" required style="width: 100px" maxlength="15">
               </div>
               <div class="form-group">
-                <label for="dispatchState">Dispatch State</label>
-                <select id="dispatchState" style="width: 150px; color:blue" required>
+                <label for="dispatchState">Dispatch State*</label>
+                <select id="dispatchState" required>
                   <option value="">Select State</option>
                   <option value="AUS-ACT">AUS-ACT</option>
                   <option value="AUS-NSW">AUS-NSW</option>
@@ -96,12 +97,12 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group">
-                <label for="dispatchBox">Dispatch Box</label>
-                <input type="text" id="dispatchBox" value="1" style="width: 50px; color:blue; maxlength:3" required>
+                <label for="dispatchBox">Dispatch Box*</label>
+                <input type="text" id="dispatchBox" required>
               </div>
               <div class="form-group">
-                <label for="dispatchCarrier">Dispatch Carrier</label>
-                <select id="dispatchCarrier" style="width: 200px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
+                <label for="dispatchCarrier">Dispatch Carrier*</label>
+                <select id="dispatchCarrier" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
                   <option value="AUSTRALIA POST EXPRESS">AUSTRALIA POST EXPRESS</option>
@@ -112,12 +113,12 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group" id="trackingNumberGroup">
-                <label for="trackingNumber">Tracking Number</label>
-                <input type="text" id="trackingNumber" style="width: 150px; color:blue; maxlength:25" required>
+                <label for="trackingNumber">Tracking Number*</label>
+                <input type="text" id="trackingNumber" required>
               </div>
               <div class="form-group">
                 <label for="orderNotes">Order Notes</label>
-                <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
+                <textarea id="orderNotes" rows="3"></textarea>
               </div>
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
@@ -479,7 +480,7 @@ class ProcessOrder {
   async dispatchOrder() {
     try {
       // Get form values
-      const invoiceNo = document.getElementById("invoiceNumb").value.trim().toUpperCase();
+      const invoiceNo = document.getElementById("invoiceNumber").value.trim().toUpperCase();
       const dispatchState = document.getElementById("dispatchState").value;
       const dispatchBox = document.getElementById("dispatchBox").value.trim().toUpperCase();
       const dispatchCarrier = document.getElementById("dispatchCarrier").value;
@@ -612,3 +613,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("ProcessOrder module initialized");
 });
+
+//it's ok on 28/02/2025 - jim
