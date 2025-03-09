@@ -83,7 +83,7 @@ class ProcessOrder {
               
             <div class="form-group required">
                 <label for="dispatchDate8">MFG Date</label>
-                <input type="date" id="dispatchDate8" style="width: 80px; color:blue" maxlength="15" required>
+                <input type="date" id="dispatchDate8" style="width: 100px; color:blue" maxlength="20" required>
             </div>
               
               <div class="form-group">
