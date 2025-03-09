@@ -22,7 +22,6 @@ class AdminOrder {
     // Optional columns that can be added
     this.optionalColumns = [
       { id: "removed_items", name: "Removed Items" },
-      { id: "dispatched_carrier", name: "Courier" },
       { id: "dispatched_box", name: "D-Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
