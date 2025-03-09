@@ -346,12 +346,13 @@ class AdminOrder {
       }
 
       // Apply sorting
+//        query = query.order("created_at", { ascending: false });
       if (this.sortColumn) {
         query = query.order(this.sortColumn, {
           ascending: this.sortDirection === "asc",
         });
       } else {
-        query = query.order("created_at", { ascending: false });
+        query = query.order("orderdate", { ascending: false });
       }
 
       // Apply pagination
