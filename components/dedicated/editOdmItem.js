@@ -107,13 +107,25 @@ class EditOdmItem {
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
 
-        <div class="form-group">
-          <label for="odm_customer">ODM Customer</label>
-          <input type="text" maxlength="30" 
-                 name="odm_customer" 
-                 value="${item.odm_customer || ""}"
-                 onkeyup="this.value = this.value.toUpperCase()">
-        </div>
+            <!-- jim changed -->
+            <div class="form-group required">           
+                <label for="odm_customer">ODM Customer</label>
+                <select name="odm_customer"
+                onchange="odmItem.validateForm(this.closest('form'))">
+                    <option value="">Select Customer</option>
+                    ${sodm_customers
+                      .map(
+                        (sodmc) => `
+                        <option value="${sodmc}" ${
+                          item?.odm_customer === sodmc ? "selected" : ""
+                        }>
+                            ${sodmc}
+                        </option>
+                    `
+                      )
+                      .join("")}
+                </select>
+            </div>
 
         <div class="form-group">
           <label for="scolour">Colour</label>
