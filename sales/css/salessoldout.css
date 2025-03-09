@@ -2,14 +2,14 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
-  margin: 0 0 20px 10px;
+  padding: 5px 10px;
+  margin: 0 0 10px 5px;
   background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .salessoldout-button:hover {
@@ -31,7 +31,7 @@
 
 .salessoldout-content {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   width: 90%;
   max-width: 1000px;
@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid #eee;
 }
@@ -57,7 +57,7 @@
 .salessoldout-close {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   color: #666;
 }
@@ -65,7 +65,7 @@
 .salessoldout-filters {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .salessoldout-week-filter {
@@ -86,7 +86,7 @@
 .salessoldout-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
+  gap: 10px;
 }
 
 .salessoldout-item {
@@ -146,13 +146,13 @@
 .salessoldout-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  margin-top: 10px;
   background: white;
 }
 
 .salessoldout-table th,
 .salessoldout-table td {
-  padding: 12px;
+  padding: 8px;
   text-align: left;
   border-bottom: 1px solid #dee2e6;
 }
@@ -169,7 +169,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .salessoldout-filters {
     flex-direction: column;
   }
@@ -179,12 +179,12 @@
   }
 
   .salessoldout-table {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .salessoldout-table th,
   .salessoldout-table td {
-    padding: 8px;
+    padding: 5px;
   }
 }
 
@@ -235,7 +235,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -250,13 +250,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid #eee;
 }
 
 .salessoldout-close {
-  font-size: 24px;
+  font-size: 20px;
   width: 30px;
   height: 30px;
   display: flex;
