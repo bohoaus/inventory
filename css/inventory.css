@@ -1791,12 +1791,12 @@
 
 .soldout-table th:nth-child(3),
 .soldout-table td:nth-child(3) {
-  width: 15%;
+  width: 13%;
 }
 
 .soldout-table th:nth-child(4),
 .soldout-table td:nth-child(4) {
-  width: 10%;
+  width: 9%;
 }
 
 .soldout-table th:nth-child(5),
