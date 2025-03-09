@@ -188,6 +188,7 @@ class SoldOutList {
                 <th>SoldOutDate</th>
                 <th>SellingTime</th>
                 <th>Status</th>
+                <th>Location</th>
             </tr>
         </thead>
         <tbody>
@@ -205,6 +206,7 @@ class SoldOutList {
                       item.soldout_date
                     )}</td>
                     <td>${item.sprice || ""}</td>
+                    <td>${item.item_location || ""}</td>
                 </tr>
             `
               )
