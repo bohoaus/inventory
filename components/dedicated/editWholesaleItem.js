@@ -126,23 +126,23 @@ class EditWholesaleItem {
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="item_status">Status</label>
-                    <select name="item_status">
-                        <option value="">Select Status</option>
-                        ${statuses
-                          .map(
-                            (status) => `
-                            <option value="${status}" ${
-                              item.item_status === status ? "selected" : ""
-                            }>
-                                ${status}
-                            </option>
-                        `
-                          )
-                          .join("")}
-                    </select>
-                </div>
+        <div class="form-group">
+          <label for="item_status">Status</label>
+          <select name="item_status">
+            <option value="">Select Status</option>
+            ${statuses
+              .map(
+                (status) => `
+              <option value="${status}" ${
+                  item.item_status === status ? "selected" : ""
+                }>
+                ${status}
+              </option>
+            `
+              )
+              .join("")}
+          </select>
+        </div>
 
                 <div class="form-group">
                   <label for="item_location">Location</label>
