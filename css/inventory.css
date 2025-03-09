@@ -1796,14 +1796,14 @@
 
 .soldout-table th:nth-child(4),
 .soldout-table td:nth-child(4) {
-  width: 9%;
+  width: 8%;
 }
 
 .soldout-table th:nth-child(5),
 .soldout-table td:nth-child(5),
 .soldout-table th:nth-child(6),
 .soldout-table td:nth-child(6) {
-  width: 9%;
+  width: 8%;
 }
 
 /* Add status-based row colors */
