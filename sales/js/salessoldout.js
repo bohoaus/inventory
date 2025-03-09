@@ -78,6 +78,7 @@ class SalesSoldout {
                   <th>SoldOutDate</th>
                   <th>SellingTime</th>
                   <th>Status</th>
+                  <th>Location</th>
                 </tr>
               </thead>
               <tbody>
@@ -239,6 +240,7 @@ class SalesSoldout {
             item.soldout_date
           )}</td>
           <td>${item.sprice || "N/A"}</td>
+          <td>${item.item_location || "N/A"}</td>
         </tr>
       `
       )
