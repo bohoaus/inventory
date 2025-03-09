@@ -76,8 +76,8 @@ class ProcessOrder {
             </div>
             <form id="dispatchForm" style="display: block;">
               <div class="form-group">
-                <label for="invoiceNumber">Invoice Number</label>
-                <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 80px" maxlength="15">
+                <label for="invoiceNumb">Invoice Number</label>
+                <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
               </div>
               <div class="form-group">
                 <label for="dispatchState">Dispatch State</label>
@@ -479,7 +479,7 @@ class ProcessOrder {
   async dispatchOrder() {
     try {
       // Get form values
-      const invoiceNo = document.getElementById("invoiceNumber").value.trim().toUpperCase();
+      const invoiceNo = document.getElementById("invoiceNumb").value.trim().toUpperCase();
       const dispatchState = document.getElementById("dispatchState").value;
       const dispatchBox = document.getElementById("dispatchBox").value.trim().toUpperCase();
       const dispatchCarrier = document.getElementById("dispatchCarrier").value;
