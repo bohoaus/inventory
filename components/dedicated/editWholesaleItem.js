@@ -37,7 +37,7 @@ class EditWholesaleItem {
     const statuses = [
       "SHIPPING",
       "ARRIVED",
-      "FULL PRICE",
+      "Full Price",
       "DISPATCHED",
       "ON SALE",
       "OUT OF STOCK",
