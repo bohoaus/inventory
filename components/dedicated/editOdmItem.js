@@ -373,9 +373,7 @@ class EditOdmItem {
           e.preventDefault();
           let pastedText = (e.clipboardData || window.clipboardData)
             .getData("text")
-            .trim()
-            .replace(/\s+/g, " ")
-            .toUpperCase();
+            .trim().replace(/\s+/g, " ").toUpperCase();
 
           input.value = pastedText;
         });
