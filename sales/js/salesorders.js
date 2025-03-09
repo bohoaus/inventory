@@ -32,7 +32,6 @@ class SalesOrdersComponent {
     // Optional columns that can be added
     this.optionalColumns = [
       { id: "removed_items", name: "Removed Items" },
-      { id: "dispatched_carrier", name: "Dispatched Carrier" },
       { id: "dispatched_box", name: "Dispatched Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
