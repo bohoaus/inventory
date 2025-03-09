@@ -53,6 +53,24 @@ class EditOdmItem {
       "Special",
     ];
 
+    const sodm_customers = [
+      "Billy J Btq",
+      "CIRCLE OF FRIEND",
+      "COCO AND BLUSH",
+      "EVERGREEN CLOTHNG",
+      "LIFE STORY DESIGN",
+      "LOVE STYLE CO",
+      "ORANGE SHEBERT",
+      "SALTY CRUSH",
+      "SHE STREET",
+      "SHINE ON",
+      "ST FROCK",
+      "THINGZ",
+      "TULIO",
+      "TWO BIRDS BLUE",
+      "VINE APPAREL",
+    ];
+
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
