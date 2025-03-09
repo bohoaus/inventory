@@ -76,11 +76,11 @@ class ProcessOrder {
             </div>
             <form id="dispatchForm" style="display: block;">
               <div class="form-group">
-                <label for="invoiceNumber">Invoice Number*</label>
+                <label for="invoiceNumber">Invoice Number</label>
                 <input type="text" id="invoiceNumber" value="${this.invoiceNumber || ""}" required style="width: 80px" maxlength="15">
               </div>
               <div class="form-group">
-                <label for="dispatchState">Dispatch State*</label>
+                <label for="dispatchState">Dispatch State</label>
                 <select id="dispatchState" style="width: 150px; color:blue" required>
                   <option value="">Select State</option>
                   <option value="AUS-ACT">AUS-ACT</option>
@@ -96,11 +96,11 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group">
-                <label for="dispatchBox">Dispatch Box*</label>
+                <label for="dispatchBox">Dispatch Box</label>
                 <input type="text" id="dispatchBox" value="1" style="width: 50px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group">
-                <label for="dispatchCarrier">Dispatch Carrier*</label>
+                <label for="dispatchCarrier">Dispatch Carrier</label>
                 <select id="dispatchCarrier" style="width: 200px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
@@ -112,7 +112,7 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group" id="trackingNumberGroup">
-                <label for="trackingNumber">Tracking Number*</label>
+                <label for="trackingNumber">Tracking Number</label>
                 <input type="text" id="trackingNumber" style="width: 150px; color:blue; maxlength:25" required>
               </div>
               <div class="form-group">
