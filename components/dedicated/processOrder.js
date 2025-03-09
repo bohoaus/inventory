@@ -487,6 +487,7 @@ class ProcessOrder {
     try {
       // Get form values
       const invoiceNo = document.getElementById("invoiceNumb").value.trim().toUpperCase();
+      const dispatchDate8 = document.getElementById("dispatchDate8").value;
       const dispatchState = document.getElementById("dispatchState").value;
       const dispatchBox = document.getElementById("dispatchBox").value.trim().toUpperCase();
       const dispatchCarrier = document.getElementById("dispatchCarrier").value;
@@ -510,11 +511,12 @@ class ProcessOrder {
       }
 
       // Update order status and dispatch details
+//          dispatched_at: new Date().toISOString(),
       const { error: orderError } = await supabaseClient
         .from("orders")
         .update({
           status: "DISPATCHED",
-          dispatched_at: new Date().toISOString(),
+          dispatched_at: dispatchDate8,
           updated_at: new Date().toISOString(),
           invoice_no: invoiceNo,
           dispatched_state: dispatchState,
