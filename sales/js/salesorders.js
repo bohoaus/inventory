@@ -25,7 +25,7 @@ class SalesOrdersComponent {
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
-      { id: "dispatched_carrier", name: "Courier#" },
+      { id: "dispatched_carrier", name: "Courier" },
       { id: "ocountry", name: "Country", locked: true },
     ];
 
