@@ -4,7 +4,7 @@ class AdminOrder {
 //      { id: "dispatched_at", name: "Dispatched At", isDate: true },
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "orderdate", name: "OrderDate", locked: true},
+      { id: "orderdate", name: "OrderDate"},
       { id: "invoice_no", name: "Invoice#" },
       { id: "opo", name: "PO#", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
