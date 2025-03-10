@@ -603,7 +603,7 @@ class SalesOrdersComponent {
         { key: "customer_name", label: "Customer" },
         { key: "order_type", label: "Type" },
         { key: "orderdate", label: "OrderDate" },
-        { key: "dispatched_at", label: "DispatchedAt", isDate: true },
+        { key: "dispatched_at", label: "DispatchedAt"},
         { key: "ocountry", label: "Country" },
         { key: "status", label: "Status" },
         { key: "agent_state", label: "AgentState" },
