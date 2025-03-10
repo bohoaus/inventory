@@ -23,7 +23,7 @@ class SalesOrdersComponent {
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "Agent State", locked: true },
       { id: "total_items", name: "T-Items", locked: true },
-      { id: "dispatched_at", name: "Dispatched", isDate: true },
+      { id: "dispatched_at", name: "Dispatched"},
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
