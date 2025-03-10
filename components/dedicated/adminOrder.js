@@ -5,7 +5,7 @@ class AdminOrder {
     // Define the initial table structure
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
+      { id: "orderdate", name: "OrderDate", locked: true},
       { id: "invoice_no", name: "Invoice#" },
       { id: "opo", name: "PO#", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
