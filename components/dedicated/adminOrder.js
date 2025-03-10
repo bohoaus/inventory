@@ -426,9 +426,9 @@ class AdminOrder {
                   cell.textContent = new Date(order[column.id]).toLocaleDateString(
                     "en-AU",
                     {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
+//                      year: "numeric",
+//                      month: "2-digit",
+//                      day: "2-digit",
 //                      hour: "2-digit",
 //                      minute: "2-digit",
                     }
@@ -511,9 +511,9 @@ class AdminOrder {
           cell.textContent = new Date(order[column.id]).toLocaleDateString(
             "en-AU",
             {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
+//              year: "numeric",
+//              month: "2-digit",
+//              day: "2-digit",
 //              hour: "2-digit",
 //              minute: "2-digit",
             }
