@@ -11,11 +11,12 @@ class AdminOrder {
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "AgentState", locked: true },
       { id: "total_items", name: "Items", locked: true },
-      { id: "osite", name: "Location", locked: true },
+      { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
       { id: "dispatched_carrier", name: "Courier" },
+      { id: "osite", name: "Location", locked: true },
       { id: "ocountry", name: "Country" },
     ];
 
@@ -24,7 +25,6 @@ class AdminOrder {
       { id: "removed_items", name: "Removed Items" },
       { id: "dispatched_box", name: "D-Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
-      { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "ouser", name: "User" },
       { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
