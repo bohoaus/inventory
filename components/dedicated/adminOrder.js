@@ -423,7 +423,7 @@ class AdminOrder {
                     "updated_at",
                   ].includes(column.id)
                 ) {
-                  cell.textContent = new Date(order[column.id]).toLocaleString(
+                  cell.textContent = new Date(order[column.id]).toLocaleDateString(
                     "en-AU",
                     {
                       year: "numeric",
@@ -508,7 +508,7 @@ class AdminOrder {
             "updated_at",
           ].includes(column.id)
         ) {
-          cell.textContent = new Date(order[column.id]).toLocaleString(
+          cell.textContent = new Date(order[column.id]).toLocaleDateString(
             "en-AU",
             {
               year: "numeric",
