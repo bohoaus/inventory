@@ -1,6 +1,7 @@
 class AdminOrder {
   constructor() {
     // Define the initial table structure
+//      { id: "dispatched_at", name: "Dispatched At", isDate: true },
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
       { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
@@ -11,7 +12,7 @@ class AdminOrder {
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "AgentState", locked: true },
       { id: "total_items", name: "Items", locked: true },
-      { id: "dispatched_at", name: "Dispatched At", isDate: true },
+      { id: "dispatched_at", name: "Dispatched"},
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
