@@ -498,6 +498,7 @@ class AdminOrder {
         cell.setAttribute("data-column", column.id);
 
         // Format date columns
+//          cell.textContent = new Date(order[column.id]).toLocaleString(
         if (
           [
             "orderdate",
@@ -507,7 +508,7 @@ class AdminOrder {
             "updated_at",
           ].includes(column.id)
         ) {
-          cell.textContent = new Date(order[column.id]).toLocaleString(
+          cell.textContent = new Date(order[column.id])(
             "en-AU",
             {
               year: "numeric",
