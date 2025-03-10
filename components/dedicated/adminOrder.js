@@ -1,10 +1,11 @@
+//It's ok on 10/03/2025
+
 class AdminOrder {
   constructor() {
     // Define the initial table structure
-//      { id: "dispatched_at", name: "Dispatched At", isDate: true },
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "orderdate", name: "OrderDate"},
+      { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
       { id: "invoice_no", name: "Invoice#" },
       { id: "opo", name: "PO#", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
@@ -12,7 +13,7 @@ class AdminOrder {
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "AgentState", locked: true },
       { id: "total_items", name: "Items", locked: true },
-      { id: "dispatched_at", name: "Dispatched"},
+      { id: "dispatched_at", name: "Dispatched", isDate: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
@@ -428,8 +429,8 @@ class AdminOrder {
                       year: "numeric",
                       month: "2-digit",
                       day: "2-digit",
-//                      hour: "2-digit",
-//                      minute: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
                     }
                   );
                 } else {
@@ -507,14 +508,14 @@ class AdminOrder {
             "updated_at",
           ].includes(column.id)
         ) {
-//          cell.textContent = new Date(order[column.id]).toLocaleString(
+          cell.textContent = new Date(order[column.id]).toLocaleString(
             "en-AU",
             {
               year: "numeric",
               month: "2-digit",
               day: "2-digit",
-//              hour: "2-digit",
-//              minute: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
             }
           );
         } else {
@@ -1646,3 +1647,5 @@ document.head.insertAdjacentHTML(
   </style>
 `
 );
+
+// It's ok on 10/03/2025-jim
