@@ -22,6 +22,7 @@ class SalesOrdersComponent {
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "Agent State", locked: true },
       { id: "total_items", name: "T-Items", locked: true },
+      { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
@@ -34,7 +35,6 @@ class SalesOrdersComponent {
       { id: "removed_items", name: "Removed Items" },
       { id: "dispatched_box", name: "Dispatched Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
-      { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
     ];
