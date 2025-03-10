@@ -218,7 +218,7 @@ class ViewOrder {
             <!-- Row 3 -->
             <div class="detail-item">
                 <label>Dispatched At:</label>
-                <span>${this.formatValue(
+                <span style="color:blue">${this.formatValue(
                   "dispatched_at",
                   orderData.dispatched_at
                 )}</span>
