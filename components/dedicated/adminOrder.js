@@ -141,7 +141,7 @@ class AdminOrder {
     orderContributionBtn.innerHTML =
       '<span class="material-icons">pie_chart</span> Orders Contribution';
     orderContributionBtn.style.cssText = `
-      padding: 5px 10px;
+      padding: 5px 5px;
       margin-left: 10px;
       background-color: #9C27B0;
       color: white;
@@ -1230,8 +1230,8 @@ class AdminOrder {
 
   adjustTableHeight() {
     const tableContainer = document.querySelector(".order-table-container");
-    const headerHeight = 50; // Height of header row
-    const rowHeight = 50; // Height of each data row
+    const headerHeight = 40; // Height of header row
+    const rowHeight = 40; // Height of each data row
     const padding = 10; // Padding for container
     const footerOffset = 90; // Space for pagination and bottom margin
 
@@ -1286,8 +1286,8 @@ class AdminOrder {
           year: "numeric",
           month: "2-digit",
           day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
+//          hour: "2-digit",
+//          minute: "2-digit",
         });
       } catch (error) {
         console.error("Date formatting error:", error);
