@@ -603,6 +603,7 @@ class SalesOrdersComponent {
         { key: "customer_name", label: "Customer" },
         { key: "order_type", label: "Type" },
         { key: "orderdate", label: "OrderDate" },
+        { key: "dispatched_at", label: "DispatchedAt", isDate: true },
         { key: "ocountry", label: "Country" },
         { key: "status", label: "Status" },
         { key: "agent_state", label: "AgentState" },
@@ -616,7 +617,6 @@ class SalesOrdersComponent {
         { key: "order_note", label: "Notes" },
         { key: "created_at", label: "Created", isDate: true },
         { key: "updated_at", label: "Updated", isDate: true },
-        { key: "dispatched_at", label: "DispatchedAt", isDate: true },
         { key: "cancelled_at", label: "CancelledAt", isDate: true },
       ];
 
