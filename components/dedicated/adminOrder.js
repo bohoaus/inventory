@@ -13,7 +13,7 @@ class AdminOrder {
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "AgentState", locked: true },
       { id: "total_items", name: "Items", locked: true },
-      { id: "dispatched_at", name: "Dispatched", isDate: true },
+      { id: "dispatched_at", name: "Dispatched", locked: true},
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
       { id: "tracking_no", name: "Tracking#" },
