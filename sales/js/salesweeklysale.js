@@ -1,3 +1,5 @@
+//it's ok to show weekly sales-jim
+
 class SalesWeeklySale {
   constructor() {
     this.modal = null;
@@ -60,7 +62,6 @@ class SalesWeeklySale {
                   <th>Status</th>
                   <th>Packs(Unit)</th>
                   <th>Qty</th>
-                  <th>Inventory</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -144,8 +145,8 @@ class SalesWeeklySale {
         .select("id, customer_name")
         .eq("order_type", "WHOLESALE")
         .not("status", "eq", "CANCELLED")
-        .gte("orderdate", startDate.toISOString())
-        .lte("orderdate", endDate.toISOString());
+        .gte("oiadddate", startDate.toISOString())
+        .lte("oiadddate", endDate.toISOString());
 
       if (ordersError) {
         console.error("Orders fetch error:", ordersError);
@@ -167,15 +168,12 @@ class SalesWeeklySale {
           oicolour,
           oicategory,
           oisales,
-          oiadddate,
           order_qty,
           total_pieces,
           order_item_status,
           order_id,
           inventory:item_name(
             pack_unit,
-            stock_qty,
-            receive_qty,
             item_status
           )
         `
@@ -252,7 +250,6 @@ class SalesWeeklySale {
           <td>${item.inventoryStatus || "N/A"}</td>
           <td>${item.orderPack} / (${item.inventoryUnit})</td>
           <td>${item.totalPieces}</td>
-          <td>${item.stock_qty/ (${item.receive_qty})</td>
         `;
         tbody.appendChild(row);
       });
@@ -410,3 +407,5 @@ class SalesWeeklySale {
 document.addEventListener("DOMContentLoaded", () => {
   new SalesWeeklySale();
 });
+
+//it's ok on 11/03/2025
