@@ -151,15 +151,11 @@ class ViewItem {
                 <h3>Dates:</h3>
                 <div class="detail-row">
                     <span class="label">Release Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.release_date
-                    )}</span>
-                </div>
+                    <span style="color: blue;" class="value">${new Date(this.formatDate(item.release_date)).toDateString()}</span>
+                </div>="detail-row">
                 <div class="detail-row">
                     <span class="label">Soldout Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.soldout_date
-                    )}</span>
+                    <span style="color: red;" class="value">${new Date(this.formatDate(item.soldout_date)).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
@@ -167,11 +163,11 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
-                    <span class="value">new Date(${this.formatDate(item.est_date)}).toDateString()</span>
+                    <span class="value">${new Date(this.formatDate(item.est_date)).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Arrive Date:</span>
-                    <span class="value">new Date(${this.formatDate(item.arrive_date)}).toDateString()</span>
+                    <span class="value">${new Date(this.formatDate(item.arrive_date)).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Delay Date:</span>
