@@ -5,27 +5,25 @@ class AdminOrder {
     // Define the initial table structure
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
+      { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "agent_state", name: "Agent State", locked: true },
-      { id: "total_items", name: "T-Items", locked: true },
+      { id: "total_items", name: "Total Items", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
-      { id: "dispatched_state", name: "D-State" },
-      { id: "invoice_no", name: "Invoice No" },
-      { id: "tracking_no", name: "Tracking No" },
     ];
 
     // Optional columns that can be added
     this.optionalColumns = [
       { id: "removed_items", name: "Removed Items" },
+      { id: "dispatched_state", name: "Dispatched State" },
       { id: "dispatched_carrier", name: "Dispatched Carrier" },
       { id: "dispatched_box", name: "Dispatched Box" },
+      { id: "invoice_no", name: "Invoice No" },
+      { id: "tracking_no", name: "Tracking No" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "dispatched_at", name: "Dispatched At", isDate: true },
-      { id: "ouser", name: "User" },
-      { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
     ];
 
@@ -36,7 +34,7 @@ class AdminOrder {
     this.rowsPerPage = 10;
 
     // Add sorting state
-    this.sortColumn = "orderdate";
+    this.sortColumn = "created_at";
     this.sortDirection = "desc";
 
     // Check if Supabase is already initialized
@@ -411,7 +409,6 @@ class AdminOrder {
                 // Format date columns
                 if (
                   [
-                    "orderdate",
                     "created_at",
                     "cancelled_at",
                     "dispatched_at",
@@ -1336,7 +1333,6 @@ class AdminOrder {
           // Format date columns
           if (
             [
-              "orderdate",
               "created_at",
               "cancelled_at",
               "dispatched_at",
@@ -1360,7 +1356,6 @@ class AdminOrder {
           // Format date columns
           if (
             [
-              "orderdate",
               "created_at",
               "cancelled_at",
               "dispatched_at",
