@@ -87,7 +87,7 @@ class ViewItem {
                 <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
-                    <span class="value">${item.code_colour || "-"}</span>
+                    <span style="color: blue;" class="value">${item.code_colour || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Item Name:</span>
@@ -163,17 +163,15 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
-                    <span class="value">${this.formatDate(item.mfg_date)}</span>
+                    <span class="value">new Date(${this.formatDate(item.mfg_date)}).toDateString()</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
-                    <span class="value">${this.formatDate(item.est_date)}</span>
+                    <span class="value">new Date(${this.formatDate(item.est_date)}).toDateString()</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Arrive Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.arrive_date
-                    )}</span>
+                    <span class="value">new Date(${this.formatDate(item.arrive_date)}).toDateString()</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Delay Date:</span>
