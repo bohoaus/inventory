@@ -163,7 +163,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
-                    <span class="value">new Date(${this.formatDate(item.mfg_date)}).toDateString()</span>
+                    <span class="value">${new Date(${this.formatDate(item.mfg_date)}).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
