@@ -167,7 +167,7 @@ class WeeklySummary {
             item_name: item.inventory.item_name,
             stock_qty: item.inventory.stock_qty,
             receive_qty: item.inventory.receive_qty,
-            release_date: new Date(item.inventory.release_date).toLocaleDateString(),
+            release_date: new Date(item.inventory.release_date).toDateString(),
             item_status: item.inventory.item_status,
             itemUnit: item.inventory.pack_unit,
             total_qty: 0,
