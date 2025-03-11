@@ -1,32 +1,29 @@
-//It's ok on 10/03/2025
+//It's ok on 11/03/2025
 
 class AdminOrder {
   constructor() {
     // Define the initial table structure
     this.tableStructure = [
       { id: "actions", name: "Actions", locked: true },
-      { id: "orderdate", name: "OrderDate", locked: true},
-      { id: "invoice_no", name: "Invoice#" },
-      { id: "opo", name: "PO#", locked: true },
-      { id: "customer_name", name: "Customer Name", locked: true },
+      { id: "orderdate", name: "OrderDate", locked: true, isDate: true },
       { id: "order_type", name: "Order Type", locked: true },
       { id: "status", name: "Status", locked: true },
-      { id: "agent_state", name: "AgentState", locked: true },
-      { id: "total_items", name: "Items", locked: true },
-      { id: "dispatched_at", name: "Dispatched"},
+      { id: "customer_name", name: "Customer Name", locked: true },
+      { id: "agent_state", name: "Agent State", locked: true },
+      { id: "total_items", name: "T-Items", locked: true },
       { id: "order_note", name: "Order Note", locked: true },
       { id: "dispatched_state", name: "D-State" },
-      { id: "tracking_no", name: "Tracking#" },
-      { id: "dispatched_carrier", name: "Courier" },
-      { id: "osite", name: "Location", locked: true },
-      { id: "ocountry", name: "Country" },
+      { id: "invoice_no", name: "Invoice No" },
+      { id: "tracking_no", name: "Tracking No" },
     ];
 
     // Optional columns that can be added
     this.optionalColumns = [
       { id: "removed_items", name: "Removed Items" },
-      { id: "dispatched_box", name: "D-Box" },
+      { id: "dispatched_carrier", name: "Dispatched Carrier" },
+      { id: "dispatched_box", name: "Dispatched Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
+      { id: "dispatched_at", name: "Dispatched At", isDate: true },
       { id: "ouser", name: "User" },
       { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
@@ -135,13 +132,12 @@ class AdminOrder {
     });
 
     // Add order contribution button
-//      padding: 8px 16px;
     const orderContributionBtn = document.createElement("button");
     orderContributionBtn.className = "order-contribution-btn";
     orderContributionBtn.innerHTML =
       '<span class="material-icons">pie_chart</span> Orders Contribution';
     orderContributionBtn.style.cssText = `
-      padding: 5px 5px;
+      padding: 8px 16px;
       margin-left: 10px;
       background-color: #9C27B0;
       color: white;
@@ -151,7 +147,7 @@ class AdminOrder {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
+      font-size: 14px;
       transition: background-color 0.3s;
     `;
     orderContributionBtn.addEventListener("mouseover", () => {
@@ -348,13 +344,12 @@ class AdminOrder {
       }
 
       // Apply sorting
-//        query = query.order("created_at", { ascending: false });
       if (this.sortColumn) {
         query = query.order(this.sortColumn, {
           ascending: this.sortDirection === "asc",
         });
       } else {
-        query = query.order("orderdate", { ascending: false });
+        query = query.order("created_at", { ascending: false });
       }
 
       // Apply pagination
@@ -416,21 +411,21 @@ class AdminOrder {
                 // Format date columns
                 if (
                   [
-//                    "orderdate",
+                    "orderdate",
                     "created_at",
                     "cancelled_at",
-//                    "dispatched_at",
+                    "dispatched_at",
                     "updated_at",
                   ].includes(column.id)
                 ) {
-                  cell.textContent = new Date(order[column.id]).toLocaleDateString(
+                  cell.textContent = new Date(order[column.id]).toLocaleString(
                     "en-AU",
                     {
-//                      year: "numeric",
-//                      month: "2-digit",
-//                      day: "2-digit",
-//                      hour: "2-digit",
-//                      minute: "2-digit",
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
                     }
                   );
                 } else {
@@ -501,21 +496,20 @@ class AdminOrder {
         // Format date columns
         if (
           [
-//            "orderdate",
             "created_at",
             "cancelled_at",
-//            "dispatched_at",
+            "dispatched_at",
             "updated_at",
           ].includes(column.id)
         ) {
-          cell.textContent = new Date(order[column.id]).toLocaleDateString(
+          cell.textContent = new Date(order[column.id]).toLocaleString(
             "en-AU",
             {
-//              year: "numeric",
-//              month: "2-digit",
-//              day: "2-digit",
-//              hour: "2-digit",
-//              minute: "2-digit",
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
             }
           );
         } else {
@@ -1230,10 +1224,10 @@ class AdminOrder {
 
   adjustTableHeight() {
     const tableContainer = document.querySelector(".order-table-container");
-    const headerHeight = 40; // Height of header row
-    const rowHeight = 40; // Height of each data row
-    const padding = 10; // Padding for container
-    const footerOffset = 90; // Space for pagination and bottom margin
+    const headerHeight = 53; // Height of header row
+    const rowHeight = 53; // Height of each data row
+    const padding = 20; // Padding for container
+    const footerOffset = 100; // Space for pagination and bottom margin
 
     // Calculate desired height based on number of visible rows
     const visibleRows = Math.min(this.rowsPerPage, 100); // Cap at 100 rows for performance
@@ -1286,8 +1280,8 @@ class AdminOrder {
           year: "numeric",
           month: "2-digit",
           day: "2-digit",
-//          hour: "2-digit",
-//          minute: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
         });
       } catch (error) {
         console.error("Date formatting error:", error);
@@ -1305,7 +1299,7 @@ class AdminOrder {
         display: flex;
         align-items: center;
         gap: 8px;
-        padding: 5px;
+        padding: 8px;
       `;
 
       // Check if order is dispatched or cancelled
@@ -1472,7 +1466,6 @@ class AdminOrder {
                 </div>
             </td>
             <td>${order.id}</td>
-            <td>${order.orderdate || "-"}</td>
             <td>${order.invoice_no || "-"}</td>
             <td>${order.customer_name || "-"}</td>
             <td>${order.agent_state || "-"}</td>
@@ -1511,7 +1504,6 @@ class AdminOrder {
                             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
                         ">Actions</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Order ID</th>
-                        <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">OrderDate</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Invoice No</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Customer Name</th>
                         <th style="position: sticky; top: 0; z-index: 1; background-color: #f8f9fa;">Agent State</th>
@@ -1593,7 +1585,7 @@ document.head.insertAdjacentHTML(
       background: white;
       border: 1px solid #ddd;
       border-radius: 4px;
-      padding: 5px;
+      padding: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
       min-width: 200px;
@@ -1648,4 +1640,4 @@ document.head.insertAdjacentHTML(
 `
 );
 
-// It's ok on 10/03/2025-jim
+// It's ok on 11/03/2025-jim
