@@ -194,7 +194,7 @@ class ViewOrder {
             <!-- Row 2 -->
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Order Type:</label>
-                <span style="color:grey">${orderData.order_type || "-"}</span>
+                <span style="color:Light Gray">${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Invoice#:</label>
@@ -202,7 +202,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Status:</label>
-                <span style="color:grey">${formatStatus(
+                <span style="color:Light Gray">${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
                 )}</span>
@@ -259,7 +259,7 @@ class ViewOrder {
             </div>
             <div class="detail-item">
                 <label>Country:</label>
-                <span style="color:blue">${orderData.ocountry || "-"}</span>
+                <span style="color:Light Gray">${orderData.ocountry || "-"}</span>
             </div>
             `
                 : ""
