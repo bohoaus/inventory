@@ -62,6 +62,8 @@ class SalesWeeklySale {
                   <th>Status</th>
                   <th>Packs(Unit)</th>
                   <th>Qty</th>
+                  <th>Inventory</th>
+                  <th>ReleaseD</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -218,7 +220,7 @@ class SalesWeeklySale {
     const tbody = this.modal.querySelector("#summaryTable tbody");
     tbody.innerHTML = `
       <tr>
-        <td colspan="5" style="text-align: center; color: #dc3545;">
+        <td colspan="7" style="text-align: center; color: #dc3545;">
           Error loading data. Please check console and try again.
         </td>
       </tr>
