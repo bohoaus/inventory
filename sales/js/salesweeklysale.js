@@ -256,8 +256,8 @@ class SalesWeeklySale {
           <td>${item.inventoryStatus || "N/A"}</td>
           <td>${item.orderPack} / (${item.inventoryUnit})</td>
           <td>${item.totalPieces}</td>
-          <td>${item.stock_qty}/(${item.receive_qty})</td>
-          <td>${item.release_date}</td>
+          <td>${item.inventoryStock}/(${item.inventoryQty})</td>
+          <td>${item.inventoryRelease}</td>
         `;
         tbody.appendChild(row);
       });
@@ -275,6 +275,9 @@ class SalesWeeklySale {
           colour: item.oicolour,
           inventoryStatus: item.inventory?.item_status,
           inventoryUnit: item.inventory?.pack_unit,
+          inventoryStock: item.inventory?.stock_qty,
+          inventoryQty: item.inventory?.receive_qty,
+          inventoryRelease: item.inventory?.release_date,
           orderPack: 0,
           orderQty: 0,
           totalPieces: 0,
