@@ -214,7 +214,7 @@ class SalesWeeklySale {
     const tbody = this.modal.querySelector("#summaryTable tbody");
     tbody.innerHTML = `
       <tr>
-        <td colspan="5" style="text-align: center;">No wholesale orders found for this period</td>
+        <td colspan="8" style="text-align: center;">No wholesale orders found for this period</td>
       </tr>
     `;
   }
@@ -223,7 +223,7 @@ class SalesWeeklySale {
     const tbody = this.modal.querySelector("#summaryTable tbody");
     tbody.innerHTML = `
       <tr>
-        <td colspan="7" style="text-align: center; color: #dc3545;">
+        <td colspan="8" style="text-align: center; color: #dc3545;">
           Error loading data. Please check console and try again.
         </td>
       </tr>
