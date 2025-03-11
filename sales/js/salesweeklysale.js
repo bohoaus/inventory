@@ -177,6 +177,9 @@ class SalesWeeklySale {
           order_id,
           inventory:item_name(
             pack_unit,
+            receive_qty,
+            stock_qty,
+            release_date,
             item_status
           )
         `
@@ -253,6 +256,8 @@ class SalesWeeklySale {
           <td>${item.inventoryStatus || "N/A"}</td>
           <td>${item.orderPack} / (${item.inventoryUnit})</td>
           <td>${item.totalPieces}</td>
+          <td>${item.stock_qty}/(${item.receive_qty})</td>
+          <td>${item.release_date}</td>
         `;
         tbody.appendChild(row);
       });
