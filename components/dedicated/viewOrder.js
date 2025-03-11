@@ -180,10 +180,7 @@ class ViewOrder {
             </div>
             <div class="detail-item">
                 <label>Order Date:</label>
-                <span>${this.formatValue(
-                  "orderdate",
-                  orderData.orderdate
-                )}</span>
+                <span>${new Date(this.formatValue("orderdate",orderData.orderdate)).toDateString()}</span>
             </div>
             <div class="detail-item">
                 <label>Dispatched State:</label>
