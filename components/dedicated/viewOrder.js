@@ -180,7 +180,7 @@ class ViewOrder {
             </div>
             <div class="detail-item">
                 <label>Order Date:</label>
-                <span>${new Date(this.formatValue("orderdate",orderData.orderdate)).toDateString()}</span>
+                <span style="color:blue">${new Date(this.formatValue("orderdate",orderData.orderdate)).toDateString()}</span>
             </div>
             <div class="detail-item">
                 <label>Dispatched State:</label>
@@ -194,7 +194,7 @@ class ViewOrder {
             <!-- Row 2 -->
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Order Type:</label>
-                <span style="color:blue">${orderData.order_type || "-"}</span>
+                <span style="color:grey">${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Invoice#:</label>
@@ -202,7 +202,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Status:</label>
-                <span style="color:blue">${formatStatus(
+                <span style="color:grey">${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
                 )}</span>
