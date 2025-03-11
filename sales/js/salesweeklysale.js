@@ -145,8 +145,8 @@ class SalesWeeklySale {
         .select("id, customer_name")
         .eq("order_type", "WHOLESALE")
         .not("status", "eq", "CANCELLED")
-        .gte("oiadddate", startDate.toISOString())
-        .lte("oiadddate", endDate.toISOString());
+        .gte("orderdate", startDate.toISOString())
+        .lte("orderdate", endDate.toISOString());
 
       if (ordersError) {
         console.error("Orders fetch error:", ordersError);
