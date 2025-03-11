@@ -277,7 +277,7 @@ class SalesWeeklySale {
           inventoryUnit: item.inventory?.pack_unit,
           inventoryStock: item.inventory?.stock_qty,
           inventoryQty: item.inventory?.receive_qty,
-          inventoryRelease: item.inventory?.release_date,
+          inventoryRelease: new Date(item.inventory.release_date).toLocaleDateString(),
           orderPack: 0,
           orderQty: 0,
           totalPieces: 0,
