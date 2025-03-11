@@ -89,7 +89,7 @@ class ViewOrder {
         dispatched_carrier: orderData.dispatched_carrier || "-",
         dispatched_box: orderData.dispatched_box || "-",
         tracking_no: orderData.tracking_no || "-",
-        orderdate: orderData.orderdate,
+        orderdate: new Date(orderData.orderdate).toDateString(),
         ouser: orderData.ouser,
         opo: orderData.opo,
         ocountry: orderData.ocountry,
