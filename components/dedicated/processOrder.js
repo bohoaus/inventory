@@ -120,7 +120,7 @@ class ProcessOrder {
               </div>
               <div class="form-group" id="trackingNumberGroup">
                 <label for="trackingNumber">Tracking Number</label>
-                <input type="text" id="trackingNumber" style="width: 150px; color:blue; maxlength:40" required>
+                <input type="text" id="trackingNumber" style="width: 160px; color:blue; maxlength:45" required>
               </div>
               <div class="form-group">
                 <label for="orderNotes">Order Notes</label>
