@@ -314,7 +314,7 @@ class AdminOrder {
         query = query.eq("order_type", typeFilter.toLowerCase());
       }
       if (agentStateFilter && agentStateFilter !== "ALL") {
-        query = query.eq("agent_state", agentStateFilter.toLowerCase());
+        query = query.eq("agent_state", agentStateFilter);
       }
       if (searchTerm) {
         query = query.ilike("customer_name", `%${searchTerm}%`);
