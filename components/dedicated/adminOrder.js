@@ -311,7 +311,7 @@ class AdminOrder {
         query = query.eq("status", statusFilter.toUpperCase());
       }
       if (typeFilter && typeFilter !== "ALL") {
-        query = query.eq("order_type", typeFilter.toLowerCase());
+        query = query.eq("order_type", typeFilter);
       }
       if (agentStateFilter && agentStateFilter !== "ALL") {
         query = query.eq("agent_state", agentStateFilter);
