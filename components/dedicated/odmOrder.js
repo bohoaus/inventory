@@ -372,7 +372,7 @@ class OdmOrder {
             order_id: data.id,
             item_name: item.code_colour,
             oicolour: item.scolour,
-            oiadddate: item.scolour,
+            oiadddate: item.orderdate,
             total_pieces: packSizeTotal, // Use pack size total as total_pieces
             order_item_status: "PROCESSING",
             created_at: new Date().toISOString(),
