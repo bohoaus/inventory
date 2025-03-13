@@ -1,3 +1,5 @@
+//It's OK ON 13/03/2025
+
 class ViewItem {
   constructor() {
     this.modal = null;
@@ -489,3 +491,5 @@ class ViewItem {
 
 // Initialize the ViewItem class
 window.viewItem = new ViewItem();
+
+//It's OK ON 13/03/2025
