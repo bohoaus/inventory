@@ -1433,7 +1433,7 @@ th[data-sort].sort-desc .sort-icon {
 
 /* Pack Size Modal */
 #packSizeModal .modal-content {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .pack-size-row {
