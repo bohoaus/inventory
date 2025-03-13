@@ -151,7 +151,7 @@ class ViewItem {
                 <h3>Dates:</h3>
                 <div class="detail-row">
                     <span class="label">Release Date:</span>
-                    <span style="color: blue;" class="value">${new Date(this.formatDate(item.release_date.getDate())).toDateString()}</span>
+                    <span style="color: blue;" class="value">${new Date(this.formatDate(item.release_date)).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Soldout Date:</span>
