@@ -151,7 +151,7 @@ class ViewItem {
                 <h3>Dates:</h3>
                 <div class="detail-row">
                     <span class="label">Release Date:</span>
-                    <span style="color: blue;" class="value">${new Date(this.item.release_date).toDateString()}</span>
+                    <span style="color: blue;" class="value">${new Date(item.release_date).toDateString() || ""}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Soldout Date:</span>
@@ -171,21 +171,15 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Delay Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.delay_date
-                    )}</span>
+                    <span class="value">${this.formatDate(item.delay_date)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Created:</span>
-                    <span class="value">${this.formatDate(
-                      item.created_at
-                    )}</span>
+                    <span class="value">${this.formatDate(item.created_at)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Updated:</span>
-                    <span class="value">${this.formatDate(
-                      item.updated_at
-                    )}</span>
+                    <span class="value">${this.formatDate(item.updated_at)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Item Aging:</span>
