@@ -314,13 +314,13 @@ class AdminOrder {
 
       // Apply filters
       if (statusFilter && statusFilter !== "ALL") {
-        query = query.eq("status", statusFilter.toLowerCase());
+        query = query.eq("status", statusFilter.toUpperCase());
       }
       if (typeFilter && typeFilter !== "ALL") {
-        query = query.eq("order_type", typeFilter.toLowerCase());
+        query = query.eq("order_type", typeFilter.toUpperCase());
       }
       if (agentStateFilter && agentStateFilter !== "ALL") {
-        query = query.eq("agent_state", agentStateFilter.toLowerCase());
+        query = query.eq("agent_state", agentStateFilter);
       }
       if (searchTerm) {
         query = query.ilike("customer_name", `%${searchTerm}%`);
