@@ -155,7 +155,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Soldout Date:</span>
-                    <span style="color: red;" class="value">${new Date(this.formatDate(item.soldout_date)).toDateString()}</span>
+                    <span style="color: red;" class="value">${new Date(item.soldout_date).toDateString() || ""}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
