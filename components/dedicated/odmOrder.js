@@ -138,6 +138,7 @@ class OdmOrder {
                                     <th>Colour</th>
                                     <th>PPO#</th>
                                     <th>Stock</th>
+                                    <th>Batch</th>
                                     <th>Pack Size</th>
                                     <th>CountQty</th>
                                     <th>QtyDiff</th>
@@ -373,6 +374,7 @@ class OdmOrder {
             item_name: item.code_colour,
             oicolour: item.scolour,
             oiadddate: item.orderdate,
+            order_qty: "1",
             total_pieces: packSizeTotal, // Use pack size total as total_pieces
             order_item_status: "PROCESSING",
             created_at: new Date().toISOString(),
@@ -432,7 +434,7 @@ class OdmOrder {
             order_id: orderId,
             item_name: itemData.item_name,
             oicolour: itemData.scolour,
-            oiadddate: itemData.scolour,
+            oiadddate: itemData.orderdate,
             oiprice: itemData.swsp2,
             oisales: itemData.sprice,
             oicategory: itemData.item_category,
@@ -670,6 +672,12 @@ class OdmOrder {
             }</span>
           </div>
           <div class="info-card">
+            <label>Batch</label>
+            <span id="odmBatch" class="info-value">${
+              this.selectedItem.order_qty || 1
+            }</span>
+          </div>
+          <div class="info-card">
             <label>Existing Pack Size</label>
             <span class="info-value">${
               Object.entries(this.selectedItem.pack_size || {})
@@ -886,6 +894,7 @@ class OdmOrder {
             <td>${item.scolour}</td>
             <td>${item.odm_ppo || "-"}</td>
             <td>${item.receive_qty}</td>
+            <td>${item.order_qty}</td>
             <td>${packSizeDisplay}</td>
             <td>${item.existing_total + item.new_total} (${
           item.existing_total
@@ -1186,6 +1195,7 @@ class OdmOrder {
             oiadddate: order.orderdate,
             item_name: item.code_colour.toUpperCase(),
             oicolour: item.scolour,
+            order_qty: "1",
             oiprice: item.swsp2,
             oifabric: item.sfabric,
             oisales: item.sprice,
