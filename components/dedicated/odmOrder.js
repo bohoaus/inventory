@@ -124,6 +124,10 @@ class OdmOrder {
                             <label>Stock</label>
                             <span id="odmReceiveQty" class="info-value"></span>
                         </div>
+                        <div class="info-card">
+                            <label>ArriveDate</label>
+                            <span id="odmArriveDate" class="info-value"></span>
+                        </div>
                     </div>
                     <button type="button" id="addPackSize" class="add-pack-size-btn">Add Pack Size</button>
                 </div>
