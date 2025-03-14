@@ -1318,8 +1318,8 @@ document.head.insertAdjacentHTML(
     .item-info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-bottom: 20px;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
     .info-card {
