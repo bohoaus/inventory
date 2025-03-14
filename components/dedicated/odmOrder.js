@@ -299,7 +299,11 @@ class OdmOrder {
           item_status,
           odm_customer,
           item_category,
-          odm_ppo
+          odm_ppo,
+          item_name,
+          sfabric,
+          sprice,
+          swsp2
         `
         )
         .eq("item_group", "ODM")
@@ -375,6 +379,10 @@ class OdmOrder {
             oicolour: item.scolour,
             oiadddate: item.orderdate,
             order_qty: "1",
+            oifabric: item.sfabric,
+            oisales: item.sprice,
+            oicategory: item.item_name,
+            oiprice: item.swsp2,
             total_pieces: packSizeTotal, // Use pack size total as total_pieces
             order_item_status: "PROCESSING",
             created_at: new Date().toISOString(),
