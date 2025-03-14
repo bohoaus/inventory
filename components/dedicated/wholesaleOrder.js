@@ -137,6 +137,10 @@ class WholesaleOrder {
                             <label>OnHand</label>
                             <span id="onHand" class="info-value"></span>
                         </div>
+                        <div class="info-card">
+                            <label>ArriveDate</label>
+                            <span id="arriveDate" class="info-value"></span>
+                        </div>
                     </div>
                     <div class="qty-input">
                         <label for="orderQty">Order Quantity</label>
@@ -255,6 +259,7 @@ class WholesaleOrder {
     document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
     document.getElementById("onHand").textContent = availableStock;
+    document.getElementById("arriveDate").textContent = item.arrive_date || "";
 
     this.suggestionsList.style.display = "none";
     this.searchInput.value = item.code_colour || "";
