@@ -209,7 +209,7 @@ class WeeklySummary {
     if (data.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="5" class="no-data">No data available for selected week</td>
+          <td colspan="8" class="no-data">No data available for selected week</td>
         </tr>
       `;
       return;
