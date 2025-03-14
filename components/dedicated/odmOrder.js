@@ -622,6 +622,7 @@ class OdmOrder {
           item_category,
           odm_ppo,
           pack_size,
+          arrive_date,
           odm_qty_diff
         `
         )
