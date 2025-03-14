@@ -535,7 +535,7 @@ class OdmOrder {
             ---------------------
             Order ID: ${order.id}
             Customer: ${order.customer_name}
-            Date: ${new Date(order.created_at).toLocaleDateString()}
+            Date: ${new Date(order.oiadddate).toLocaleDateString()}
 
             Items:
             ${order.order_items
@@ -997,6 +997,7 @@ class OdmOrder {
               name: item.item_name,
               pieces: item.total_pieces,
               status: item.order_item_status,
+              orderQty: item.order_qty,
             })),
           };
         });
