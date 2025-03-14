@@ -161,15 +161,15 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
-                    <span class="value">${new Date(this.formatDate(item.mfg_date)).toDateString()}</span>
+                    <span class="value">${new Date(item.mfg_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
-                    <span class="value">${new Date(this.formatDate(item.est_date)).toDateString()}</span>
+                    <span class="value">${new Date(item.est_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Arrive Date:</span>
-                    <span class="value">${new Date(this.formatDate(item.arrive_date)).toDateString()}</span>
+                    <span class="value">${new Date(item.arrive_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Delay Date:</span>
