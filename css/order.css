@@ -814,17 +814,17 @@ body.modal-open {
 
 .order-table-container[data-rows="25"] {
   height: auto;
-  min-height: 1378px; /* Header (53px) + 25 rows (1325px) */
+  min-height: 1100px; /* Header (53px) + 25 rows (1325px) */
 }
 
 .order-table-container[data-rows="50"] {
   height: auto;
-  min-height: 2703px; /* Header (53px) + 50 rows (2650px) */
+  min-height: 2200px; /* Header (53px) + 50 rows (2650px) */
 }
 
 .order-table-container[data-rows="100"] {
   height: auto;
-  min-height: 5353px; /* Header (53px) + 100 rows (5300px) */
+  min-height: 4400px; /* Header (53px) + 100 rows (5300px) */
 }
 
 /* Header sort icons */
