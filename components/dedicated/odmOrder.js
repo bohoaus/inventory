@@ -1322,6 +1322,12 @@ document.head.insertAdjacentHTML(
       margin-bottom: 10px;
     }
 
+    .item-info-flex {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
     .info-card {
       background: #f8f9fa;
       padding: 10px;
