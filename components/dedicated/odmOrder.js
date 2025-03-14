@@ -646,6 +646,7 @@ class OdmOrder {
         odm_ppo: item.odm_ppo,
         pack_size: item.pack_size || {}, // Store existing pack size
         odm_qty_diff: item.odm_qty_diff || 0, // Store existing qty diff
+        arrive_date: item.arrive_date || 0, // identify different production
       };
 
       // Calculate total from existing pack sizes
@@ -705,7 +706,11 @@ class OdmOrder {
               ${this.selectedItem.odm_qty_diff || 0}
             </span>
           </div>
-        </div>
+          <div class="info-card">
+            <label>ArriveDate</label>
+            <span id="arrive_date" class="info-value">${this.selectedItem.arrive_date || ""}</span>
+          </div>
+       </div>
         <button type="button" id="addPackSize" class="add-pack-size-btn">Add Pack Size</button>
       `;
 
