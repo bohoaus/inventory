@@ -370,7 +370,7 @@ class OdmOrder {
           throw new Error("Error updating inventory: " + updateError.message);
         }
 
-        // Add order item
+        // Add order items
         const { error: orderItemError } = await supabase
           .from("order_items")
           .insert({
@@ -434,7 +434,7 @@ class OdmOrder {
         0
       );
 
-      // Add order item
+      // Add order items
       const { error: orderItemError } = await supabase
         .from("order_items")
         .insert([
