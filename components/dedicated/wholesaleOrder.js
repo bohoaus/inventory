@@ -233,6 +233,8 @@ class WholesaleOrder {
         div.className = "suggestion-item";
         div.innerHTML = `
                 <div class="item-code">${item.code_colour}</div>
+                <div class="item-stock">${item.stock_qty}</div>
+                <div class="item-arriveDate">${item.arrive_date}</div>
             `;
         div.addEventListener("click", () => this.selectItem(item));
         this.suggestionsList.appendChild(div);
