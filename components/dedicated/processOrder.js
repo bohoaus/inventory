@@ -126,7 +126,7 @@ class ProcessOrder {
                 <input type="text" id="trackingNumber" style="width: 160px; color:blue; maxlength:45" required>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="orderNotes">Order Notes</label>
+                <label for="orderNotes">Notes</label>
                 <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
             </form>
