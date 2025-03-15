@@ -86,7 +86,7 @@ class WholesaleOrder {
 
                 <div class="customer-info">
                   <div class="item-search">
-                    <div class="form-group" style="display: flex; flex-direction: column; width: 100px">
+                    <div class="form-group" style="display: flex; flex-direction: row; width: 100px">
                         <label for="itemSearch">Search Item</label>
                         <input type="text" id="itemSearch" placeholder="Enter item code or name" maxlength="20" style="width: 300px; color: blue">
                         <div id="suggestions" class="suggestions-dropdown"></div>
