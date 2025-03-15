@@ -43,11 +43,11 @@ class OdmOrder {
                     </div>
                     <div class="form-group required">
                         <label for="orderdate">Request Date</label>
-                        <input type="date" id="orderdate" style="width: 150px">
+                        <input type="date" id="orderdate" style="width: 100px">
                     </div>
                     <div class="form-group">
-                        <label for="dispatched_at">Dispatched At</label>
-                        <input type="date" id="dispatched_at" style="width: 200px">
+                        <label for="dispatched_at">Dispatched</label>
+                        <input type="date" id="dispatched_at" style="width: 100px">
                     </div>
                     <div class="form-group required">
                         <label for="agent_state">Agent State</label>
