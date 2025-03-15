@@ -295,3 +295,41 @@
     width: 100%;
   }
 }
+
+
+/* process order - jim on 15/03/2025 */
+.form-group-order-process {
+  margin-bottom: 10px;
+}
+
+.form-group-order-process label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #495057;
+  font-size: 13px;
+}
+
+.form-group-order-process input,
+.form-group-order-process select,
+.form-group-order-process textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group-order-process input:focus,
+.form-group-order-process select:focus,
+.form-group-order-process textarea:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group-order-process textarea {
+  min-height: 120px;
+  resize: vertical;
+}
