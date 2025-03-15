@@ -915,6 +915,12 @@
 }
 
 /* Form Group Styles */
+.form-group-boho {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
