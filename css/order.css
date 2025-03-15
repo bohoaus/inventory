@@ -934,6 +934,7 @@ th[data-sort].sort-desc .sort-icon {
   flex: 1;
   display: flex;
   flex-direction: row;
+  row-gap: 20px;
   gap: 8px;
 }
 
