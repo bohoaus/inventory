@@ -1,3 +1,5 @@
+//ok on 16/03/2025
+
 class OdmItem {
   constructor() {
     this.itemGroup = "ODM";
@@ -180,7 +182,6 @@ class OdmItem {
       "Polyester+",
       "Silk",
       "Viscose",
-      "Viscose+",
       "Acrylic",
       "Acrylic+",
       "polyamide+",
@@ -260,8 +261,8 @@ class OdmItem {
             </div>
 
             <!-- jim changed -->
-            <div class="form-group-odm required">           
-                <label for="odm_customer" style="width: 150px">ODM Customer</label>
+            <div class="form-group required">           
+                <label for="odm_customer">ODM Customer</label>
                 <select name="odm_customer"
                 onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
@@ -279,44 +280,44 @@ class OdmItem {
                 </select>
             </div>
 
-            <div class="form-group-odm">
-                <label for="odm_ppo" style="width: 150px">ODM PPO</label>
+            <div class="form-group">
+                <label for="odm_ppo">ODM PPO</label>
                 <input type="text" maxlength="15" 
                        name="odm_ppo" placeholder="PO" 
                        value="${item?.odm_ppo || "PO"}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
-            <div class="form-group-odm required">
-                <label for="receive_qty" style="width: 150px">Received Quantity</label>
+            <div class="form-group required">
+                <label for="receive_qty">Received Quantity</label>
                 <input type="number" maxlength="4" 
                        name="receive_qty" step="1" min="1" 
                        value="${item?.receive_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
 
-             <div class="form-group-odm required">
-                <label for="stock_qty" style="width: 150px">Stock Quantity</label>
+             <div class="form-group required">
+                <label for="stock_qty">Stock Quantity</label>
                 <input type="number" maxlength="4" 
                        name="stock_qty" value="" step="1" min="1" 
                        value="${item?.stock_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
 
-            <div class="form-group-odm required">
-                <label for="mfg_date" style="width: 150px">MFG Date</label>
+            <div class="form-group required">
+                <label for="mfg_date">MFG Date</label>
                 <input type="date" name="mfg_date" 
                        value="${item?.mfg_date || ""}">
             </div>
 
-            <div class="form-group-odm">
-                <label for="est_date" style="width: 150px">Schedule Date</label>
+            <div class="form-group">
+                <label for="est_date">Schedule Date</label>
                 <input type="date" name="est_date" 
                        value="${item?.est_date || ""}">
             </div>
 
-            <div class="form-group-odm">
-                <label for="arrive_date" style="width: 150px">Arrive Date</label>
+            <div class="form-group">
+                <label for="arrive_date">Arrive Date</label>
                 <input type="date" name="arrive_date" 
                        value="${item?.arrive_date || ""}">
             </div>
@@ -342,16 +343,16 @@ class OdmItem {
                 </select>
             </div>
             
-            <div class="form-group-odm required">
-                <label for="item_name" style="width: 120px">Item Name</label>
+            <div class="form-group required">
+                <label for="item_name">Item Name</label>
                 <input type="text" maxlength="30" 
                        name="item_name" placeholder="new dress" 
                        value="${item?.item_name || "new dress"}"
                 >
             </div>
 
-            <div class="form-group-odm required">
-                <label for="sfabric" style="width: 120px">Fabric</label>
+            <div class="form-group required">
+                <label for="sfabric">Fabric</label>
                 <select name="sfabric">
                     <option value="">Select Fabric</option>
                     ${sfabrics
@@ -368,16 +369,16 @@ class OdmItem {
                 </select>
             </div>
 
-            <div class="form-group-odm required">
-                <label for="scolour" style="width: 120px">Colour</label>
+            <div class="form-group required">
+                <label for="scolour">Colour</label>
                 <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
                        value="${item?.scolour || ""}"
                 >
             </div>
 
-            <div class="form-group-odm required">
-                <label for="item_status" style="width: 120px">Status</label>
+            <div class="form-group required">
+                <label for="item_status">Status</label>
                 <select name="item_status">
                     <option value="">Select Status</option>
                     ${statuses
@@ -394,8 +395,8 @@ class OdmItem {
                 </select>
             </div>
 
-            <div class="form-group-odm required">
-                <label for="item_cargo" style="width: 120px">Cargo</label>
+            <div class="form-group required">
+                <label for="item_cargo">Cargo</label>
                 <select name="item_cargo">
                     <option value="">Select Cargo</option>
                     <option value="AIR" ${
@@ -407,8 +408,8 @@ class OdmItem {
                 </select>
             </div>
 
-            <div class="form-group-odm required">
-                <label for="scountry" style="width: 120px">Country</label>
+            <div class="form-group required">
+                <label for="scountry">Country</label>
                 <select name="scountry">
                     <option value="">Select Country</option>
                     ${scountries
@@ -425,8 +426,8 @@ class OdmItem {
                 </select>
             </div>
 
-            <div class="form-group-odm required">
-                <label for="sfactory" style="width: 120px">Factory</label>
+            <div class="form-group required">
+                <label for="sfactory">Factory</label>
                 <select name="sfactory">
                     <option value="">Select Factory</option>
                     ${sfactories
@@ -443,10 +444,10 @@ class OdmItem {
                 </select>
             </div>
 
-            <div class="form-group-odm">
-                <label for="item_note" style="width: 120px">Item Note</label>
-                <textarea maxlength="50" name="item_note" placeholder="OK"  style="width: 250px" 
-                          rows="5"
+            <div class="form-group">
+                <label for="item_note">Item Note</label>
+                <textarea maxlength="50" name="item_note" placeholder="OK" 
+                          rows="3"
                           onkeyup="this.value = this.value.toUpperCase()">${
                             item?.item_note || "OK"
                           }</textarea>
@@ -806,3 +807,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.odmItem = new OdmItem();
   }
 });
+
+//ok on 16/03/2025 - jim
