@@ -859,6 +859,11 @@ class OdmOrder {
     const orderItem = {
       code_colour: this.selectedItem.code_colour,
       scolour: this.selectedItem.scolour,
+      item_name: this.selectedItem.item_name,
+      arrive_date: this.selectedItem.arrive_date,
+      sfabric: this.selectedItem.sfabric,
+      sprice: this.selectedItem.sprice,
+      swsp2: this.selectedItem.swsp2,
       receive_qty: receivedQty,
       existing_pack_size: this.selectedItem.pack_size || {}, // Store existing pack size
       new_pack_size: packSizes, // Store new pack sizes separately
