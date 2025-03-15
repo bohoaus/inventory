@@ -72,20 +72,20 @@ class OdmOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-odm-order">
                         <label for="osite">Location</label>
                         <input style="width:100px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-odm-order">
                         <label for="dispatched_box">Boxes</label>
                         <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-odm-order">
                         <label for="invoice_no">Invoice#</label>
                         <input style="width: 90px" type="text" id="invoice_no" value="12171300" maxlength="10">
                     </div>
 
-                    <div class="form-group required">
+                    <div class="form-group-odm-order required">
                       <label for="ocountry">Country</label>
                       <select id="ocountry" style="width: 150px">
                         <option value="AUS+61" selected>AUS+61</option>
@@ -95,9 +95,9 @@ class OdmOrder {
                     </div>
                 </div>
 
-                <div class="customer-info">
+                <div class="customer-info2">
                   <div class="item-search">
-                    <div class="form-group">
+                    <div class="form-group-odm-order">
                         <label for="odmItemSearch">Search ODM Item</label>
                         <input style="width: 400px" maxlength="20" type="text" 
                                id="odmItemSearch" placeholder="Enter item code">
@@ -105,7 +105,7 @@ class OdmOrder {
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group-odm-order">
                     <label for="order_note">Order Note</label>
                     <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
                   </div>
