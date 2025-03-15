@@ -112,14 +112,14 @@ class EditWholesaleOrder {
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
-              <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 400px">
+              <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 300px">
                         <label style="text-align:left; display: block; width: 400px"">Customer Name</label>
                         <input type="text" style="text-align:left; display: block; width: 400px" 
                           value="${orderData.customer_name || ""}" disabled>
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
-                        <label for="agent_state" style="text-align:center; display: block; width: 200px">Agent State</label>
-                      <select style="width: 200px" style="color:blue" id="agent_state" required>
+                      <label for="agent_state" style="text-align:center; display: block; width: 15000px">Agent State</label>
+                      <select id="agent_state" required style="width: 200px; color:blue">
                             <option value="">Select State</option>
                         <option value="AUS-ACT" ${
                           orderData.agent_state?.toUpperCase() === "AUS-ACT"
