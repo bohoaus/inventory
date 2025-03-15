@@ -299,6 +299,8 @@ class OdmOrder {
           code_colour,
           scolour,
           receive_qty,
+          stock_qty,
+          arrive_date,
           item_status,
           odm_customer,
           item_category,
@@ -311,8 +313,8 @@ class OdmOrder {
         )
         .eq("item_group", "ODM")
         .or(`code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`)
-        .order("code_colour", { ascending: true })
-        .limit(10);
+        .order("arrive_date", { descending: true })
+        .limit(15);
 
       if (error) throw error;
 
