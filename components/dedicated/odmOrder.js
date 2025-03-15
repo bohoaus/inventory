@@ -221,7 +221,7 @@ class OdmOrder {
       }
 
       // Clear suggestions if search term is too short
-      if (searchTerm.length < 2) {
+      if (searchTerm.length < 3) {
         this.suggestionsList.innerHTML = "";
         return;
       }
