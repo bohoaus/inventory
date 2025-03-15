@@ -250,7 +250,7 @@ class EditWholesaleItem {
         </div>
 
         <!-- Repeat Info (after pack size) -->
-        <div class="form-group-boho-edit repeat-info-group">
+        <div class="form-group repeat-info-group">
             <label style="width: 150px">Repeat Info</label>
             <div class="repeat-info-inputs">
                 <input type="text" maxlength="25" 
@@ -269,9 +269,9 @@ class EditWholesaleItem {
         </div>
 
         <!-- Note field -->
-        <div class="form-group">
+        <div class="form-group-boho-edit">
             <label for="item_note">Note</label>
-            <textarea maxlength="50" name="item_note" 
+            <textarea style="width: 350px" maxlength="50" name="item_note" 
                       rows="3"
                       onkeyup="this.value = this.value.toUpperCase()">${
                         item.item_note || ""
