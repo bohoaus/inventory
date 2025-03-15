@@ -68,7 +68,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group-boho-edit">
-            <label for="item_group">Group</label>
+            <label for="item_group" style="width: 150px">Group</label>
                     <select name="item_group" required>
             
                         <option value="BOHO" ${
@@ -84,7 +84,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group-boho-edit">
-            <label for="item_name">Item Name</label>
+            <label for="item_name" style="width: 150px">Item Name</label>
                     <input type="text" maxlength="30" 
                            name="item_name" 
                            value="${item.item_name || ""}"
@@ -92,14 +92,14 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group-boho-edit">
-            <label for="scolour">Colour</label>
+            <label for="scolour" style="width: 150px">Colour</label>
                     <input type="text" maxlength="20" 
                            name="scolour" 
                            value="${item.scolour || ""}">
           </div>
 
           <div class="form-group-boho-edit">
-                    <label for="arrive_date">ArriveDate</label>
+                    <label for="arrive_date" style="width: 150px">ArriveDate</label>
                     <input type="date" 
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
@@ -127,7 +127,7 @@ class EditWholesaleItem {
                 </div>
 
         <div class="form-group-boho-edit">
-          <label for="item_status">Status</label>
+          <label for="item_status" style="width: 150px">Status</label>
           <select name="item_status">
             <option value="">Select Status</option>
             ${statuses
@@ -145,7 +145,7 @@ class EditWholesaleItem {
         </div>
 
                 <div class="form-group-boho-edit">
-                  <label for="item_location">Location</label>
+                  <label for="item_location" style="width: 150px">Location</label>
                   <input type="text" maxlength="15" 
                    name="item_location" 
                    value="${item.item_location || ""}"
@@ -153,14 +153,14 @@ class EditWholesaleItem {
                 </div>
 
                 <div class="form-group-boho-edit">
-                    <label for="soldout_date">SoldOutDate</label>
+                    <label for="soldout_date" style="width: 150px">SoldOutDate</label>
                     <input type="date" 
                            name="soldout_date" 
                            value="${item.soldout_date || ""}">
                 </div>
 
                 <div class="form-group-boho-edit">
-                  <label for="swsp">WSP</label>
+                  <label for="swsp" style="width: 150px">WSP</label>
                   <input maxlength="5" type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
                    name="swsp" 
                    value="${item.swsp || ""}">
@@ -180,7 +180,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group-boho-edit">
-            <label for="receive_qty">ReceiveQty(Packs)</label>
+            <label for="receive_qty" style="width: 150px">ReceiveQty(Packs)</label>
             <input type="number" maxlength="5" 
                  name="receive_qty" 
                  value="${item.receive_qty || 0}"
@@ -190,14 +190,14 @@ class EditWholesaleItem {
             </div>
 
             <div class="form-group-boho-edit">
-                    <label for="release_date">ReleaseDate</label>
+                    <label for="release_date" style="width: 150px">ReleaseDate</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
 
                 <div class="form-group-boho-edit">
-                    <label for="sprice">SalesPrice</label>
+                    <label for="sprice" style="width: 150px">SalesPrice</label>
                     <select name="sprice">
                         <option value="">Select Price</option>
                         ${prices
@@ -215,7 +215,7 @@ class EditWholesaleItem {
                 </div>
 
                 <div class="form-group-boho-edit">
-                  <label for="swsp2">WSP2</label>
+                  <label for="swsp2" style="width: 150px">WSP2</label>
                   <input maxlength="5" type="currency" placeholder="00.00" min="0.00" max="100.00"  step="any" 
                    name="swsp2" 
                    value="${item.swsp2 || ""}">
