@@ -264,7 +264,7 @@
 }
 
 .editwholesaleorder-size-input {
-  width: 120px;
+  width: 100px;
   padding: 6px 10px;
   border: 2px solid blue !important;
   border-radius: 4px;
@@ -273,7 +273,7 @@
 }
 
 .editwholesaleorder-qty-input {
-  width: 100px;
+  width: 50px;
   padding: 6px 10px;
   border: 2px solid blue !important;
   border-radius: 4px;
