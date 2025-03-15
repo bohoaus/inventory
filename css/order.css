@@ -1104,6 +1104,16 @@ th[data-sort].sort-desc .sort-icon {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.item-info-flex {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .info-card {
   padding: 6px;
   background: #f8f9fa;
