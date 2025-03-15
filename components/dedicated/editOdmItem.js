@@ -37,6 +37,7 @@ class EditOdmItem {
     const statuses = [
       "SHIPPING",
       "ARRIVED",
+      "FULL PRICE",
       "ON HOLD",
       "PROCESSING",
       "DISPATCHED",
