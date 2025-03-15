@@ -1908,3 +1908,24 @@ th[data-sort].sort-desc .sort-icon {
 .right {
   width: 75%;
 }
+
+/* ODM-order-form-jim on 15/03/2025 */
+.form-group-odm-order {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.form-group-odm-order label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group-odm-order input,
+.form-group-odm-order select {
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 11px;
+}
