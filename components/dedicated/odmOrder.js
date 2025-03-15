@@ -967,6 +967,11 @@ class OdmOrder {
           order_items (
             item_name,
             total_pieces,
+            oiprice,
+            oicategory,
+            oifabric,
+            oisales,
+            oiadddate,
             order_item_status
           )
         `
