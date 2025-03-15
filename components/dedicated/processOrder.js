@@ -131,7 +131,7 @@ class ProcessOrder {
               </div>
             </form>
               
-            <form id="dispatchForm">
+            <form id="dispatchForm" style="display: block;">
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
                 <button type="submit" class="confirm-dispatch">Confirm Dispatch</button>
