@@ -228,7 +228,7 @@ class EditWholesaleItem {
         <div class="form-group">
             <label for="pack_size">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
-                <table id="packSizeTable">
+                <table id="packSizeTable" style="width: 300px">
                     <thead>
                         <tr>
                             <th>Size</th>
