@@ -394,7 +394,7 @@ class WholesaleItem {
                 }">
             </div>
 
-            <div class="form-group">
+            <div class="form-group-boho">
                 <label for="est_date">Schedule Date</label>
                 <input type="date" name="est_date" value="${
                   item?.est_date || ""
