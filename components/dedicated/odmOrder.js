@@ -58,7 +58,7 @@ class OdmOrder {
                 <div class="customer-info2">
                     <div class="form-group-odm-order required">
                         <label for="agent_state" style="width: 100px">Agent State</label>
-                        <select id="agent_state" style="width: 150px">
+                        <select id="agent_state" style="width: 150px; color: blue">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
                             <option value="AUS-NSW">AUS-NSW</option>
@@ -74,20 +74,20 @@ class OdmOrder {
                     </div>
                     <div class="form-group-odm-order">
                         <label for="osite">Location</label>
-                        <input style="width:100px" type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10">
+                        <input type="text" id="osite" placeholder="Floor" value="Floor" maxlength="10" style="width:100px; color: blue">
                     </div>
                     <div class="form-group-odm-order">
                         <label for="dispatched_box">Boxes</label>
-                        <input style="width: 60px" type="text" id="dispatched_box" value="1" maxlength="3">
+                        <input type="text" id="dispatched_box" value="1" maxlength="3" style="width: 60px; color: blue">
                     </div>
                     <div class="form-group-odm-order">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 90px" type="text" id="invoice_no" value="12171300" maxlength="10">
+                        <input type="text" id="invoice_no" value="12171300" maxlength="10" style="width: 90px; color: blue">
                     </div>
 
                     <div class="form-group-odm-order required">
                       <label for="ocountry">Country</label>
-                      <select id="ocountry" style="width: 150px">
+                      <select id="ocountry" style="width: 150px; color: blue">
                         <option value="AUS+61" selected>AUS+61</option>
                         <option value="NZL+64">NZL+64</option>
                         <option value="Samoa+685">Samoa+685</option>
