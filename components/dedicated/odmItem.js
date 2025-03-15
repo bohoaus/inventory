@@ -261,7 +261,7 @@ class OdmItem {
 
             <!-- jim changed -->
             <div class="form-group-odm required">           
-                <label for="odm_customer">ODM Customer</label>
+                <label for="odm_customer" style="width: 120px">ODM Customer</label>
                 <select name="odm_customer"
                 onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
@@ -280,7 +280,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm">
-                <label for="odm_ppo">ODM PPO</label>
+                <label for="odm_ppo" style="width: 120px">ODM PPO</label>
                 <input type="text" maxlength="15" 
                        name="odm_ppo" placeholder="PO" 
                        value="${item?.odm_ppo || "PO"}"
@@ -288,7 +288,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="receive_qty">Received Quantity</label>
+                <label for="receive_qty" style="width: 120px">Received Quantity</label>
                 <input type="number" maxlength="4" 
                        name="receive_qty" step="1" min="1" 
                        value="${item?.receive_qty || ""}" 
@@ -296,7 +296,7 @@ class OdmItem {
             </div>
 
              <div class="form-group-odm required">
-                <label for="stock_qty">Stock Quantity</label>
+                <label for="stock_qty" style="width: 120px">Stock Quantity</label>
                 <input type="number" maxlength="4" 
                        name="stock_qty" value="" step="1" min="1" 
                        value="${item?.stock_qty || ""}" 
@@ -304,19 +304,19 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="mfg_date">MFG Date</label>
+                <label for="mfg_date" style="width: 120px">MFG Date</label>
                 <input type="date" name="mfg_date" 
                        value="${item?.mfg_date || ""}">
             </div>
 
             <div class="form-group-odm">
-                <label for="est_date">Schedule Date</label>
+                <label for="est_date" style="width: 120px">Schedule Date</label>
                 <input type="date" name="est_date" 
                        value="${item?.est_date || ""}">
             </div>
 
             <div class="form-group-odm">
-                <label for="arrive_date">Arrive Date</label>
+                <label for="arrive_date" style="width: 120px">Arrive Date</label>
                 <input type="date" name="arrive_date" 
                        value="${item?.arrive_date || ""}">
             </div>
@@ -343,7 +343,7 @@ class OdmItem {
             </div>
             
             <div class="form-group-odm required">
-                <label for="item_name">Item Name</label>
+                <label for="item_name" style="width: 120px">Item Name</label>
                 <input type="text" maxlength="30" 
                        name="item_name" placeholder="new dress" 
                        value="${item?.item_name || "new dress"}"
@@ -351,7 +351,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="sfabric">Fabric</label>
+                <label for="sfabric" style="width: 120px">Fabric</label>
                 <select name="sfabric">
                     <option value="">Select Fabric</option>
                     ${sfabrics
@@ -369,7 +369,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="scolour">Colour</label>
+                <label for="scolour" style="width: 120px">Colour</label>
                 <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
                        value="${item?.scolour || ""}"
@@ -377,7 +377,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="item_status">Status</label>
+                <label for="item_status" style="width: 120px">Status</label>
                 <select name="item_status">
                     <option value="">Select Status</option>
                     ${statuses
@@ -395,7 +395,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="item_cargo">Cargo</label>
+                <label for="item_cargo" style="width: 120px">Cargo</label>
                 <select name="item_cargo">
                     <option value="">Select Cargo</option>
                     <option value="AIR" ${
@@ -408,7 +408,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="scountry">Country</label>
+                <label for="scountry" style="width: 120px">Country</label>
                 <select name="scountry">
                     <option value="">Select Country</option>
                     ${scountries
@@ -426,7 +426,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="sfactory">Factory</label>
+                <label for="sfactory" style="width: 120px">Factory</label>
                 <select name="sfactory">
                     <option value="">Select Factory</option>
                     ${sfactories
