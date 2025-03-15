@@ -65,6 +65,9 @@ class OdmOrder {
                             <option value="NZ">NZ</option>
                         </select>
                     </div>
+                </div>
+                   
+                <div class="customer-info2">
                     <div class="form-group">
                         <label for="opo">PPO#</label>
                         <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
