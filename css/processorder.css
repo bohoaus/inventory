@@ -287,7 +287,9 @@
 
   .form-actions {
     flex-direction: column-reverse;
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
   }
 
   .cancel-dispatch,
