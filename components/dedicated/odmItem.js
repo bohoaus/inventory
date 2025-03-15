@@ -260,7 +260,7 @@ class OdmItem {
             </div>
 
             <!-- jim changed -->
-            <div class="form-group required">           
+            <div class="form-group-odm required">           
                 <label for="odm_customer">ODM Customer</label>
                 <select name="odm_customer"
                 onchange="odmItem.validateForm(this.closest('form'))">
