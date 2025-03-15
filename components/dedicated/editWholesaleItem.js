@@ -58,7 +58,7 @@ class EditWholesaleItem {
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
-          <div class="form-group-boho-edit required">
+          <div class="form-group required">
             <label for="code_colour">Code/Colour</label>
                     <input type="text" maxlength="30" 
                            name="code_colour" 
