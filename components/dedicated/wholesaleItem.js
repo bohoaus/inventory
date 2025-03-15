@@ -493,8 +493,8 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="item_note">Item Note</label>
-                <textarea name="item_note" placeholder="OK" rows="3">${
+                <label for="item_note" style="width: 150px">Item Note</label>
+                <textarea name="item_note" placeholder="OK" rows="3" style="width: 200px">${
                   item?.item_note || "OK"
                 }</textarea>
             </div>
