@@ -113,7 +113,7 @@ class EditWholesaleOrder {
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 400px">
-                        <label style="text-align:left; display: block">Customer Name</label>
+                        <label style="text-align:left; display: block; width: 400px"">Customer Name</label>
                         <input type="text" style="text-align:left; display: block; width: 400px" 
                           value="${orderData.customer_name || ""}" disabled>
                     </div>
@@ -174,7 +174,7 @@ class EditWholesaleOrder {
                       </select>
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
-                        <label style="text-align:left; display: block; width: 50px">Invoice#</label>
+                        <label style="text-align:left; display: block; width: 60px">Invoice#</label>
                         <input type="text" style="text-align:left; display: block; width: 90px" maxlength="10" 
                           value="${orderData.invoice_no || ""}">
                     </div>
