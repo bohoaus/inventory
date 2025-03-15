@@ -1909,7 +1909,20 @@ th[data-sort].sort-desc .sort-icon {
   width: 75%;
 }
 
-/* ODM-order-form-jim on 15/03/2025 */
+/* ODM-order-form Styles-jim on 15/03/2025 */
+.odm-form2 {
+  padding: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Customer Info Section */
+.odm-form2 .customer-info2 {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 .form-group-odm-order {
   flex: 1;
   display: flex;
