@@ -245,19 +245,19 @@ class ViewOrder {
                 orderData.dispatched_carrier.toUpperCase()
               )
                 ? `
-                <div class="detail-item">
+                <div class="detail-item2">
                     <label>Tracking#:</label>
                     <span style="color:blue">${orderData.tracking_no || "-"}</span>
                 </div>
-            <div class="detail-item">
+            <div class="detail-item2">
                 <label>Order Note:</label>
                 <span style="color:blue">${orderData.order_note || "-"}</span>
             </div>
-            <div class="detail-item">
+            <div class="detail-item2">
                 <label>PPO#:</label>
                 <span style="color:blue">${orderData.opo || "-"}</span>
             </div>
-            <div class="detail-item">
+            <div class="detail-item2">
                 <label>Country:</label>
                 <span style="color:Light Gray">${orderData.ocountry || "-"}</span>
             </div>
