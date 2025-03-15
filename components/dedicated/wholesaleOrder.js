@@ -112,7 +112,7 @@ class WholesaleOrder {
 
                 <div class="selected-item-details" id="selectedItemDetails" style="display: none;">
                     <h3>Selected Item Details</h3>
-                    <div class="item-info-grid">
+                    <div class="item-info-flex">
                         <div class="info-card">
                             <label>Item Code</label>
                             <span id="itemCode" class="info-value"></span>
