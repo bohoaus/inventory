@@ -670,7 +670,7 @@ class OdmOrder {
       const itemDetails = document.getElementById("selectedOdmItemDetails");
       itemDetails.innerHTML = `
         <h3>Selected Item Details</h3>
-        <div class="item-info-grid">
+        <div class="item-info-flex">
           <div class="info-card">
             <label>Item Code</label>
             <span id="odmItemCode" class="info-value">${
