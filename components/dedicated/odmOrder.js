@@ -49,7 +49,14 @@ class OdmOrder {
                         <label for="dispatched_at" style="width: 100px">Dispatched</label>
                         <input type="date" id="dispatched_at" style="width: 100px">
                     </div>
-                    <div class="form-group required">
+                    <div class="form-group-odm-order">
+                        <label for="opo">PPO#</label>
+                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
+                    </div>
+                </div>
+                   
+                <div class="customer-info2">
+                    <div class="form-group-odm-order required">
                         <label for="agent_state">Agent State</label>
                         <select id="agent_state" style="width: 150px">
                             <option value="">Select State</option>
@@ -64,13 +71,6 @@ class OdmOrder {
                             <option value="Others">Others</option>
                             <option value="NZ">NZ</option>
                         </select>
-                    </div>
-                </div>
-                   
-                <div class="customer-info2">
-                    <div class="form-group">
-                        <label for="opo">PPO#</label>
-                        <input style="width: 100px" type="text" id="opo" placeholder="PO#" value="PO#" maxlength="15">
                     </div>
                     <div class="form-group">
                         <label for="osite">Location</label>
