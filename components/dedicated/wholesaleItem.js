@@ -363,7 +363,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group pack-size-group required">
-                <label>Pack Size</label>
+                <label style="width: 120px">Pack Size</label>
                 <div class="pack-size-inputs">
                     <input type="text" name="size" placeholder="S+M+L+XL" onkeyup="this.value = this.value.toUpperCase()">
                     <input type="number" name="amount" placeholder="2" step="1" min="0">
@@ -395,21 +395,21 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="est_date" style="width: 120px">Schedule Date</label>
+                <label for="est_date" style="width: 150px">Schedule Date</label>
                 <input type="date" name="est_date" value="${
                   item?.est_date || ""
                 }">
             </div>
 
             <div class="form-group-boho">
-                <label for="arrive_date" style="width: 120px">Arrive Date</label>
+                <label for="arrive_date" style="width: 150px">Arrive Date</label>
                 <input type="date" name="arrive_date" value="${
                   item?.arrive_date || ""
                 }">
             </div>
 
             <div class="form-group-boho required">
-                <label for="receive_qty" style="width: 120px">Received Quantity</label>
+                <label for="receive_qty" style="width: 150px">Received Quantity</label>
                 <input type="number" maxlength="4" 
                        name="receive_qty" 
                        step="0.5" 
@@ -421,7 +421,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="stock_qty" style="width: 120px">On-Hand Quantity</label>
+                <label for="stock_qty" style="width: 150px">On-Hand Quantity</label>
                 <input type="number" maxlength="4" 
                        name="stock_qty" 
                        step="0.5" 
@@ -431,7 +431,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="sfabric" style="width: 120px">Fabric</label>
+                <label for="sfabric" style="width: 150px">Fabric</label>
                 <select name="sfabric">
                     <option value="">Select Fabric</option>
                     ${sfabrics
@@ -449,7 +449,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="scolour" style="width: 120px">Colour</label>
+                <label for="scolour" style="width: 150px">Colour</label>
                 <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
                        value="${item?.scolour || ""}"
@@ -457,7 +457,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="scountry" style="width: 120px">Country</label>
+                <label for="scountry" style="width: 150px">Country</label>
                 <select name="scountry">
                     <option value="">Select Country</option>
                     ${scountries
@@ -475,7 +475,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="sfactory" style="width: 120px">Factory</label>
+                <label for="sfactory" style="width: 150px">Factory</label>
                 <select name="sfactory">
                     <option value="">Select Factory</option>
                     ${sfactories
