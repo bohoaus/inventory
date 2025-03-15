@@ -78,7 +78,7 @@ class ProcessOrder {
 
 
             Dispatch Order Now:
-            <form id="dispatchForm" style="display: flex;">
+            <form id="dispatchForm" style="display: grid; grid-template-columns: 100px 1fr 2fr; grid-auto-rows: minmax(30px, auto)">
               <div class="form-group-order-dispatch">
                 <label for="invoiceNumb">Invoice Number</label>
                 <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
