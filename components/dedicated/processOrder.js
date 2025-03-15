@@ -129,6 +129,9 @@ class ProcessOrder {
                 <label for="orderNotes">Order Notes</label>
                 <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
+            </form>
+              
+            <form id="dispatchForm">
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
                 <button type="submit" class="confirm-dispatch">Confirm Dispatch</button>
