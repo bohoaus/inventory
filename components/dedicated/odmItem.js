@@ -342,7 +342,7 @@ class OdmItem {
                 </select>
             </div>
             
-            <div class="form-group required">
+            <div class="form-group-odm required">
                 <label for="item_name">Item Name</label>
                 <input type="text" maxlength="30" 
                        name="item_name" placeholder="new dress" 
