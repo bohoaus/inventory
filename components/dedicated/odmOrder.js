@@ -36,16 +36,16 @@ class OdmOrder {
     return `
             <div class="odm-form">
                 <div class="customer-info">
-                    <div class="form-group required">
+                    <div class="form-group-odm-order required">
                         <label for="customer_name">Customer Name</label>
                         <input type="text" id="customer_name" style="width: 350px" maxlength="30">
                         <div id="customerWarning" class="warning-message"></div>
                     </div>
-                    <div class="form-group required">
+                    <div class="form-group-odm-order required">
                         <label for="orderdate">Request Date</label>
                         <input type="date" id="orderdate" style="width: 100px">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-odm-order">
                         <label for="dispatched_at">Dispatched</label>
                         <input type="date" id="dispatched_at" style="width: 100px">
                     </div>
