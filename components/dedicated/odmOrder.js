@@ -97,8 +97,7 @@ class OdmOrder {
                     <div class="form-group">
                         <label for="odmItemSearch">Search ODM Item</label>
                         <input style="width: 400px" maxlength="20" type="text" 
-                               id="odmItemSearch"
-                               placeholder="Enter item code">
+                               id="odmItemSearch" placeholder="Enter item code">
                         <div id="odmSuggestions" class="suggestions-dropdown"></div>
                     </div>
                   </div>
