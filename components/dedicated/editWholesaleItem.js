@@ -225,10 +225,10 @@ class EditWholesaleItem {
       <!-- Full width sections -->
       <div class="form-full-width">
         <!-- Pack Size Editor (moved above repeat info) -->
-        <div class="form-group">
-            <label for="pack_size">Pack Size</label>
+        <div class="form-group-boho-edit">
+            <label for="pack_size" style="width: 100px">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
-                <table id="packSizeTable" style="width: 300px">
+                <table id="packSizeTable" style="width: 350px">
                     <thead>
                         <tr>
                             <th>Size</th>
