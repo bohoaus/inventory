@@ -921,6 +921,12 @@
   gap: 5px;
 }
 
+.form-group-odm {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
