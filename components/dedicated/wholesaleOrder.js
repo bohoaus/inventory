@@ -88,14 +88,14 @@ class WholesaleOrder {
                   <div class="item-search">
                     <div class="form-group" style="display: flex; flex-direction: column; width: 100px">
                         <label for="itemSearch">Search Item</label>
-                        <input type="text" id="itemSearch" placeholder="Enter item code or name" style="width: 300px" maxlength="20">
+                        <input type="text" id="itemSearch" placeholder="Enter item code or name" maxlength="20" style="width: 300px; color: blue">
                         <div id="suggestions" class="suggestions-dropdown"></div>
                     </div>
                   </div>
                   
                     <div class="form-group">
                       <label for="ocountry">Country</label>
-                      <select id="ocountry" style="width: 120px">
+                      <select id="ocountry" style="width: 120px; color: blue">
                         <option value="AUS+61" selected>AUS+61</option>
                         <option value="NZL+64">NZL+64</option>
                         <option value="Samoa+685">Samoa+685</option>
@@ -104,7 +104,7 @@ class WholesaleOrder {
 
                   <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" style="width: 400px" maxlength="50">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 400px; color: blue">
                   </div>
                 </div>
 
