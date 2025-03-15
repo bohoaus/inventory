@@ -250,8 +250,8 @@ class EditWholesaleItem {
         </div>
 
         <!-- Repeat Info (after pack size) -->
-        <div class="form-group repeat-info-group">
-            <label>Repeat Info</label>
+        <div class="form-group-boho-edit repeat-info-group">
+            <label style="width: 150px">Repeat Info</label>
             <div class="repeat-info-inputs">
                 <input type="text" maxlength="25" 
                        name="new_repeat_number" 
