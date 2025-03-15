@@ -300,11 +300,14 @@
 
 
 /* process order - jim on 15/03/2025 */
-.form-group-order-process {
-  margin-bottom: 10px;
+.form-group-order-dispatch {
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    margin-bottom: 10px;
 }
 
-.form-group-order-process label {
+.form-group-order-dispatch label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
@@ -312,9 +315,9 @@
   font-size: 13px;
 }
 
-.form-group-order-process input,
-.form-group-order-process select,
-.form-group-order-process textarea {
+.form-group-order-dispatch input,
+.form-group-order-dispatch select,
+.form-group-order-dispatch textarea {
   width: 100%;
   padding: 6px;
   border: 1px solid #ced4da;
@@ -323,7 +326,7 @@
   transition: border-color 0.3s ease;
 }
 
-.form-group-order-process input:focus,
+.form-group-order-dispatch input:focus,
 .form-group-order-process select:focus,
 .form-group-order-process textarea:focus {
   outline: none;
@@ -331,7 +334,7 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.form-group-order-process textarea {
+.form-group-order-dispatch textarea {
   min-height: 120px;
   resize: vertical;
 }
