@@ -270,7 +270,7 @@ class WholesaleItem {
                 </span>
             </div>
 
-            <div class="form-group required">
+            <div class="form-group-boho required">
                 <label for="item_group">Group</label>
                 <select name="item_group" 
                         required 
