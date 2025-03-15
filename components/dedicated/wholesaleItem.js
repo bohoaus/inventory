@@ -271,7 +271,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="item_group">Group</label>
+                <label for="item_group" style="width: 120px">Group</label>
                 <select name="item_group" 
                         required 
                         onchange="wholesaleItem.validateForm(this.closest('form'))">
@@ -295,7 +295,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="item_name">Name</label>
+                <label for="item_name" style="width: 120px">Name</label>
                 <input type="text" maxlength="30" 
                        name="item_name" placeholder="New Dress" 
                        value="${item?.item_name || "New Dress"}" 
@@ -303,7 +303,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="item_location">Location</label>
+                <label for="item_location" style="width: 120px">Location</label>
                 <input type="text" maxlength="15" 
                        name="item_location" placeholder="Floor" 
                        value="${item?.item_location || "Floor"}"
@@ -311,7 +311,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="item_category">Category</label>
+                <label for="item_category" style="width: 120px">Category</label>
                 <select name="item_category">
                     <option value="">Select Category</option>
                     ${categories
@@ -329,7 +329,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="item_status">Status</label>
+                <label for="item_status" style="width: 120px">Status</label>
                 <select name="item_status">
                     <option value="">Select Status</option>
                     ${statuses
@@ -347,7 +347,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="item_cargo">Cargo</label>
+                <label for="item_cargo" style="width: 120px">Cargo</label>
                 <select name="item_cargo">
                     <option value="">Select Cargo</option>
                     <option value="AIR" ${
@@ -395,21 +395,21 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="est_date">Schedule Date</label>
+                <label for="est_date" style="width: 120px">Schedule Date</label>
                 <input type="date" name="est_date" value="${
                   item?.est_date || ""
                 }">
             </div>
 
             <div class="form-group-boho">
-                <label for="arrive_date">Arrive Date</label>
+                <label for="arrive_date" style="width: 120px">Arrive Date</label>
                 <input type="date" name="arrive_date" value="${
                   item?.arrive_date || ""
                 }">
             </div>
 
             <div class="form-group-boho required">
-                <label for="receive_qty">Received Quantity</label>
+                <label for="receive_qty" style="width: 120px">Received Quantity</label>
                 <input type="number" maxlength="4" 
                        name="receive_qty" 
                        step="0.5" 
@@ -421,7 +421,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho">
-                <label for="stock_qty">On-Hand Quantity</label>
+                <label for="stock_qty" style="width: 120px">On-Hand Quantity</label>
                 <input type="number" maxlength="4" 
                        name="stock_qty" 
                        step="0.5" 
@@ -431,7 +431,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="sfabric">Fabric</label>
+                <label for="sfabric" style="width: 120px">Fabric</label>
                 <select name="sfabric">
                     <option value="">Select Fabric</option>
                     ${sfabrics
@@ -449,7 +449,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="scolour">Colour</label>
+                <label for="scolour" style="width: 120px">Colour</label>
                 <input type="text" maxlength="15" 
                        name="scolour" placeholder="black" 
                        value="${item?.scolour || ""}"
@@ -457,7 +457,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="scountry">Country</label>
+                <label for="scountry" style="width: 120px">Country</label>
                 <select name="scountry">
                     <option value="">Select Country</option>
                     ${scountries
@@ -475,7 +475,7 @@ class WholesaleItem {
             </div>
 
             <div class="form-group-boho required">
-                <label for="sfactory">Factory</label>
+                <label for="sfactory" style="width: 120px">Factory</label>
                 <select name="sfactory">
                     <option value="">Select Factory</option>
                     ${sfactories
