@@ -1944,3 +1944,40 @@ th[data-sort].sort-desc .sort-icon {
   border-radius: 4px;
   font-size: 11px;
 }
+
+
+
+/* Wholesale-order-form Styles-jim on 15/03/2025 */
+.wholesale-form {
+  padding: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Customer Info Section */
+.wholesale-form .customer-wholesale {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group-wholesale-order {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.form-group-wholesale-order label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group-wholesale-order input,
+.form-group-wholesale-order select {
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 11px;
+}
