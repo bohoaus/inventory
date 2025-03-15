@@ -88,9 +88,7 @@ class WholesaleOrder {
                   <div class="item-search">
                     <div class="form-group" style="display: flex; flex-direction: column; width: 100px">
                         <label for="itemSearch">Search Item</label>
-                        <input style="width: 300px" maxlength="20" type="text" 
-                               id="itemSearch"
-                               placeholder="Enter item code or name">
+                        <input type="text" id="itemSearch" placeholder="Enter item code or name" style="width: 300px" maxlength="20">
                         <div id="suggestions" class="suggestions-dropdown"></div>
                     </div>
                   </div>
@@ -106,7 +104,7 @@ class WholesaleOrder {
 
                   <div class="form-group">
                     <label for="order_note">Order Note</label>
-                    <input style="width: 400px" maxlength="50" type="text" id="order_note" placeholder="Add note for this order" value="OK">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" style="width: 400px" maxlength="50">
                   </div>
                 </div>
 
