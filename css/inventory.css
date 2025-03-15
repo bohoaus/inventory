@@ -834,6 +834,12 @@
   width: 100%;
 }
 
+.form-column-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .form-column {
   display: flex;
   flex-direction: column;
