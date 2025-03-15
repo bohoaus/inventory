@@ -918,12 +918,14 @@
 .form-group-boho {
   display: flex;
   flex-direction: row;
+  row-gap: 20px;
   gap: 5px;
 }
 
 .form-group-odm {
   display: flex;
   flex-direction: row;
+  row-gap: 20px;
   gap: 5px;
 }
 
