@@ -923,7 +923,22 @@
   gap: 5px;
 }
 
+/* Form Group Styles */
+.form-group-boho-edit {
+  display: flex;
+  flex-direction: row;
+  row-gap: 20px;
+  gap: 5px;
+}
+
 .form-group-odm {
+  display: flex;
+  flex-direction: row;
+  row-gap: 20px;
+  gap: 5px;
+}
+
+.form-group-odm-edit {
   display: flex;
   flex-direction: row;
   row-gap: 20px;
