@@ -57,7 +57,7 @@ class OdmOrder {
                    
                 <div class="customer-info2">
                     <div class="form-group-odm-order required">
-                        <label for="agent_state">Agent State</label>
+                        <label for="agent_state" style="width: 100px">Agent State</label>
                         <select id="agent_state" style="width: 150px">
                             <option value="">Select State</option>
                             <option value="AUS-ACT">AUS-ACT</option>
