@@ -34,8 +34,8 @@ class OdmOrder {
 
   generateFormHTML() {
     return `
-            <div class="odm-form">
-                <div class="customer-info">
+            <div class="odm-form2">
+                <div class="customer-info2">
                     <div class="form-group-odm-order required">
                         <label for="customer_name">Customer Name</label>
                         <input type="text" id="customer_name" style="width: 350px" maxlength="30">
