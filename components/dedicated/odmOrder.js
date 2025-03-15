@@ -111,7 +111,7 @@ class OdmOrder {
 
                 <div class="selected-item-details" id="selectedOdmItemDetails" style="display: none;">
                     <h3>Selected Item Details</h3>
-                    <div class="item-info-grid">
+                    <div class="item-info-flex">
                         <div class="info-card">
                             <label>Item Code</label>
                             <span id="odmItemCode" class="info-value"></span>
@@ -1329,6 +1329,8 @@ document.head.insertAdjacentHTML(
 
     .item-info-flex {
       display: flex;
+      flex-direction:row;      
+      grid: auto auto / auto auto auto auto; 
       gap: 10px;
       margin-bottom: 10px;
     }
