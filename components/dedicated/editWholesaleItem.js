@@ -58,8 +58,8 @@ class EditWholesaleItem {
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
-          <div class="form-group required">
-            <label for="code_colour">Code/Colour</label>
+          <div class="form-group-boho-edit required">
+            <label for="code_colour" style="width: 150px">Code/Colour</label>
                     <input type="text" maxlength="30" 
                            name="code_colour" 
                            value="${item.code_colour || ""}"
@@ -108,8 +108,8 @@ class EditWholesaleItem {
 
       <div class="form-column">
         <!-- Second Column -->
-                <div class="form-group">
-                    <label for="item_category">Category</label>
+                <div class="form-group-boho-edit">
+                    <label for="item_category" style="width: 150px">Category</label>
                     <select name="item_category">
                         <option value="">Select Category</option>
                         ${categories
@@ -169,8 +169,8 @@ class EditWholesaleItem {
 
       <div class="form-column">
         <!-- Third Column -->
-        <div class="form-group">
-          <label for="stock_qty">StockQty(Packs)</label>
+        <div class="form-group-boho-edit">
+          <label for="stock_qty" style="width: 150px">StockQty(Packs)</label>
           <input type="number" maxlength="5" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
