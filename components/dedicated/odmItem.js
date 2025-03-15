@@ -261,7 +261,7 @@ class OdmItem {
 
             <!-- jim changed -->
             <div class="form-group-odm required">           
-                <label for="odm_customer" style="width: 120px">ODM Customer</label>
+                <label for="odm_customer" style="width: 150px">ODM Customer</label>
                 <select name="odm_customer"
                 onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
@@ -280,7 +280,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm">
-                <label for="odm_ppo" style="width: 120px">ODM PPO</label>
+                <label for="odm_ppo" style="width: 150px">ODM PPO</label>
                 <input type="text" maxlength="15" 
                        name="odm_ppo" placeholder="PO" 
                        value="${item?.odm_ppo || "PO"}"
@@ -288,7 +288,7 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="receive_qty" style="width: 120px">Received Quantity</label>
+                <label for="receive_qty" style="width: 150px">Received Quantity</label>
                 <input type="number" maxlength="4" 
                        name="receive_qty" step="1" min="1" 
                        value="${item?.receive_qty || ""}" 
@@ -296,7 +296,7 @@ class OdmItem {
             </div>
 
              <div class="form-group-odm required">
-                <label for="stock_qty" style="width: 120px">Stock Quantity</label>
+                <label for="stock_qty" style="width: 150px">Stock Quantity</label>
                 <input type="number" maxlength="4" 
                        name="stock_qty" value="" step="1" min="1" 
                        value="${item?.stock_qty || ""}" 
@@ -304,19 +304,19 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm required">
-                <label for="mfg_date" style="width: 120px">MFG Date</label>
+                <label for="mfg_date" style="width: 150px">MFG Date</label>
                 <input type="date" name="mfg_date" 
                        value="${item?.mfg_date || ""}">
             </div>
 
             <div class="form-group-odm">
-                <label for="est_date" style="width: 120px">Schedule Date</label>
+                <label for="est_date" style="width: 150px">Schedule Date</label>
                 <input type="date" name="est_date" 
                        value="${item?.est_date || ""}">
             </div>
 
             <div class="form-group-odm">
-                <label for="arrive_date" style="width: 120px">Arrive Date</label>
+                <label for="arrive_date" style="width: 150px">Arrive Date</label>
                 <input type="date" name="arrive_date" 
                        value="${item?.arrive_date || ""}">
             </div>
@@ -444,8 +444,8 @@ class OdmItem {
             </div>
 
             <div class="form-group-odm">
-                <label for="item_note">Item Note</label>
-                <textarea maxlength="50" name="item_note" placeholder="OK" 
+                <label for="item_note" style="width: 120px">Item Note</label>
+                <textarea maxlength="50" name="item_note" placeholder="OK"  style="width: 200px" 
                           rows="3"
                           onkeyup="this.value = this.value.toUpperCase()">${
                             item?.item_note || "OK"
