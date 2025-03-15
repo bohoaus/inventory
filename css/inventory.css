@@ -892,6 +892,7 @@
 
 .pack-size-table {
   width: 100%;
+  min-width: 100px;
   border-collapse: collapse;
   margin-bottom: 5px;
 }
