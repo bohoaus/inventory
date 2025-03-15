@@ -84,16 +84,16 @@ class WholesaleOrder {
                     </div>
                 </div>
 
-                <div class="customer-info">
+                <div class="customer-wholesale">
                   <div class="item-search">
-                    <div class="form-group" style="display: flex; flex-direction: row; width: 100px">
+                    <div class="form-group-wholesale-order" style="display: flex; flex-direction: row; width: 100px">
                         <label for="itemSearch">Search Item</label>
                         <input type="text" id="itemSearch" placeholder="Enter item code or name" maxlength="20" style="width: 300px; color: blue">
                         <div id="suggestions" class="suggestions-dropdown"></div>
                     </div>
                   </div>
                   
-                    <div class="form-group">
+                    <div class="form-group-wholesale-order">
                       <label for="ocountry">Country</label>
                       <select id="ocountry" style="width: 120px; color: blue">
                         <option value="AUS+61" selected>AUS+61</option>
@@ -102,7 +102,7 @@ class WholesaleOrder {
                       </select>
                     </div>                 
 
-                  <div class="form-group">
+                  <div class="form-group-wholesale-order">
                     <label for="order_note">Order Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 400px; color: blue">
                   </div>
