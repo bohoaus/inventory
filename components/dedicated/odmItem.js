@@ -260,8 +260,8 @@ class OdmItem {
             <!-- jim changed -->
             <div class="form-group-odm required">           
                 <label for="odm_customer" style="width: 120px">Customer</label>
-                <select name="odm_customer"
-                onchange="odmItem.validateForm(this.closest('form'))">
+                <select name="odm_customer" 
+                  onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
                     ${sodm_customers
                       .map(
@@ -532,9 +532,7 @@ class OdmItem {
     const codeInput = form.querySelector('input[name="code_colour"]');
     const customerInput = form.querySelector('select[name="odm_customer"]');
     const receiveQtyInput = form.querySelector('input[name="receive_qty"]');
-    const itemCategoryInput = form.querySelector(
-      'select[name="item_category"]'
-    );
+    const itemCategoryInput = form.querySelector('select[name="item_category"]');
     const itemStatusInput = form.querySelector('select[name="item_status"]');
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
