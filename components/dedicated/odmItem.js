@@ -486,6 +486,11 @@ class OdmItem {
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
+    const nameInput = form.querySelector('input[name="item_name"]');
+    const colorInput = form.querySelector('input[name="scolour"]');
+    const fabricInput = form.querySelector('input[name="sfabric"]');
+    const countryInput = form.querySelector('input[name="scountry"]');
+    const factoryInput = form.querySelector('input[name="sfactory"]');
     const submitButton = form.querySelector(".add-item-btn");
 
     if (!codeInput || !customerInput || !submitButton) return;
@@ -500,6 +505,11 @@ class OdmItem {
       mfgDateInput.value !== "" &&
       estDateInput.value !== "" &&
       receiveQtyInput.value !== "" &&
+      nameInput.value !== "" &&
+      colorInput.value !== "" &&
+      fabricInput.value !== "" &&
+      countryInput.value !== "" &&
+      factoryInput.value !== "" &&
       !submitButton.hasAttribute("data-warning");
 
     submitButton.disabled = !isValid;
@@ -567,6 +577,36 @@ class OdmItem {
     if (!mfgDateInput.value) {
       adminInventory.showNotification("Please enter MFG Date", "error");
       mfgDateInput?.focus();
+      return;
+    }
+
+    if (!nameInput.value) {
+      adminInventory.showNotification("Please enter Item Name", "error");
+      nameInput?.focus();
+      return;
+    }
+
+    if (!colorInput.value) {
+      adminInventory.showNotification("Please enter Item Colour", "error");
+      colorInput?.focus();
+      return;
+    }
+
+    if (!fabricInput.value) {
+      adminInventory.showNotification("Please Select Fabric", "error");
+      fabricInput?.focus();
+      return;
+    }
+
+    if (!countryInput.value) {
+      adminInventory.showNotification("Please Select Country", "error");
+      countryInput?.focus();
+      return;
+    }
+
+    if (!factoryInput.value) {
+      adminInventory.showNotification("Please Select Factory", "error");
+      factoryInput?.focus();
       return;
     }
 
