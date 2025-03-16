@@ -1028,6 +1028,7 @@ class ViewOrder {
           code: item.item_name,
           orderColour: item.oicolour,
           orderPack: item.order_qty,
+          itemCategory: item.oicategory,
           orderQty: item.total_pieces || "-",
           addedDate:
             item.order_item_status !== "REMOVED" ? item.created_at : null,
