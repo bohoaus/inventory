@@ -129,7 +129,7 @@ class ProcessOrder {
                 <label for="orderNotes" style="width: 120px">Notes</label>
                 <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
-            </form>
+            </div>
               
             <form id="dispatchForm" style="display: block">
               <div class="form-actions">
