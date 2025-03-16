@@ -219,6 +219,7 @@ class EditWholesaleItem {
                    name="swsp2" 
                    value="${item.swsp2 || ""}">
                 </div>
+          </div>
       </div>
 
       <div class="form-column-flex">
