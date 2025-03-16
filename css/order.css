@@ -728,7 +728,7 @@ td[data-column="order_note"] {
 
 /* Ensure rows have consistent height -jimm 53px*/
 #orderTable tr {
-  height: 20px;
+  height: 30px;
 }
 
 /* Add smooth transitions */
