@@ -167,7 +167,6 @@ class EditWholesaleItem {
                 </div>
       </div>
 
-      <div class="form-column">
         <!-- Third Column -->
         <div class="form-group-boho-edit">
           <label for="stock_qty" style="width: 150px">StockQty(Packs)</label>
