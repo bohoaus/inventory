@@ -1,4 +1,4 @@
-//It's ok on 16/03/2025
+//It's ok on 28/02/2025
 
 class ProcessOrder {
   constructor() {
@@ -77,20 +77,20 @@ class ProcessOrder {
             </div>
 
 
-            Dispatch Order Now:
-            <form id="dispatchForm" style="display: grid; grid-template-columns: auto auto auto; padding: 10px">
+            //below for dispatch order
+            <form id="dispatchForm" style="display: block;">
               <div class="form-group-order-dispatch">
-                <label for="invoiceNumb" style="width: 120px">Invoice#</label>
+                <label for="invoiceNumb">Invoice Number</label>
                 <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
               </div>
               
             <div class="form-group-order-dispatch required">
-                <label for="dispatchDate8" style="width: 120px">DispatchDate</label>
+                <label for="dispatchDate8">Dispatch Date</label>
                 <input type="date" id="dispatchDate8" style="width: 110px; color:blue" maxlength="25" required>
             </div>
               
               <div class="form-group-order-dispatch">
-                <label for="dispatchState" style="width: 120px">DispatchState</label>
+                <label for="dispatchState">Dispatch State</label>
                 <select id="dispatchState" style="width: 150px; color:blue" required>
                   <option value="">Select State</option>
                   <option value="AUS-ACT">AUS-ACT</option>
@@ -106,11 +106,11 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="dispatchBox" style="width: 120px">Boxes</label>
+                <label for="dispatchBox">Dispatch Box</label>
                 <input type="text" id="dispatchBox" value="1" style="width: 50px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="dispatchCarrier" style="width: 120px">Courier</label>
+                <label for="dispatchCarrier">Dispatch Carrier</label>
                 <select id="dispatchCarrier" style="width: 200px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
@@ -122,16 +122,13 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group-order-dispatch" id="trackingNumberGroup">
-                <label for="trackingNumber" style="width: 120px">Tracking#</label>
+                <label for="trackingNumber">Tracking Number</label>
                 <input type="text" id="trackingNumber" style="width: 160px; color:blue; maxlength:45" required>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="orderNotes" style="width: 120px">Notes</label>
+                <label for="orderNotes">Order Notes</label>
                 <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
-            </div>
-              
-            <form id="dispatchForm" style="display: block">
               <div class="form-actions">
                 <button type="button" class="cancel-dispatch">Cancel</button>
                 <button type="submit" class="confirm-dispatch">Confirm Dispatch</button>
@@ -175,10 +172,9 @@ class ProcessOrder {
       }
     };
 
-//      dispatchForm.style.display = "block";
     dispatchBtn.onclick = () => {
       document.querySelector(".process-options").style.display = "none";
-      dispatchForm.style.display = "grid";
+      dispatchForm.style.display = "block";
     };
     cancelBtn.onclick = () => this.cancelOrder();
     cancelDispatchBtn.onclick = () => {
@@ -630,5 +626,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//it's ok on 16/03/2025 - jim
 //it's ok on 28/02/2025 - jim
