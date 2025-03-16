@@ -220,7 +220,7 @@ class EditOdmItem {
       <div class="form-column">
         <!-- Third Column -->
         <div class="form-group-odm-edit">
-          <label for="receive_qty" style="width: 150px">Receive Quantity (Pieces)</label>
+          <label for="receive_qty" style="width: 200px">Receive Quantity (Pieces)</label>
           <input type="number" maxlength="3" 
                  name="receive_qty" 
                  value="${item.receive_qty || 1}"
@@ -230,7 +230,7 @@ class EditOdmItem {
         </div>
 
         <div class="form-group-odm-edit">
-          <label for="stock_qty" style="width: 150px">Stock Quantity (Pieces)</label>
+          <label for="stock_qty" style="width: 200px">Stock Quantity (Pieces)</label>
           <input type="number" maxlength="3" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
@@ -240,28 +240,28 @@ class EditOdmItem {
         </div>
         
         <div class="form-group-odm-edit">
-          <label for="swsp" style="width: 150px">WSP</label>
+          <label for="swsp" style="width: 200px">WSP</label>
           <input type="number" maxlength="5" placeholder="00.00" 
                  name="swsp" 
                  value="${item.swsp || "0.00"}">
         </div>
         
         <div class="form-group-odm-edit">
-          <label for="swsp2" style="width: 150px">WSP2</label>
+          <label for="swsp2" style="width: 200px">WSP2</label>
           <input type="number" maxlength="5" placeholder="00.00" 
                  name="swsp2" 
                  value="${item.swsp2 || "0.00"}">
         </div>
         
             <div class="form-group-odm-edit">
-                    <label for="release_date" style="width: 150px">Release Date</label>
+                    <label for="release_date" style="width: 200px">Release Date</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
         
         <div class="form-group-odm-edit">
-          <label for="item_note" style="width: 150px">Note</label>
+          <label for="item_note" style="width: 200px">Note</label>
           <textarea name="item_note" maxlength="50" 
                     rows="3"
                     onkeyup="this.value = this.value.toUpperCase()">${
