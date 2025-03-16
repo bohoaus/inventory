@@ -459,6 +459,8 @@ class ViewOrder {
                 <thead>
                     <tr>
                         <th>Code</th>
+                        <th>Colour</th>
+                        <th>Name</th>
                         <th>PPO</th>
                         <th>Mfg Date</th>
                         <th>Arrive Date</th>
@@ -489,6 +491,8 @@ class ViewOrder {
                         return `
                                 <tr>
                                     <td>${item.item_name}</td>
+                                    <td>${item.oicolour}</td>
+                                    <td>${item.oicategory}</td>
                                     <td>${item.inventory?.odm_ppo || "-"}</td>
                                     <td>${this.formatValue(
                                       "maf_date",
@@ -519,6 +523,8 @@ class ViewOrder {
                 <thead>
                     <tr>
                         <th>Item Code</th>
+                        <th>Colour</th>
+                        <th>Name</th>
                         <th>CountQty</th>
                         <th>AddedDate</th>
                         <th>RemovedDate</th>
@@ -532,6 +538,8 @@ class ViewOrder {
                               (item) => `
                                 <tr>
                                     <td>${item.code}</td>
+                                    <td>${item.orderColour}</td>
+                                    <td>${item.itemCategory}</td>
                                     <td>${item.orderQty}</td>
                                     <td>${this.formatValue(
                                       "created_at",
@@ -545,7 +553,7 @@ class ViewOrder {
                             `
                             )
                             .join("")
-                        : `<tr><td colspan="4" class="no-data">No history items</td></tr>`
+                        : `<tr><td colspan="6" class="no-data">No history items</td></tr>`
                     }
                 </tbody>
             </table>
@@ -561,7 +569,7 @@ class ViewOrder {
           .from("order_items")
           .select("*")
           .eq("order_id", this.orderData.id)
-          .order("created_at", { ascending: false });
+          .order("oiadddate", { ascending: false });
 
         if (error) throw error;
 
@@ -647,6 +655,8 @@ class ViewOrder {
 
           return [
             item.item_name,
+            item.oicolour,
+            item.oicategory,
             item.inventory?.odm_ppo || "-",
             this.formatValue("maf_date", item.inventory?.mfg_date),
             this.formatValue("arrive_date", item.inventory?.arrive_date),
@@ -918,6 +928,8 @@ class ViewOrder {
                     order_qty,
                     total_pieces,
                     order_item_status,
+                    oicategory,
+                    oifabric,
                     created_at,
                     updated_at
                 )
@@ -1065,6 +1077,8 @@ class ViewOrder {
             orderColour: item.orderColour,
             orderSales: item.orderSales,
             orderPack: item.orderPack,
+            orderQty: item.orderQty,
+            itemCategory: item.itemCategory,
             orderQty: item.orderQty,
             addedDate: item.addedDate,
             removedDate: item.removedDate,
