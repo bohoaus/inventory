@@ -537,6 +537,11 @@ class OdmItem {
     const itemCargoInput = form.querySelector('select[name="item_cargo"]');
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
+    const nameInput = form.querySelector('input[name="item_name"]');
+    const colorInput = form.querySelector('input[name="scolour"]');
+    const fabricInput = form.querySelector('select[name="sfabric"]');
+    const countryInput = form.querySelector('select[name="scountry"]');
+    const factoryInput = form.querySelector('select[name="sfactory"]');
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
@@ -575,6 +580,12 @@ class OdmItem {
     if (!mfgDateInput.value) {
       adminInventory.showNotification("Please enter MFG Date", "error");
       mfgDateInput?.focus();
+      return;
+    }
+
+    if (!estDateInput.value) {
+      adminInventory.showNotification("Please Select Estimate Date", "error");
+      estDateInput?.focus();
       return;
     }
 
