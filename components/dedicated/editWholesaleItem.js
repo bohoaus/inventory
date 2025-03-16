@@ -225,7 +225,7 @@ class EditWholesaleItem {
       </div>
 
         <!-- Pack Size Editor (moved above repeat info) -->
-      <div class="form-group-boho-edit2" style="display: grid; grid-template-columns: auto auto;">
+      <div class="form-group-boho-edit2" style="display: flex; flex-wrap: wrap;">
         <div class="form-group-boho-edit">
             <label for="pack_size" style="width: 100px">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
