@@ -79,17 +79,17 @@ class ProcessOrder {
             Dispatch Order Now:
             <form id="dispatchForm" style="display: block;">
               <div class="form-group-order-dispatch">
-                <label for="invoiceNumb">Invoice Number</label>
+                <label for="invoiceNumb" style="width: 150px">Invoice#</label>
                 <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
               </div>
               
             <div class="form-group-order-dispatch required">
-                <label for="dispatchDate8">Dispatch Date</label>
+                <label for="dispatchDate8" style="width: 150px">DispatchDate</label>
                 <input type="date" id="dispatchDate8" style="width: 110px; color:blue" maxlength="25" required>
             </div>
               
               <div class="form-group-order-dispatch">
-                <label for="dispatchState">Dispatch State</label>
+                <label for="dispatchState" style="width: 150px">DispatchState</label>
                 <select id="dispatchState" style="width: 150px; color:blue" required>
                   <option value="">Select State</option>
                   <option value="AUS-ACT">AUS-ACT</option>
@@ -105,11 +105,11 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="dispatchBox">Dispatch Box</label>
+                <label for="dispatchBox" style="width: 150px">Boxes</label>
                 <input type="text" id="dispatchBox" value="1" style="width: 50px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="dispatchCarrier">Dispatch Carrier</label>
+                <label for="dispatchCarrier" style="width: 150px">Courier</label>
                 <select id="dispatchCarrier" style="width: 200px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
@@ -121,11 +121,11 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group-order-dispatch" id="trackingNumberGroup">
-                <label for="trackingNumber">Tracking Number</label>
+                <label for="trackingNumber" style="width: 150px">Tracking#</label>
                 <input type="text" id="trackingNumber" style="width: 160px; color:blue; maxlength:45" required>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="orderNotes">Notes</label>
+                <label for="orderNotes" style="width: 150px">Notes</label>
                 <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
               <div class="form-actions">
