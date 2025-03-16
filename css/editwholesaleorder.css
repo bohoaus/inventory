@@ -265,7 +265,7 @@
 
 .editwholesaleorder-size-input {
   width: 100px;
-  padding: 6px 10px;
+  padding: 6px 5px;
   border: 2px solid blue !important;
   border-radius: 4px;
   font-size: 14px;
@@ -274,7 +274,7 @@
 
 .editwholesaleorder-qty-input {
   width: 50px;
-  padding: 6px 10px;
+  padding: 6px 5px;
   border: 2px solid blue !important;
   border-radius: 4px;
   font-size: 14px;
@@ -342,7 +342,7 @@
 .editwholesaleorder-pack-size-editor tbody:empty::after {
   content: "No sizes added";
   display: block;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   color: #6c757d;
   font-style: italic;
