@@ -1,3 +1,5 @@
+//ok on 16/03/2025
+
 class EditWholesaleItem {
   constructor() {
     this.initialize();
@@ -167,6 +169,7 @@ class EditWholesaleItem {
                 </div>
       </div>
 
+      <div class="form-column">
         <!-- Third Column -->
         <div class="form-group-boho-edit">
           <label for="stock_qty" style="width: 150px">StockQty(Packs)</label>
@@ -219,7 +222,7 @@ class EditWholesaleItem {
                    name="swsp2" 
                    value="${item.swsp2 || ""}">
                 </div>
-          </div>
+      </div>
 
       <div class="form-column-flex">
         <!-- Pack Size Editor (moved above repeat info) -->
@@ -845,3 +848,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.editWholesaleItem = new EditWholesaleItem();
   }
 });
+
+//ok on 16/03/2025
