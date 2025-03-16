@@ -229,7 +229,7 @@ class EditWholesaleItem {
         <div class="form-group-boho-edit">
             <label for="pack_size" style="width: 100px">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
-                <table id="packSizeTable" style="width: 350px">
+                <table id="packSizeTable" style="width: 300px">
                     <thead>
                         <tr>
                             <th>Size</th>
