@@ -75,8 +75,8 @@ class EditOdmItem {
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
-        <div class="form-group required">
-          <label for="code_colour">Code/Colour</label>
+        <div class="form-group-odm-edit required">
+          <label for="code_colour" style="width: 150px">Code/Colour</label>
           <input type="text" maxlength="30" 
                  name="code_colour" 
                  value="${item.code_colour || ""}"
@@ -84,8 +84,8 @@ class EditOdmItem {
                  readonly>
         </div>
 
-        <div class="form-group">
-          <label for="item_group">Group</label>
+        <div class="form-group-odm-edit">
+          <label for="item_group" style="width: 150px">Group</label>
           <select name="item_group" required>
             <option value="">Select Group</option>
             <option value="ODM" ${
@@ -100,8 +100,8 @@ class EditOdmItem {
           </select>
         </div>
 
-        <div class="form-group">
-          <label for="odm_ppo">ODM PPO</label>
+        <div class="form-group-odm-edit">
+          <label for="odm_ppo" style="width: 150px">ODM PPO</label>
           <input type="text" maxlength="15" 
                  name="odm_ppo" 
                  value="${item.odm_ppo || ""}"
@@ -109,8 +109,8 @@ class EditOdmItem {
         </div>
 
             <!-- jim changed -->
-            <div class="form-group required">           
-                <label for="odm_customer">ODM Customer</label>
+            <div class="form-group-odm-edit required">           
+                <label for="odm_customer" style="width: 150px">ODM Customer</label>
                 <select name="odm_customer"
                 onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
@@ -128,8 +128,8 @@ class EditOdmItem {
                 </select>
             </div>
 
-        <div class="form-group">
-          <label for="scolour">Colour</label>
+        <div class="form-group-odm-edit">
+          <label for="scolour" style="width: 150px">Colour</label>
           <input type="text" maxlength="15" 
                  name="scolour" 
                  value="${item.scolour || ""}">
@@ -138,8 +138,8 @@ class EditOdmItem {
 
       <div class="form-column">
         <!-- Second Column -->
-        <div class="form-group">
-          <label for="item_category">Category</label>
+        <div class="form-group-odm-edit">
+          <label for="item_category" style="width: 150px">Category</label>
           <select name="item_category">
             <option value="">Select Category</option>
             ${categories
@@ -156,16 +156,16 @@ class EditOdmItem {
           </select>
         </div>
         
-          <div class="form-group">
-            <label for="item_name">Item Name</label>
+          <div class="form-group-odm-edit">
+            <label for="item_name" style="width: 150px">Item Name</label>
                     <input type="text" maxlength="30" 
                            name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
           </div>
 
-        <div class="form-group">
-          <label for="item_status">Status</label>
+        <div class="form-group-odm-edit">
+          <label for="item_status" style="width: 150px">Status</label>
           <select name="item_status">
             <option value="">Select Status</option>
             ${statuses
@@ -182,23 +182,23 @@ class EditOdmItem {
           </select>
         </div>
 
-        <div class="form-group">
-          <label for="item_location">Location</label>
+        <div class="form-group-odm-edit">
+          <label for="item_location" style="width: 150px">Location</label>
           <input type="text" maxlength="15" 
                  name="item_location" 
                  value="${item.item_location || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
         
-          <div class="form-group">
-                    <label for="arrive_date">Arrive Date</label>
+          <div class="form-group-odm-edit">
+                    <label for="arrive_date" style="width: 150px">Arrive Date</label>
                     <input type="date" 
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
           </div>
 
-                <div class="form-group">
-                    <label for="sprice">Sales Price</label>
+                <div class="form-group-odm-edit">
+                    <label for="sprice" style="width: 150px">Sales Price</label>
                     <select name="sprice">
                         <option value="">Select Price</option>
                         ${prices
@@ -219,8 +219,8 @@ class EditOdmItem {
 
       <div class="form-column">
         <!-- Third Column -->
-        <div class="form-group">
-          <label for="receive_qty">Receive Quantity (Pieces)</label>
+        <div class="form-group-odm-edit">
+          <label for="receive_qty" style="width: 150px">Receive Quantity (Pieces)</label>
           <input type="number" maxlength="3" 
                  name="receive_qty" 
                  value="${item.receive_qty || 1}"
@@ -229,8 +229,8 @@ class EditOdmItem {
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
 
-        <div class="form-group">
-          <label for="stock_qty">Stock Quantity (Pieces)</label>
+        <div class="form-group-odm-edit">
+          <label for="stock_qty" style="width: 150px">Stock Quantity (Pieces)</label>
           <input type="number" maxlength="3" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
@@ -239,29 +239,29 @@ class EditOdmItem {
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
         
-        <div class="form-group">
-          <label for="swsp">WSP</label>
+        <div class="form-group-odm-edit">
+          <label for="swsp" style="width: 150px">WSP</label>
           <input type="number" maxlength="5" placeholder="00.00" 
                  name="swsp" 
                  value="${item.swsp || "0.00"}">
         </div>
         
-        <div class="form-group">
-          <label for="swsp2">WSP2</label>
+        <div class="form-group-odm-edit">
+          <label for="swsp2" style="width: 150px">WSP2</label>
           <input type="number" maxlength="5" placeholder="00.00" 
                  name="swsp2" 
                  value="${item.swsp2 || "0.00"}">
         </div>
         
-            <div class="form-group">
-                    <label for="release_date">Release Date</label>
+            <div class="form-group-odm-edit">
+                    <label for="release_date" style="width: 150px">Release Date</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
         
-        <div class="form-group">
-          <label for="item_note">Note</label>
+        <div class="form-group-odm-edit">
+          <label for="item_note" style="width: 150px">Note</label>
           <textarea name="item_note" maxlength="50" 
                     rows="3"
                     onkeyup="this.value = this.value.toUpperCase()">${
