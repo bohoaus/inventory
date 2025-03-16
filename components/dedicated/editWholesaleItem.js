@@ -262,6 +262,40 @@ class EditWholesaleItem {
 
       <!-- Full width sections -->
       <div class="form-full-width">
+        <!-- Pack Size Editor (moved above repeat info) -->
+        <div class="form-group-boho-edit">
+            <label for="pack_size" style="width: 100px">Pack Size</label>
+            <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
+                <table id="packSizeTable" style="width: 350px">
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${this.generatePackSizeRows(item.pack_size)}
+                    </tbody>
+                </table>
+                <button type="button" 
+                        class="editwholesaleorder-add-size-btn" 
+                        style="background-color: #28a745; color: white; padding: 8px 16px;"
+                        onclick="window.editWholesaleItem.addPackSizeRow()">
+                    Add Size
+                </button>
+            </div>
+        </div>
+        
+        <div class="form-group-boho-edit">
+            <label for="item_note">Note</label>
+            <textarea style="width: 350px" maxlength="50" name="item_note" 
+                      rows="3"
+                      onkeyup="this.value = this.value.toUpperCase()">${
+                        item.item_note || ""
+                      }</textarea>
+        </div>
+
         <!-- Repeat Info (after pack size) -->
         <div class="form-group repeat-info-group">
             <label style="width: 150px">Repeat Info</label>
@@ -279,6 +313,16 @@ class EditWholesaleItem {
             <div class="repeat-info-table-container">
                 <!-- Table will be populated dynamically -->
             </div>
+        </div>
+
+        <!-- Note field -->
+        <div class="form-group-boho-edit">
+            <label for="item_note">Note</label>
+            <textarea style="width: 350px" maxlength="50" name="item_note" 
+                      rows="3"
+                      onkeyup="this.value = this.value.toUpperCase()">${
+                        item.item_note || ""
+                      }</textarea>
         </div>
 
         <!-- Form actions -->
