@@ -110,7 +110,7 @@ class EditOdmItem {
 
             <!-- jim changed -->
             <div class="form-group-odm-edit required">           
-                <label for="odm_customer" style="width: 150px">ODM Customer</label>
+                <label for="odm_customer" style="width: 150px">Customer</label>
                 <select name="odm_customer"
                 onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Customer</option>
@@ -191,14 +191,14 @@ class EditOdmItem {
         </div>
         
           <div class="form-group-odm-edit">
-                    <label for="arrive_date" style="width: 150px">Arrive Date</label>
+                    <label for="arrive_date" style="width: 150px">ArriveDate</label>
                     <input type="date" 
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
           </div>
 
                 <div class="form-group-odm-edit">
-                    <label for="sprice" style="width: 150px">Sales Price</label>
+                    <label for="sprice" style="width: 150px">Sales</label>
                     <select name="sprice">
                         <option value="">Select Price</option>
                         ${prices
@@ -220,7 +220,7 @@ class EditOdmItem {
       <div class="form-column">
         <!-- Third Column -->
         <div class="form-group-odm-edit">
-          <label for="receive_qty" style="width: 200px">Receive Quantity (Pieces)</label>
+          <label for="receive_qty" style="width: 200px">ReceiveQty(Pieces)</label>
           <input type="number" maxlength="3" 
                  name="receive_qty" 
                  value="${item.receive_qty || 1}"
@@ -230,7 +230,7 @@ class EditOdmItem {
         </div>
 
         <div class="form-group-odm-edit">
-          <label for="stock_qty" style="width: 200px">Stock Quantity (Pieces)</label>
+          <label for="stock_qty" style="width: 200px">StockQty(Pieces)</label>
           <input type="number" maxlength="3" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
@@ -254,7 +254,7 @@ class EditOdmItem {
         </div>
         
             <div class="form-group-odm-edit">
-                    <label for="release_date" style="width: 200px">Release Date</label>
+                    <label for="release_date" style="width: 200px">ReleaseDate</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
