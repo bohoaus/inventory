@@ -296,7 +296,7 @@ class OdmItem {
              <div class="form-group-odm required">
                 <label for="stock_qty" style="width: 120px">Stock Qty</label>
                 <input type="number" maxlength="4" 
-                       name="stock_qty" value="0" step="1" min="1" 
+                       name="stock_qty" value="" step="1" min="1" 
                        value="${item?.stock_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
