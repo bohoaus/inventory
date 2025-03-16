@@ -77,7 +77,7 @@ class ProcessOrder {
             </div>
 
 
-            //below for dispatch order
+            Please Dispatch Order Now:
             <form id="dispatchForm" style="display: block;">
               <div class="form-group-order-dispatch">
                 <label for="invoiceNumb">Invoice Number</label>
