@@ -175,10 +175,10 @@ class ProcessOrder {
       }
     };
 
+//      dispatchForm.style.display = "block";
     dispatchBtn.onclick = () => {
       document.querySelector(".process-options").style.display = "none";
       dispatchForm.style.display = "grid";
-//      dispatchForm.style.display = "block";
     };
     cancelBtn.onclick = () => this.cancelOrder();
     cancelDispatchBtn.onclick = () => {
