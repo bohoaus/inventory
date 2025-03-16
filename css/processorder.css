@@ -300,6 +300,12 @@
 
 
 /* process order - jim on 15/03/2025 */
+.form-group-dispatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
 .form-group-order-dispatch {
     display: flex;
     flex-direction: row;
