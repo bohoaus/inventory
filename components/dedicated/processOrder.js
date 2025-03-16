@@ -128,7 +128,7 @@ class ProcessOrder {
               </div>
               <div class="form-group-order-dispatch">
                 <label for="orderNotes" style="width: 120px">Order Notes</label>
-                <textarea id="orderNotes" rows="3" value="OK" style="width: 200px; color:blue; maxlength:50"></textarea>
+                <textarea id="orderNotes" rows="3" value='OK' style="width: 200px; color:blue; maxlength:50"></textarea>
               </div>
             </div>
               <div class="form-actions">
