@@ -346,7 +346,7 @@ class OdmItem {
             
             <div class="form-group-odm required">
                 <label for="item_name" style="width: 120px">Item Name</label>
-                <input type="text" maxlength="15" 
+                <input type="text" maxlength="25" 
                        name="item_name" placeholder="new dress" 
                        value="${item?.item_name || "new dress"}"
                 >
