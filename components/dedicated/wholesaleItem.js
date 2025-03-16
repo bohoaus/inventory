@@ -1052,19 +1052,13 @@ class WholesaleItem {
     }
 
     if (!receiveQtyInput.value) {
-      adminInventory.showNotification(
-        "Please enter Received Quantity",
-        "error"
-      );
+      adminInventory.showNotification("Please enter Received Quantity","error");
       receiveQtyInput.focus();
       return;
     }
 
     if (!hasSizes) {
-      adminInventory.showNotification(
-        "Please add at least one pack size",
-        "error"
-      );
+      adminInventory.showNotification("Please add at least one pack size","error");
       return;
     }
 
@@ -1087,55 +1081,37 @@ class WholesaleItem {
     }
 
     if (!mfgDateInput.value) {
-      adminInventory.showNotification(
-        "Please enter Manufacturing Date",
-        "error"
-      );
+      adminInventory.showNotification("Please enter Manufacturing Date","error");
       mfgDateInput.focus();
       return;
     }
 
     if (!itemNameInput.value) {//-jim
-      adminInventory.showNotification(
-        "Please enter Item Name",
-        "error"
-      );
+      adminInventory.showNotification("Please enter Item Name","error");
       itemNameInput?.focus();
       return;
     }
 
     if (!fabricSelect.value) {
-      adminInventory.showNotification(
-        "Please Select Fabric",
-        "error"
-      );
+      adminInventory.showNotification("Please Select Fabric","error");
       fabricSelect?.focus();
       return;
     }
 
     if (!colourInput.value) {
-      adminInventory.showNotification(
-        "Please Enter Colour",
-        "error"
-      );
+      adminInventory.showNotification("Please Enter Colour","error");
       colourInput?.focus();
       return;
     }
 
     if (!countrySelect.value) {
-      adminInventory.showNotification(
-        "Please Select Coutry",
-        "error"
-      );
+      adminInventory.showNotification("Please Select Coutry","error");
       countrySelect?.focus();
       return;
     }
 
     if (!factorySelect.value) {
-      adminInventory.showNotification(
-        "Please Select Factory",
-        "error"
-      );
+      adminInventory.showNotification("Please Select Factory","error");
       factorySelect?.focus();
       return;
     }
