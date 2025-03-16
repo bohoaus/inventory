@@ -77,8 +77,9 @@ class ProcessOrder {
             </div>
 
 
-            Please Dispatch Order Now:
+            Please Dispatch Order Here:
             <form id="dispatchForm" style="display: block;">
+            <div class="form-group-dispatch">
               <div class="form-group-order-dispatch">
                 <label for="invoiceNumb" style="width: 120px">Invoice Number</label>
                 <input type="text" id="invoiceNumb" style="width: 80px" maxlength="15" required>
@@ -133,6 +134,7 @@ class ProcessOrder {
                 <button type="button" class="cancel-dispatch">Cancel</button>
                 <button type="submit" class="confirm-dispatch">Confirm Dispatch</button>
               </div>
+            </div>
             </form>
           </div>
         </div>
