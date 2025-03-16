@@ -246,8 +246,8 @@ class OdmItem {
 
         <div class="form-column">
             <!-- Left Column -->
-            <div class="form-group-odm required">
-                <label for="code_colour" style="width: 120px">Code</label>
+            <div class="form-group required">
+                <label for="code_colour">Code</label>
                 <input type="text" maxlength="30" name="code_colour" required 
                        onkeyup="this.value = this.value.toUpperCase(); odmItem.validateForm(this.closest('form'))" 
                        onblur="odmItem.checkCodeExists(this.value)" 
@@ -322,8 +322,8 @@ class OdmItem {
 
         <div class="form-column">
             <!-- Right Column -->
-            <div class="form-group-odm required">
-                <label for="item_category" style="width: 120px">Category</label>
+            <div class="form-group required">
+                <label for="item_category">Category</label>
                 <select name="item_category">
                     <option value="">Select Category</option>
                     ${categories
