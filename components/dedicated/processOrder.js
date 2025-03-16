@@ -177,7 +177,8 @@ class ProcessOrder {
 
     dispatchBtn.onclick = () => {
       document.querySelector(".process-options").style.display = "none";
-      dispatchForm.style.display = "block";
+      dispatchForm.style.display = "grid";
+//      dispatchForm.style.display = "block";
     };
     cancelBtn.onclick = () => this.cancelOrder();
     cancelDispatchBtn.onclick = () => {
