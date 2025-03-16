@@ -296,7 +296,7 @@ class EditWholesaleItem {
       <!-- Full width sections -->
       <div class="form-full-width">
         <!-- Repeat Info (after pack size) -->
-        <div class="form-group repeat-info-group">
+        <div class="form-group-boho-edit repeat-info-group">
             <label style="width: 150px">Repeat Info</label>
             <div class="repeat-info-inputs">
                 <input type="text" maxlength="25" 
