@@ -570,9 +570,13 @@ class SalesOrdersComponent {
             item_name,
             oicolour,
             oisales,
+            oiprice,
+            oifabric,
+            oicategory,
             order_qty,
             total_pieces,
             order_item_status,
+            oiadddate,
             created_at,
             updated_at
           )
