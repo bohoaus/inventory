@@ -73,7 +73,6 @@ class EditOdmItem {
     ];
 
     form.innerHTML = `
-      ODM Updating:
       <div class="form-column">
         <!-- First Column -->
         <div class="form-group-odm-edit required">
