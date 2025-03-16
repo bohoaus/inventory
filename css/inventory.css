@@ -446,6 +446,7 @@
   min-width: 200px;
   max-width: 300px;
   white-space: normal; /* Allow text wrapping for notes */
+  padding: 5px;  
 }
 
 /* Column Selection Container */
