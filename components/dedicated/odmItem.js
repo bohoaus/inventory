@@ -327,7 +327,8 @@ class OdmItem {
             <!-- Right Column -->
             <div class="form-group required">
                 <label for="item_category">Category</label>
-                <select name="item_category">
+                <select name="item_category" 
+                  onchange="odmItem.validateForm(this.closest('form'))">
                     <option value="">Select Category</option>
                     ${categories
                       .map(
