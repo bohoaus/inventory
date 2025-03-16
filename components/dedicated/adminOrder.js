@@ -414,12 +414,12 @@ class AdminOrder {
                 cell.setAttribute("data-column", column.id);
 
                 // Format date columns
+//                    "dispatched_at",
                 if (
                   [
                     "orderdate",
                     "created_at",
                     "cancelled_at",
-                    "dispatched_at",
                     "updated_at",
                   ].includes(column.id)
                 ) {
@@ -499,12 +499,12 @@ class AdminOrder {
         cell.setAttribute("data-column", column.id);
 
         // Format date columns
+//            "dispatched_at",
         if (
           [
             "orderdate",
             "created_at",
             "cancelled_at",
-            "dispatched_at",
             "updated_at",
           ].includes(column.id)
         ) {
