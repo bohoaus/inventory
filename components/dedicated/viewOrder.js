@@ -1047,6 +1047,7 @@ class ViewOrder {
             itemHistory[itemKey] = {
               code: item.item_name,
               orderColour: item.oicolour,
+              itemCategory: item.oicategory,
               orderSales: item.oisales || null,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
