@@ -73,8 +73,8 @@ class EditOdmItem {
     ];
 
     form.innerHTML = `
-      <div class="form-column">
       ODM Updating:
+      <div class="form-column">
         <!-- First Column -->
         <div class="form-group-odm-edit required">
           <label for="code_colour" style="width: 150px">Code/Colour</label>
