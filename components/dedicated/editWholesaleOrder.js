@@ -110,6 +110,7 @@ class EditWholesaleOrder {
       // Generate and set form HTML
       form.innerHTML = `
         <div class="editwholesaleorder-form">
+        Boho & Primrose Updating:
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 300px">
