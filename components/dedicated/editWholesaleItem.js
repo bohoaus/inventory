@@ -220,7 +220,6 @@ class EditWholesaleItem {
                    value="${item.swsp2 || ""}">
                 </div>
           </div>
-      </div>
 
       <div class="form-column-flex">
         <!-- Pack Size Editor (moved above repeat info) -->
