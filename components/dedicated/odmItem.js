@@ -443,8 +443,8 @@ class OdmItem {
 
             <div class="form-group-odm">
                 <label for="item_note" style="width: 120px">Item Note</label>
-                <textarea maxlength="50" name="item_note" placeholder="OK" 
-                          rows="3"
+                <textarea maxlength="50" name="item_note" placeholder="OK"  style="width: 250px" 
+                          rows="5"
                           onkeyup="this.value = this.value.toUpperCase()">${
                             item?.item_note || "OK"
                           }</textarea>
