@@ -224,9 +224,8 @@ class EditWholesaleItem {
                 </div>
       </div>
 
-      <!-- Full width sections -->
-      <div class="form-full-width">
         <!-- Pack Size Editor (moved above repeat info) -->
+      <div class="form-group-boho-edit2" style="display: grid; grid-template-columns: auto auto;">
         <div class="form-group-boho-edit">
             <label for="pack_size" style="width: 100px">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
@@ -259,7 +258,10 @@ class EditWholesaleItem {
                         item.item_note || ""
                       }</textarea>
         </div>
+      </div>
 
+      <!-- Full width sections -->
+      <div class="form-full-width">
         <!-- Repeat Info (after pack size) -->
         <div class="form-group repeat-info-group">
             <label style="width: 150px">Repeat Info</label>
@@ -277,16 +279,6 @@ class EditWholesaleItem {
             <div class="repeat-info-table-container">
                 <!-- Table will be populated dynamically -->
             </div>
-        </div>
-
-        <!-- Note field -->
-        <div class="form-group-boho-edit">
-            <label for="item_note">Note</label>
-            <textarea style="width: 350px" maxlength="50" name="item_note" 
-                      rows="3"
-                      onkeyup="this.value = this.value.toUpperCase()">${
-                        item.item_note || ""
-                      }</textarea>
         </div>
 
         <!-- Form actions -->
