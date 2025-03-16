@@ -488,9 +488,9 @@ class OdmItem {
     const estDateInput = form.querySelector('input[name="est_date"]');
     const nameInput = form.querySelector('input[name="item_name"]');
     const colorInput = form.querySelector('input[name="scolour"]');
-    const fabricInput = form.querySelector('input[name="sfabric"]');
-    const countryInput = form.querySelector('input[name="scountry"]');
-    const factoryInput = form.querySelector('input[name="sfactory"]');
+    const fabricInput = form.querySelector('select[name="sfabric"]');
+    const countryInput = form.querySelector('select[name="scountry"]');
+    const factoryInput = form.querySelector('select[name="sfactory"]');
     const submitButton = form.querySelector(".add-item-btn");
 
     if (!codeInput || !customerInput || !submitButton) return;
