@@ -154,7 +154,6 @@ class OdmItem {
       "JACKET",
       "KNIT TOP",
       "KNIT DRESS",
-      "Knit Skirt",
       "KNITWEAR",
     ];
 
@@ -171,11 +170,9 @@ class OdmItem {
     const sfabrics = [
       "Blend",
       "Rayon",
-      "Rayon+",
       "Bamboo Rayon",
       "Crinkle Rayon",
       "Cotton",
-      "Cotton+",
       "Linen",
       "Nelon",
       "Polyester",
@@ -299,7 +296,7 @@ class OdmItem {
              <div class="form-group required">
                 <label for="stock_qty">Stock Quantity</label>
                 <input type="number" maxlength="4" 
-                       name="stock_qty" value="" step="1" min="1" 
+                       name="stock_qty" value="0" step="1" min="1" 
                        value="${item?.stock_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
@@ -345,7 +342,7 @@ class OdmItem {
             
             <div class="form-group required">
                 <label for="item_name">Item Name</label>
-                <input type="text" maxlength="30" 
+                <input type="text" maxlength="15" 
                        name="item_name" placeholder="new dress" 
                        value="${item?.item_name || "new dress"}"
                 >
@@ -490,11 +487,6 @@ class OdmItem {
     const mfgDateInput = form.querySelector('input[name="mfg_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
     const submitButton = form.querySelector(".add-item-btn");
-    const itemNameInput = form.querySelector('input[name="item_name"]');
-    const fabricSelect = form.querySelector('select[name="sfabric"]');
-    const colourInput = form.querySelector('input[name="scolour"]');
-    const countrySelect = form.querySelector('select[name="scountry"]');
-    const factorySelect = form.querySelector('select[name="sfactory"]');
 
     if (!codeInput || !customerInput || !submitButton) return;
 
@@ -584,51 +576,6 @@ class OdmItem {
         "error"
       );
       receiveQtyInput?.focus();
-      return;
-    }
-
-    if (!itemNameInput.value) {//-jim
-      adminInventory.showNotification(
-        "Please enter Item Name",
-        "error"
-      );
-      itemNameInput?.focus();
-      return;
-    }
-
-    if (!fabricSelect.value) {
-      adminInventory.showNotification(
-        "Please Select Fabric",
-        "error"
-      );
-      fabricSelect?.focus();
-      return;
-    }
-
-    if (!colourInput.value) {
-      adminInventory.showNotification(
-        "Please Enter Colour",
-        "error"
-      );
-      colourInput?.focus();
-      return;
-    }
-
-    if (!countrySelect.value) {
-      adminInventory.showNotification(
-        "Please Select Coutry",
-        "error"
-      );
-      countrySelect?.focus();
-      return;
-    }
-
-    if (!factorySelect.value) {
-      adminInventory.showNotification(
-        "Please Select Factory",
-        "error"
-      );
-      factorySelect?.focus();
       return;
     }
 
