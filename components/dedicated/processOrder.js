@@ -135,6 +135,10 @@ class ProcessOrder {
                 <button type="submit" class="confirm-dispatch">Confirm Dispatch</button>
               </div>
             </div>
+              <div class="form-actions">
+                <button type="button" class="cancel-dispatch">Cancel</button>
+                <button type="submit" class="confirm-dispatch">Confirm Dispatch</button>
+              </div>
             </form>
           </div>
         </div>
