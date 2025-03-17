@@ -45,7 +45,7 @@ class EditOdmItem {
       "Issue & Return",
     ];
 
-    const prices = [
+    const sales = [
       "Full Price",
       "On Sale",
       "On Sale-Issue",
@@ -187,8 +187,20 @@ class EditOdmItem {
         
         <div class="form-group-odm-edit">
           <label for="sprice">Sales</label>
-          <input type="number" name="sprice" placeholder="00.00" 
-                 value="${item.sprice || "0"}">
+                    <select name="sprice" required>          
+            <option value="">Select Sales</option>
+            ${sales
+              .map(
+                (sale) => `
+              <option value="${sale}" ${
+                  item.sprice === sale ? "selected" : ""
+                }>
+                ${sale}
+              </option>
+            `
+              )
+              .join("")}
+                    </select>
         </div>
         
         <div class="form-group-odm-edit">
