@@ -130,11 +130,11 @@ class ViewItem {
             <div class="detail-section">
                 <h3>Stock Information:</h3>
                 <div class="detail-row">
-                    <span class="label">Stock Quantity:</span>
+                    <span class="label">Stock Qty:</span>
                     <span class="value">${item.stock_qty || "0"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Receive Quantity:</span>
+                    <span class="label">Receive Qty:</span>
                     <span class="value">${item.receive_qty || "0"}</span>
                 </div>
                 <div class="detail-row">
@@ -160,7 +160,7 @@ class ViewItem {
                     <span style="color: red;" class="value">${new Date(item.soldout_date).toDateString() || ""}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Manufacture Date:</span>
+                    <span class="label">ManufactureDate:</span>
                     <span class="value" style="color: blue;">${new Date(item.mfg_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
