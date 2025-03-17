@@ -82,7 +82,7 @@ class EditOdmItem {
         </div>
 
         <div class="form-group">
-          <label for="odm_customer">ODM Customer</label>
+          <label for="odm_customer">Customer</label>
           <input type="text" 
                  name="odm_customer" 
                  value="${item.odm_customer || ""}"
@@ -152,7 +152,7 @@ class EditOdmItem {
         </div>
         
           <div class="form-group">
-                    <label for="arrive_date">Arrive Date</label>
+                    <label for="arrive_date">ArriveDate</label>
                     <input type="date" 
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
@@ -163,7 +163,7 @@ class EditOdmItem {
       <div class="form-column">
         <!-- Third Column -->
         <div class="form-group">
-          <label for="receive_qty">Receive Quantity (Pieces)</label>
+          <label for="receive_qty">ReceiveQty(Pieces)</label>
           <input type="number" 
                  name="receive_qty" 
                  value="${item.receive_qty || 1}"
@@ -173,7 +173,7 @@ class EditOdmItem {
         </div>
 
         <div class="form-group">
-          <label for="stock_qty">Stock Quantity (Pieces)</label>
+          <label for="stock_qty">Stock(Pieces)</label>
           <input type="number" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
@@ -197,7 +197,7 @@ class EditOdmItem {
         </div>
         
             <div class="form-group">
-                    <label for="release_date">Release Date</label>
+                    <label for="release_date">ReleaseDate</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
