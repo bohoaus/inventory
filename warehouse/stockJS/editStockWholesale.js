@@ -58,8 +58,8 @@ class EditWholesaleItem {
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
-          <div class="form-group required">
-            <label for="code_colour">Code/Colour</label>
+          <div class="form-group-boho-edit required">
+            <label for="code_colour" style="width: 150px">Code/Colour</label>
                     <input type="text" 
                            name="code_colour" 
                            value="${item.code_colour || ""}"
@@ -68,7 +68,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group">
-            <label for="item_group">Group</label>
+            <label for="item_group" style="width: 150px">Group</label>
                     <select name="item_group" required>
             
                         <option value="BOHO" ${
@@ -84,7 +84,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group">
-            <label for="item_name">Item Name</label>
+            <label for="item_name" style="width: 150px">Item Name</label>
                     <input type="text" 
                            name="item_name" 
                            value="${item.item_name || ""}"
@@ -92,7 +92,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group">
-                    <label for="arrive_date">Arrive Date</label>
+                    <label for="arrive_date" style="width: 150px">Arrive Date</label>
                     <input type="date" 
                            name="arrive_date" 
                            value="${item.arrive_date || ""}">
@@ -102,7 +102,7 @@ class EditWholesaleItem {
       <div class="form-column">
         <!-- Second Column -->
                 <div class="form-group">
-                    <label for="item_category">Category</label>
+                    <label for="item_category" style="width: 150px">Category</label>
                     <select name="item_category">
                         <option value="">Select Category</option>
                         ${categories
@@ -120,7 +120,7 @@ class EditWholesaleItem {
                 </div>
 
                 <div class="form-group">
-                    <label for="item_status">Status</label>
+                    <label for="item_status" style="width: 150px">Status</label>
                     <select name="item_status">
                         <option value="">Select Status</option>
                         ${statuses
@@ -138,7 +138,7 @@ class EditWholesaleItem {
                 </div>
 
                 <div class="form-group">
-                  <label for="item_location">Location</label>
+                  <label for="item_location" style="width: 150px">Location</label>
                   <input type="text" 
                    name="item_location" 
                    value="${item.item_location || ""}"
@@ -156,7 +156,7 @@ class EditWholesaleItem {
       <div class="form-column">
         <!-- Third Column -->
         <div class="form-group">
-          <label for="stock_qty">Stock Quantity (Packs)</label>
+          <label for="stock_qty" style="width: 150px">Stock Quantity (Packs)</label>
           <input type="number" 
                  name="stock_qty" 
                  value="${item.stock_qty || 0}"
@@ -166,7 +166,7 @@ class EditWholesaleItem {
           </div>
 
           <div class="form-group">
-            <label for="receive_qty">Receive Quantity (Packs)</label>
+            <label for="receive_qty" style="width: 150px">Receive Quantity (Packs)</label>
             <input type="number" 
                  name="receive_qty" 
                  value="${item.receive_qty || 0}"
@@ -176,14 +176,14 @@ class EditWholesaleItem {
             </div>
 
             <div class="form-group">
-                    <label for="release_date">Release Date</label>
+                    <label for="release_date" style="width: 150px">Release Date</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
 
             <div class="form-group">
-              <label for="sprice">Price</label>
+              <label for="sprice" style="width: 150px">Price</label>
                     <select name="sprice" required>          
                         <option value="Full Price" ${
                           item.sprice === "Full Price" ? "selected" : ""
@@ -202,9 +202,9 @@ class EditWholesaleItem {
       <div class="form-full-width">
         <!-- Pack Size Editor (moved above repeat info) -->
         <div class="form-group">
-            <label for="pack_size">Pack Size</label>
+            <label for="pack_size" style="width: 150px">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
-                <table id="packSizeTable">
+                <table id="packSizeTable" style="width: 300px">
                     <thead>
                         <tr>
                             <th>Size</th>
