@@ -235,7 +235,7 @@
 .editwholesaleorder-pack-size-editor {
   margin-top: 10px;
   background-color: #f8f9fa !important;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   border: 2px solid red !important;
 }
@@ -243,7 +243,7 @@
 .editwholesaleorder-pack-size-editor table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   background-color: white;
   border: 1px solid #ddd !important;
 }
@@ -258,7 +258,7 @@
 }
 
 .editwholesaleorder-pack-size-editor td {
-  padding: 6px;
+  padding: 5px;
   border-bottom: 1px solid #dee2e6;
   vertical-align: middle;
 }
@@ -273,7 +273,7 @@
 }
 
 .editwholesaleorder-qty-input {
-  width: 50px;
+  width: 40px;
   padding: 6px 5px;
   border: 2px solid blue !important;
   border-radius: 4px;
