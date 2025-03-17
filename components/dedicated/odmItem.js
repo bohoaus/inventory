@@ -94,10 +94,12 @@ class OdmItem {
       "NOT RELEASED",
       "RELEASED",
       "IN STOCK",
+      "DISPATCHED",
+      "PRE-ORDER",
+      "REPEAT",
       "OUT OF STOCK",
       "PROCESSING",
       "ON HOLD",
-      "DISPATCHED",
       "CANCELLED",
       "QUALITY ISSUE",
     ];
