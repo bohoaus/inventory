@@ -241,7 +241,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Category:</span>
-                    <span class="value">${item.item_category || "-"}</span>
+                    <span class="value" style="color: blue;">${item.item_category || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Colour:</span>
@@ -256,11 +256,11 @@ class ViewItem {
             <div class="detail-section">
                 <h3>Stock Information:</h3>
                 <div class="detail-row">
-                    <span class="label">Stock Quantity:</span>
+                    <span class="label">Stock Qty:</span>
                     <span class="value">${item.stock_qty || "0"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Receive Quantity:</span>
+                    <span class="label">Receive Qty:</span>
                     <span class="value">${item.receive_qty || "0"}</span>
                 </div>
                 <div class="detail-row">
@@ -305,7 +305,7 @@ class ViewItem {
                 <h3>Dates:</h3>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
-                    <span class="value">${this.formatDate(item.mfg_date)}</span>
+                    <span class="value" style="color: green;">${this.formatDate(item.mfg_date)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
