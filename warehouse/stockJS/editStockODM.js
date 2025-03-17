@@ -98,7 +98,7 @@ class EditOdmItem {
         </div>
 
         <div class="form-group-odm-edit">
-          <label for="odm_ppo">ODM PPO</label>
+          <label for="odm_ppo" style="width: 120px">ODM PPO</label>
           <input type="text" name="odm_ppo" 
                  value="${item.odm_ppo || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
@@ -150,7 +150,7 @@ class EditOdmItem {
         </div>
         
           <div class="form-group-odm-edit">
-            <label for="item_name">Item Name</label>
+            <label for="item_name" style="width: 120px">Item Name</label>
                     <input type="text" name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
