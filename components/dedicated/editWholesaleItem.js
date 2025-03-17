@@ -42,6 +42,8 @@ class EditWholesaleItem {
       "FULL PRICE",
       "DISPATCHED",
       "ON SALE",
+      "PRE-ORDER",
+      "REPEAT",
       "OUT OF STOCK",
       "ON HOLD",
       "NOT RELEASED",
