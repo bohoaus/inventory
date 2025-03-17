@@ -188,9 +188,11 @@ class WholesaleItem {
       "NEW RELEASE",
       "FULL PRICE",
       "ON SALE",
+      "DISPATCHED",
+      "PRE-ORDER",
+      "REPEAT",
       "OUT OF STOCK",
       "CANCELLED RESTOCK",
-      "DISPATCHED",
       "OVERRESTOCK",
     ];
 
