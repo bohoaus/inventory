@@ -45,6 +45,24 @@ class EditOdmItem {
       "Issue & Return",
     ];
 
+    const sodm_customers = [
+      "Billy J Btq",
+      "CIRCLE OF FRIEND",
+      "COCO AND BLUSH",
+      "EVERGREEN CLOTHNG",
+      "LIFE STORY DESIGN",
+      "LOVE STYLE CO",
+      "ORANGE SHEBERT",
+      "SALTY CRUSH",
+      "SHE STREET",
+      "SHINE ON",
+      "ST FROCK",
+      "THINGZ",
+      "TULIO",
+      "TWO BIRDS BLUE",
+      "VINE APPAREL",
+    ];
+
     const sales = [
       "Full Price",
       "On Sale",
@@ -88,9 +106,20 @@ class EditOdmItem {
 
         <div class="form-group-odm-edit">
           <label for="odm_customer">Customer</label>
-          <input type="text" name="odm_customer" 
-                 value="${item.odm_customer || ""}"
-                 onkeyup="this.value = this.value.toUpperCase()">
+          <select name="odm_customer">
+            <option value="">Select Customer</option>
+            ${sodm_customers
+              .map(
+                (customers) => `
+              <option value="${customers}" ${
+                  item.odm_customer === customers ? "selected" : ""
+                }>
+                ${customers}
+              </option>
+            `
+              )
+              .join("")}
+          </select>
         </div>
 
         <div class="form-group-odm-edit">
