@@ -57,7 +57,7 @@ class EditOdmItem {
                  readonly>
         </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="item_group">Group</label>
           <select name="item_group" required>
             <option value="">Select Group</option>
@@ -73,7 +73,7 @@ class EditOdmItem {
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="odm_ppo">ODM PPO</label>
           <input type="text" 
                  name="odm_ppo" 
@@ -81,7 +81,7 @@ class EditOdmItem {
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="odm_customer">Customer</label>
           <input type="text" 
                  name="odm_customer" 
@@ -89,7 +89,7 @@ class EditOdmItem {
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="scolour">Colour</label>
           <input type="text" 
                  name="scolour" 
@@ -117,7 +117,7 @@ class EditOdmItem {
           </select>
         </div>
         
-          <div class="form-group">
+          <div class="form-group-odm-edit">
             <label for="item_name">Item Name</label>
                     <input type="text" 
                            name="item_name" 
@@ -125,7 +125,7 @@ class EditOdmItem {
                            onkeyup="this.value = this.value.toUpperCase()">
           </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="item_status">Status</label>
           <select name="item_status">
             <option value="">Select Status</option>
@@ -143,7 +143,7 @@ class EditOdmItem {
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="item_location">Location</label>
           <input type="text" 
                  name="item_location" 
@@ -151,7 +151,7 @@ class EditOdmItem {
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
         
-          <div class="form-group">
+          <div class="form-group-odm-edit">
                     <label for="arrive_date">ArriveDate</label>
                     <input type="date" 
                            name="arrive_date" 
@@ -172,7 +172,7 @@ class EditOdmItem {
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
 
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="stock_qty">Stock(Pieces)</label>
           <input type="number" 
                  name="stock_qty" 
@@ -182,28 +182,28 @@ class EditOdmItem {
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
         
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="swsp">WSP</label>
           <input type="number" placeholder="00.00" 
                  name="swsp" 
                  value="${item.swsp || "0"}">
         </div>
         
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="swsp2">WSP2</label>
           <input type="number" placeholder="00.00" 
                  name="swsp2" 
                  value="${item.swsp2 || "0"}">
         </div>
         
-            <div class="form-group">
+            <div class="form-group-odm-edit">
                     <label for="release_date">ReleaseDate</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
         
-        <div class="form-group">
+        <div class="form-group-odm-edit">
           <label for="item_note">Note</label>
           <textarea name="item_note" 
                     rows="3"
