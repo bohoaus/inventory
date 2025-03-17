@@ -198,7 +198,7 @@ class EditWholesaleItem {
                     <thead>
                         <tr>
                             <th>Size</th>
-                            <th>Quantity</th>
+                            <th>Qty</th>
                             <th>Action</th>
                         </tr>
                     </thead>
