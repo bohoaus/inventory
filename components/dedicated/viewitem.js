@@ -97,7 +97,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Category:</span>
-                    <span class="value">${item.item_category || "-"}</span>
+                    <span class="value" style="color: blue;">${item.item_category || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Location:</span>
@@ -161,7 +161,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Manufacture Date:</span>
-                    <span class="value">${new Date(item.mfg_date).toDateString()}</span>
+                    <span class="value" style="color: blue;">${new Date(item.mfg_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
