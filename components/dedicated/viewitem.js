@@ -335,7 +335,7 @@ class ViewItem {
                 <h3>Notes:</h3>
                 <div class="detail-row">
                     <span class="label">Note:</span>
-                    <span class="value">${item.item_note || "-"}</span>
+                    <span class="value" style="color: red;">${item.item_note || "-"}</span>
                 </div>
             </div>
 
