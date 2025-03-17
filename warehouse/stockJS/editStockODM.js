@@ -50,11 +50,9 @@ class EditOdmItem {
         <!-- First Column -->
         <div class="form-group required">
           <label for="code_colour">Code/Colour</label>
-          <input type="text" 
-                 name="code_colour" 
+          <input type="text" name="code_colour" 
                  value="${item.code_colour || ""}"
-                 required 
-                 readonly>
+                 required readonly>
         </div>
 
         <div class="form-group-odm-edit">
@@ -75,24 +73,21 @@ class EditOdmItem {
 
         <div class="form-group-odm-edit">
           <label for="odm_ppo">ODM PPO</label>
-          <input type="text" 
-                 name="odm_ppo" 
+          <input type="text" name="odm_ppo" 
                  value="${item.odm_ppo || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
 
         <div class="form-group-odm-edit">
           <label for="odm_customer">Customer</label>
-          <input type="text" 
-                 name="odm_customer" 
+          <input type="text" name="odm_customer" 
                  value="${item.odm_customer || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
 
         <div class="form-group-odm-edit">
           <label for="scolour">Colour</label>
-          <input type="text" 
-                 name="scolour" 
+          <input type="text" name="scolour" 
                  value="${item.scolour || ""}">
         </div>
       </div>
@@ -119,8 +114,7 @@ class EditOdmItem {
         
           <div class="form-group-odm-edit">
             <label for="item_name">Item Name</label>
-                    <input type="text" 
-                           name="item_name" 
+                    <input type="text" name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
           </div>
@@ -145,16 +139,14 @@ class EditOdmItem {
 
         <div class="form-group-odm-edit">
           <label for="item_location">Location</label>
-          <input type="text" 
-                 name="item_location" 
+          <input type="text" name="item_location" 
                  value="${item.item_location || ""}"
                  onkeyup="this.value = this.value.toUpperCase()">
         </div>
         
           <div class="form-group-odm-edit">
                     <label for="arrive_date">ArriveDate</label>
-                    <input type="date" 
-                           name="arrive_date" 
+                    <input type="date" name="arrive_date" 
                            value="${item.arrive_date || ""}">
           </div>
         
@@ -164,36 +156,18 @@ class EditOdmItem {
         <!-- Third Column -->
         <div class="form-group">
           <label for="receive_qty">ReceiveQty(Pieces)</label>
-          <input type="number" 
-                 name="receive_qty" 
+          <input type="number" name="receive_qty" 
                  value="${item.receive_qty || 1}"
-                 min="1"
-                 step="1"
+                 min="1" step="1"
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
 
         <div class="form-group-odm-edit">
           <label for="stock_qty">Stock(Pieces)</label>
-          <input type="number" 
-                 name="stock_qty" 
+          <input type="number" name="stock_qty" 
                  value="${item.stock_qty || 0}"
-                 min="0"
-                 step="1"
+                 min="0" step="1"
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
-        </div>
-        
-        <div class="form-group-odm-edit">
-          <label for="swsp">WSP</label>
-          <input type="number" placeholder="00.00" 
-                 name="swsp" 
-                 value="${item.swsp || "0"}">
-        </div>
-        
-        <div class="form-group-odm-edit">
-          <label for="swsp2">WSP2</label>
-          <input type="number" placeholder="00.00" 
-                 name="swsp2" 
-                 value="${item.swsp2 || "0"}">
         </div>
         
             <div class="form-group-odm-edit">
@@ -204,9 +178,15 @@ class EditOdmItem {
             </div>
         
         <div class="form-group-odm-edit">
+          <label for="sprice">Sales</label>
+          <input type="number" name="sprice" placeholder="00.00" 
+                 value="${item.sprice || "0"}">
+        </div>
+        
+        <div class="form-group-odm-edit">
           <label for="item_note">Note</label>
           <textarea name="item_note" 
-                    rows="3"
+                    rows="4"
                     onkeyup="this.value = this.value.toUpperCase()">${
                       item.item_note || ""
                     }</textarea>
