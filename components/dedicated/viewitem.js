@@ -161,7 +161,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">ManufactureDate:</span>
-                    <span class="value" style="color: blue;">${new Date(item.mfg_date).toDateString()}</span>
+                    <span class="value" style="color: green;">${new Date(item.mfg_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
@@ -197,7 +197,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Repeat Item:</span>
-                    <span class="value">${this.formatRepeatItem(
+                    <span class="value" style="color: green;">${this.formatRepeatItem(
                       item.repeat_item
                     )}</span>
                 </div>
