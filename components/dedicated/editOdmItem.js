@@ -41,6 +41,8 @@ class EditOdmItem {
       "ON HOLD",
       "PROCESSING",
       "DISPATCHED",
+      "PRE-ORDER",
+      "REPEAT",
       "OUT OF STOCK",
       "CANCELLED",
       "Issue & Return",
