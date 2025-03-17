@@ -45,6 +45,14 @@ class EditOdmItem {
       "Issue & Return",
     ];
 
+    const prices = [
+      "Full Price",
+      "On Sale",
+      "On Sale-Issue",
+      "On Sale-Repeat",
+      "Special",
+    ];
+
     form.innerHTML = `
       <div class="form-column">
         <!-- First Column -->
