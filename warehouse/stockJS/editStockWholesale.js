@@ -142,7 +142,7 @@ class EditWholesaleItem {
                 </div>
 
                 <div class="form-group-boho-edit">
-                    <label for="soldout_date">Sold Out Date</label>
+                    <label for="soldout_date" style="width: 150px">SoldOut Date</label>
                     <input type="date" name="soldout_date" 
                            value="${item.soldout_date || ""}">
                 </div>
