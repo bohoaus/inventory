@@ -67,7 +67,7 @@ class EditWholesaleItem {
                            readonly>
           </div>
 
-          <div class="form-group">
+          <div class="form-group-boho-edit">
             <label for="item_group" style="width: 150px">Group</label>
                     <select name="item_group" required>
             
@@ -83,7 +83,7 @@ class EditWholesaleItem {
                     </select>
           </div>
 
-          <div class="form-group">
+          <div class="form-group-boho-edit">
             <label for="item_name" style="width: 150px">Item Name</label>
                     <input type="text" 
                            name="item_name" 
@@ -91,7 +91,7 @@ class EditWholesaleItem {
                            onkeyup="this.value = this.value.toUpperCase()">
           </div>
 
-          <div class="form-group">
+          <div class="form-group-boho-edit">
                     <label for="arrive_date" style="width: 150px">Arrive Date</label>
                     <input type="date" 
                            name="arrive_date" 
@@ -101,7 +101,7 @@ class EditWholesaleItem {
 
       <div class="form-column">
         <!-- Second Column -->
-                <div class="form-group">
+                <div class="form-group-boho-edit">
                     <label for="item_category" style="width: 150px">Category</label>
                     <select name="item_category">
                         <option value="">Select Category</option>
@@ -119,7 +119,7 @@ class EditWholesaleItem {
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-boho-edit">
                     <label for="item_status" style="width: 150px">Status</label>
                     <select name="item_status">
                         <option value="">Select Status</option>
@@ -137,7 +137,7 @@ class EditWholesaleItem {
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-boho-edit">
                   <label for="item_location" style="width: 150px">Location</label>
                   <input type="text" 
                    name="item_location" 
@@ -145,7 +145,7 @@ class EditWholesaleItem {
                    onkeyup="this.value = this.value.toUpperCase()">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-boho-edit">
                     <label for="soldout_date">Sold Out Date</label>
                     <input type="date" 
                            name="soldout_date" 
@@ -155,7 +155,7 @@ class EditWholesaleItem {
 
       <div class="form-column">
         <!-- Third Column -->
-        <div class="form-group">
+        <div class="form-group-boho-edit">
           <label for="stock_qty" style="width: 150px">Stock Quantity (Packs)</label>
           <input type="number" 
                  name="stock_qty" 
@@ -165,7 +165,7 @@ class EditWholesaleItem {
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
           </div>
 
-          <div class="form-group">
+          <div class="form-group-boho-edit">
             <label for="receive_qty" style="width: 150px">Receive Quantity (Packs)</label>
             <input type="number" 
                  name="receive_qty" 
@@ -175,14 +175,14 @@ class EditWholesaleItem {
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
             </div>
 
-            <div class="form-group">
+            <div class="form-group-boho-edit">
                     <label for="release_date" style="width: 150px">Release Date</label>
                     <input type="timestamp" 
                            name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
 
-            <div class="form-group">
+            <div class="form-group-boho-edit">
               <label for="sprice" style="width: 150px">Price</label>
                     <select name="sprice" required>          
                         <option value="Full Price" ${
@@ -201,7 +201,7 @@ class EditWholesaleItem {
       <!-- Full width sections -->
       <div class="form-full-width">
         <!-- Pack Size Editor (moved above repeat info) -->
-        <div class="form-group">
+        <div class="form-group-boho-edit">
             <label for="pack_size" style="width: 150px">Pack Size</label>
             <div class="editwholesaleorder-pack-size-editor" style="border: 2px solid red;">
                 <table id="packSizeTable" style="width: 300px">
