@@ -60,8 +60,7 @@ class EditWholesaleItem {
         <!-- First Column -->
           <div class="form-group-boho-edit required">
             <label for="code_colour" style="width: 150px">Code/Colour</label>
-                    <input type="text" 
-                           name="code_colour" 
+                    <input type="text" name="code_colour" 
                            value="${item.code_colour || ""}"
                  required 
                            readonly>
@@ -85,16 +84,14 @@ class EditWholesaleItem {
 
           <div class="form-group-boho-edit">
             <label for="item_name" style="width: 150px">Item Name</label>
-                    <input type="text" 
-                           name="item_name" 
+                    <input type="text" name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
           </div>
 
           <div class="form-group-boho-edit">
                     <label for="arrive_date" style="width: 150px">ArriveDate</label>
-                    <input type="date" 
-                           name="arrive_date" 
+                    <input type="date" name="arrive_date" 
                            value="${item.arrive_date || ""}">
           </div>
       </div>
@@ -139,16 +136,14 @@ class EditWholesaleItem {
 
                 <div class="form-group-boho-edit">
                   <label for="item_location" style="width: 150px">Location</label>
-                  <input type="text" 
-                   name="item_location" 
+                  <input type="text" name="item_location" 
                    value="${item.item_location || ""}"
                    onkeyup="this.value = this.value.toUpperCase()">
                 </div>
 
                 <div class="form-group-boho-edit">
                     <label for="soldout_date">Sold Out Date</label>
-                    <input type="date" 
-                           name="soldout_date" 
+                    <input type="date" name="soldout_date" 
                            value="${item.soldout_date || ""}">
                 </div>
       </div>
@@ -157,28 +152,23 @@ class EditWholesaleItem {
         <!-- Third Column -->
         <div class="form-group-boho-edit">
           <label for="stock_qty" style="width: 150px">Stock(Packs)</label>
-          <input type="number" 
-                 name="stock_qty" 
+          <input type="number" name="stock_qty" 
                  value="${item.stock_qty || 0}"
-                 min="0"
-                 step="0.5"
+                 min="0" step="0.5"
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
           </div>
 
           <div class="form-group-boho-edit">
             <label for="receive_qty" style="width: 150px">Qty(Packs)</label>
-            <input type="number" 
-                 name="receive_qty" 
+            <input type="number" name="receive_qty" 
                  value="${item.receive_qty || 0}"
-                 min="0"
-                 step="0.5"
+                 min="0" step="0.5" 
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
             </div>
 
             <div class="form-group-boho-edit">
                     <label for="release_date" style="width: 150px">ReleaseAt</label>
-                    <input type="timestamp" 
-                           name="release_date" placeholder="yyyy-mm-dd" 
+                    <input type="timestamp" name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
 
@@ -229,14 +219,12 @@ class EditWholesaleItem {
         <div class="form-group repeat-info-group">
             <label>Repeat Info</label>
             <div class="repeat-info-inputs">
-                <input type="text" 
-                       name="new_repeat_number" 
+                <input type="text" name="new_repeat_number" 
                        value="${this.getOrdinalRepeat(
                          this.getNextRepeatNumber(item.repeat_item)
                        )}"
                        readonly>
-                <input type="date" 
-                       name="new_repeat_date">
+                <input type="date" name="new_repeat_date">
                 <button type="button" onclick="window.editWholesaleItem.addRepeatInfo(this)">Add</button>
             </div>
             <div class="repeat-info-table-container">
@@ -247,8 +235,7 @@ class EditWholesaleItem {
         <!-- Note field -->
         <div class="form-group">
             <label for="item_note">Note</label>
-            <textarea name="item_note" 
-                      rows="4"
+            <textarea name="item_note" rows="4"
                       onkeyup="this.value = this.value.toUpperCase()">${
                         item.item_note || ""
                       }</textarea>
