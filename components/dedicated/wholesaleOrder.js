@@ -104,7 +104,7 @@ class WholesaleOrder {
 
                   <div class="form-group-wholesale-order">
                     <label for="order_note">Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 400px; color: blue">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 400px; color: red">
                   </div>
                 </div>
 
@@ -141,7 +141,7 @@ class WholesaleOrder {
                         </div>
                     </div>
                     <div class="qty-input">
-                        <label for="orderQty">Order Quantity</label>
+                        <label for="orderQty">Order Qty</label>
                         <input type="number" id="orderQty" min="0" step="0.5" style="height: 25px; font-size: 15px; padding-left: 5px;" maxlength="3">
                         <button type="button" id="addToOrder">Add to Order</button>
                     </div>
