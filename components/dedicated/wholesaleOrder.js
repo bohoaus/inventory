@@ -190,14 +190,16 @@ class WholesaleOrder {
                         <button type="button" id="removeAllItems">Remove All</button>
                     </div>
                 </div>
-
-                <div class="form-actions">
-                    <button type="submit" id="submitOrder" disabled>Submit Order</button>
-                </div>
-            </div>
         `;
   }
+//                <div class="form-actions">
+//                    <button type="submit" id="submitOrder" disabled>Submit Order</button>
+//                </div>
+//            </div>
+//        `;
 
+
+  
   async searchItems(searchTerm) {
     try {
       const { data, error } = await supabaseClient
