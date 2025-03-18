@@ -283,14 +283,14 @@ class EditOdmOrder {
             <!-- Dispatch Info -->
             <div class="form-row">
                 <div class="form-group">
-                    <label for="dispatched_box">Dispatched Box</label>
+                    <label for="dispatched_box">Boxes</label>
                     <input type="text" style="width: 60px" maxlength="3" 
                            id="dispatched_box" 
                            value="${orderData.dispatched_box || ""}" 
                            placeholder="Enter dispatched box">
                 </div>
                 <div class="form-group">
-                    <label for="dispatched_at">Dispatch Date</label>
+                    <label for="dispatched_at">DispatchDate</label>
                     <input type="datetime-local" style="width: 250px" 
                            id="dispatched_at" 
                            value="${orderData.dispatched_at || ""}">
@@ -301,8 +301,7 @@ class EditOdmOrder {
             <div class="form-row">
                 <div class="form-group full-width">
                     <label for="order_note">Order Note</label>
-                    <textarea  maxlength="50" 
-                        id="order_note" 
+                    <textarea  maxlength="50" id="order_note" style="color: red;" 
                         placeholder="Add note for this order"
                         style="
                             font-size: 15px; 
