@@ -593,6 +593,8 @@ class OdmOrder {
             </div>
             <div class="suggestion-details">
               <span class="item-qty">Received: ${item.receive_qty || 0}</span>
+              <span class="item-status">${item.scolour || "N/A"}</span>
+              <span class="item-status">${item.mfg_date || "N/A"}</span>
               <span class="item-status">${item.item_status || "N/A"}</span>
             </div>
           </div>
