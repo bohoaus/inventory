@@ -965,7 +965,7 @@ th[data-sort].sort-desc .sort-icon {
   background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
-  max-width: 300px;
+  max-width: 400px;
   max-height: 350px;
   overflow-y: auto;
   z-index: 1000;
