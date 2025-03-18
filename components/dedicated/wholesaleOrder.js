@@ -39,6 +39,10 @@ class WholesaleOrder {
 
   generateFormHTML() {
     return `
+                    <div class="form-actions">
+                    <button type="submit" id="submitOrder" disabled>Submit Order</button>
+                </div>
+
             <div class="wholesale-form">
                 <div class="customer-info">
                     <div class="form-group">
