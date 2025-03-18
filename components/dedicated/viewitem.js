@@ -233,7 +233,7 @@ class ViewItem {
                 <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
-                    <span class="value">${item.code_colour || "-"}</span>
+                    <span class="value" style="color: blue;">${item.code_colour || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Item Name:</span>
