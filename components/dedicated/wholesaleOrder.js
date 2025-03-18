@@ -231,6 +231,7 @@ class WholesaleOrder {
         div.className = "suggestion-item";
         div.innerHTML = `
                 <div class="item-code">${item.code_colour}</div>
+                <div class="item-Colour">${item.scolour}</div>
                 <div class="item-stock">${item.stock_qty}</div>
                 <div class="item-arriveDate">${item.arrive_date}</div>
             `;
