@@ -184,11 +184,11 @@ class ViewOrder {
             </div>
             <div class="detail-item">
                 <label>D-State:</label>
-                <span>${orderData.dispatched_state || "-"}</span>
+                <span style="color:blue">${orderData.dispatched_state || "-"}</span>
             </div>
             <div class="detail-item">
                 <label>Boxes:</label>
-                <span>${orderData.dispatched_box || "-"}</span>
+                <span style="color:blue">${orderData.dispatched_box || "-"}</span>
             </div>
 
             <!-- Row 2 -->
