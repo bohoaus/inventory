@@ -222,19 +222,19 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label>Updated:</label>
-                <span>${this.formatValue(
+                <span style="color:blue">${this.formatValue(
                   "updated_at",
                   orderData.updated_at
                 )}</span>
             </div>
             <div class="detail-item2">
                 <label>Counts:</label>
-                <span>Total: ${orderData.total_items || "0"} / Removed: ${
+                <span style="color:blue">Total: ${orderData.total_items || "0"} / Removed: ${
                   orderData.removed_items || "0"
                 }</span>
             </div>
             <div class="detail-item2">
-                <label>Courier:</label>
+                <label style="color:blue">Courier:</label>
                 <span>${orderData.dispatched_carrier || "-"}</span>
             </div>
 
