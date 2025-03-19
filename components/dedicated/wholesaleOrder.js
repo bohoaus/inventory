@@ -182,6 +182,7 @@ class WholesaleOrder {
                                     <th>Packs</th>
                                     <th>T-Pieces</th>
                                     <th>WSP</th>
+                                    <th>%Off</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -250,6 +251,7 @@ class WholesaleOrder {
   selectItem(item) {
     // Calculate available stock by checking order list
     let orderedQty = 0;
+    let itemDiscount = 0;
     const existingOrder = this.tempOrderList.find(
       (order) => order.code_colour === item.code_colour
     );
@@ -412,6 +414,7 @@ class WholesaleOrder {
                           isOutOfStock ? 0 : item.pack_unit * item.orderQty
                         }</td>
                         <td>${item.swsp2}</td>
+                        <td>${item.itemDiscount}</td>
                         <td>
                             <button onclick="window.wholesaleOrder.removeItem(${index})" class="remove-btn">Remove</button>
                         </td>
