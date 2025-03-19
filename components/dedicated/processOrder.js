@@ -48,8 +48,8 @@ class ProcessOrder {
                   <span style="width:40px; color:blue" id="totalItems"></span>
                 </div>
                 <div class="info-item">
-                  <label>Order Type:</label>
-                  <span style="width:70px; color:blue" id="orderType"></span>
+                  <label>OrderType:</label>
+                  <span style="width:70px; color:blue; font-size: 12px" id="orderType"></span>
                 </div>
                 <div class="info-item">
                   <label>Status:</label>
