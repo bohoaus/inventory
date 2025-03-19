@@ -234,8 +234,8 @@ class ViewOrder {
                 }</span>
             </div>
             <div class="detail-item2">
-                <label style="color:blue">Courier:</label>
-                <span>${orderData.dispatched_carrier || "-"}</span>
+                <label>Courier:</label>
+                <span style="color:blue">${orderData.dispatched_carrier || "-"}</span>
             </div>
 
             <!-- Row 4 -->
