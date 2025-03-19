@@ -33,7 +33,7 @@ class ProcessOrder {
               <div class="order-info-grid">
                 <div class="info-item">
                   <label>Customer:</label>
-                  <span maxlength="30" style="width:350px; color:blue; font-size: 11px" id="customerName"></span>
+                  <span maxlength="30" style="width:350px; color:blue; font-size: 12px" id="customerName"></span>
                 </div>
                 <div class="info-item">
                   <label>Order Date:</label>
@@ -86,12 +86,12 @@ class ProcessOrder {
               </div>
               
             <div class="form-group-order-dispatch required">
-                <label for="dispatchDate8" style="width: 120px">Dispatch Date</label>
+                <label for="dispatchDate8" style="width: 120px">DispatchDate</label>
                 <input type="date" id="dispatchDate8" style="width: 110px; color:blue" maxlength="25" required>
             </div>
               
               <div class="form-group-order-dispatch">
-                <label for="dispatchState" style="width: 120px">Dispatch State</label>
+                <label for="dispatchState" style="width: 120px">DispatchState</label>
                 <select id="dispatchState" style="width: 150px; color:blue" required>
                   <option value="">Select State</option>
                   <option value="AUS-ACT">AUS-ACT</option>
@@ -107,11 +107,11 @@ class ProcessOrder {
                 </select>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="dispatchBox" style="width: 120px">Dispatch Box</label>
+                <label for="dispatchBox" style="width: 120px">Boxes</label>
                 <input type="text" id="dispatchBox" value="1" style="width: 50px; color:blue; maxlength:3" required>
               </div>
               <div class="form-group-order-dispatch">
-                <label for="dispatchCarrier" style="width: 120px">Dispatch Carrier</label>
+                <label for="dispatchCarrier" style="width: 120px">Courier</label>
                 <select id="dispatchCarrier" style="width: 200px; color:blue" required onchange="processOrder.toggleTrackingNumber()">
                   <option value="">Select Carrier</option>
                   <option value="DIRECT EXPRESS">DIRECT EXPRESS</option>
