@@ -108,7 +108,7 @@ class WholesaleOrder {
 
                   <div class="form-group-wholesale-order">
                     <label for="order_note">Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 400px; color: red">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 200px; color: red">
                   </div>
                 </div>
 
