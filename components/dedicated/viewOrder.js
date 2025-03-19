@@ -176,7 +176,7 @@ class ViewOrder {
             <!-- Row 1 -->
             <div class="detail-item">
                 <label>Customer:</label>
-                <span style="color:blue; font-size: 11px">${orderData.customer_name || "-"}</span>
+                <span style="color:blue; font-size: 12px">${orderData.customer_name || "-"}</span>
             </div>
             <div class="detail-item">
                 <label>OrderDate:</label>
@@ -235,7 +235,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label>Courier:</label>
-                <span style="color:blue; font-size: 11px">${orderData.dispatched_carrier || "-"}</span>
+                <span style="color:blue; font-size: 12px">${orderData.dispatched_carrier || "-"}</span>
             </div>
 
             <!-- Row 4 -->
