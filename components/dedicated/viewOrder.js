@@ -194,7 +194,7 @@ class ViewOrder {
             <!-- Row 2 -->
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">OrderType:</label>
-                <span style="color:blue">${orderData.order_type || "-"}</span>
+                <span style="color:blue; font-size: 12px">${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Invoice#:</label>
@@ -229,7 +229,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label>Counts:</label>
-                <span style="color:blue">Total: ${orderData.total_items || "0"} / Removed: ${
+                <span style="color:blue; font-size: 12px">Total: ${orderData.total_items || "0"} / Removed: ${
                   orderData.removed_items || "0"
                 }</span>
             </div>
