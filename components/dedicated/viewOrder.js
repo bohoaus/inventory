@@ -175,25 +175,25 @@ class ViewOrder {
         ">
             <!-- Row 1 -->
             <div class="detail-item">
-                <label>Customer Name:</label>
+                <label>Customer:</label>
                 <span style="color:blue">${orderData.customer_name || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Order Date:</label>
+                <label>OrderDate:</label>
                 <span style="color:blue">${new Date(this.formatValue("orderdate",orderData.orderdate)).toDateString()}</span>
             </div>
             <div class="detail-item">
-                <label>Dispatched State:</label>
+                <label>D-State:</label>
                 <span>${orderData.dispatched_state || "-"}</span>
             </div>
             <div class="detail-item">
-                <label>Dispatched Box:</label>
+                <label>Boxes:</label>
                 <span>${orderData.dispatched_box || "-"}</span>
             </div>
 
             <!-- Row 2 -->
             <div class="detail-item2">
-                <label style="text-align:left; display: block; width: 100px">Order Type:</label>
+                <label style="text-align:left; display: block; width: 100px">OrderType:</label>
                 <span style="color:Light Gray">${orderData.order_type || "-"}</span>
             </div>
             <div class="detail-item2">
@@ -208,33 +208,33 @@ class ViewOrder {
                 )}</span>
             </div>
             <div class="detail-item2">
-                <label style="text-align:left; display: block; width: 100px">Agent State:</label>
+                <label style="text-align:left; display: block; width: 100px">AgentState:</label>
                 <span style="color:blue">${orderData.agent_state || "-"}</span>
             </div>
 
             <!-- Row 3 -->
-            <div class="detail-item">
-                <label>Dispatched At:</label>
+            <div class="detail-item2">
+                <label>Dispatched:</label>
                 <span style="color:blue">${this.formatValue(
                   "dispatched_at",
                   orderData.dispatched_at
                 )}</span>
             </div>
-            <div class="detail-item">
-                <label>Updated At:</label>
+            <div class="detail-item2">
+                <label>Updated:</label>
                 <span>${this.formatValue(
                   "updated_at",
                   orderData.updated_at
                 )}</span>
             </div>
-            <div class="detail-item">
-                <label>Items Count:</label>
+            <div class="detail-item2">
+                <label>Counts:</label>
                 <span>Total: ${orderData.total_items || "0"} / Removed: ${
                   orderData.removed_items || "0"
                 }</span>
             </div>
-            <div class="detail-item">
-                <label>Dispatched Carrier:</label>
+            <div class="detail-item2">
+                <label>Courier:</label>
                 <span>${orderData.dispatched_carrier || "-"}</span>
             </div>
 
