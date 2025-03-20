@@ -71,6 +71,13 @@
 .order-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  flex-flow: row wrap;
+  gap: 10px;
+}
+
+.order-info-flex {
+  display: flex;
+  flex-direction: row;
   gap: 10px;
 }
 
