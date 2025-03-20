@@ -275,7 +275,7 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 668px) {
   .process-modal-content {
     width: 95%;
     margin: 2% auto;
