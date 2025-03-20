@@ -20,6 +20,7 @@ class SalesOrdersComponent {
       { id: "opo", name: "PO#", locked: true },
       { id: "customer_name", name: "Customer Name", locked: true },
       { id: "order_type", name: "Order Type", locked: true },
+      { id: "dispatched_box", name: "Box" },
       { id: "status", name: "Status", locked: true },
       { id: "agent_state", name: "Agent State", locked: true },
       { id: "total_items", name: "T-Items", locked: true },
@@ -34,7 +35,6 @@ class SalesOrdersComponent {
     // Optional columns that can be added
     this.optionalColumns = [
       { id: "removed_items", name: "Removed Items" },
-      { id: "dispatched_box", name: "Dispatched Box" },
       { id: "cancelled_at", name: "Cancelled At", isDate: true },
       { id: "created_at", name: "Created At", locked: true, isDate: true },
       { id: "updated_at", name: "Updated At", isDate: true },
