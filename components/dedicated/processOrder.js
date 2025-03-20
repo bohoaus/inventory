@@ -30,7 +30,6 @@ class ProcessOrder {
           </div>
           <div class="modal-body">
             <div class="order-info">
-//              <div class="order-info-grid">
               <div class="order-info-flex">
                 <div class="info-item">
                   <label>Customer:</label>
