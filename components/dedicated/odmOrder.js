@@ -98,7 +98,7 @@ class OdmOrder {
                 <div class="customer-info2">
                   <div class="item-search">
                     <div class="form-group-odm-order">
-                        <label for="odmItemSearch">Search ODM Item</label>
+                        <label for="odmItemSearch">Search ODM</label>
                         <input style="width: 400px" maxlength="20" type="text" 
                                id="odmItemSearch" placeholder="Enter item code">
                         <div id="odmSuggestions" class="suggestions-dropdown"></div>
@@ -106,7 +106,7 @@ class OdmOrder {
                   </div>
 
                   <div class="form-group-odm-order">
-                    <label for="order_note">Order Note</label>
+                    <label for="order_note">Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order" value="OK" style="width: 400px; color: red" maxlength="50">
                   </div>
                 </div>
