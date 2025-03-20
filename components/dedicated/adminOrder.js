@@ -1613,7 +1613,7 @@ document.head.insertAdjacentHTML(
       width: 100%;
       padding: 5px;
       border: 1px solid #ddd;
-      border-radius: 4px;
+      border-radius: 5px;
     }
 
     .column-select-actions {
