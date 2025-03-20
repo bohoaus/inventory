@@ -30,7 +30,8 @@ class ProcessOrder {
           </div>
           <div class="modal-body">
             <div class="order-info">
-              <div class="order-info-grid">
+//              <div class="order-info-grid">
+              <div class="order-info-flex">
                 <div class="info-item">
                   <label>Customer:</label>
                   <span maxlength="30" style="width:350px; color:blue; font-size: 12px" id="customerName"></span>
