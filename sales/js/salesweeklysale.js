@@ -382,7 +382,7 @@ class SalesWeeklySale {
         body: tableData,
         theme: "plain",
         styles: {
-          fontSize: 8,
+          fontSize: 10,
           textColor: [0, 0, 0],
           lineColor: [200, 200, 200],
           lineWidth: 0.1,
