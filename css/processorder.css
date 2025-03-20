@@ -78,7 +78,7 @@
 .order-info-flex {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 20px;
 }
 
 .info-item {
