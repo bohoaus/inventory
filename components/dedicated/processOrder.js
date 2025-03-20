@@ -9,6 +9,7 @@ class ProcessOrder {
     this.totalItems = 0;
     this.orderData = null;
     this.invoiceNumber = null;    
+    this.orderBoxes = null;    
     this.modal = null;
     this.isHeld = false;
     this.setupModal();
@@ -58,6 +59,10 @@ class ProcessOrder {
                 <div class="info-item">
                   <label>Invoice#:</label>
                   <span style="width:70px; color:blue" id="invoiceNumber"></span>
+                </div>
+                <div class="info-item">
+                  <label>Boxes:</label>
+                  <span style="width:50px; color:blue" id="orderBoxes"></span>
                 </div>
               </div>
             </div>
@@ -212,6 +217,8 @@ class ProcessOrder {
         orderData.customer_name || "-";
       document.getElementById("invoiceNumber").textContent =
         orderData.invoice_no || "-";
+      document.getElementById("orderBoxes").textContent =
+        orderData.dispatched_box || "-";
       document.getElementById("orderDate").textContent =
         orderData.orderdate?.toUpperCase() || "-";
       document.getElementById("agentState").textContent =
