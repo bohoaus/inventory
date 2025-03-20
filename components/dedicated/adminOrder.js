@@ -1240,8 +1240,7 @@ class AdminOrder {
     const desiredHeight = headerHeight + visibleRows * rowHeight + padding;
 
     // Get available space in viewport
-    const availableHeight =
-      window.innerHeight - tableContainer.offsetTop - footerOffset;
+    const availableHeight = window.innerHeight - tableContainer.offsetTop - footerOffset;
 
     // Set the height based on content or available space
     const newHeight = Math.min(desiredHeight, availableHeight);
