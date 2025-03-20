@@ -72,7 +72,7 @@ class SoldOutList {
                 ${Object.keys(weekGroups)
                   .map(
                     (week) => `
-                    <option value="${week}" ${
+                    <option style="width:200px; color:blue" value="${week}" ${
                       week === latestWeek ? "selected" : ""
                     }>
                         ${week}
