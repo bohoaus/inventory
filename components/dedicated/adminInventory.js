@@ -50,6 +50,7 @@ class AdminInventory {
     this.selectedColumns = [
       "arrive_date",
       "code_colour",
+      "scolour",
       "stock_qty",
       "item_name",
       "release_date",
@@ -71,6 +72,7 @@ class AdminInventory {
     this.defaultColumns = [
       "arrive_date",
       "code_colour",
+      "scolour",
       "stock_qty",
       "item_name",
       "release_date",
