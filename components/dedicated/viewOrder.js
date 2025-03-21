@@ -247,7 +247,7 @@ class ViewOrder {
                 ? `
                 <div class="detail-item2">
                     <label>Tracking#:</label>
-                    <span style="color:blue">${orderData.tracking_no || "-"}</span>
+                    <span style="color:blue; font-size: 12px">${orderData.tracking_no || "-"}</span>
                 </div>
             <div class="detail-item2">
                 <label>Order Note:</label>
