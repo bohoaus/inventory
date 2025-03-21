@@ -202,7 +202,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Status:</label>
-                <span style="color:blue; font-size: 11px">${formatStatus(
+                <span style="color:blue; font-size: 10px">${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
                 )}</span>
@@ -215,14 +215,14 @@ class ViewOrder {
             <!-- Row 3 -->
             <div class="detail-item2">
                 <label>Dispatched:</label>
-                <span style="color:blue">${this.formatValue(
+                <span style="color:blue; font-size: 12px">${this.formatValue(
                   "dispatched_at",
                   orderData.dispatched_at
                 )}</span>
             </div>
             <div class="detail-item2">
                 <label>Updated:</label>
-                <span style="color:blue">${this.formatValue(
+                <span style="color:blue; font-size: 12px">${this.formatValue(
                   "updated_at",
                   orderData.updated_at
                 )}</span>
