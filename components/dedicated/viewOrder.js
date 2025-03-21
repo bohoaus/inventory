@@ -202,7 +202,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">Status:</label>
-                <span style="color:Light Gray">${formatStatus(
+                <span style="color:blue; font-size: 11px">${formatStatus(
                   orderData.status,
                   orderData.cancelled_at
                 )}</span>
