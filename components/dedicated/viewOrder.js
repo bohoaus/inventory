@@ -209,7 +209,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label style="text-align:left; display: block; width: 100px">AgentState:</label>
-                <span style="color:blue">${orderData.agent_state || "-"}</span>
+                <span style="color:blue; font-size: 12px">${orderData.agent_state || "-"}</span>
             </div>
 
             <!-- Row 3 -->
@@ -259,7 +259,7 @@ class ViewOrder {
             </div>
             <div class="detail-item2">
                 <label>Country:</label>
-                <span style="color:Light Gray">${orderData.ocountry || "-"}</span>
+                <span style="color:blue; font-size: 12px">${orderData.ocountry || "-"}</span>
             </div>
             `
                 : ""
