@@ -18,6 +18,7 @@ class InventoryComponent {
     this.allColumns = [
       { id: "arrive_date", label: "ArriveDate" },
       { id: "code_colour", label: "Code Color" },
+      { id: "scolour", label: "Color" },
       { id: "stock_qty", label: "Stock" },
       { id: "item_name", label: "Item Name" },
       { id: "release_date", label: "ReleaseDate" },
@@ -49,6 +50,7 @@ class InventoryComponent {
     this.defaultColumns = [
       "arrive_date",
       "code_colour",
+      "scolour",
       "stock_qty",
       "item_name",
       "release_date",
