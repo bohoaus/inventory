@@ -307,7 +307,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Arrive Date:</span>
-                    <span class="value">${new Date(item.arrive_date).toDateString() || null}</span>
+                    <span class="value" style="color:blue; font-size: 12px">${new Date(item.arrive_date).toDateString() || null}</span>
                 </div>
               </div>
             </div>
