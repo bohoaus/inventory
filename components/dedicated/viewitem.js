@@ -303,11 +303,11 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
-                    <span class="value">${this.formatDate(item.est_date)}</span>
+                    <span class="value">${item.est_date}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Arrive Date:</span>
-                    <span class="value" style="color:blue; font-size: 12px">${new Date(item.arrive_date).toDateString() || null}</span>
+                    <span class="value" style="color:blue; font-size: 13px">${new Date(item.arrive_date).toDateString() || null}</span>
                 </div>
               </div>
             </div>
