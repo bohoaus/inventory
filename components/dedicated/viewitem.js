@@ -89,7 +89,7 @@ class ViewItem {
                 <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
-                    <span style="color: blue;" class="value">${item.code_colour || "-"}</span>
+                    <spanclass="value" style="color:blue; font-size: 12px">${item.code_colour || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Item Name:</span>
@@ -150,7 +150,7 @@ class ViewItem {
             <div class="detail-section">
                 <h3>Dates:</h3>
                 <div class="detail-row">
-                    <span class="label">Release Date:</span>
+                    <span class="label">ReleaseDate:</span>
                     <span style="color: blue;" class="value">${new Date(item.release_date).toDateString() || null}</span>
                 </div>
                 <div class="detail-row">
@@ -229,7 +229,7 @@ class ViewItem {
                 <h3>Production Information:</h3>
                 <div class="detail-row">
                     <span class="label">Code:</span>
-                    <span class="value" style="color: blue;">${item.code_colour || "-"}</span>
+                    <span class="value" style="color:blue; font-size: 12px">${item.code_colour || "-"}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Item Name:</span>
