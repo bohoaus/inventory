@@ -295,6 +295,7 @@ class ViewItem {
                 </div>
             </div>
 
+        <div class="details-grid">
             <div class="detail-section">
                 <h3>Dates:</h3>
                 <div class="detail-row">
