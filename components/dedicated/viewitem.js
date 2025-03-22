@@ -309,15 +309,7 @@ class ViewItem {
                     <span class="label">Arrive Date:</span>
                     <span class="value">${new Date(item.arrive_date).toDateString() || null}</span>
                 </div>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Created:</span>
-                    <span class="value">${this.formatDate(item.created_at)}</span>
-                </div>
-                <div class="detail-row">
-                    <span class="label">Updated:</span>
-                    <span class="value">${this.formatDate(item.updated_at)}</span>
-                </div>
+              </div>
             </div>
 
             <div class="detail-section">
@@ -325,6 +317,15 @@ class ViewItem {
                 <div class="detail-row">
                     <span class="label">Note:</span>
                     <span class="value" style="color: red;">${item.item_note || "-"}</span>
+                </div>
+              
+                <div class="detail-row">
+                    <span class="label">Created:</span>
+                    <span class="value">${this.formatDate(item.created_at)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Updated:</span>
+                    <span class="value">${this.formatDate(item.updated_at)}</span>
                 </div>
             </div>
 
