@@ -143,9 +143,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Pack Size:</span>
-                    <span class="value">${this.formatPackSize(
-                      item.pack_size
-                    )}</span>
+                    <span class="value">${this.formatPackSize(item.pack_size)}</span>
                 </div>
             </div>
 
@@ -197,9 +195,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Repeat Item:</span>
-                    <span class="value" style="color: green;">${this.formatRepeatItem(
-                      item.repeat_item
-                    )}</span>
+                    <span class="value" style="color: green;">${this.formatRepeatItem(item.repeat_item)}</span>
                 </div>
             </div>
 
@@ -265,9 +261,7 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Pack Size:</span>
-                    <span class="value">${this.formatPackSize(
-                      item.pack_size
-                    )}</span>
+                    <span class="value">${this.formatPackSize(item.pack_size)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Delay Date:</span>
@@ -304,8 +298,8 @@ class ViewItem {
             <div class="detail-section">
                 <h3>Dates:</h3>
                 <div class="detail-row">
-                    <span class="label">Manufacture Date:</span>
-                    <span class="value" style="color: green;">${this.formatDate(item.mfg_date)}</span>
+                    <span class="label">ManufactureDate:</span>
+                    <span class="value" style="color: green;">${new Date(item.mfg_date).toDateString() || null}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Estimated Date:</span>
@@ -313,21 +307,16 @@ class ViewItem {
                 </div>
                 <div class="detail-row">
                     <span class="label">Arrive Date:</span>
-                    <span class="value">${this.formatDate(
-                      item.arrive_date
-                    )}</span>
+                    <span class="value">${new Date(item.arrive_date).toDateString() || null}</span>
+                </div>
                 </div>
                 <div class="detail-row">
                     <span class="label">Created:</span>
-                    <span class="value">${this.formatDate(
-                      item.created_at
-                    )}</span>
+                    <span class="value">${this.formatDate(item.created_at)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">Updated:</span>
-                    <span class="value">${this.formatDate(
-                      item.updated_at
-                    )}</span>
+                    <span class="value">${this.formatDate(item.updated_at)}</span>
                 </div>
             </div>
 
