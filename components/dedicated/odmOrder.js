@@ -691,6 +691,12 @@ class OdmOrder {
             }</span>
           </div>
           <div class="info-card">
+            <label>Name</label>
+            <span id="odmItemName" class="info-value">${
+              this.selectedItem.scolour
+            }</span>
+          </div>
+          <div class="info-card">
             <label>Stock</label>
             <span id="odmReceiveQty" class="info-value">${
               this.selectedItem.receive_qty || 0
