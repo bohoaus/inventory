@@ -146,6 +146,7 @@ class OdmOrder {
                                 <tr>
                                     <th>Item Code</th>
                                     <th>Colour</th>
+                                    <th>Name</th>
                                     <th>PPO#</th>
                                     <th>Stock</th>
                                     <th>Batch</th>
@@ -932,6 +933,7 @@ class OdmOrder {
           <tr>
             <td>${item.code_colour}</td>
             <td>${item.scolour}</td>
+            <td>${item.item_name}</td>
             <td>${item.odm_ppo || "-"}</td>
             <td>${item.receive_qty}</td>
             <td>${item.order_qty}</td>
