@@ -625,6 +625,7 @@ class OdmOrder {
           receive_qty,
           item_status,
           odm_customer,
+          item_name,
           item_category,
           odm_ppo,
           pack_size,
