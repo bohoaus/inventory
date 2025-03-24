@@ -123,6 +123,10 @@ class OdmOrder {
                             <span id="odmItemColour" class="info-value"></span>
                         </div>
                         <div class="info-card">
+                            <label>Name</label>
+                            <span id="odmItemName" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
                             <label>Stock</label>
                             <span id="odmReceiveQty" class="info-value"></span>
                         </div>
