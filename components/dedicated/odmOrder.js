@@ -693,7 +693,7 @@ class OdmOrder {
           <div class="info-card">
             <label>Name</label>
             <span id="odmItemName" class="info-value">${
-              this.selectedItem.scolour
+              this.selectedItem.item_name
             }</span>
           </div>
           <div class="info-card">
