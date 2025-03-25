@@ -289,6 +289,7 @@ class ViewOrder {
                         <th>Qty</th>
                         <th>Item Code</th>
                         <th>Colour</th>
+                        <th>Name</th>
                         <th>WSP</th>
                         <th>Packs</th>
                         <th>PackSize</th>
@@ -312,6 +313,7 @@ class ViewOrder {
                     <tr>
                         <th>Item Code</th>
                         <th>Colour</th>
+                        <th>Name</th>
                         <th>Packs</th>
                         <th>Qty</th>
                         <th>Sales</th>
@@ -329,6 +331,7 @@ class ViewOrder {
                             <tr>
                                 <td>${item.code}</td>
                                 <td>${item.orderColour}</td>
+                                <td>${item.itemCategory}</td>
                                 <td>${item.orderPack}</td>
                                 <td>${item.orderQty}</td>
                                 <td>${item.orderSales}</td>
@@ -393,6 +396,7 @@ class ViewOrder {
                 <td>${item.total_pieces}</td>
                 <td>${item.item_name}</td>
                 <td>${item.oicolour}</td>
+                <td>${item.oicategory}</td>
                 <td>${item.oiprice}</td>
                 <td>${item.order_qty}</td>
                 <td>${packSizeDisplay}</td>
