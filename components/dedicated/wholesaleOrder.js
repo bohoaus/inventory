@@ -136,7 +136,7 @@ class WholesaleOrder {
                             <span id="onHand" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>Release</label>
+                            <label>ReleaseDate</label>
                             <span id="itemRelease" class="info-value"></span>
                         </div>
                         <div class="info-card">
