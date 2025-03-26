@@ -180,7 +180,7 @@ class WholesaleOrder {
                                     <th>Category</th>
                                     <th>Unit/P</th>
                                     <th>Packs</th>
-                                    <th>T-Pieces</th>
+                                    <th>Pieces</th>
                                     <th>WSP</th>
                                     <th>%Off</th>
                                     <th>Actions</th>
