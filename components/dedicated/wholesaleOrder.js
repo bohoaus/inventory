@@ -128,16 +128,20 @@ class WholesaleOrder {
                             <span id="itemName" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>Status</label>
-                            <span id="itemStatus" class="info-value"></span>
-                        </div>
-                        <div class="info-card">
                             <label>Unit/P</label>
                             <span id="packUnit" class="info-value"></span>
                         </div>
                         <div class="info-card">
                             <label>OnHand</label>
                             <span id="onHand" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <label>Release</label>
+                            <span id="itemRelease" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <label>Status</label>
+                            <span id="itemStatus" class="info-value"></span>
                         </div>
                         <div class="info-card">
                             <label>ArriveDate</label>
@@ -265,9 +269,10 @@ class WholesaleOrder {
     document.getElementById("itemCode").textContent = item.code_colour || "";
     document.getElementById("itemColour").textContent = item.scolour || "";
     document.getElementById("itemName").textContent = item.item_name || "";
-    document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
     document.getElementById("onHand").textContent = availableStock;
+    document.getElementById("itemRelease").textContent = item.release_date || "";
+    document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("arriveDate").textContent = item.arrive_date || "";
 
     this.suggestionsList.style.display = "none";
