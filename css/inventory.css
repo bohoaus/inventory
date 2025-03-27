@@ -1833,10 +1833,13 @@
 }
 
 .soldout-table th:nth-child(4),
-.soldout-table td:nth-child(4),
+.soldout-table td:nth-child(4) {
+  width: 9%;
+}
+
 .soldout-table th:nth-child(5),
 .soldout-table td:nth-child(5) {
-  width: 9%;
+  width: 11%;
 }
 
 .soldout-table th:nth-child(6),
