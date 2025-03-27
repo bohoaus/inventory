@@ -165,7 +165,8 @@ class WholesaleOrder {
                                     <th>Item Code</th>
                                     <th>Colour</th>
                                     <th>Category</th>
-                                    <th>RemainingStock</th>
+                                    <th>Fabric</th>
+                                    <th>Inventory</th>
                                     <th>CurrentStatus</th>
                                     <th>StatusChange</th>
                                 </tr>
@@ -269,6 +270,7 @@ class WholesaleOrder {
     document.getElementById("itemCode").textContent = item.code_colour || "";
     document.getElementById("itemColour").textContent = item.scolour || "";
     document.getElementById("itemName").textContent = item.item_name || "";
+    document.getElementById("itemFabric").textContent = item.sfabric || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
     document.getElementById("onHand").textContent = availableStock;
     document.getElementById("itemRelease").textContent = new Date(item.release_date).toDateString() || "";
@@ -439,6 +441,7 @@ class WholesaleOrder {
                         <td>${item.code_colour}</td>
                         <td>${item.scolour}</td>
                         <td>${item.item_category}</td>
+                        <td>${item.sfabric}</td>
                         <td>${newStock}</td>
                         <td>${item.item_status}</td>
                         <td>${
