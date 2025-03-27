@@ -498,17 +498,9 @@ class ViewOrder {
                                     <td>${item.oicolour}</td>
                                     <td>${item.oicategory}</td>
                                     <td>${item.inventory?.odm_ppo || "-"}</td>
-                                    <td>${this.formatValue(
-                                      "maf_date",
-                                      item.inventory?.mfg_date
-                                    )}</td>
-                                    <td>${this.formatValue(
-                                      "arrive_date",
-                                      item.inventory?.arrive_date
-                                    )}</td>
-                                    <td>${
-                                      item.inventory?.receive_qty || "-"
-                                    }</td>
+                                    <td>${item.inventory?.mfg_date}</td>
+                                    <td>${item.inventory?.arrive_date}</td>
+                                    <td>${item.inventory?.receive_qty || "-"}</td>
                                     <td>${packSizeDisplay}</td>
                                     <td>${item.total_pieces || "-"}</td>
                                     <td>${
