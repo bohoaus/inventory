@@ -180,7 +180,7 @@ class ViewOrder {
             </div>
             <div class="detail-item">
                 <label>OrderDate:</label>
-                <span style="color:blue">${new Date(orderData.orderdate).toDateString()}</span>
+                <span style="color:green">${new Date(orderData.orderdate).toDateString()}</span>
             </div>
             <div class="detail-item">
                 <label>D-State:</label>
