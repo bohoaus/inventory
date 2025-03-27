@@ -1519,6 +1519,7 @@
 .inventory-table td[data-column="soldout_date"] {
   color: #dc3545; /* Red color for sold out dates */
   align-items: center;
+  color: red;
 }
 
 /* Update edit form layout */
