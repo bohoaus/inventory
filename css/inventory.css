@@ -1819,12 +1819,12 @@
 /* Column widths for better layout */
 .soldout-table th:nth-child(1),
 .soldout-table td:nth-child(1) {
-  width: 25%;
+  width: 20%;
 }
 
 .soldout-table th:nth-child(2),
 .soldout-table td:nth-child(2) {
-  width: 20%;
+  width: 15%;
 }
 
 .soldout-table th:nth-child(3),
