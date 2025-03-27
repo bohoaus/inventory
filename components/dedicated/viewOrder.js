@@ -529,6 +529,8 @@ class ViewOrder {
                         <th>Item Code</th>
                         <th>Colour</th>
                         <th>Name</th>
+                        <th>Fabric</th>
+                        <th>Sales</th>
                         <th>CountQty</th>
                         <th>AddedDate</th>
                         <th>RemovedDate</th>
@@ -544,6 +546,8 @@ class ViewOrder {
                                     <td>${item.code}</td>
                                     <td>${item.orderColour}</td>
                                     <td>${item.itemCategory}</td>
+                                    <td>${item.itemFabric}</td>
+                                    <td>${item.itemSales}</td>
                                     <td>${item.orderQty}</td>
                                     <td>${this.formatValue(
                                       "created_at",
