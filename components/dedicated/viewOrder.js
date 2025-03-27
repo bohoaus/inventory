@@ -478,6 +478,7 @@ class ViewOrder {
                         <th>Pack Size</th>
                         <th>CountQty</th>
                         <th>QtyDiff</th>
+                        <th>Note</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -512,6 +513,7 @@ class ViewOrder {
                                     <td>${
                                       item.inventory?.odm_qty_diff || "-"
                                     }</td>
+                                    <td>${item.oinote || "-"}</td>
                                 </tr>
                             `;
                       })
