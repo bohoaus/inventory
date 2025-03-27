@@ -400,11 +400,13 @@ class ViewOrder {
                 <td>${item.item_name}</td>
                 <td>${item.oicolour}</td>
                 <td>${item.oicategory}</td>
+                <td>${item.oifabric}</td>
                 <td>${item.oiprice}</td>
                 <td>${item.order_qty}</td>
                 <td>${packSizeDisplay}</td>
                 <td>${item.inventory?.pack_unit || "-"}</td>
                 <td>${item.order_item_status}</td>
+                <td>${item.oinote}</td>
             </tr>
         `;
       })
