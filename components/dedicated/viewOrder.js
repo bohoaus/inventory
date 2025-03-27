@@ -929,6 +929,7 @@ class ViewOrder {
                     order_item_status,
                     oicategory,
                     oifabric,
+                    oinote,
                     created_at,
                     updated_at
                 )
