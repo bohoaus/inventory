@@ -1039,6 +1039,8 @@ class ViewOrder {
           orderColour: item.oicolour,
           orderPack: item.order_qty,
           itemCategory: item.oicategory,
+          itemFabric: item.oifabric,
+          itemSales: item.oisales,
           orderQty: item.total_pieces || "-",
           addedDate:
             item.order_item_status !== "REMOVED" ? item.created_at : null,
