@@ -290,11 +290,13 @@ class ViewOrder {
                         <th>Item Code</th>
                         <th>Colour</th>
                         <th>Name</th>
+                        <th>Fabric</th>
                         <th>WSP</th>
                         <th>Packs</th>
                         <th>PackSize</th>
                         <th>Unit/P</th>
                         <th>Status</th>
+                        <th>Note</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -320,6 +322,7 @@ class ViewOrder {
                         <th>Status</th>
                         <th>AddedDate</th>
                         <th>RemovedDate</th>
+                        <th>Note</th>
                     </tr>
                 </thead>
                 <tbody>
