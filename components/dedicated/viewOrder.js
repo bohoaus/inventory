@@ -1065,6 +1065,7 @@ class ViewOrder {
               orderSales: item.oisales || null,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
+              arriveDate: item.arriveDate || "-",
               addedDate: item.created_at, // Always store created_at as added date
               removedDate: status === "REMOVED" ? item.updated_at : null,
               status: status,
