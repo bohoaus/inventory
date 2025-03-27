@@ -322,7 +322,7 @@ class ViewOrder {
                         <th>Status</th>
                         <th>AddedDate</th>
                         <th>RemovedDate</th>
-                        <th>Note</th>
+                        <th>ArriveDate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -351,6 +351,7 @@ class ViewOrder {
                                       )
                                     : "-"
                                 }</td>
+                                <td>${item.arriveDate}</td>
                             </tr>
                         `
                             )
@@ -709,6 +710,7 @@ class ViewOrder {
               item_name,
               scolour,
               sprice,
+              arrive_date,
               pack_size
             )
           `
@@ -1084,6 +1086,7 @@ class ViewOrder {
             orderPack: item.orderPack,
             orderQty: item.orderQty,
             itemCategory: item.itemCategory,
+            arriveDate: item.arriveDate,
             orderQty: item.orderQty,
             addedDate: item.addedDate,
             removedDate: item.removedDate,
