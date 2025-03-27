@@ -1049,6 +1049,7 @@ class ViewOrder {
               code: item.item_name,
               orderColour: item.oicolour,
               itemCategory: item.oicategory,
+              itemNote: item.oinote,
               orderSales: item.oisales || null,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
@@ -1085,6 +1086,7 @@ class ViewOrder {
             addedDate: item.addedDate,
             removedDate: item.removedDate,
             status: item.status,
+            itemNote: item.itemNote,
           }));
       }
     } catch (error) {
