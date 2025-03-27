@@ -271,7 +271,7 @@ class WholesaleOrder {
     document.getElementById("itemName").textContent = item.item_name || "";
     document.getElementById("packUnit").textContent = item.pack_unit || "";
     document.getElementById("onHand").textContent = availableStock;
-    document.getElementById("itemRelease").textContent = ${new date(item.release_date).toDateString() || ""};
+    document.getElementById("itemRelease").textContent = item.release_date || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
     document.getElementById("arriveDate").textContent = item.arrive_date || "";
 
