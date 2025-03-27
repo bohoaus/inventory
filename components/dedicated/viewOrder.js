@@ -977,7 +977,7 @@ class ViewOrder {
                                 <td>${item.orderQty}</td>
                                 <td>${this.formatValue(
                                   "created_at",
-                                  item.addedDate
+                                  new Date(item.addedDate).toDateString()
                                 )}</td>
                                 <td>${this.formatValue(
                                   "updated_at",
