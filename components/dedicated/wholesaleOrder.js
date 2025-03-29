@@ -173,6 +173,7 @@ class WholesaleOrder {
                                     <th>Inventory</th>
                                     <th>CurrentStatus</th>
                                     <th>StatusChange</th>
+                                    <th>ArriveDate</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -455,6 +456,7 @@ class WholesaleOrder {
                             ? "Out of Stock"
                             : "-"
                         }</td>
+                        <td>${item.arrive_date}</td>
                     </tr>
                 `;
         })
