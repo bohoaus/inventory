@@ -296,6 +296,7 @@ class ViewOrder {
                         <th>PackSize</th>
                         <th>Unit/P</th>
                         <th>Status</th>
+                        <th>Arrive</th>
                         <th>Note</th>
                     </tr>
                 </thead>
@@ -407,6 +408,7 @@ class ViewOrder {
                 <td>${packSizeDisplay}</td>
                 <td>${item.inventory?.pack_unit || "-"}</td>
                 <td>${item.order_item_status}</td>
+                <td>${item.inventory?.arrive_date}</td>
                 <td>${item.oinote}</td>
             </tr>
         `;
