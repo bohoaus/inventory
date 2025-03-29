@@ -413,7 +413,7 @@ class WholesaleItem {
             <div class="form-group-boho required">
                 <label for="receive_qty" style="width: 150px">Received Quantity</label>
                 <input type="number" maxlength="4" name="receive_qty" 
-                       step="0.5" min="0.5" 
+                       step="0.5" min="0.5"  max="9000" 
                        onchange="wholesaleItem.updateOnHandQty(this.value)">
                 <span class="pack-size-warning" style="display: none; color: #dc3545;">
                     Please set pack size first
@@ -423,7 +423,7 @@ class WholesaleItem {
             <div class="form-group-boho">
                 <label for="stock_qty" style="width: 150px">On-Hand Quantity</label>
                 <input type="number" maxlength="4" name="stock_qty" 
-                       step="0.5" min="0.5" 
+                       step="0.5" min="0.5"  max="1000" 
                        value="${item?.stock_qty || ""}"
                        onchange="wholesaleItem.updateReceiveQty(this.value)">
             </div>
