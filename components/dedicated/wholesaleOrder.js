@@ -128,6 +128,10 @@ class WholesaleOrder {
                             <span id="itemName" class="info-value"></span>
                         </div>
                         <div class="info-card">
+                            <label>Fabric</label>
+                            <span id="itemFabric" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
                             <label>Unit/P</label>
                             <span id="packUnit" class="info-value"></span>
                         </div>
