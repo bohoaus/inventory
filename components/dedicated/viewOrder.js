@@ -356,7 +356,7 @@ class ViewOrder {
                         `
                             )
                             .join("")
-                        : `<tr><td colspan="5" class="no-data">No history items</td></tr>`
+                        : `<tr><td colspan="10" class="no-data">No history items</td></tr>`
                     }
                 </tbody>
             </table>
@@ -561,7 +561,7 @@ class ViewOrder {
                             `
                             )
                             .join("")
-                        : `<tr><td colspan="6" class="no-data">No history items</td></tr>`
+                        : `<tr><td colspan="8" class="no-data">No history items</td></tr>`
                     }
                 </tbody>
             </table>
@@ -1065,7 +1065,7 @@ class ViewOrder {
               orderSales: item.oisales || null,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
-              arriveDate: item.arriveDate || "-",
+              arriveDate: item.inventory.arriveDate || "-",
               addedDate: item.created_at, // Always store created_at as added date
               removedDate: status === "REMOVED" ? item.updated_at : null,
               status: status,
