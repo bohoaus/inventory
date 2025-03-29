@@ -127,6 +127,10 @@ class OdmOrder {
                             <span id="odmItemName" class="info-value"></span>
                         </div>
                         <div class="info-card">
+                            <label>Fabric</label>
+                            <span id="odmItemFabric" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
                             <label>Stock</label>
                             <span id="odmReceiveQty" class="info-value"></span>
                         </div>
@@ -695,6 +699,12 @@ class OdmOrder {
             <label>Name</label>
             <span id="odmItemName" class="info-value">${
               this.selectedItem.item_name
+            }</span>
+          </div>
+          <div class="info-card">
+            <label>Fabric</label>
+            <span id="odmItemFabric" class="info-value">${
+              this.selectedItem.sfabric
             }</span>
           </div>
           <div class="info-card">
