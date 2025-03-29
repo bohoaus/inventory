@@ -308,7 +308,7 @@ class OdmItem {
 
             <div class="form-group-odm required">
                 <label for="mfg_date" style="width: 120px">MFG Date</label>
-                <input type="date" name="mfg_date" 
+                <input type="date" name="mfg_date"  maxlength="4" 
                        value="${item?.mfg_date || ""}">
             </div>
 
