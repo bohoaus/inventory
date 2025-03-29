@@ -474,7 +474,7 @@ class ViewOrder {
                         <th>Name</th>
                         <th>PPO</th>
                         <th>Mfg Date</th>
-                        <th>Arrive Date</th>
+                        <th>ArriveDate</th>
                         <th>Stock</th>
                         <th>Pack Size</th>
                         <th>CountQty</th>
