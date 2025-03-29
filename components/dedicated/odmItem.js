@@ -293,7 +293,7 @@ class OdmItem {
             <div class="form-group-odm required">
                 <label for="receive_qty" style="width: 120px">Received Qty</label>
                 <input type="number" maxlength="4" 
-                       name="receive_qty" step="1" min="1" 
+                       name="receive_qty" step="1" min="1"  max="9000" 
                        value="${item?.receive_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
@@ -301,7 +301,7 @@ class OdmItem {
              <div class="form-group-odm required">
                 <label for="stock_qty" style="width: 120px">Stock Qty</label>
                 <input type="number" maxlength="4" 
-                       name="stock_qty" value="" step="1" min="1" 
+                       name="stock_qty" value="" step="1" min="1"  max="9000"
                        value="${item?.stock_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
             </div>
