@@ -408,7 +408,6 @@ class ViewOrder {
                 <td>${packSizeDisplay}</td>
                 <td>${item.inventory?.pack_unit || "-"}</td>
                 <td>${item.order_item_status}</td>
-                <td>${item.inventory?.arrive_date}</td>
                 <td>${item.oinote}</td>
             </tr>
         `;
