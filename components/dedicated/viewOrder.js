@@ -319,10 +319,10 @@ class ViewOrder {
                         <th>Packs</th>
                         <th>Qty</th>
                         <th>Sales</th>
+                        <th>%Off</th>
                         <th>Status</th>
                         <th>AddedDate</th>
                         <th>RemovedDate</th>
-                        <th>ArriveDate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -338,6 +338,7 @@ class ViewOrder {
                                 <td>${item.orderPack}</td>
                                 <td>${item.orderQty}</td>
                                 <td>${item.orderSales}</td>
+                                <td>${item.oidisc}</td>
                                 <td>${item.status || "-"}</td>
                                 <td>${this.formatValue(
                                   "created_at",
@@ -351,7 +352,6 @@ class ViewOrder {
                                       )
                                     : "-"
                                 }</td>
-                                <td>${item.arriveDate}</td>
                             </tr>
                         `
                             )
@@ -1041,6 +1041,7 @@ class ViewOrder {
           itemCategory: item.oicategory,
           itemFabric: item.oifabric,
           itemSales: item.oisales,
+          itemDisc: item.oidisc,
           orderQty: item.total_pieces || "-",
           addedDate:
             item.order_item_status !== "REMOVED" ? item.created_at : null,
@@ -1062,6 +1063,7 @@ class ViewOrder {
               orderColour: item.oicolour,
               itemCategory: item.oicategory,
               itemNote: item.oinote,
+              itemDisc: item.oidisc,
               orderSales: item.oisales || null,              
               orderPack: item.order_qty || "-",
               orderQty: item.total_pieces || "-",
@@ -1095,6 +1097,7 @@ class ViewOrder {
             orderPack: item.orderPack,
             orderQty: item.orderQty,
             itemCategory: item.itemCategory,
+            itemDisc: item.itemDisc,
             arriveDate: item.arriveDate,
             orderQty: item.orderQty,
             addedDate: item.addedDate,
