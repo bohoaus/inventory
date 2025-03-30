@@ -110,6 +110,11 @@ class WholesaleOrder {
                     <label for="order_note">Note</label>
                     <input type="text" id="order_note" placeholder="Add note for this order" value="OK" maxlength="50" style="width: 200px; color: red">
                   </div>
+                  
+                    <div class="form-group-wholesale-order">
+                        <label for="oidisc">% Off</label>
+                        <input type="text" id="oidisc" maxlength="5" style="width: 30px; color: blue">
+                    </div>
                 </div>
 
                 <div class="selected-item-details" id="selectedItemDetails" style="display: none;">
