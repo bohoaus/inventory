@@ -113,7 +113,7 @@ class WholesaleOrder {
                   
                     <div class="form-group-wholesale-order">
                         <label for="oidisc" style="color: red">% Off</label>
-                        <input type="text" id="oidisc" maxlength="5" style="width: 40px; color: red">
+                        <input type="text" id="oidisc" maxlength="5" style="width: 40px; color: blue">
                     </div>
                 </div>
 
