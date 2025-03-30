@@ -431,7 +431,7 @@ class WholesaleOrder {
                           isOutOfStock ? 0 : item.pack_unit * item.orderQty
                         }</td>
                         <td>${item.swsp2}</td>
-                        <td>${item.itemDiscount}</td>
+                        <td>${item.itemDiscount || "-"}</td>
                         <td>
                             <button onclick="window.wholesaleOrder.removeItem(${index})" class="remove-btn">Remove</button>
                         </td>
