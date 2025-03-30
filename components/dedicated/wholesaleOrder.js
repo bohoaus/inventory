@@ -289,6 +289,7 @@ class WholesaleOrder {
     document.getElementById("onHand").textContent = availableStock;
     document.getElementById("itemRelease").textContent = new Date(item.release_date).toDateString() || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
+    document.getElementById("itemDiscount").textContent = item.item_status || "";
     document.getElementById("arriveDate").textContent = item.arrive_date || "";
 
     this.suggestionsList.style.display = "none";
