@@ -397,6 +397,7 @@ class OdmOrder {
             oiadddate: item.orderdate,
             order_qty: "1",
             oifabric: item.sfabric,
+            oidisc: "99",
             oisales: item.sprice,
             oicategory: item.item_name,
             oiprice: item.swsp2,
