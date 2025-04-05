@@ -156,6 +156,7 @@ class OdmItem {
       "JACKET",
       "KNIT TOP",
       "KNIT DRESS",
+      "KNIT VEST",
       "KNITWEAR",
     ];
 
