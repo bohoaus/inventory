@@ -461,7 +461,7 @@ class OdmOrder {
             item_name: itemData.item_name,
             oicolour: itemData.scolour,
             oiadddate: itemData.orderdate,
-            order_qty: itemData.order_qty,
+            order_qty: itemData.order_qty || "1",
             oidisc: itemData.oidisc,
             oiprice: itemData.swsp2,
             oisales: itemData.sprice,
