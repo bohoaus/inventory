@@ -949,7 +949,7 @@ class OdmOrder {
             <td>${item.item_name}</td>
             <td>${item.odm_ppo || "-"}</td>
             <td>${item.receive_qty}</td>
-            <td>${item.order_qty}</td>
+            <td>${item.order_qty || "1"}</td>
             <td>${packSizeDisplay}</td>
             <td>${item.existing_total + item.new_total} (${
           item.existing_total
