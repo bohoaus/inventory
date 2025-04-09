@@ -461,6 +461,8 @@ class OdmOrder {
             item_name: itemData.item_name,
             oicolour: itemData.scolour,
             oiadddate: itemData.orderdate,
+            order_qty: itemData.order_qty,
+            oidisc: itemData.oidisc,
             oiprice: itemData.swsp2,
             oisales: itemData.sprice,
             oicategory: itemData.item_category,
@@ -998,6 +1000,7 @@ class OdmOrder {
           order_items (
             item_name,
             total_pieces,
+            order_qty,
             oiprice,
             oicategory,
             oifabric,
