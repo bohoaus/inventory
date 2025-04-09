@@ -107,7 +107,7 @@ class OdmOrder {
 
                   <div class="form-group-odm-order">
                     <label for="order_note">Note</label>
-                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" style="width: 400px; color: red" maxlength="50">
+                    <input type="text" id="order_note" placeholder="Add note for this order" value="OK" style="width: 300px; color: red" maxlength="50">
                   </div>
                     <div class="form-group-odm-order">
                         <label for="oidisc" style="color: red">% Off</label>
