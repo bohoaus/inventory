@@ -1260,6 +1260,7 @@ class OdmOrder {
             item_name: item.code_colour.toUpperCase(),
             oicolour: item.scolour,
             order_qty: "1",
+            oidisc: item.oidisc,
             oiprice: item.swsp2,
             oifabric: item.sfabric,
             oisales: item.sprice,
