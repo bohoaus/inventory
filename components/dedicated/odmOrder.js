@@ -1056,6 +1056,7 @@ class OdmOrder {
               pieces: item.total_pieces,
               status: item.order_item_status,
               orderQty: item.order_qty,
+              itemOffDisc: item.oidisc,
               odmItemName: item.oicategory,
             })),
           };
