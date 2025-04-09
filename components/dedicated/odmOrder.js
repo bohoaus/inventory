@@ -1002,6 +1002,7 @@ class OdmOrder {
             total_pieces,
             order_qty,
             oiprice,
+            oidisc,
             oicategory,
             oifabric,
             oisales,
