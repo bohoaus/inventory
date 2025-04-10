@@ -110,8 +110,8 @@ class OdmOrder {
                     <input type="text" id="order_note" placeholder="Add note for this order" value="OK" style="width: 300px; color: red" maxlength="50">
                   </div>
                     <div class="form-group-odm-order">
-                        <label for="itemOffDisc" style="color: red">% Off</label>
-                        <input type="text" id="itemOffDisc" placeholder="00.00" value="88.00" maxlength="5" style="width: 50px; color: blue">
+                        <label for="odisc" style="color: red">% Off</label>
+                        <input type="text" id="odisc" placeholder="00.00" value="88.00" maxlength="5" style="width: 50px; color: blue">
                     </div>
                 </div>
 
@@ -356,6 +356,7 @@ class OdmOrder {
         order_type: this.orderType,
         status: "processing",
         agent_state: formData.get("agent_state"),
+        odisc: formData.get("odisc"),
         total_items: 0,
       };
 
@@ -672,6 +673,7 @@ class OdmOrder {
         item_name: (item.item_name || "").toUpperCase(),
         odm_customer: (item.odm_customer || "").toUpperCase(),
         odm_ppo: item.odm_ppo,
+        odisc: item.odisc,
         pack_size: item.pack_size || {}, // Store existing pack size
         odm_qty_diff: item.odm_qty_diff || 0, // Store existing qty diff
         arrive_date: item.arrive_date || 0, // identify different production
