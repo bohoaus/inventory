@@ -1059,8 +1059,8 @@ class OdmOrder {
               pieces: item.total_pieces,
               status: item.order_item_status,
               orderQty: item.order_qty,
-              itemOffDisc: item.oidisc,
-              odmItemName: item.oicategory,
+              itemOffDisc: item.odisc,
+              odmItemName: item.item_name,
             })),
           };
         });
@@ -1194,6 +1194,7 @@ class OdmOrder {
         osite: document.getElementById("osite").value || null,
         opo: document.getElementById("opo").value || null,
         ocountry: document.getElementById("ocountry").value || null,
+        odisc: document.getElementById("odisc").value || null,          
         customer_name: document.getElementById("customer_name")
           .value.toUpperCase(),
         agent_state: document.getElementById("agent_state").value.toUpperCase(),
