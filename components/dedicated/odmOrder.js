@@ -111,7 +111,7 @@ class OdmOrder {
                   </div>
                     <div class="form-group-odm-order">
                         <label for="itemOffDisc" style="color: red">% Off</label>
-                        <input type="text" id="itemOffDisc" placeholder="00.00" maxlength="5" style="width: 50px; color: blue">
+                        <input type="text" id="itemOffDisc" placeholder="00.00" value="88.00" maxlength="5" style="width: 50px; color: blue">
                     </div>
                 </div>
 
