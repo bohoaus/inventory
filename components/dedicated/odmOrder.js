@@ -893,6 +893,7 @@ class OdmOrder {
       code_colour: this.selectedItem.code_colour,
       scolour: this.selectedItem.scolour,
       item_name: this.selectedItem.item_name,
+      item_category: this.selectedItem.item_category,
       arrive_date: this.selectedItem.arrive_date,
       sfabric: this.selectedItem.sfabric,
       sprice: this.selectedItem.sprice,
