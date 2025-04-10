@@ -403,7 +403,7 @@ class OdmOrder {
             oifabric: item.sfabric,
             oidisc: item.oidisc,
             oisales: item.sprice,
-            oicategory: item.oicategory,
+            oicategory: item.item_name,
             oiprice: item.swsp2,
             total_pieces: packSizeTotal, // Use pack size total as total_pieces
             order_item_status: "PROCESSING",
