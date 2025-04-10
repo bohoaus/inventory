@@ -402,7 +402,7 @@ class OdmOrder {
             oiadddate: item.orderdate,
             order_qty: item.order_qty,
             oifabric: item.sfabric,
-            oidisc: item.oidisc,
+            oidisc: data.odisc,
             oisales: item.sprice,
             oicategory: item.item_name,
             oiprice: item.swsp2,
