@@ -1273,7 +1273,7 @@ class OdmOrder {
             oiprice: item.swsp2,
             oifabric: item.sfabric,
             oisales: item.sprice,
-            oicategory: item.item_category,
+            oicategory: item.item_name,
             total_pieces: item.new_total, // Only store new pieces in order_items
             order_item_status: "ACTIVE",
             created_at: new Date().toISOString(),
