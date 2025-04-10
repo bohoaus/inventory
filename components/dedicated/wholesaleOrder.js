@@ -112,8 +112,8 @@ class WholesaleOrder {
                   </div>
                   
                     <div class="form-group-wholesale-order">
-                        <label for="oidisc" style="color: red">% Off</label>
-                        <input type="text" id="oidisc" placeholder="00.00" value="99.00" maxlength="5" style="width: 50px; color: blue">
+                        <label for="odisc" style="color: red">% Off</label>
+                        <input type="text" id="odisc" placeholder="00.00" value="99.00" maxlength="5" style="width: 50px; color: blue">
                     </div>
                 </div>
 
@@ -270,7 +270,7 @@ class WholesaleOrder {
   selectItem(item) {
     // Calculate available stock by checking order list
     let orderedQty = 0;
-    let itemDiscount = 0;
+    let orderDiscount = 0;
     const existingOrder = this.tempOrderList.find(
       (order) => order.code_colour === item.code_colour
     );
@@ -289,7 +289,7 @@ class WholesaleOrder {
     document.getElementById("onHand").textContent = availableStock;
     document.getElementById("itemRelease").textContent = new Date(item.release_date).toDateString() || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
-    document.getElementById("itemDiscount").textContent = item.oidisc || "-";
+    document.getElementById("orderDiscount").textContent = item.oidisc || "-";
     document.getElementById("arriveDate").textContent = item.arrive_date || "";
 
     this.suggestionsList.style.display = "none";
@@ -436,7 +436,7 @@ class WholesaleOrder {
                           isOutOfStock ? 0 : item.pack_unit * item.orderQty
                         }</td>
                         <td>${item.swsp2}</td>
-                        <td>${item.itemDiscount || "-"}</td>
+                        <td>${item.orderDiscount || "-"}</td>
                         <td>
                             <button onclick="window.wholesaleOrder.removeItem(${index})" class="remove-btn">Remove</button>
                         </td>
@@ -601,6 +601,8 @@ class WholesaleOrder {
         .getElementById("invoice_no").value || null;
       const orderLocation = document
         .getElementById("osite").value || null;
+      const orderDiscount = document
+        .getElementById("odisc").value || null;
       const agentState = document
         .getElementById("agent_state")
         .value.toUpperCase();
@@ -623,6 +625,7 @@ class WholesaleOrder {
             customer_name: customerName,
             agent_state: agentState,
             total_items: totalItems,
+            odisc: orderDiscount,
             order_note: orderNote,
             order_type: "WHOLESALE",
             status: "PICKING",
@@ -652,7 +655,7 @@ class WholesaleOrder {
           oisales: item.sprice,
           oifabric: item.sfabric,
           oicategory: item.item_name,
-          oidisc: item.itemDiscount,
+          oidisc: orderData.orderDiscount,
         };
       });
 
