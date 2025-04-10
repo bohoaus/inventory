@@ -469,7 +469,7 @@ class OdmOrder {
             oidisc: itemData.oidisc,
             oiprice: itemData.swsp2,
             oisales: itemData.sprice,
-            oicategory: itemData.item_category,
+            oicategory: itemData.item_name,
             oifabric: itemData.sfabric,
             total_pieces: packSizeTotal,
             order_item_status: "PROCESSING",
