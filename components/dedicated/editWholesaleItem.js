@@ -64,11 +64,10 @@ class EditWholesaleItem {
         <!-- First Column -->
           <div class="form-group-boho-edit required">
             <label for="code_colour" style="width: 150px">Code/Colour</label>
-                    <input type="text" maxlength="30" 
+                <input type="text" maxlength="30" 
                            name="code_colour" 
                            value="${item.code_colour || ""}"
-                 required 
-                           readonly>
+                 required readonly>
           </div>
 
           <div class="form-group-boho-edit">
@@ -209,12 +208,10 @@ class EditWholesaleItem {
 
           <div class="form-group-boho-edit">
             <label for="receive_qty" style="width: 150px">ReceiveQty(Packs)</label>
-            <input type="number" maxlength="5" 
-                 name="receive_qty" 
+            <input type="number" maxlength="5" name="receive_qty" 
                  value="${item.receive_qty || 0}"
-                 min="0"
-                 step="0.5"
-                 onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
+                 min="0" step="0.5" 
+                 onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))" readonly>
             </div>
 
             <div class="form-group-boho-edit">
