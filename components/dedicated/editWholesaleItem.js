@@ -65,16 +65,14 @@ class EditWholesaleItem {
         <!-- First Column -->
           <div class="form-group-boho-edit required">
             <label for="code_colour" style="width: 150px">Code/Colour</label>
-                <input type="text" maxlength="30" 
-                           name="code_colour" 
+                <input type="text" maxlength="30" name="code_colour" 
                            value="${item.code_colour || ""}"
                  required readonly>
           </div>
 
           <div class="form-group-boho-edit">
             <label for="item_group" style="width: 150px">Group</label>
-                    <select name="item_group" required>
-            
+                    <select name="item_group" required>          
                         <option value="BOHO" ${
                           item.item_group === "BOHO" ? "selected" : ""
                         }>BOHO</option>
@@ -89,23 +87,20 @@ class EditWholesaleItem {
 
           <div class="form-group-boho-edit">
             <label for="item_name" style="width: 150px">Item Name</label>
-                    <input type="text" maxlength="30" 
-                           name="item_name" 
+                    <input type="text" maxlength="30" name="item_name" 
                            value="${item.item_name || ""}"
                            onkeyup="this.value = this.value.toUpperCase()">
           </div>
 
           <div class="form-group-boho-edit">
             <label for="scolour" style="width: 150px">Colour</label>
-                    <input type="text" maxlength="20" 
-                           name="scolour" 
+                    <input type="text" maxlength="20" name="scolour" 
                            value="${item.scolour || ""}">
           </div>
 
           <div class="form-group-boho-edit">
                     <label for="arrive_date" style="width: 150px">ArriveDate</label>
-                    <input type="date" 
-                           name="arrive_date" 
+                    <input type="date" name="arrive_date" 
                            value="${item.arrive_date || ""}">
           </div>
           
@@ -174,16 +169,14 @@ class EditWholesaleItem {
 
                 <div class="form-group-boho-edit">
                   <label for="item_location" style="width: 150px">Location</label>
-                  <input type="text" maxlength="15" 
-                   name="item_location" 
+                  <input type="text" maxlength="15" name="item_location" 
                    value="${item.item_location || ""}"
                    onkeyup="this.value = this.value.toUpperCase()">
                 </div>
 
                 <div class="form-group-boho-edit">
                     <label for="soldout_date" style="width: 150px">SoldOutDate</label>
-                    <input type="date" 
-                           name="soldout_date" 
+                    <input type="date" name="soldout_date" 
                            value="${item.soldout_date || ""}">
                 </div>
 
@@ -197,16 +190,6 @@ class EditWholesaleItem {
 
       <div class="form-column">
         <!-- Third Column -->
-        <div class="form-group-boho-edit">
-          <label for="stock_qty" style="width: 150px">StockQty(Packs)</label>
-          <input type="number" maxlength="5" 
-                 name="stock_qty" 
-                 value="${item.stock_qty || 0}"
-                 min="0"
-                 step="0.5"
-                 onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
-          </div>
-
           <div class="form-group-boho-edit">
             <label for="receive_qty" style="width: 150px">ReceiveQty(Packs)</label>
             <input type="number" maxlength="5" name="receive_qty" 
@@ -215,10 +198,17 @@ class EditWholesaleItem {
                  onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))" readonly>
             </div>
 
+        <div class="form-group-boho-edit">
+          <label for="stock_qty" style="width: 150px">StockQty(Packs)</label>
+          <input type="number" maxlength="5" name="stock_qty" 
+                 value="${item.stock_qty || 0}"
+                 min="0" step="0.5"
+                 onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
+          </div>
+
             <div class="form-group-boho-edit">
                     <label for="release_date" style="width: 150px">ReleaseDate</label>
-                    <input type="timestamp" 
-                           name="release_date" placeholder="yyyy-mm-dd" 
+                    <input type="timestamp" name="release_date" placeholder="yyyy-mm-dd" 
                            value="${item.release_date || ""}">
             </div>
 
