@@ -31,6 +31,7 @@ class EditOdmItem {
       "JACKET",
       "KNIT Top",
       "KNIT DRESS",
+      "KNIT VEST",
       "KNITWEAR",
     ];
 
