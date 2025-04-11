@@ -45,6 +45,7 @@ class EditOdmItem {
       "REPEAT",
       "OUT OF STOCK",
       "CANCELLED",
+      "COLLECTED",
       "Issue & Return",
     ];
     
