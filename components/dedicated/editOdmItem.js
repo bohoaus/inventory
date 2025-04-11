@@ -437,6 +437,7 @@ class EditOdmItem {
       }
 
       // Prepare update data with new fields
+//        receive_qty: receiveQty,
       const updateData = {
         item_group: data.item_group,
         odm_ppo: data.odm_ppo,
@@ -444,7 +445,6 @@ class EditOdmItem {
         item_category: data.item_category,
         item_name: data.item_name,
         item_status: data.item_status,
-        receive_qty: receiveQty,
         stock_qty: stockQty,
         item_note: data.item_note,
         item_location: data.item_location,
