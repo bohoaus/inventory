@@ -82,8 +82,7 @@ class EditOdmItem {
           <input type="text" maxlength="30" 
                  name="code_colour" 
                  value="${item.code_colour || ""}"
-                 required 
-                 readonly>
+                 required readonly>
         </div>
 
         <div class="form-group-odm-edit">
@@ -223,28 +222,23 @@ class EditOdmItem {
         <!-- Third Column -->
         <div class="form-group-odm-edit">
           <label for="receive_qty" style="width: 200px">ReceiveQty(Pieces)</label>
-          <input type="number" maxlength="3" 
-                 name="receive_qty" 
+          <input type="number" maxlength="3" name="receive_qty" 
                  value="${item.receive_qty || 1}"
-                 min="1"
-                 step="1"
-                 onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
+                 min="1" step="1" 
+                 onchange="window.editOdmItem.validateQuantities(this.closest('form'))" readonly>
         </div>
 
         <div class="form-group-odm-edit">
           <label for="stock_qty" style="width: 200px">StockQty(Pieces)</label>
-          <input type="number" maxlength="3" 
-                 name="stock_qty" 
+          <input type="number" maxlength="3" name="stock_qty" 
                  value="${item.stock_qty || 0}"
-                 min="0"
-                 step="1"
+                 min="0" step="1" 
                  onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
         </div>
         
         <div class="form-group-odm-edit">
           <label for="swsp" style="width: 200px">WSP</label>
-          <input type="number" maxlength="5" placeholder="00.00" 
-                 name="swsp" 
+          <input type="number" name="swsp" maxlength="5" placeholder="00.00" 
                  value="${item.swsp || "0"}">
         </div>
         
