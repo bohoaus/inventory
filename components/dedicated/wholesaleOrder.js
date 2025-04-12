@@ -269,9 +269,8 @@ class WholesaleOrder {
 
   selectItem(item) {
     // Calculate available stock by checking order list
-//    let orderDiscount = 0;
-//    let orderDiscount = document.getElementById("orderDiscount").textContent;
-    let orderDiscount = 100;
+//    let itemDiscount = document.getElementById("orderDiscount").textContent;
+    let itemDiscount = 0;
     let orderedQty = 0;
     const existingOrder = this.tempOrderList.find(
       (order) => order.code_colour === item.code_colour
