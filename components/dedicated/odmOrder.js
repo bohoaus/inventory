@@ -729,12 +729,17 @@ class OdmOrder {
             }</span>
           </div>
           <div class="info-card">
-            <label>Existing Pack Size</label>
+            <label>ExistingPackSize</label>
             <span class="info-value">${
               Object.entries(this.selectedItem.pack_size || {})
                 .map(([size, amount]) => `${size}:${amount}`)
                 .join(", ") || "None"
             }</span>
+          </div>
+          <div class="info-card">
+            <label>%Off</label>
+            <span id="odmDiscount" class="info-value">${this.selectedItem.oidisc || 0}
+            </span>
           </div>
           <div class="info-card">
             <label>CountQty</label>
