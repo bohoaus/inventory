@@ -467,7 +467,7 @@ class WholesaleOrder {
                             ? "Out of Stock"
                             : "-"
                         }</td>
-                        <td>${item.odisc}</td>
+                        <td>${item.odisc || "+"}</td>
                         <td>${item.arrive_date}</td>
                     </tr>
                 `;
