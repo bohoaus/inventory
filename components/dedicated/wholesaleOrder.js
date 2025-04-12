@@ -153,12 +153,12 @@ class WholesaleOrder {
                             <span id="itemStatus" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>%Off</label>
-                            <span id="orderDiscount" class="info-value"></span>
-                        </div>
-                        <div class="info-card">
                             <label>ArriveDate</label>
                             <span id="arriveDate" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <label>%Off</label>
+                            <span id="orderDiscount" class="info-value"></span>
                         </div>
                     </div>
                     <div class="qty-input">
