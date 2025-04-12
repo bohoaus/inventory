@@ -154,7 +154,7 @@ class WholesaleOrder {
                         </div>
                         <div class="info-card">
                             <label>%Off</label>
-                            <span id="itemDiscount" class="info-value"></span>
+                            <span id="orderDiscount" class="info-value"></span>
                         </div>
                         <div class="info-card">
                             <label>ArriveDate</label>
