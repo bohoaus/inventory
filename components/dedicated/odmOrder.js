@@ -1008,6 +1008,7 @@ class OdmOrder {
           created_at,
           orderdate,
           total_items,
+          odisc,
           order_note,
           order_items (
             item_name,
