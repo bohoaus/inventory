@@ -548,7 +548,7 @@ class UpcomingFreightList {
 
     // Create table
     const table = document.createElement("table");
-    table.className = "all-items-table";
+    table.className = "cargo-packing-table";
     table.innerHTML = `
         <thead>
             <tr>
