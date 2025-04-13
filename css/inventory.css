@@ -2884,3 +2884,13 @@ th[data-column]:hover .sort-indicator {
 .inventory-table tr:nth-child(even) {
   background-color: #f8f9fa;
 }
+
+
+/* Add cargo packing list table - JIM ON 13/04/2025*/
+.cargo-packing-table {
+  flex: 1;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}
