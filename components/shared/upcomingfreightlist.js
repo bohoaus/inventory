@@ -527,10 +527,6 @@ class UpcomingFreightList {
                   <td>Total Items:</td> <td style="width:100px; color:blue">${items.length}</td>
               </tr>
             </table>
-
-            <p>Manufacturing Date: ${date}</p>
-            <p>Cargo Reference: ${cargo}</p>
-            <p>Total Items: ${items.length}</p>
         </div>
     `;
 
