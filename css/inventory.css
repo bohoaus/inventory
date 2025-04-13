@@ -2889,7 +2889,7 @@ th[data-column]:hover .sort-indicator {
 /* Add cargo packing list table - JIM ON 13/04/2025*/
 .cargo-packing-table {
   flex: 1;
-  padding: 3px;
+  padding: 1px;
   font-size: 10px;
   overflow: auto;
   border: 1px solid #ddd;
