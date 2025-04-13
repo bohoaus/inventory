@@ -522,9 +522,9 @@ class UpcomingFreightList {
         <div class="modal-subtitle">
             <table>
               <tr>
-                  <td>Manufacturing Date:</td> <td style="width:70px; color:blue">${date}</td>
-                  <td>Cargo Reference:</td> <td style="width:70px; color:blue">${cargo}</td>
-                  <td>Total Items:</td> <td style="width:70px; color:blue">${items.length}</td>
+                  <td>Manufacturing Date:</td> <td style="width:100px; color:blue">${date}</td>
+                  <td>Cargo Reference:</td> <td style="width:100px; color:blue">${cargo}</td>
+                  <td>Total Items:</td> <td style="width:100px; color:blue">${items.length}</td>
               </tr>
             </table>
 
