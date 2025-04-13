@@ -955,7 +955,7 @@ class UpcomingFreightList {
           0: { cellWidth: 30 }, // Code
           1: { cellWidth: 15 }, // Colour
           2: { cellWidth: 15 }, // Fabric
-          3: { cellWidth: 15 }, // Brand
+          3: { cellWidth: 10 }, // Brand
           4: { cellWidth: 15 }, // Category
           5: { cellWidth: 35 }, // Pack Size
           6: { cellWidth: 10 }, // Receive Qty
