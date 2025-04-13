@@ -888,20 +888,26 @@ class UpcomingFreightList {
       // Prepare table data with updated brand info
       const headers = [
         "Code",
+        "Colour",
+        "Fabric",
         "Brand",
         "Category",
         "Pack Size",
         "Receive Qty",
+        "Bags",
         "Note",
       ];
       const tableData = sortedItems.map((item) => [
         item.code_colour || "",
+        item.scolour || "",
+        item.sfabric || "",
         this.getBrandInfo(item),
         item.item_category || "",
         this.formatPackSizeString(item.pack_size),
         ["BOHO", "PRIMROSE"].includes(item.item_group?.toUpperCase())
           ? `${item.receive_qty || "0"} packs`
           : `${item.receive_qty || "0"} pcs`,
+        item.freight_bags || "",
         item.item_note || "",
       ]);
 
