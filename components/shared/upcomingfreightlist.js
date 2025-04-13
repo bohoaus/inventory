@@ -556,7 +556,8 @@ class UpcomingFreightList {
                 <th>Brand</th>
                 <th>Category</th>
                 <th>Pack Size</th>
-                <th>Receive Qty</th>
+                <th>mfgQty</th>
+                <th>Bags</th>
                 <th>Note</th>
             </tr>
         </thead>
@@ -584,6 +585,7 @@ class UpcomingFreightList {
                         <td>${item.item_category || ""}</td>
                         <td>${this.formatPackSizeString(item.pack_size)}</td>
                         <td>${qtyDisplay}</td>
+                        <td>${item.freight_bags || "-"</td>
                         <td>${item.item_note || ""}</td>
                     </tr>
                 `;
