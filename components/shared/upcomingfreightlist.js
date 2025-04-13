@@ -893,7 +893,7 @@ class UpcomingFreightList {
         "Label",
         "Category",
         "PackSize",
-        "ReceiveQty",
+        "Qty",
         "Bags",
         "Note",
       ];
@@ -953,13 +953,13 @@ class UpcomingFreightList {
         },
         columnStyles: {
           0: { cellWidth: 30 }, // Code
-          1: { cellWidth: 15 }, // Colour
+          1: { cellWidth: 16 }, // Colour
           2: { cellWidth: 15 }, // Fabric
           3: { cellWidth: 15 }, // Brand
-          4: { cellWidth: 15 }, // Category
+          4: { cellWidth: 17 }, // Category
           5: { cellWidth: 35 }, // Pack Size
-          6: { cellWidth: 10 }, // Receive Qty
-          7: { cellWidth: 12 }, // Bags
+          6: { cellWidth: 14 }, // Receive Qty
+          7: { cellWidth: 11 }, // Bags
           8: { cellWidth: "auto" }, // Note - takes remaining space
         },
         didDrawPage: (data) => {
