@@ -589,7 +589,7 @@ class UpcomingFreightList {
                         <td>${item.item_category || ""}</td>
                         <td>${this.formatPackSizeString(item.pack_size)}</td>
                         <td>${qtyDisplay}</td>
-                        <td>${item.freight_bags || "-"</td>
+                        <td>${item.freight_bags || "-"}</td>
                         <td>${item.item_note || ""}</td>
                     </tr>
                 `;
