@@ -553,6 +553,8 @@ class UpcomingFreightList {
         <thead>
             <tr>
                 <th>Code</th>
+                <th>Colour</th>
+                <th>Fabric</th>
                 <th>Brand</th>
                 <th>Category</th>
                 <th>Pack Size</th>
@@ -581,6 +583,8 @@ class UpcomingFreightList {
                 return `
                     <tr style="background-color: ${backgroundColor}">
                         <td>${item.code_colour || ""}</td>
+                        <td>${item.scolour || ""}</td>
+                        <td>${item.sfabric || ""}</td>
                         <td>${brand}</td>
                         <td>${item.item_category || ""}</td>
                         <td>${this.formatPackSizeString(item.pack_size)}</td>
