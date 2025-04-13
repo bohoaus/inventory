@@ -946,12 +946,15 @@ class UpcomingFreightList {
           lineWidth: 0.1,
         },
         columnStyles: {
-          0: { cellWidth: 30 }, // Code
-          1: { cellWidth: 25 }, // Brand
-          2: { cellWidth: 25 }, // Category
-          3: { cellWidth: 35 }, // Pack Size
-          4: { cellWidth: 25 }, // Receive Qty
-          5: { cellWidth: "auto" }, // Note - takes remaining space
+          0: { cellWidth: 35 }, // Code
+          1: { cellWidth: 25 }, // Colour
+          2: { cellWidth: 25 }, // Fabric
+          3: { cellWidth: 25 }, // Brand
+          4: { cellWidth: 25 }, // Category
+          5: { cellWidth: 35 }, // Pack Size
+          6: { cellWidth: 15 }, // Receive Qty
+          7: { cellWidth: 15 }, // Bags
+          8: { cellWidth: "auto" }, // Note - takes remaining space
         },
         didDrawPage: (data) => {
           // Add page numbers in black
