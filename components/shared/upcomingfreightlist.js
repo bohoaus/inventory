@@ -301,19 +301,19 @@ class UpcomingFreightList {
     form.innerHTML = `
         <h3>Bulk Edit - ${date} ${cargo}</h3>
         <div class="form-group">
-            <label>Estimated Date</label>
+            <label>EstimatedDate</label>
             <input type="date" name="est_date">
         </div>
         <div class="form-group">
-            <label>Delay Date</label>
+            <label>DelayDate</label>
             <input type="date" name="delay_date">
         </div>
         <div class="form-group">
-            <label>Arrive Date</label>
+            <label>ArriveDate</label>
             <input type="date" name="arrive_date">
         </div>
         <div class="form-group">
-            <label>Bags Amount</label>
+            <label>Bags</label>
             <input type="number" name="freight_bags" min="0" step="1">
         </div>
         <div class="form-actions">
@@ -555,7 +555,7 @@ class UpcomingFreightList {
                 <th>Code</th>
                 <th>Colour</th>
                 <th>Fabric</th>
-                <th>Brand</th>
+                <th>Label</th>
                 <th>Category</th>
                 <th>Pack Size</th>
                 <th>mfgQty</th>
@@ -890,10 +890,10 @@ class UpcomingFreightList {
         "Code",
         "Colour",
         "Fabric",
-        "Brand",
+        "Label",
         "Category",
-        "Pack Size",
-        "Receive Qty",
+        "PackSize",
+        "ReceiveQty",
         "Bags",
         "Note",
       ];
