@@ -953,10 +953,10 @@ class UpcomingFreightList {
         },
         columnStyles: {
           0: { cellWidth: 30 }, // Code
-          1: { cellWidth: 16 }, // Colour
-          2: { cellWidth: 15 }, // Fabric
-          3: { cellWidth: 15 }, // Brand
-          4: { cellWidth: 17 }, // Category
+          1: { cellWidth: 20 }, // Colour
+          2: { cellWidth: 20 }, // Fabric
+          3: { cellWidth: 20 }, // Brand
+          4: { cellWidth: 20 }, // Category
           5: { cellWidth: 35 }, // Pack Size
           6: { cellWidth: 14 }, // Receive Qty
           7: { cellWidth: 11 }, // Bags
