@@ -520,6 +520,14 @@ class UpcomingFreightList {
     header.innerHTML = `
         <h2>Packing List Details</h2>
         <div class="modal-subtitle">
+            <table>
+              <tr>
+                  <td>Manufacturing Date:</td> <td>${date}</td>
+                  <td>Cargo Reference:</td> <td>${cargo}</td>
+                  <td>Total Items:</td> <td>${items.length}</td>
+              </tr>
+            </table>
+
             <p>Manufacturing Date: ${date}</p>
             <p>Cargo Reference: ${cargo}</p>
             <p>Total Items: ${items.length}</p>
