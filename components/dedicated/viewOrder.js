@@ -304,7 +304,7 @@ class ViewOrder {
                     ${
                       activeItems.length > 0
                         ? this.generateActiveItemsRows(activeItems, false)
-                        : `<tr><td colspan="7" class="no-data">No active items</td></tr>`
+                        : `<tr><td colspan="13" class="no-data">No active items</td></tr>`
                     }
                 </tbody>
             </table>
