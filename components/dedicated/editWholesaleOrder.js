@@ -239,12 +239,12 @@ class EditWholesaleOrder {
                 </div>
             </div>
 
-          <div class="editwholesaleorder-actions">
-            <button type="button" class="editwholesaleorder-btn editwholesaleorder-btn-secondary" onclick="document.getElementById('editWholesaleOrderModal').style.display='none'">Cancel</button>
-            <button type="submit" class="editwholesaleorder-btn editwholesaleorder-btn-primary">Update Order</button>
-            </div>
         </div>
     `;
+//          <div class="editwholesaleorder-actions">
+//            <button type="button" class="editwholesaleorder-btn editwholesaleorder-btn-secondary" onclick="document.getElementById('editWholesaleOrderModal').style.display='none'">Cancel</button>
+//            <button type="submit" class="editwholesaleorder-btn editwholesaleorder-btn-primary">Update Order</button>
+//            </div>
 
       this.setupEventListeners();
 
