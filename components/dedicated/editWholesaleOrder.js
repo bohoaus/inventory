@@ -109,7 +109,6 @@ class EditWholesaleOrder {
 
       // Generate and set form HTML
       form.innerHTML = `
-        Boho & Primrose Updating:
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
@@ -182,7 +181,7 @@ class EditWholesaleOrder {
                 </div>
             <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                     <label for="order_note" style="text-align:left; display: block; width: 100px">Order Note</label>
-              <textarea style="color:red" id="order_note" rows="1" placeholder="Add note for this order">${
+              <textarea style="color:blue" id="order_note" rows="1" placeholder="Add note for this order">${
                 orderData.order_note || ""
               }</textarea>
                 </div>
