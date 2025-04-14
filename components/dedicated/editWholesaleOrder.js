@@ -111,7 +111,7 @@ class EditWholesaleOrder {
       form.innerHTML = `
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
-              <div class="editwholesaleorder-actions">
+              <div class="editwholesaleorder-actions" style="display: flex; justify-content: flex-end">
                 <button type="button" class="editwholesaleorder-btn editwholesaleorder-btn-secondary" onclick="document.getElementById('editWholesaleOrderModal').style.display='none'">Cancel</button>
                 <button type="submit" class="editwholesaleorder-btn editwholesaleorder-btn-primary">Update Order</button>
               </div>
