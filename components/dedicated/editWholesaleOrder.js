@@ -110,11 +110,11 @@ class EditWholesaleOrder {
       // Generate and set form HTML
       form.innerHTML = `
         <div class="editwholesaleorder-form">
-          <div class="editwholesaleorder-section">
               <div class="editwholesaleorder-actions" style="display: flex; justify-content: flex-end">
                 <button type="button" class="editwholesaleorder-btn editwholesaleorder-btn-secondary" onclick="document.getElementById('editWholesaleOrderModal').style.display='none'">Cancel</button>
                 <button type="submit" class="editwholesaleorder-btn editwholesaleorder-btn-primary">Update Order</button>
               </div>
+          <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 300px">
                         <label style="text-align:left; display: block; width: 500px"">Customer Name</label>
