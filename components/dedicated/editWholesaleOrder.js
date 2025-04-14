@@ -112,6 +112,10 @@ class EditWholesaleOrder {
         <div class="editwholesaleorder-form">
           <div class="editwholesaleorder-section">
             <div class="editwholesaleorder-row">
+              <div class="editwholesaleorder-actions">
+                <button type="button" class="editwholesaleorder-btn editwholesaleorder-btn-secondary" onclick="document.getElementById('editWholesaleOrderModal').style.display='none'">Cancel</button>
+                <button type="submit" class="editwholesaleorder-btn editwholesaleorder-btn-primary">Update Order</button>
+              </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 300px">
                         <label style="text-align:left; display: block; width: 400px"">Customer Name</label>
                         <input type="text" style="text-align:left; display: block; width: 400px" 
