@@ -118,7 +118,7 @@ class EditWholesaleOrder {
               </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center; width: 300px">
                         <label style="text-align:left; display: block; width: 400px"">Customer Name</label>
-                        <input type="text" style="text-align:left; display: block; width: 400px" 
+                        <input type="text" style="text-align:left; display: flexi; width: 400px" 
                           value="${orderData.customer_name || ""}" disabled>
                     </div>
               <div class="editwholesaleorder-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
