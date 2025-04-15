@@ -50,7 +50,8 @@
 }
 
 .weekly-summary-modal .close:hover {
-  color: yellow;
+  color: green;
+  background-color: yellow;
   font-size: 15px;
 }
 
