@@ -416,7 +416,7 @@ class WholesaleItem {
             <div class="form-group-boho required">
                 <label for="receive_qty" style="width: 150px">Received Quantity</label>
                 <input type="number" maxlength="4" name="receive_qty" 
-                       step="0.5" min="0.5"  max="9000" 
+                       placeholder="00.00" step="0.5" min="0.5"  max="9000" 
                        onchange="wholesaleItem.updateOnHandQty(this.value)">
                 <span class="pack-size-warning" style="display: none; color: #dc3545;">
                     Please set pack size first
