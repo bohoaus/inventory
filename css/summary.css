@@ -50,7 +50,8 @@
 }
 
 .weekly-summary-modal .close:hover {
-  color: #dc3545;
+  color: yellow;
+  font-size: 15px;
 }
 
 /* Filter Section */
