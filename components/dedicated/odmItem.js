@@ -33,6 +33,7 @@ class OdmItem {
       scountry: formData.get("scountry"),
       pack_unit: formData.get("pack_unit"),
       pack_size: formData.get("pack_size"),
+      freight_bags: formData.get("freight_bags"),
     };
 
     const { data, error } = await supabaseClient
@@ -71,6 +72,7 @@ class OdmItem {
       scountry: formData.get("scountry"),
       pack_unit: formData.get("pack_unit"),
       pack_size: formData.get("pack_size"),
+      freight_bags: formData.get("freight_bags"),
     };
 
     const { data, error } = await supabaseClient
@@ -305,6 +307,13 @@ class OdmItem {
                        name="stock_qty" value="" step="1" min="1"  max="9000"
                        value="${item?.stock_qty || ""}" 
                        onchange="odmItem.validateForm(this.closest('form'))">
+            </div>
+
+            <div class="form-group-odm">
+                <label for="freight_bags" style="width: 120px">Bags</label>
+                <input type="number" maxlength="5" name="freight_bags" 
+                       placeholder="00.00" step="0.5" min="0.5"  max="100" 
+                       value="${item?.freight_bags || ""}">
             </div>
 
             <div class="form-group-odm required">
