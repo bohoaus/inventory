@@ -35,6 +35,7 @@ class WholesaleItem {
         sprice: formData.get("sprice") || null,
         sfactory: formData.get("sfactory") || null,
         scountry: formData.get("scountry") || null,
+        freight_bags: formData.get("freight_bags") || null,
       };
 
       // Case-insensitive group validation
@@ -86,6 +87,7 @@ class WholesaleItem {
       scolour: formData.get("scolour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
+      freight_bags: formData.get("freight_bags"),
     };
 
     // Case-insensitive group validation
@@ -427,6 +429,13 @@ class WholesaleItem {
                        step="0.5" min="0.5"  max="1000" 
                        value="${item?.stock_qty || ""}"
                        onchange="wholesaleItem.updateReceiveQty(this.value)">
+            </div>
+
+            <div class="form-group-boho">
+                <label for="freight_bags" style="width: 150px">Bags</label>
+                <input type="number" maxlength="5" name="freight_bags" 
+                       placeholder="00.00" step="0.5" min="0.5"  max="100" 
+                       value="${item?.freight_bags || ""}"
             </div>
 
             <div class="form-group-boho required">
