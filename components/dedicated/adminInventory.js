@@ -61,7 +61,7 @@ class AdminInventory {
       "soldout_date",
       "pack_size",
       "repeat_item",
-      "receive_qty",
+      "receive_qty(freight_bags)",
       "item_aging",
       "item_note",
       "item_category",
