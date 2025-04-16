@@ -47,6 +47,7 @@ class AdminInventory {
     this.subscriptions = [];
 
     // Default selected columns
+//      { id: "receive_qty", label: "Qty" },
     this.selectedColumns = [
       "arrive_date",
       "code_colour",
@@ -62,7 +63,6 @@ class AdminInventory {
       "pack_size",
       "repeat_item",
       "receive_qty(freight_bags)",
-      { id: "receive_qty", label: "Qty" },
       "item_aging",
       "item_note",
       "item_category",
@@ -87,7 +87,6 @@ class AdminInventory {
       "pack_size",
       "repeat_item",
       "receive_qty(freight_bags)",
-      { id: "receive_qty", label: "Qty" },
       "item_aging",
       "item_note",
       "item_category",
