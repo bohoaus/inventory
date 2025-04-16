@@ -62,6 +62,7 @@ class AdminInventory {
       "pack_size",
       "repeat_item",
       "receive_qty(freight_bags)",
+      { id: "receive_qty", label: "Qty" },
       "item_aging",
       "item_note",
       "item_category",
@@ -70,6 +71,7 @@ class AdminInventory {
     ];
 
     // Define default columns that cannot be unchecked
+//      { id: "receive_qty", label: "Qty" },
     this.defaultColumns = [
       "arrive_date",
       "code_colour",
