@@ -507,6 +507,7 @@ class OdmItem {
     const fabricInput = form.querySelector('select[name="sfabric"]');
     const countryInput = form.querySelector('select[name="scountry"]');
     const factoryInput = form.querySelector('select[name="sfactory"]');
+    const bagsInput = form.querySelector('input[name="freight_bags"]');
     const submitButton = form.querySelector(".add-item-btn");
 
     if (!codeInput || !customerInput || !submitButton) return;
