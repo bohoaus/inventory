@@ -526,6 +526,7 @@ class OdmItem {
       fabricInput.value !== "" &&
       countryInput.value !== "" &&
       factoryInput.value !== "" &&
+      bagsInput.value.trim() !== "" &&
       !submitButton.hasAttribute("data-warning");
 
     submitButton.disabled = !isValid;
@@ -558,6 +559,7 @@ class OdmItem {
     const fabricInput = form.querySelector('select[name="sfabric"]');
     const countryInput = form.querySelector('select[name="scountry"]');
     const factoryInput = form.querySelector('select[name="sfactory"]');
+    const bagsInput = form.querySelector('input[name="freight_bags"]');
 
     // Trim values to check for empty or whitespace-only input
     const codeValue = codeInput?.value.trim();
@@ -641,6 +643,12 @@ class OdmItem {
         "error"
       );
       receiveQtyInput?.focus();
+      return;
+    }
+
+    if (!bagsInput.value) {
+      adminInventory.showNotification("Please Enter Item Bags", "error");
+      bagsInput?.focus();
       return;
     }
 
