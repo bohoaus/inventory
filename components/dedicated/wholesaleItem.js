@@ -35,7 +35,7 @@ class WholesaleItem {
         sprice: formData.get("sprice") || null,
         sfactory: formData.get("sfactory") || null,
         scountry: formData.get("scountry") || null,
-        freight_bags: formData.get("freight_bags") || null,
+        freight_bags: formData.get("freight_bags") || 0,
       };
 
       // Case-insensitive group validation
@@ -87,7 +87,7 @@ class WholesaleItem {
       scolour: formData.get("scolour"),
       sfactory: formData.get("sfactory"),
       scountry: formData.get("scountry"),
-      freight_bags: formData.get("freight_bags"),
+      freight_bags: formData.get("freight_bags") || 0,
     };
 
     // Case-insensitive group validation
@@ -1043,6 +1043,7 @@ class WholesaleItem {
     const arriveDateInput = form.querySelector('input[name="arrive_date"]');
     const estDateInput = form.querySelector('input[name="est_date"]');
     const hasSizes = this.packSizes.size > 0;
+    const bagsInput = form.querySelector('input[name="freight_bags"]');
 
     // Trim the code value to check for empty or whitespace-only input
     const codeValue = codeInput.value.trim();
@@ -1109,7 +1110,7 @@ class WholesaleItem {
     if (!colourInput.value) {
       adminInventory.showNotification("Please Enter Colour","error");
       colourInput?.focus();
-      return;
+      return;bagsInput
     }
 
     if (!countrySelect.value) {
@@ -1121,6 +1122,12 @@ class WholesaleItem {
     if (!factorySelect.value) {
       adminInventory.showNotification("Please Select Factory","error");
       factorySelect?.focus();
+      return;
+    }
+
+    if (!bagsInput.value) {
+      adminInventory.showNotification("Please Enter Item Bags","error");
+      bagsInput?.focus();
       return;
     }
 
