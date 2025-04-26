@@ -145,6 +145,10 @@ class ViewItem {
                     <span class="label">Pack Size:</span>
                     <span class="value">${this.formatPackSize(item.pack_size)}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">Bags:</span>
+                    <span class="value">${item.freight_bags || "0"}</span>
+                </div>
             </div>
 
             <div class="detail-section">
@@ -268,6 +272,10 @@ class ViewItem {
                     <span class="value">${this.formatDate(
                       item.delay_date
                     )}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Bags:</span>
+                    <span class="value">${item.freight_bags || "0"}</span>
                 </div>
             </div>
 
