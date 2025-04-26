@@ -870,6 +870,9 @@ class WholesaleItem {
         ...(formData.get("scountry") && {
           scountry: formData.get("scountry"),
         }),
+        ...(formData.get("freight_bags") && {
+          freight_bags: formData.get("freight_bags"),
+        }),
       };
 
       // Insert into database
