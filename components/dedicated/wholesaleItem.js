@@ -435,7 +435,7 @@ class WholesaleItem {
                 <label for="freight_bags" style="width: 150px">Bags</label>
                 <input type="number" maxlength="5" name="freight_bags" 
                        placeholder="00.00" step="0.5" min="0.5"  max="100" 
-                       value="${item?.freight_bags || "0"}">
+                       value="${item?.freight_bags || ""}">
             </div>
 
             <div class="form-group-boho required">
