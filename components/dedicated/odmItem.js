@@ -313,7 +313,7 @@ class OdmItem {
                 <label for="freight_bags" style="width: 120px">Bags</label>
                 <input type="number" maxlength="5" name="freight_bags" 
                        placeholder="00.00" step="0.5" min="0.5"  max="100" 
-                       value="${item?.freight_bags || ""}">
+                       value="${item?.freight_bags || "0"}">
             </div>
 
             <div class="form-group-odm required">
