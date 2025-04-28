@@ -183,6 +183,7 @@ class WholesaleOrder {
                                     <th>CurrentStatus</th>
                                     <th>StatusChange</th>
                                     <th>ArriveDate</th>
+                                    <th>%Off</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
