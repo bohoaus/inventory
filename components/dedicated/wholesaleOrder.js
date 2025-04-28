@@ -658,7 +658,7 @@ class WholesaleOrder {
           oisales: item.sprice,
           oifabric: item.sfabric,
           oicategory: item.item_name,
-          oidisc: orderData.orderDiscount,
+          oidisc: "1",
         };
       });
 
