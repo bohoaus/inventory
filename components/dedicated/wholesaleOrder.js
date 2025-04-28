@@ -183,7 +183,6 @@ class WholesaleOrder {
                                     <th>CurrentStatus</th>
                                     <th>StatusChange</th>
                                     <th>ArriveDate</th>
-                                    <th>%Off</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -658,7 +657,7 @@ class WholesaleOrder {
           oisales: item.sprice,
           oifabric: item.sfabric,
           oicategory: item.item_name,
-          oidisc: orderData.odisc,
+          oidisc: orderData.orderDiscount,
         };
       });
 
@@ -817,5 +816,6 @@ document.addEventListener("DOMContentLoaded", () => {
   wholesaleOrder = new WholesaleOrder();
 });
 
+//jimm-this one is ok-2025.03.05
 //jimm-this one is ok-2025.03.05
 //jimm-this one is ok-2025.02.25
