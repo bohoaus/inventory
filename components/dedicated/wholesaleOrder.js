@@ -84,7 +84,7 @@ class WholesaleOrder {
                     </div>
                     <div class="form-group">
                         <label for="invoice_no">Invoice#</label>
-                        <input style="width: 80px" type="text" id="invoice_no" value="12171550" maxlength="10">
+                        <input style="width: 80px" type="text" id="invoice_no" value="12171650" maxlength="10">
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@ class WholesaleOrder {
                   
                     <div class="form-group-wholesale-order">
                         <label for="odisc" style="color: red">% Off</label>
-                        <input type="text" id="odisc" placeholder="00.00" value="99.00" maxlength="5" style="width: 50px; color: blue">
+                        <input type="text" id="odisc" placeholder="00.00" maxlength="5" style="width: 50px; color: blue">
                     </div>
                 </div>
 
@@ -153,12 +153,12 @@ class WholesaleOrder {
                             <span id="itemStatus" class="info-value"></span>
                         </div>
                         <div class="info-card">
-                            <label>%Off</label>
-                            <span id="itemDiscount" class="info-value"></span>
-                        </div>
-                        <div class="info-card">
                             <label>ArriveDate</label>
                             <span id="arriveDate" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <label>%Off</label>
+                            <span id="orderDiscount" class="info-value"></span>
                         </div>
                     </div>
                     <div class="qty-input">
@@ -183,6 +183,7 @@ class WholesaleOrder {
                                     <th>CurrentStatus</th>
                                     <th>StatusChange</th>
                                     <th>ArriveDate</th>
+                                    <th>%Off</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -270,7 +271,7 @@ class WholesaleOrder {
   selectItem(item) {
     // Calculate available stock by checking order list
 //    let itemDiscount = document.getElementById("orderDiscount").textContent;
-    let itemDiscount = 0;
+    let itemDiscount = 100;
     let orderedQty = 0;
     const existingOrder = this.tempOrderList.find(
       (order) => order.code_colour === item.code_colour
@@ -290,7 +291,7 @@ class WholesaleOrder {
     document.getElementById("onHand").textContent = availableStock;
     document.getElementById("itemRelease").textContent = new Date(item.release_date).toDateString() || "";
     document.getElementById("itemStatus").textContent = item.item_status || "";
-    document.getElementById("orderDiscount").textContent = item.oidisc || "-";
+    document.getElementById("orderDiscount").textContent = item.odisc || "-";
     document.getElementById("arriveDate").textContent = item.arrive_date || "";
 
     this.suggestionsList.style.display = "none";
@@ -468,6 +469,7 @@ class WholesaleOrder {
                             : "-"
                         }</td>
                         <td>${item.arrive_date}</td>
+                        <td>${item.odisc || "+"}</td>
                     </tr>
                 `;
         })
