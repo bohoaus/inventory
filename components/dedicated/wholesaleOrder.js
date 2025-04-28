@@ -605,7 +605,7 @@ class WholesaleOrder {
       const orderLocation = document
         .getElementById("osite").value || null;
       const orderDiscount = document
-        .getElementById("odisc").value || "0";
+        .getElementById("odisc").value || null;
       const agentState = document
         .getElementById("agent_state")
         .value.toUpperCase();
