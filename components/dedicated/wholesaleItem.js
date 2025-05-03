@@ -204,6 +204,7 @@ class WholesaleItem {
       "Bamboo Rayon",
       "Cotton",
       "Cotton+",
+      "Denim",
       "Crinkle Rayon",
       "Linen",
       "Linen+",
