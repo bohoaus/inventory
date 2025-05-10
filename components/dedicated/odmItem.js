@@ -186,6 +186,7 @@ class OdmItem {
       "Rayon",
       "Rayon+",
       "Silk",
+      "Tencel",
       "Viscose",
       "Viscose+",
       "Acrylic",
