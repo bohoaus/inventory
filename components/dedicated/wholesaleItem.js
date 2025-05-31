@@ -228,6 +228,7 @@ class WholesaleItem {
       "SS+8620",
       "YJ+8620",
       "K-DH+8620",
+      "K-HRZX+8620",
       "K-LG+8620",
       "K-MX+8620",
       "K-RD+8620",
