@@ -91,8 +91,10 @@ class OdmItem {
 
   async updateItemStatus(itemId, status) {
     const validStatuses = [
-      "ARRIVED",
+      "SHIPPING-A",
+      "SHIPPING-S",
       "SHIPPING",
+      "ARRIVED",
       "NOT RELEASED",
       "RELEASED",
       "IN STOCK",
