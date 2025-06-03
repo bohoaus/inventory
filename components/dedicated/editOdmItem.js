@@ -36,6 +36,8 @@ class EditOdmItem {
     ];
 
     const statuses = [
+      "SHIPPING-A",
+      "SHIPPING-S",
       "SHIPPING",
       "ARRIVED",
       "FULL PRICE",
