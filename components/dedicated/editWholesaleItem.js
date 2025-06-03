@@ -38,10 +38,10 @@ class EditWholesaleItem {
     ];
 
     const statuses = [
+      "ARRIVED",
       "SHIPPING-A",
       "SHIPPING-S",
       "SHIPPING",
-      "ARRIVED",
       "FULL PRICE",
       "DISPATCHED",
       "ON SALE",
