@@ -184,6 +184,8 @@ class WholesaleItem {
     ];
 
     const statuses = [
+      "SHIPPING-A",
+      "SHIPPING-S",
       "SHIPPING",
       "ARRIVED",
       "ON HOLD",
