@@ -193,6 +193,8 @@ class OdmOrder {
   setupEventListeners() {
     // Customer name validation with uppercase
     const customerNameInput = document.getElementById("customer_name");
+    const orderDateInput = document.getElementById("orderdate");
+    
     customerNameInput?.addEventListener("input", (e) => {
       // Convert to uppercase
       let value = e.target.value.toUpperCase();
@@ -1355,15 +1357,21 @@ class OdmOrder {
 
   validateForm() {
     const customerName = document.getElementById("customer_name")?.value.trim();
+    const orderDateSelect = document.getElementById("orderdate")?.value.trim();
     const agentState = document.getElementById("agent_state")?.value;
 
     if (!customerName) {
-      alert("Please enter customer name");
+      alert("Please enter customer name!");
+      return false;
+    }
+
+    if (!orderDateSelect) {
+      alert("Please Select Order Date!");
       return false;
     }
 
     if (!agentState) {
-      alert("Please select agent state");
+      alert("Please select agent state!");
       return false;
     }
 
