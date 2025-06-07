@@ -482,6 +482,7 @@ class WholesaleOrder {
   setupEventListeners() {
     // Customer name input handler
     const customerNameInput = document.getElementById("customer_name");
+    const orderDateInput = document.getElementById("orderdate");
     const submitButton = document.getElementById("submitOrder");
 
     if (customerNameInput) {
