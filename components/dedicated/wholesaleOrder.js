@@ -485,7 +485,7 @@ class WholesaleOrder {
     const orderDateInput = document.getElementById("orderdate");
     const submitButton = document.getElementById("submitOrder");
 
-    if (customerNameInput) {
+    if (customerNameInput && orderDateInput) {
       const handleCustomerNameChange = async (e) => {
         let value = e.target.value.toUpperCase().replace(/\s+/g, " "); // Replace multiple spaces with single space
 
