@@ -85,9 +85,10 @@
 
 /* Styles for the Order Contribution table */
 /*  display: grid; */
+/*  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
 .stat-group {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  flex-direction: row;
   gap: 6px;
   margin-bottom: 3px;
 }
