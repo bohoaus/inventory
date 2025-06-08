@@ -29,7 +29,7 @@ class OrderContribution {
                             </div>
                         </div>
                         <div class="weekly-stats">
-                            <h3>Wholesale Orders(Total:<div class="value" id="totalWholesale">0</div>)</h3>
+                            <h3>Wholesale (Orders:<div class="value" id="totalWholesale">0</div>)</h3>
                             <span style="width:20px; color:blue" id="totalWholesale"></span>
                             <div class="stat-group">
                                 <div class="stat-card">
@@ -53,7 +53,7 @@ class OrderContribution {
                                     <div class="value" id="cancelledWholesale">0</div>
                                 </div>
                             </div>
-                            <h3>ODM Orders</h3>
+                            <h3>ODM (Orders:<div class="value" id="totalOdm">0</div>)</h3>
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3>Total ODM</h3>
