@@ -1804,8 +1804,9 @@
   background-color: #f8f9fa;
 }
 
+/* sold out inventory table row  */
 .soldout-table tr:hover {
-  background-color: #f2f2f2;
+  background-color: yellow;
 }
 
 .soldout-table-container {
