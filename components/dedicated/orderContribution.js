@@ -29,7 +29,7 @@ class OrderContribution {
                             </div>
                         </div>
                         <div class="weekly-stats">
-                            <h3>Wholesale Orders</h3>(Total:<div class="value" id="totalWholesale">0</div>)
+                            <h3>Wholesale Orders(Total:<div class="value" id="totalWholesale">0</div>)</h3>
                             <span style="width:20px; color:blue" id="totalWholesale"></span>
                             <div class="stat-group">
                                 <div class="stat-card">
