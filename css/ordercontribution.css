@@ -89,8 +89,8 @@
 /*  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
 /*  flex-direction: row; */
 .stat-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 6px;
   margin-bottom: 3px;
 }
