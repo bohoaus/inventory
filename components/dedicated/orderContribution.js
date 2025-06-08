@@ -42,38 +42,38 @@ class OrderContribution {
                                 </div>
                                 <div class="stat-card">
                                     <h3>On Hold</h3>
-                                    <div class="value" id="holdWholesale">0</div>
+                                    <div class="value" id="holdWholesale" style="width:20px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Dispatched</h3>
-                                    <div class="value" id="dispatchedWholesale">0</div>
+                                    <div class="value" id="dispatchedWholesale" style="width:20px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Cancelled</h3>
-                                    <div class="value" id="cancelledWholesale">0</div>
+                                    <div class="value" id="cancelledWholesale" style="width:20px; color:blue">0</div>
                                 </div>
                             </div>
-                            <h3>ODM (Orders:<div class="value" id="totalOdm">0</div>)</h3>
+                            <h3>ODM (Orders:<div class="value" id="totalOdm" style="width:20px; color:blue">0</div>)</h3>
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3>Total ODM</h3>
-                                    <div class="value" id="totalOdm">0</div>
+                                    <div class="value" id="totalOdm" style="width:20px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Processing</h3>
-                                    <div class="value" id="processingOdm">0</div>
+                                    <div class="value" id="processingOdm" style="width:20px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>On Hold</h3>
-                                    <div class="value" id="holdOdm">0</div>
+                                    <div class="value" id="holdOdm" style="width:20px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Dispatched</h3>
-                                    <div class="value" id="dispatchedOdm">0</div>
+                                    <div class="value" id="dispatchedOdm" style="width:20px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Cancelled</h3>
-                                    <div class="value" id="cancelledOdm">0</div>
+                                    <div class="value" id="cancelledOdm" style="width:20px; color:blue">0</div>
                                 </div>
                             </div>
                         </div>
