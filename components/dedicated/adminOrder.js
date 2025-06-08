@@ -1230,9 +1230,9 @@ class AdminOrder {
 
   adjustTableHeight() {
     const tableContainer = document.querySelector(".order-table-container");
-    const headerHeight = 35; // Height of header row
-    const rowHeight = 35; // Height of each data row
-    const padding = 10; // Padding for container
+    const headerHeight = 30; // Height of header row - jim 07/06/2025
+    const rowHeight = 30; // Height of each data row
+    const padding = 5; // Padding for container
     const footerOffset = 90; // Space for pagination and bottom margin
 
     // Calculate desired height based on number of visible rows
