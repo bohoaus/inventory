@@ -52,7 +52,7 @@ class OrderContribution {
                                     <div class="value" id="cancelledWholesale" style="width:40px; color:blue">0</div>
                                 </div>
                             </div>
-                            <h3>ODM (Orders:<div class="value" id="totalOdm" style="width:150px; color:blue">0</div>)</h3>
+                            <h3 width:400px>ODM (Orders:<div class="value" id="totalOdm" style="width:150px; color:blue">0</div>)</h3>
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3>Total ODM</h3>
