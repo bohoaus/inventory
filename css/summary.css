@@ -126,6 +126,7 @@
   z-index: 1;
 }
 
+/* sold out summary? */
 #summaryTable tbody tr:hover {
   background-color: #f8f9fa;
 }
