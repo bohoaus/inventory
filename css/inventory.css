@@ -236,8 +236,9 @@
   background-color: #f8f9fa;
 }
 
+/* inventory display? */
 .inventory-table tr:hover {
-  background-color: #FFFF00;
+  background-color: yellow;
 }
 
 .sort-icon {
