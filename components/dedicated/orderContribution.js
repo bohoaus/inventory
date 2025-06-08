@@ -25,7 +25,7 @@ class OrderContribution {
                         <div class="order-contribution-filters">
                             <div class="week-selector">
                                 <label>Select Week:</label>
-                                <input style="width:150px; color:blue" type="week" id="weekSelector">
+                                <input style="width:200px; color:blue" type="week" id="weekSelector">
                             </div>
                         </div>
                         <div class="weekly-stats">
@@ -38,42 +38,42 @@ class OrderContribution {
                                 </div>
                                 <div class="stat-card">
                                     <h3>Processing</h3>
-                                    <div class="value" id="processingWholesale" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="processingWholesale" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>On Hold</h3>
-                                    <div class="value" id="holdWholesale" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="holdWholesale" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Dispatched</h3>
-                                    <div class="value" id="dispatchedWholesale" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="dispatchedWholesale" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Cancelled</h3>
-                                    <div class="value" id="cancelledWholesale" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="cancelledWholesale" style="width:40px; color:blue">0</div>
                                 </div>
                             </div>
-                            <h3>ODM (Orders:<div class="value" id="totalOdm" style="width:30px; color:blue">0</div>)</h3>
+                            <h3>ODM (Orders:<div class="value" id="totalOdm" style="width:40px; color:blue">0</div>)</h3>
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3>Total ODM</h3>
-                                    <div class="value" id="totalOdm" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="totalOdm" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Processing</h3>
-                                    <div class="value" id="processingOdm" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="processingOdm" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>On Hold</h3>
-                                    <div class="value" id="holdOdm" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="holdOdm" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Dispatched</h3>
-                                    <div class="value" id="dispatchedOdm" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="dispatchedOdm" style="width:40px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Cancelled</h3>
-                                    <div class="value" id="cancelledOdm" style="width:30px; color:blue">0</div>
+                                    <div class="value" id="cancelledOdm" style="width:40px; color:blue">0</div>
                                 </div>
                             </div>
                         </div>
