@@ -1728,8 +1728,9 @@ th[data-sort].sort-desc .sort-icon {
   border-bottom: 2px solid #dee2e6;
 }
 
+/* order weekly summary table */
 .data-table tr:hover {
-  background-color: #f8f9fa;
+  background-color: yellow;
 }
 
 /* Stock Changes Table Specific */
