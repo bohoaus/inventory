@@ -73,6 +73,9 @@
 
 .weekly-stats {
   padding: 3px;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .weekly-stats h3 {
@@ -81,7 +84,7 @@
   font-size: 14px;
   border-bottom: 2px solid #eee;
   padding-bottom: 3px;
-  mini-width: 200px;
+  mini-width: 300px;
 }
 
 /* Styles for the Order Contribution table */
