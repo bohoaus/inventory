@@ -33,7 +33,7 @@ class OrderContribution {
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3> </h3>
-                                    <div class="value" id=""> </div>
+                                    <div class="value" id="" style="width:150px; color:blue"> </div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Processing</h3>
