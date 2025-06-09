@@ -22,6 +22,12 @@ class OrderContribution {
                             <h2>Orders Contribution Analysis</h2>
                             <span class="order-contribution-close">&times;</span>
                         </div>
+
+                            <div class="week-selector">
+                                <label>Select Week:</label>
+                                <input style="width:200px; color:blue" type="week" id="weekSelector">
+                            </div>
+
                         <div class="order-contribution-filters">
                             <div class="week-selector">
                                 <label>Select Week:</label>
