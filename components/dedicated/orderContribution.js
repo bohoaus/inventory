@@ -70,7 +70,7 @@ class OrderContribution {
                                 </div>
                                 <div class="stat-card">
                                     <h3>On Hold</h3>
-                                    <div class="value" id="holdOdm" style="width:40px; color:blue">0</div>
+                                    <div class="value" id="holdOdm" style="width:150px; color:blue">0</div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Dispatched</h3>
