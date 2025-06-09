@@ -29,11 +29,9 @@ class OrderContribution {
                             </div>
 
                         <div class="order-contribution-filters">
-                            <div class="week-selector">
-                                <label>Select Week:</label>
-                                <input style="width:200px; color:blue" type="week" id="weekSelector">
-                            </div>
+
                         </div>
+                        
                         <div class="weekly-stats">
                             <h3 width:400px>Wholesale (Orders:<span style="width:150px; color:blue" id="totalWholesale"></span>)</h3>
                             <div class="stat-group">
