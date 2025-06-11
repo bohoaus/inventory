@@ -97,9 +97,9 @@ class OrderContribution {
                                         <th>Order Type</th>
                                         <th>Status</th>
                                         <th>Customer Name</th>
-                                        <th>Agent State</th>
-                                        <th>Dispatched State</th>
-                                        <th>Total Items</th>
+                                        <th>Agent</th>
+                                        <th>Dispatched</th>
+                                        <th>Items</th>
                                     </tr>
                                 </thead>
                                 <tbody id="orderTableBody"></tbody>
