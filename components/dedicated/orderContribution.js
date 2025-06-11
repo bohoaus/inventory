@@ -488,7 +488,7 @@ class OrderContribution {
 
         return `
                 <tr>
-                    <td>${this.formatDate(order.created_at)}</td>
+                    <td>${this.formatDate(order.orderdate)}</td>
                     <td>${
                       this.capitalizeFirstLetter(order.order_type) || "-"
                     }</td>
