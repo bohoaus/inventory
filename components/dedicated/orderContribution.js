@@ -36,8 +36,8 @@ class OrderContribution {
                             <h3 width:400px>Wholesale (Orders:<span style="width:150px; color:blue" id="totalWholesale"></span>)</h3>
                             <div class="stat-group">
                                 <div class="stat-card">
-                                    <h3> </h3>
-                                    <div class="value" id="" style="width:150px; color:blue"> </div>
+                                    <h3>Wholesale Orders:</h3>
+                                    <div class="value" id="totalWholesale" style="width:150px; color:blue"> </div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Processing</h3>
@@ -59,8 +59,8 @@ class OrderContribution {
                             <h3 width:400px>ODM (Orders:<span style="width:150px; color:blue" id="totalOdm"></span>)</h3>
                             <div class="stat-group">
                                 <div class="stat-card">
-                                    <h3> </h3>
-                                    <div class="value" id="" style="width:150px; color:blue"> </div>
+                                    <h3>ODM Orders:</h3>
+                                    <div class="value" id="totalOdm" style="width:150px; color:blue"> </div>
                                 </div>
                                 <div class="stat-card">
                                     <h3>Processing</h3>
