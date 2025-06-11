@@ -521,6 +521,9 @@ class OrderContribution {
       .join(" ");
   }
 
+//        day: "2-digit",
+//        hour: "2-digit",
+//        minute: "2-digit",
   formatDate(dateString) {
     if (!dateString) return "-";
     try {
@@ -529,8 +532,6 @@ class OrderContribution {
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
       });
     } catch (error) {
       console.error("Error formatting date:", error);
