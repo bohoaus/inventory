@@ -95,7 +95,7 @@ class OrderContribution {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Order Date</th>
+                                        <th>Date</th>
                                         <th>Order Type</th>
                                         <th>Invoice#</th>
                                         <th>Status</th>
