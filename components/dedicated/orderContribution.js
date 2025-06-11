@@ -13,6 +13,8 @@ class OrderContribution {
     await this.loadData();
   }
 
+//                            <h3 width:400px>Wholesale (Orders:<span style="width:150px; color:blue" id=""></span>)</h3>
+//                            <h3 width:400px>ODM (Orders:<span style="width:150px; color:blue" id=""></span>)</h3>
   createModal() {
     if (!document.getElementById("orderContributionModal")) {
       const modalHTML = `
@@ -33,7 +35,7 @@ class OrderContribution {
                         </div>
                         
                         <div class="weekly-stats">
-//                            <h3 width:400px>Wholesale (Orders:<span style="width:150px; color:blue" id=""></span>)</h3>
+
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3>Wholesale Orders:</h3>
@@ -56,7 +58,7 @@ class OrderContribution {
                                     <div class="value" id="cancelledWholesale" style="width:40px; color:blue">0</div>
                                 </div>
                             </div>
-//                            <h3 width:400px>ODM (Orders:<span style="width:150px; color:blue" id=""></span>)</h3>
+
                             <div class="stat-group">
                                 <div class="stat-card">
                                     <h3>ODM Orders:</h3>
