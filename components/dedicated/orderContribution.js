@@ -191,12 +191,13 @@ class OrderContribution {
       );
 
       // Query orders within the selected week's date range
+      //  .gte("created_at", dates.start.toISOString())
       const { data: orders, error } = await supabaseClient
         .from("orders")
         .select("*")
-        .gte("created_at", dates.start.toISOString())
-        .lte("created_at", dates.end.toISOString())
-        .order("created_at", { ascending: false });
+        .gte("orderdate", dates.start.toISOString())
+        .lte("orderdate", dates.end.toISOString())
+        .order("orderdate", { ascending: false });
 
       if (error) {
         console.error("Error loading orders:", error);
