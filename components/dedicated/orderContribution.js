@@ -97,6 +97,7 @@ class OrderContribution {
                                     <tr>
                                         <th>Order Date</th>
                                         <th>Order Type</th>
+                                        <th>Invoice#</th>
                                         <th>Status</th>
                                         <th>Customer Name</th>
                                         <th>Agent</th>
@@ -492,6 +493,7 @@ class OrderContribution {
                     <td>${
                       this.capitalizeFirstLetter(order.order_type) || "-"
                     }</td>
+                    <td>${order.invoice_no || "-"}</td>
                     <td>${this.formatStatus(order.status) || "-"}</td>
                     <td>${order.customer_name || "-"}</td>
                     <td>${
