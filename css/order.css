@@ -1086,7 +1086,7 @@ th[data-sort].sort-desc .sort-icon {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 #submitOrder:hover {
@@ -1134,7 +1134,7 @@ th[data-sort].sort-desc .sort-icon {
 .info-card .info-value {
   display: block;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 300;
   color: #333;
 }
 
@@ -1220,7 +1220,7 @@ th[data-sort].sort-desc .sort-icon {
   margin-bottom: 5px;
   padding: 5px;
   background: #f8f9fa;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .detail-column {
@@ -1242,7 +1242,7 @@ th[data-sort].sort-desc .sort-icon {
 }
 
 .detail-label {
-  font-weight: 500;
+  font-weight: 300;
   color: #666;
   font-size: 0.9em;
 }
@@ -1284,7 +1284,7 @@ th[data-sort].sort-desc .sort-icon {
 .active-items th,
 .removed-items th {
   background: #f8f9fa;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .active-items h3,
@@ -1346,7 +1346,7 @@ th[data-sort].sort-desc .sort-icon {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 300;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 12px;
@@ -1439,14 +1439,14 @@ th[data-sort].sort-desc .sort-icon {
 .info-value {
   display: block;
   font-size: 1.1em;
-  font-weight: 500;
+  font-weight: 300;
   color: #333;
   margin-top: 5px;
 }
 
 /* Pack Size Modal */
 #packSizeModal .modal-content {
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .pack-size-row {
@@ -1492,18 +1492,18 @@ th[data-sort].sort-desc .sort-icon {
 
 #odmOrderListTable th {
   background: #f8f9fa;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* Quantity Difference Styling */
 .negative-diff {
   color: #dc3545;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .positive-diff {
   color: #28a745;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* Action Buttons */
