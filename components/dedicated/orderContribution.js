@@ -21,7 +21,7 @@ class OrderContribution {
                 <div id="orderContributionModal" class="order-contribution-modal">
                     <div class="order-contribution-content">
                         <div class="order-contribution-header">
-                            <h2>Orders Contribution Analysis</h2>
+                            <h3>Orders Contribution Analysis</h3>
                             <span class="order-contribution-close">&times;</span>
                         </div>
 
