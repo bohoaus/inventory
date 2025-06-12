@@ -253,7 +253,7 @@
   overflow-y: hidden;
   margin: 10px 0;
   background-color: var(--card-color);
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -266,7 +266,7 @@
 
 #orderTable th,
 #orderTable td {
-  padding: 5px 5px;
+  padding: 3px 3px;
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   white-space: nowrap;
@@ -289,7 +289,7 @@
   position: static;
   background-color: #f8f9fa;
   font-weight: 300;
-  padding: 5px 5px;
+  padding: 3px 3px;
   text-align: left;
   border-bottom: 2px solid var(--border-color);
 }
@@ -310,7 +310,7 @@
   background-color: white !important;
   width: 100px !important;
   min-width: 80px !important;
-  padding: 5px !important;
+  padding: 3px !important;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -318,18 +318,18 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 5px 5px;
+  padding: 3px 3px;
   margin: 0 2px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background: white;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .actions-cell .material-icons {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .actions-cell .delete-btn {
@@ -427,11 +427,11 @@
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 3px;
 }
 
 .pagination button {
-  padding: 5px 5px;
+  padding: 3px 3px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: white;
@@ -466,7 +466,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 3px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -474,7 +474,7 @@
   background-color: #dc3545;
   color: white;
   border: none;
-  padding: 5px 5px;
+  padding: 3px 3px;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -494,21 +494,21 @@
 
 /* Order Details */
 #orderDetails {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .detail-section {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .detail-section h3 {
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .detail-row {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .detail-row label {
@@ -550,7 +550,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 5px;
+  padding: 3px;
   overflow-y: auto;
 }
 
@@ -567,7 +567,7 @@
 }
 
 .clear-btn {
-  padding: 8px 16px;
+  padding: 5px 10px;
   background-color: #6c757d;
   color: white;
   border: none;
@@ -973,7 +973,7 @@ th[data-sort].sort-desc .sort-icon {
 }
 
 .suggestion-item {
-  padding: 5px 9px;
+  padding: 3px 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1028,7 +1028,7 @@ th[data-sort].sort-desc .sort-icon {
 .no-results {
   color: #666;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   font-style: italic;
 }
 
@@ -1036,21 +1036,21 @@ th[data-sort].sort-desc .sort-icon {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .order-list table,
 .stock-changes table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .order-list th,
 .stock-changes th,
 .order-list td,
 .stock-changes td {
-  padding: 8px;
+  padding: 5px;
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -1063,7 +1063,7 @@ th[data-sort].sort-desc .sort-icon {
 
 #removeAllItems {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   background: #dc3545;
   color: white;
   border: none;
@@ -1080,7 +1080,7 @@ th[data-sort].sort-desc .sort-icon {
 }
 
 #submitOrder {
-  padding: 5px 10px;
+  padding: 5px 5px;
   background: #28a745;
   color: white;
   border: none;
