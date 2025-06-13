@@ -166,6 +166,8 @@ class OdmItem {
     ];
 
     const statuses = [
+      "SHIPPING-A",
+      "SHIPPING-S",
       "SHIPPING",
       "ARRIVED",
       "PROCESSING",
