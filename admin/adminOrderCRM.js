@@ -391,7 +391,7 @@ class AdminOrderCRM {
                 </button>
             `
             : `
-                <button onclick="adminOrder.editOrder('${order.id}', '${order.order_type}')" class='edit-btn' title="Edit Order">
+                <button onclick="adminOrderCRM.editOrder('${order.id}', '${order.order_type}')" class='edit-btn' title="Edit Order">
                     <span class="material-icons">edit</span>
                 </button>
                 <button onclick="processOrder.initialize('${order.id}')" class='process-btn' title="Process Order">
@@ -480,7 +480,7 @@ class AdminOrderCRM {
           </button>
       `
       : `
-          <button onclick="adminOrder.editOrder('${order.id}', '${order.order_type}')" class='edit-btn' title="Edit Order">
+          <button onclick="adminOrderCRM.editOrder('${order.id}', '${order.order_type}')" class='edit-btn' title="Edit Order">
               <span class="material-icons">edit</span>
           </button>
           <button onclick="processOrder.initialize('${order.id}')" class='process-btn' title="Process Order">
@@ -1097,17 +1097,17 @@ class AdminOrderCRM {
 
     const totalPages = Math.ceil(totalRows / this.rowsPerPage);
     this.pagination.innerHTML = `
-        <button onclick="adminOrder.changePage(1)" ${
+        <button onclick="adminOrderCRM.changePage(1)" ${
           this.currentPage === 1 ? "disabled" : ""
         }>First</button>
-        <button onclick="adminOrder.changePage(${this.currentPage - 1})" ${
+        <button onclick="adminOrderCRM.changePage(${this.currentPage - 1})" ${
       this.currentPage === 1 ? "disabled" : ""
     }>Previous</button>
         <span>Page ${this.currentPage} of ${totalPages}</span>
-        <button onclick="adminOrder.changePage(${this.currentPage + 1})" ${
+        <button onclick="adminOrderCRM.changePage(${this.currentPage + 1})" ${
       this.currentPage === totalPages ? "disabled" : ""
     }>Next</button>
-        <button onclick="adminOrder.changePage(${totalPages})" ${
+        <button onclick="adminOrderCRM.changePage(${totalPages})" ${
       this.currentPage === totalPages ? "disabled" : ""
     }>Last</button>
     `;
@@ -1320,7 +1320,7 @@ class AdminOrderCRM {
             </button>
         `
         : `
-            <button onclick="adminOrder.editOrder('${order.id}', '${order.order_type}')" class='edit-btn' title="Edit Order">
+            <button onclick="adminOrderCRM.editOrder('${order.id}', '${order.order_type}')" class='edit-btn' title="Edit Order">
                 <span class="material-icons">edit</span>
             </button>
             <button onclick="processOrder.initialize('${order.id}')" class='process-btn' title="Process Order">
@@ -1443,7 +1443,7 @@ class AdminOrderCRM {
                     justify-content: center;
                     padding: 4px;
                 ">
-                    <button onclick="adminOrder.viewOrder('${order.id}', '${
+                    <button onclick="adminOrderCRM.viewOrder('${order.id}', '${
       order.order_type
     }')" 
                             class="view-btn"
@@ -1462,7 +1462,7 @@ class AdminOrderCRM {
                                   ">
                              <span class="material-icons" style="color: #6c757d;">edit_off</span>
                            </button>`
-                        : `<button onclick="adminOrder.editOrder('${order.id}', '${order.order_type}')" 
+                        : `<button onclick="adminOrderCRM.editOrder('${order.id}', '${order.order_type}')" 
                                   class="edit-btn"
                                   title="Edit Order">
                              <span class="material-icons">edit</span>
@@ -1568,10 +1568,10 @@ class AdminOrderCRM {
 }
 
 // Initialize the order management when the DOM is loaded
-let adminOrder;
+let adminOrderCRM;
 document.addEventListener("DOMContentLoaded", () => {
-  adminOrder = new AdminOrder();
-  window.adminOrder = adminOrder;
+  adminOrderCRM = new adminOrderCRM();
+  window.adminOrderCRM = adminOrderCRM;
 });
 
 // Add CSS to the page for column selection styling
