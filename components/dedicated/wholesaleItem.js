@@ -172,6 +172,7 @@ class WholesaleItem {
       "PANT",
       "SHIRT",
       "SKIRT",
+      "TEE",
       "TOP",
       "TUNIC",
       "COAT",
