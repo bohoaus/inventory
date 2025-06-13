@@ -23,7 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
     <script src="../components/dedicated/viewOrder.js"></script>
     <script src="../components/dedicated/wholesaleOrder.js"></script>
-    <script src="../components/dedicated/adminOrder.js"></script>
+
     <script src="../components/dedicated/odmOrder.js"></script>
     <script src="../components/dedicated/processOrder.js"></script>
     <script src="../components/dedicated/weeklySummary.js"></script>
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="../css/ordercontribution.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../components/dedicated/orderContribution.js"></script>
+    <script src="../components/admin/adminOrderCRM.js"></script>
   </head>
   <body>
     <div class="dashboard-container">
@@ -208,9 +209,9 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Initialize AdminOrder
-        window.adminOrder = new AdminOrder();
-        adminOrder.initializeOrder();
+        // Initialize AdminOrderCRM
+        window.adminOrderCRM = new AdminOrderCRM();
+        adminOrderCRM.initializeOrder();
       });
     </script>
   </body>
