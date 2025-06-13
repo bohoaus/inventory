@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Management - Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/order.css" />
+    <link rel="stylesheet" href="../css/processorder.css" />
+    <link rel="stylesheet" href="../css/summary.css" />
+    <link rel="stylesheet" href="../css/editwholesaleorder.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="../components/dedicated/viewOrder.js"></script>
+    <script src="../components/dedicated/wholesaleOrder.js"></script>
+    <script src="../components/dedicated/adminOrder.js"></script>
+    <script src="../components/dedicated/odmOrder.js"></script>
+    <script src="../components/dedicated/processOrder.js"></script>
+    <script src="../components/dedicated/weeklySummary.js"></script>
+    <link rel="stylesheet" href="../css/editwholesaleorder.css" />
+    <link rel="stylesheet" href="../css/ordercontribution.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../components/dedicated/orderContribution.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Admin</div>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li class="active"><a href="order.html">Orders</a></li>
+          <li><a href="">------------------</a></li>
+          <li><a href="CRMadmin.html">CRM-Analytics</a></li>
+          <li><a href="LogisticsAdmin.html">Logistics</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
 
+      <main class="main-content">
+        <header>
+          <h3>Order Management</h3>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <div class="order-controls">
+          <div class="search-filter">
+            <div class="search-group">
+              <input
+                type="text"
+                id="searchOrder"
+                placeholder="Search by customer name..."
+              />
+              <input
+                type="text"
+                id="searchItemCode"
+                placeholder="Search by item code..."
+              />
+            </div>
+
+            <div class="filter-group">
+              <select id="filterOrder">
+                <option value="ALL">All Order Status</option>
+                <option value="picking">Picking</option>
+                <option value="processing">Processing</option>
+                <option value="awaiting payment">Awaiting Payment</option>
+                <option value="wholesale hold">wholesale On Hold</option>
+                <option value="odm hold">ODM on Hold</option>
+                <option value="dispatched">Dispatched</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+              <select id="filterOrderType">
+                <option value="ALL">All Order Types</option>
+                <option value="wholesale">Wholesale</option>
+                <option value="odm">ODM</option>
+              </select>
+              <select id="filterAgentState">
+                <option value="ALL">All Agent States</option>
+                  <option value="AUS-ACT">ACT</option>
+                  <option value="AUS-NSW">NSW</option>
+                  <option value="AUS-NT">NT</option>
+                  <option value="AUS-QLD">QLD</option>
+                  <option value="AUS-SA">SA</option>
+                  <option value="AUS-TAS">TAS</option>
+                  <option value="AUS-VIC">VIC</option>
+                  <option value="AUS-WA">WA</option>
+                  <option value="Others">Others</option>
+                  <option value="NZ">NZ</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-buttons">
+          <button id="addWholesaleBtn" class="add-btn">
+            Add Wholesale Order
+          </button>
+          <button id="addOdmBtn" class="add-btn">Add ODM Order</button>
+        </div>
+
+        <div class="table-controls">
+          <div class="display-controls">
+            <div class="rows-per-page">
+              <label for="rowsPerPage">Rows per page:</label>
+              <select id="rowsPerPage">
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <span class="record-counter" id="recordCounter"></span>
+            </div>
+            <div class="column-select-container">
+              <button id="columnSelectBtn">Select Columns</button>
+              <div id="columnSelection">
+                <div class="column-search">
+                  <input type="text" placeholder="Search columns..." />
+                </div>
+                <div class="column-select-actions">
+                  <button id="selectAllColumns">Select All</button>
+                  <button id="clearAllColumns">Clear All</button>
+                </div>
+                <div class="column-options"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-table-container">
+          <div class="table-scroll-container">
+            <table id="orderTable">
+              <thead>
+                <tr>
+                  <th>Actions</th>
+                  <th>Order Date</th>
+                  <th>Order Type</th>
+                  <th>Status</th>
+                  <th>Customer Name</th>
+                  <th>Agent State</th>
+                  <th>Total Items</th>
+                  <th>Order Note</th>
+                  <!-- Other columns will be added dynamically -->
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pagination" id="tablePagination"></div>
+      </main>
+    </div>
+
+    <div id="wholesaleOrderModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>New Wholesale Order</h2>
+        <div id="wholesaleOrderForm"></div>
+      </div>
+    </div>
+
+    <div id="viewOrderModal" class="modal">
+      <div class="modal-content">
+        <!-- Content will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div id="odmOrderModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>New ODM Order</h2>
+        <div id="odmOrderForm"></div>
+      </div>
+    </div>
+
+    <div id="editWholesaleOrderModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Wholesale Order</h2>
+        <form id="editWholesaleOrderForm">
+          <!-- Form content will be dynamically generated -->
+        </form>
+      </div>
+    </div>
+
+    <div id="editOdmOrderModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit ODM Order</h2>
+        <div id="editOdmOrderForm"></div>
+      </div>
+    </div>
+
+    <script src="../components/dedicated/editWholesaleOrder.js"></script>
+    <script src="../components/dedicated/editOdmOrder.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize AdminOrder
+        window.adminOrder = new AdminOrder();
+        adminOrder.initializeOrder();
+      });
+    </script>
+  </body>
+</html>
