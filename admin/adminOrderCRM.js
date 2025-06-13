@@ -1,6 +1,6 @@
 //It's ok on 13/03/2025
 
-class AdminOrder {
+class AdminOrderCRM {
   constructor() {
     // Define the initial table structure
     this.tableStructure = [
