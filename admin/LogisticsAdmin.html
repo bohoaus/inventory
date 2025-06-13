@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Management - Admin</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/inventory.css" />
+    <link rel="stylesheet" href="../css/editwholesaleorder.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
+    <!-- Load Supabase and Config first -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+
+    <!-- Load utilities and shared components -->
+    <script type="module" src="../components/shared/utils.js"></script>
+    <script type="module" src="../components/shared/soldoutlist.js"></script>
+    <script
+      type="module"
+      src="../components/shared/upcomingfreightlist.js"
+    ></script>
+    <script type="module" src="../components/shared/exportpdf.js"></script>
+
+    <!-- Load PDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Load inventory components -->
+    <script src="../components/dedicated/wholesaleItem.js"></script>
+    <script src="../components/dedicated/odmItem.js"></script>
+    <script src="../components/dedicated/editWholesaleItem.js"></script>
+    <script src="../components/dedicated/editOdmItem.js"></script>
+    <script src="../components/dedicated/viewitem.js"></script>
+
+    <!-- Load main inventory script -->
+    <script src="../components/dedicated/adminInventory.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="sidebar">
+        <div class="logo">BOHO Admin</div>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="active"><a href="inventory.html">Inventory</a></li>
+          <li><a href="order.html">Orders</a></li>
+          <li><a href="">------------------</a></li>
+          <li><a href="CRMadmin.html">CRM-Analytics</a></li>
+          <li><a href="LogisticsAdmin.html">Logistics</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header>
+          <h3>Inventory Management</h3>
+          <div class="user-info">
+            <span id="userEmail"></span>
+          </div>
+        </header>
+
+        <div class="inventory-controls">
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInventory"
+              placeholder="Search by code or name..."
+            />
+            <input type="text" id="searchNote" placeholder="Search notes..." />
+          </div>
+          <div id="filterGroup"></div>
+          <div class="display-controls">
+            <select id="rowsPerPage">
+              <option value="10" selected>10 rows</option>
+              <option value="25">25 rows</option>
+              <option value="50">50 rows</option>
+              <option value="100">100 rows</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="inventoryContainer"></div>
+      </main>
+    </div>
+  </body>
+</html>
