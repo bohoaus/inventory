@@ -243,14 +243,14 @@ class EditOdmItem {
         <div class="form-group-odm-edit">
           <label for="swsp" style="width: 200px">WSP</label>
           <input type="number" name="swsp" maxlength="5" placeholder="00.00" 
-                 value="${item.swsp || "0"}">
+                 value="${item.swsp || ""}">
         </div>
         
         <div class="form-group-odm-edit">
           <label for="swsp2" style="width: 200px">WSP2</label>
           <input type="number" maxlength="5" placeholder="00.00" 
                  name="swsp2" 
-                 value="${item.swsp2 || "0"}">
+                 value="${item.swsp2 || ""}">
         </div>
         
             <div class="form-group-odm-edit">
