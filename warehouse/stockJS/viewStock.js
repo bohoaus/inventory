@@ -194,10 +194,8 @@ class ViewItem {
                     <span class="value">${item.item_cargo || "-"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">Repeat Item:</span>
-                    <span class="value">${this.formatRepeatItem(
-                      item.repeat_item
-                    )}</span>
+                    <span class="label">PacKages:</span>
+                    <span class="value">${item.freight_bags || "-"}</span>
                 </div>
             </div>
 
@@ -210,10 +208,11 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
-                <h3>Cargo:</h3>
+                <h3>Restock:</h3>
                 <div class="detail-row">
-                    <span class="label">Pacages:</span>
-                    <span class="value">${item.freight_bags || "-"}</span>
+                    <span class="label">Repeat Item:</span>
+                    <span class="value">${this.formatRepeatItem(
+                      item.repeat_item)}</span>
                 </div>
             </div>
 
