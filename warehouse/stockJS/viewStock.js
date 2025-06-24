@@ -281,6 +281,10 @@ class ViewItem {
                     <span class="label">Cargo:</span>
                     <span class="value">${item.item_cargo || "-"}</span>
                 </div>
+                <div class="detail-row">
+                    <span class="label">PacKages:</span>
+                    <span class="value">${item.freight_bags || "-"}</span>
+                </div>
             </div>
 
             <div class="detail-section">
