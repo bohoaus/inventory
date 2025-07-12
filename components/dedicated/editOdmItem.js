@@ -57,6 +57,7 @@ class EditOdmItem {
       "On Sale",
       "On Sale-Issue",
       "On Sale-Repeat",
+      "On Sale-Season",
       "Special",
     ];
 
