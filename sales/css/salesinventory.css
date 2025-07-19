@@ -22,7 +22,7 @@
   gap: 10px;
   flex: 1;
   flex-wrap: wrap;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .Salesinventory-search-filter input,
