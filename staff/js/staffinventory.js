@@ -168,7 +168,7 @@ class StaffInventoryComponent {
             <button class="Staffinventory-column-toggle-btn" onclick="window.staffInventoryComponent.toggleColumnSelection()">
               Select Columns <i class="Staffinventory-toggle-icon"></i>
             </button>
-            <select id="rowsPerPage" style="width: 100px">
+            <select id="rowsPerPage" style="width: 110px">
               <option value="10">10 per page</option>
               <option value="25" selected>25 per page</option>
               <option value="50">50 per page</option>
