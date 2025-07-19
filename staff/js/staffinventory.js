@@ -143,8 +143,8 @@ class StaffInventoryComponent {
     container.innerHTML = `
         <div class="Staffinventory-controls">
           <div class="Staffinventory-search-filter">
-            <input type="text" id="searchInventory" placeholder="Search by code or name..." style="width: 150px">
-            <input type="text" id="searchNote" placeholder="Search by note..." style="width: 150px">
+            <input type="text" id="searchInventory" placeholder="Search by code or name..." style="width: 100px">
+            <input type="text" id="searchNote" placeholder="Search by note..." style="width: 100px">
             <div class="Staffinventory-filter-buttons">
               <button class="Staffinventory-filter-btn" data-filter="repeat">Repeat Items</button>
               <button class="Staffinventory-group-btn" data-group="BOHO">BOHO</button>
