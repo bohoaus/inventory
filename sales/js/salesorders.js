@@ -124,7 +124,7 @@ class SalesOrdersComponent {
           <button class="Salesorders-group-btn" data-type="odm">ODM</button>
         </div>
         <div class="Salesorders-display-controls">
-          <select class="Salesorders-rows-per-page" style="width: 80px">
+          <select class="Salesorders-rows-per-page" style="width: 110px">
             <option value="10">10 per page</option>
             <option value="25" selected>25 per page</option>
             <option value="50">50 per page</option>
