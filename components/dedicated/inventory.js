@@ -172,7 +172,7 @@ class InventoryComponent {
           <button class="Salesinventory-column-toggle-btn" onclick="window.inventoryComponent.toggleColumnSelection()">
             Select Columns <i class="Salesinventory-toggle-icon"></i>
           </button>
-          <select id="rowsPerPage" style="width: 80px">
+          <select id="rowsPerPage" style="width: 110px">
             <option value="10">10 per page</option>
             <option value="25" selected>25 per page</option>
             <option value="50">50 per page</option>
