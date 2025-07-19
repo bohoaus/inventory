@@ -94,8 +94,8 @@ class SalesOrdersComponent {
     this.container.innerHTML = `
       <div class="Salesorders-controls">
         <div class="Salesorders-search-filter">
-          <input type="text" placeholder="Search by customer name" class="Salesorders-search" style="width: 100px">
-          <input type="text" placeholder="Search by item code" class="Salesorders-item-search" style="width: 100px">
+          <input type="text" placeholder="Search by customer name" class="Salesorders-search" style="width: 150px">
+          <input type="text" placeholder="Search by item code" class="Salesorders-item-search" style="width: 150px">
           <select class="Salesorders-status-filter">
             <option value="">All Status</option>
             <option value="PICKING">PICKING</option>
@@ -124,7 +124,7 @@ class SalesOrdersComponent {
           <button class="Salesorders-group-btn" data-type="odm">ODM</button>
         </div>
         <div class="Salesorders-display-controls">
-          <select class="Salesorders-rows-per-page">
+          <select class="Salesorders-rows-per-page" style="width: 80px">
             <option value="10">10 per page</option>
             <option value="25" selected>25 per page</option>
             <option value="50">50 per page</option>
