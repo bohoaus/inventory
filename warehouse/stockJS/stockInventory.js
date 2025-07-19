@@ -204,7 +204,7 @@ class AdminInventory {
     searchContainer.className = "column-search";
     searchContainer.innerHTML = `
         <input type="text" 
-               placeholder="Search columns..." 
+               placeholder="Search columns..."  style="width: 150px" 
                onkeyup="adminInventory.filterColumns(this.value)">
     `;
     panel.appendChild(searchContainer);
