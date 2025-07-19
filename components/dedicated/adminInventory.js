@@ -209,7 +209,7 @@ class AdminInventory {
     const searchContainer = document.createElement("div");
     searchContainer.className = "column-search";
     searchContainer.innerHTML = `
-        <input type="text" 
+        <input type="text"  style="width: 100px" 
                placeholder="Search columns..." 
                onkeyup="adminInventory.filterColumns(this.value)">
     `;
