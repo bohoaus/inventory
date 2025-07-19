@@ -148,8 +148,8 @@ class InventoryComponent {
     container.innerHTML = `
       <div class="Salesinventory-controls">
         <div class="Salesinventory-search-filter">
-          <input type="text" id="searchInventory" placeholder="Search by code or name...">
-          <input type="text" id="searchNote" placeholder="Search by note...">
+          <input type="text" id="searchInventory" placeholder="Search by code or name..." style="width: 150px">
+          <input type="text" id="searchNote" placeholder="Search by note..." style="width: 150px">
           <select id="categoryFilter">
             <option value="">All Categories</option>
           </select>
