@@ -8,7 +8,7 @@ class StaffInventoryComponent {
     this.userEmail = "";
     this.currentPage = 1;
     //this.sortColumn = "release_date";
-    this.sortColumn = "arrive_date";
+    this.sortColumn = "mfg_date";
     this.sortDirection = "desc";
     this.currentFilter = "all";
 
