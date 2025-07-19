@@ -143,8 +143,8 @@ class StaffInventoryComponent {
     container.innerHTML = `
         <div class="Staffinventory-controls">
           <div class="Staffinventory-search-filter">
-            <input type="text" id="searchInventory" placeholder="Search by code or name...">
-            <input type="text" id="searchNote" placeholder="Search by note...">
+            <input type="text" id="searchInventory" placeholder="Search by code or name..." style="width: 150px">
+            <input type="text" id="searchNote" placeholder="Search by note..." style="width: 150px">
             <div class="Staffinventory-filter-buttons">
               <button class="Staffinventory-filter-btn" data-filter="repeat">Repeat Items</button>
               <button class="Staffinventory-group-btn" data-group="BOHO">BOHO</button>
@@ -168,7 +168,7 @@ class StaffInventoryComponent {
             <button class="Staffinventory-column-toggle-btn" onclick="window.staffInventoryComponent.toggleColumnSelection()">
               Select Columns <i class="Staffinventory-toggle-icon"></i>
             </button>
-            <select id="rowsPerPage">
+            <select id="rowsPerPage" style="width: 100px">
               <option value="10">10 per page</option>
               <option value="25" selected>25 per page</option>
               <option value="50">50 per page</option>
