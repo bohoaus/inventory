@@ -392,7 +392,7 @@ header {
 
 .Salesinventory-json-row {
   display: flex;
-  padding: 8px;
+  padding: 5px;
   border-bottom: 1px solid #eee;
   align-items: center;
 }
