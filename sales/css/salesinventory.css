@@ -640,7 +640,7 @@ header {
 }
 
 .export-option-group {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #dee2e6;
   border-radius: 4px;
 }
@@ -656,13 +656,13 @@ header {
   border: 1px solid #ffeeba;
   border-radius: 4px;
   color: #856404;
-  margin: 10px 0;
+  margin: 5px 0;
   display: none;
 }
 
 .export-preview {
   margin-top: 20px;
-  padding: 10px;
+  padding: 5px;
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 4px;
@@ -721,14 +721,14 @@ header {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   background-color: #ffffff;
   border: 1px solid #dad9d9;
   color: rgb(0, 0, 0);
   border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 300;
   transition: all 0.3s ease;
 }
 
