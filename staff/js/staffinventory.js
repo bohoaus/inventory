@@ -949,6 +949,9 @@ class StaffInventoryComponent {
         <div class="Staffinventory-records-count">
           Showing <strong>${start}</strong> to <strong>${end}</strong> of <strong>${filteredRecords}</strong> filtered records (Total: <strong>${totalRecords}</strong> records)${filterInfo}
         </div>
+            <button class="Staffinventory-clear-btn" onclick="window.staffInventoryComponent.clearAllFilters()">
+              Clear All Filters
+            </button>
       `;
   }
 
