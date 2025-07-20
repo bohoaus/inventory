@@ -148,8 +148,8 @@ class InventoryComponent {
     container.innerHTML = `
       <div class="Salesinventory-controls">
         <div class="Salesinventory-search-filter">
-          <input type="text" id="searchInventory" placeholder="Search by code or name..." style="width: 150px">
-          <input type="text" id="searchNote" placeholder="Search by note..." style="width: 150px">
+          <input type="text" id="searchInventory" placeholder="Search by code or name..." style="width: 150px; border: 1px solid red">
+          <input type="text" id="searchNote" placeholder="Search by note..." style="width: 150px; border: 1px solid red">
           <select id="categoryFilter">
             <option value="">All Categories</option>
           </select>
@@ -172,7 +172,7 @@ class InventoryComponent {
           <button class="Salesinventory-column-toggle-btn" onclick="window.inventoryComponent.toggleColumnSelection()">
             Select Columns <i class="Salesinventory-toggle-icon"></i>
           </button>
-          <select id="rowsPerPage" style="width: 110px">
+          <select id="rowsPerPage" style="width: 110px; border: 1px solid red">
             <option value="10">10 per page</option>
             <option value="25" selected>25 per page</option>
             <option value="50">50 per page</option>
