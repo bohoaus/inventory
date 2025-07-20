@@ -94,8 +94,8 @@ class SalesOrdersComponent {
     this.container.innerHTML = `
       <div class="Salesorders-controls">
         <div class="Salesorders-search-filter">
-          <input type="text" placeholder="Search by customer name" class="Salesorders-search" style="width: 150px">
-          <input type="text" placeholder="Search by item code" class="Salesorders-item-search" style="width: 150px">
+          <input type="text" placeholder="Search by customer name" class="Salesorders-search" style="width: 150px; border: 1px solid red">
+          <input type="text" placeholder="Search by item code" class="Salesorders-item-search" style="width: 150px; border: 1px solid red">
           <select class="Salesorders-status-filter">
             <option value="">All Status</option>
             <option value="PICKING">PICKING</option>
