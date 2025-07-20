@@ -601,7 +601,7 @@ header {
 .pack-size-table th,
 .repeat-item-table th {
   background: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .pack-size-table th:first-child,
