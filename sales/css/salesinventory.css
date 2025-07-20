@@ -333,7 +333,7 @@ header {
 }
 
 .Salesinventory-clear-btn {
-  padding: 8px 16px;
+  padding: 5px 10px;
   border: 1px solid #dc3545;
   border-radius: 4px;
   background: #fff;
@@ -350,7 +350,7 @@ header {
 
 .Salesinventory-records-info {
   margin: 15px 0;
-  padding: 10px;
+  padding: 5px;
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 4px;
