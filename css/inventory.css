@@ -50,13 +50,13 @@
 
 .filter-buttons button:hover {
   background: #e9ecef;
-  border-color: #0056b3;
+  border-color: red;
 }
 
 .filter-buttons button.active {
   background: #007bff;
   color: white;
-  border-color: #0056b3;
+  border-color: red;
   font-weight: 500;
 }
 
@@ -234,7 +234,7 @@
 }
 
 .inventory-table tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: grey;
 }
 
 /* inventory display? */
