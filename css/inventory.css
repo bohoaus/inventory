@@ -234,7 +234,7 @@
 }
 
 .inventory-table tr:nth-child(even) {
-  background-color: light grey;
+  background-color: white;
 }
 
 /* inventory display? */
