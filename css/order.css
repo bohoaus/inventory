@@ -801,6 +801,11 @@ body.modal-open {
   height: 25px;
 }
 
+/* Ensure rows have different backgroud colour -jimm */
+#orderTable tr:nth-child(even) {
+  background-color: white;
+}
+
 /* Add transition for tbody */
 #orderTable tbody {
   transition: all 0.3s ease;
