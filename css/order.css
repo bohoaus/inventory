@@ -387,11 +387,11 @@
 }
 
 .status-dispatched {
-  color: #28a745;
+  color: green;
   background-color: #d4edda;
 }
 .status-cancelled {
-  color: #dc3545;
+  color: red;
   background-color: #f8d7da;
 }
 
@@ -413,7 +413,7 @@
 
 /* Table row hover effect */
 #orderTable tbody tr:hover td {
-  background-color: #0BDA51;
+  background-color: yellow;
 }
 
 #orderTable tbody tr:hover .actions-cell {
