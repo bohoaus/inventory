@@ -1802,7 +1802,7 @@
 }
 
 .soldout-table tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: white;
 }
 
 /* sold out inventory table row  */
