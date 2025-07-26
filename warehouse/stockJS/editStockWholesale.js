@@ -163,7 +163,7 @@ class EditWholesaleItem {
             <input type="number" name="receive_qty" 
                  value="${item.receive_qty || 0}"
                  min="0" step="0.5" 
-                 onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))">
+                 onchange="window.editWholesaleItem.validateQuantities(this.closest('form'))" readonly>
             </div>
 
             <div class="form-group-boho-edit">
