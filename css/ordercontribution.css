@@ -70,7 +70,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
         width: 70%; /* 80% of its parent's width */
-        height: 40vh; /* 50% of the viewport height */
+        height: 30vh; /* 50% of the viewport height */
 }
 
 .weekly-stats {
