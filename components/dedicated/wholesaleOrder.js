@@ -809,7 +809,7 @@ class WholesaleOrder {
 
     // Button is disabled if any required field is empty or no items in order
     submitButton.disabled =
-      !customerName || !agentState || this.tempOrderList.length || !orderDateSelect === 0;
+      !customerName || !orderDateSelect || !agentState || this.tempOrderList.length === 0;
   }
 }
 
