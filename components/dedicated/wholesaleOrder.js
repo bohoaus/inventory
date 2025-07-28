@@ -805,10 +805,11 @@ class WholesaleOrder {
     const customerName = document.getElementById("customer_name").value.trim();
     const agentState = document.getElementById("agent_state").value;
     const submitButton = document.getElementById("submitOrder");
+    const orderDateSelect = document.getElementById("orderdate").value;
 
     // Button is disabled if any required field is empty or no items in order
     submitButton.disabled =
-      !customerName || !agentState || this.tempOrderList.length === 0;
+      !customerName || !agentState || this.tempOrderList.length || !orderDateSelect === 0;
   }
 }
 
