@@ -482,10 +482,10 @@ class WholesaleOrder {
   setupEventListeners() {
     // Customer name input handler
     const customerNameInput = document.getElementById("customer_name");
-    const orderDateInput = document.getElementById("orderdate");
+    const orderDateSelect = document.getElementById("orderdate");
     const submitButton = document.getElementById("submitOrder");
 
-    if (customerNameInput && orderDateInput) {
+    if (customerNameInput && orderDateSelect) {
       const handleCustomerNameChange = async (e) => {
         let value = e.target.value.toUpperCase().replace(/\s+/g, " "); // Replace multiple spaces with single space
 
