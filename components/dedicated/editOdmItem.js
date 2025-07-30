@@ -62,6 +62,7 @@ class EditOdmItem {
     ];
 
     const sodm_customers = [
+      "Bella Boheme",
       "Billy J Btq",
       "CIRCLE OF FRIEND",
       "COCO AND BLUSH",
