@@ -192,6 +192,14 @@ class ViewItem {
             </div>
 
             <div class="detail-section">
+                <h3>Image-Link:</h3>
+                <div class="detail-row">
+                    <span class="label">Image:</span>
+                    <span style="color: blue;" class="value">${item.image_link || "-"}</span>
+                </div>
+            </div>          
+
+            <div class="detail-section">
                 <h3>Logistics Information:</h3>
                 <div class="detail-row">
                     <span class="label">Cargo:</span>
