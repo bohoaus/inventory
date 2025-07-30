@@ -2246,7 +2246,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
-  min-width: 250px;
+  min-width: 280px;
 }
 
 .detail-section {
