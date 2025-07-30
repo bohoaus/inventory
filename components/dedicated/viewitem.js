@@ -162,7 +162,7 @@ class ViewItem {
                     <span style="color: red;" class="value">${new Date(item.soldout_date).toDateString() || ""}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="label">ManufactureDate:</span>
+                    <span class="label">ManufactureD:</span>
                     <span class="value" style="color: green;">${new Date(item.mfg_date).toDateString()}</span>
                 </div>
                 <div class="detail-row">
@@ -323,7 +323,7 @@ class ViewItem {
             <div class="detail-section">
                 <h3>Dates:</h3>
                 <div class="detail-row">
-                    <span class="label">ManufactureDate:</span>
+                    <span class="label">ManufactureD:</span>
                     <span class="value" style="color: green;">${new Date(item.mfg_date).toDateString() || null}</span>
                 </div>
                 <div class="detail-row">
