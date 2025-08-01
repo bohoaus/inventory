@@ -459,8 +459,8 @@ class EditOdmItem {
         scolour: data.scolour,
         sfactory: data.sfactory,
         scountry: data.scountry,
-        swsp: data.swsp,
-        swsp2: data.swsp2,
+        swsp: data.swsp || null,
+        swsp2: data.swsp2 || null,
         arrive_date: data.arrive_date,
         release_date: data.release_date || null,
       };
