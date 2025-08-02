@@ -52,6 +52,7 @@ class EditWholesaleItem {
       "NOT RELEASED",
       "ISSUE & RESTOCK",
       "OVERSTOCK",
+      "NEW RELEASE",
     ];
 
     const prices = [
