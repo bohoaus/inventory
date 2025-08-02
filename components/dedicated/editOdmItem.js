@@ -50,6 +50,7 @@ class EditOdmItem {
       "CANCELLED",
       "COLLECTED",
       "Issue & Return",
+      "NEW RELEASE",
     ];
     
     const prices = [
