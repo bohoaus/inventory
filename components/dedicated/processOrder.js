@@ -129,7 +129,7 @@ class ProcessOrder {
               </div>
               <div class="form-group-order-dispatch" id="trackingNumberGroup">
                 <label for="trackingNumber" style="width: 120px">Tracking#</label>
-                <input type="text" id="trackingNumber" style="width: 160px; color:blue; maxlength:45" required>
+                <input type="text" id="trackingNumber" style="width: 165px; color:blue; maxlength:45" required>
               </div>
               <div class="form-group-order-dispatch">
                 <label for="orderNotes" style="width: 120px">Order Notes</label>
