@@ -193,7 +193,6 @@ class EditWholesaleOrder {
 
             <!-- Order List Table -->
             <div class="editwholesaleorder-table-container">
-                    <h3>Order List</h3>
               <div class="table-actions" style="justify-content: space-between">
                     <h3 style="text-align:left">Order List</h3>
                 <button style="text-align:right" onclick="editWholesaleOrder.removeAllItems()" class="editwholesaleorder-btn-secondary">
