@@ -149,7 +149,9 @@ class OdmOrder {
                 <div class="order-tables">
                     <div class="order-list">
                         <h3>Order List</h3>
-                    <button type="button" id="addPackSize" class="add-pack-size-btn">Add Pack Size</button>
+                <div class="form-actions">
+                    <button type="submit" id="submitOrder" disabled>Submit Order</button>
+                </div>
                         <table id="odmOrderListTable">
                             <thead>
                                 <tr>
