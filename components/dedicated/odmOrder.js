@@ -173,9 +173,9 @@ class OdmOrder {
                     </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="submit" id="submitOrder" disabled>Submit Order</button>
-                </div>
+<!--                 <div class="form-actions"> -->
+<!--                     <button type="submit" id="submitOrder" disabled>Submit Order</button> -->
+<!--                 </div> -->
             </div>
 
             <!-- Pack Size Modal -->
