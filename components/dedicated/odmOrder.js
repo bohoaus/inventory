@@ -148,7 +148,7 @@ class OdmOrder {
 
                 <div class="order-tables">
                     <div class="order-list">
-                <div class="form-actions">
+                <div class="form-actions" style="justify-content: space-between">
                         <h3>Order List</h3>
                     <button type="submit" id="submitOrder" disabled>Submit Order</button>
                 </div>
