@@ -148,8 +148,8 @@ class OdmOrder {
 
                 <div class="order-tables">
                     <div class="order-list">
-                        <h3>Order List</h3>
                 <div class="form-actions">
+                        <h3>Order List</h3>
                     <button type="submit" id="submitOrder" disabled>Submit Order</button>
                 </div>
                         <table id="odmOrderListTable">
