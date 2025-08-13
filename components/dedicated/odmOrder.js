@@ -149,6 +149,7 @@ class OdmOrder {
                 <div class="order-tables">
                     <div class="order-list">
                         <h3>Order List</h3>
+                    <button type="button" id="addPackSize" class="add-pack-size-btn">Add Pack Size</button>
                         <table id="odmOrderListTable">
                             <thead>
                                 <tr>
