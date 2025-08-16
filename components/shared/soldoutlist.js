@@ -341,7 +341,7 @@ class SoldOutList {
       );
       doc.text(`Total Items: ${items.length}`, margins.left, margins.top + 12);
 
-      // Can the width of table be settled to auto? - jim-25Aug17
+      // Can the width of table be settled to auto? - jim-25Aug17--------
       const columnWidths = {
         0: 0.16, // Code - 16%
         1: 0.13, // Brand - 13%
@@ -367,7 +367,7 @@ class SoldOutList {
         8: 0.10, // Location - 10%
       };
 
-      // Convert auto to actual widths - jim-25Aug17
+      // Convert auto to actual widths - jim-25Aug17---------------------
       const columnStyles = Object.fromEntries(
         Object.entries(columnWidths).map(([key, percentage]) => [
           key,
