@@ -1800,6 +1800,7 @@
 
 .soldout-table th,
 .soldout-table td {
+      width: auto; /* Optional: ensures the table itself only takes up needed width */
   padding: 3px;
   border: 1px solid #ddd;
   text-align: left;
