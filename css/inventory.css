@@ -1790,8 +1790,10 @@
   width: 100%;
 }
 
+/*   width: 100%; */
 .soldout-table {
-  width: 100%;
+      table-layout: auto;
+      width: auto; /* Optional: ensures the table itself only takes up needed width */
   border-collapse: collapse;
   margin: 0;
 }
