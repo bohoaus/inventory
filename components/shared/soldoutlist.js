@@ -343,7 +343,7 @@ class SoldOutList {
 
       // Can the width of table be settled to auto? - jim-25Aug17--------
       const columnWidths = {
-        width: auto
+        width: auto, //is this ok?
       };
 
       // Calculate column widths as percentages of usable width
@@ -364,7 +364,7 @@ class SoldOutList {
         Object.entries(columnWidths).map(([key, percentage]) => [
           key,
           {
-            cellWidth: auto,
+            cellWidth: auto, //is this ok?
             fillColor: [255, 255, 255], // Ensure all cells have white background
           },
         ])
