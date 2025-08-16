@@ -341,7 +341,7 @@ class SoldOutList {
       );
       doc.text(`Total Items: ${items.length}`, margins.left, margins.top + 12);
 
-      // Calculate column widths as percentages of usable width
+      // Can the width of table be settled to auto? - jim-25Aug17
       const columnWidths = {
         0: 0.16, // Code - 16%
         1: 0.13, // Brand - 13%
@@ -354,8 +354,32 @@ class SoldOutList {
         8: 0.10, // Location - 10%
       };
 
-      // Convert percentages to actual widths
+      // Calculate column widths as percentages of usable width
+      const columnWidths8 = {
+        0: 0.16, // Code - 16%
+        1: 0.13, // Brand - 13%
+        2: 0.13, // Colour - 13%
+        3: 0.15, // Release Date - 15%
+        4: 0.09, // Fabric - 9%
+        5: 0.09, // Soldout Date - 9%
+        6: 0.09, // Selling Time - 10%
+        7: 0.10, // Status - 10%
+        8: 0.10, // Location - 10%
+      };
+
+      // Convert auto to actual widths - jim-25Aug17
       const columnStyles = Object.fromEntries(
+        Object.entries(columnWidths).map(([key, percentage]) => [
+          key,
+          {
+            cellWidth: usableWidth * percentage,
+            fillColor: [255, 255, 255], // Ensure all cells have white background
+          },
+        ])
+      );
+
+      // Convert percentages to actual widths
+      const columnStyles8 = Object.fromEntries(
         Object.entries(columnWidths).map(([key, percentage]) => [
           key,
           {
