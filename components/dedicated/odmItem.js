@@ -154,6 +154,7 @@ class OdmItem {
       "PANT",
       "SHIRT",
       "SKIRT",
+      "SHORTS",
       "TEE",
       "TOP",
       "TUNIC",
