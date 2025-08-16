@@ -151,7 +151,7 @@ class OdmItem {
       "KAFTAN",
       "KIMONO",
       "MAXI",
-      "PANT",
+      "PANTS",
       "SHIRT",
       "SKIRT",
       "SHORTS",
