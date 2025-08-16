@@ -1806,6 +1806,7 @@
 }
 
 .soldout-table th {
+      width: auto; /* Optional: ensures the table itself only takes up needed width */
   background-color: #f8f9fa;
   font-weight: 300;
   position: sticky;
