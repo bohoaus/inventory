@@ -185,7 +185,7 @@ class SoldOutList {
                 <th>Name</th>
                 <th>Colour</th>
                 <th>ReleaseDate</th>
-                <th>Fabric</th>
+                <th style="width: auto">Fabric</th>
                 <th>SoldOutDate</th>
                 <th>SellingTime</th>
                 <th>Status</th>
