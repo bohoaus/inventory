@@ -40,7 +40,7 @@ class EditOdmItem {
       "SHIPPING-A",
       "SHIPPING-S",
       "SHIPPING",
-      "FULL PRICE",
+      "F-PRICE",
       "ON HOLD",
       "PROCESSING",
       "DISPATCHED",
@@ -54,7 +54,7 @@ class EditOdmItem {
     ];
     
     const prices = [
-      "Full Price",
+      "F-Price",
       "On Sale",
       "On Sale-Issue",
       "On Sale-Repeat",
