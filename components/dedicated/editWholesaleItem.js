@@ -42,7 +42,7 @@ class EditWholesaleItem {
       "SHIPPING-A",
       "SHIPPING-S",
       "SHIPPING",
-      "FULL PRICE",
+      "F-PRICE",
       "DISPATCHED",
       "ON SALE",
       "PRE-ORDER",
@@ -56,7 +56,7 @@ class EditWholesaleItem {
     ];
 
     const prices = [
-      "Full Price",
+      "F-Price",
       "On Sale",
       "On Sale-Issue",
       "On Sale-Repeat",
