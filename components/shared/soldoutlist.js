@@ -201,7 +201,7 @@ class SoldOutList {
                     <td>${item.item_name || ""}</td>
                     <td>${item.scolour || ""}</td>
                     <td>${formatDateToSydney(item.release_date)}</td>
-                    <td>${item.sfabric || ""}</td>
+                    <td style="width: auto">${item.sfabric || ""}</td>
                     <td>${formatDateToSydney(item.soldout_date)}</td>
                     <td>${calculateSellingTime(
                       item.release_date,
