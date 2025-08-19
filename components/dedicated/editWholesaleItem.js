@@ -42,7 +42,7 @@ class EditWholesaleItem {
       "SHIPPING-A",
       "SHIPPING-S",
       "SHIPPING",
-      "F-PRICE",
+      "FULL PRICE",
       "DISPATCHED",
       "ON SALE",
       "PRE-ORDER",
