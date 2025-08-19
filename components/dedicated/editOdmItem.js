@@ -40,7 +40,7 @@ class EditOdmItem {
       "SHIPPING-A",
       "SHIPPING-S",
       "SHIPPING",
-      "F-PRICE",
+      "FULL PRICE",
       "ON HOLD",
       "PROCESSING",
       "DISPATCHED",
