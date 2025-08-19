@@ -56,7 +56,7 @@ class EditWholesaleItem {
     ];
 
     const prices = [
-      "F-Price",
+      "Full Price",
       "On Sale",
       "On Sale-Issue",
       "On Sale-Repeat",
