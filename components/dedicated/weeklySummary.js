@@ -55,7 +55,7 @@ class WeeklySummary {
                     <th>Colour</th>
                     <th>Item Name</th>
                     <th>Status</th>
-                    <th>Packs(Unit)</th>
+                    <th>Pack/Unit</th>
                     <th>Qty</th>
                     <th>Inventory</th>
                     <th>ReleaseDate</th>
