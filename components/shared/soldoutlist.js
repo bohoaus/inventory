@@ -197,9 +197,9 @@ class SoldOutList {
               .map(
                 (item) => `
                 <tr class="status-${this.getStatusClass(item.soldout_status)}">
-                    <td>${item.code_colour}</td>
-                    <td>${item.item_name || ""}</td>
-                    <td>${item.scolour || ""}</td>
+                    <td style="width: auto">${item.code_colour}</td>
+                    <td style="width: auto">${item.item_name || ""}</td>
+                    <td style="width: auto">${item.scolour || ""}</td>
                     <td>${formatDateToSydney(item.release_date)}</td>
                     <td style="width: auto">${item.sfabric || ""}</td>
                     <td>${formatDateToSydney(item.soldout_date)}</td>
