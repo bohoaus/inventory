@@ -94,7 +94,7 @@ class EditWholesaleItem {
             <label for="item_name" style="width: 150px">Item Name</label>
                     <input type="text" name="item_name" 
                            value="${item.item_name || ""}"
-                           onkeyup="this.value = this.value.toUpperCase()">
+                           onkeyup="this.value = this.value.toUpperCase()" readonly>
           </div>
 
           <div class="form-group-boho-edit">
