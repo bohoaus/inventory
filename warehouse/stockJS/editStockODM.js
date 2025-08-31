@@ -94,7 +94,7 @@ class EditOdmItem {
 
         <div class="form-group-odm-edit">
           <label for="item_group">Group</label>
-          <select name="item_group" required>
+          <select name="item_group" required readonly>
             <option value="">Select Group</option>
             <option value="ODM" ${
               item.item_group === "ODM" ? "selected" : ""
@@ -112,12 +112,12 @@ class EditOdmItem {
           <label for="odm_ppo" style="width: 120px">ODM PPO</label>
           <input type="text" name="odm_ppo" 
                  value="${item.odm_ppo || ""}"
-                 onkeyup="this.value = this.value.toUpperCase()">
+                 onkeyup="this.value = this.value.toUpperCase()" readonly>
         </div>
 
         <div class="form-group-odm-edit">
           <label for="odm_customer">Customer</label>
-          <select name="odm_customer">
+          <select name="odm_customer" readonly>
             <option value="">Select Customer</option>
             ${sodm_customers
               .map(
