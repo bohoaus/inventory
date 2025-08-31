@@ -163,7 +163,7 @@ class EditOdmItem {
             <label for="item_name" style="width: 120px">Item Name</label>
                     <input type="text" name="item_name" 
                            value="${item.item_name || ""}"
-                           onkeyup="this.value = this.value.toUpperCase()">
+                           onkeyup="this.value = this.value.toUpperCase()" readonly>
           </div>
 
         <div class="form-group-odm-edit">
