@@ -76,7 +76,7 @@ class EditWholesaleItem {
 
           <div class="form-group-boho-edit">
             <label for="item_group" style="width: 150px">Group</label>
-                    <select name="item_group" required>
+                    <select name="item_group" required readonly>
             
                         <option value="BOHO" ${
                           item.item_group === "BOHO" ? "selected" : ""
