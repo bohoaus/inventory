@@ -35,14 +35,21 @@ class EditOdmItem {
     ];
 
     const statuses = [
-      "SHIPPING",
       "ARRIVED",
-      "ON HOLD",
-      "PROCESSING",
+      "SHIPPING-A",
+      "SHIPPING-S",
+      "SHIPPING",
+      "FULL PRICE",
       "DISPATCHED",
+      "ON SALE",
+      "PRE-ORDER",
+      "REPEAT",
       "OUT OF STOCK",
-      "CANCELLED",
-      "Issue & Return",
+      "ON HOLD",
+      "NOT RELEASED",
+      "ISSUE & RESTOCK",
+      "OVERSTOCK",
+      "NEW RELEASE",
     ];
 
     const sodm_customers = [
