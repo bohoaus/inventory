@@ -266,16 +266,21 @@ class EditOdmOrder {
                             ? "selected"
                             : ""
                         }>AUS-WA</option>
-                        <option value="Others" ${
-                          orderData.agent_state?.toUpperCase() === "OTHERS"
-                            ? "selected"
-                            : ""
-                        }>Others</option>
                         <option value="NZ" ${
                           orderData.agent_state?.toUpperCase() === "NZ"
                             ? "selected"
                             : ""
                         }>NZ</option>
+                        <option value="Samoa" ${
+                          orderData.agent_state?.toUpperCase() === "Samoa"
+                            ? "selected"
+                            : ""
+                        }>Samoa</option>
+                        <option value="Others" ${
+                          orderData.agent_state?.toUpperCase() === "OTHERS"
+                            ? "selected"
+                            : ""
+                        }>Others</option>
                     </select>
                 </div>
             </div>
