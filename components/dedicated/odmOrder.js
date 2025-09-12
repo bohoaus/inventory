@@ -68,8 +68,9 @@ class OdmOrder {
                             <option value="AUS-TAS">AUS-TAS</option>
                             <option value="AUS-VIC">AUS-VIC</option>
                             <option value="AUS-WA">AUS-WA</option>
-                            <option value="Others">Others</option>
                             <option value="NZ">NZ</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
                     <div class="form-group-odm-order">
