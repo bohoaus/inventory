@@ -181,6 +181,7 @@ class OdmItem {
     const sfabrics = [
       "Blend",
       "Bamboo Rayon",
+      "Chiffon",
       "Cotton",
       "Cotton+",
       "Denim",
