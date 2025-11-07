@@ -206,6 +206,7 @@ class WholesaleItem {
     const sfabrics = [
       "Blend",
       "Bamboo Rayon",
+      "Chiffon",
       "Cotton",
       "Cotton+",
       "Denim",
