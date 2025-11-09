@@ -235,6 +235,7 @@ class WholesaleOrder {
         .select("*")
         .or(`code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`)
         .in("item_group", ["BOHO", "PRIMROSE"])
+        .neq('stock_qty', '0')
         .order("code_colour", { ascending: true })
         .limit(25);
 
