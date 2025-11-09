@@ -220,14 +220,6 @@ class WholesaleOrder {
 //            </div>
 //        `;
 
-
-//        .from("inventory")
-//        .select("*")
-//        .or(`code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`)
-//        .in("item_group", ["BOHO", "PRIMROSE"])
-//        .order("code_colour", { ascending: true })
-//        .limit(25);
-
   async searchItems(searchTerm) {
     try {
       const { data, error } = await supabaseClient
