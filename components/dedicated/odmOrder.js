@@ -334,6 +334,7 @@ class OdmOrder {
         `
         )
         .eq("item_group", "ODM")
+        .neq('stock_qty', '0')
         .or(`code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`)
         .order("arrive_date", { descending: true })
         .limit(20);
