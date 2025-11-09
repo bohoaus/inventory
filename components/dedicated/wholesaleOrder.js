@@ -230,7 +230,7 @@ class WholesaleOrder {
         .or(`code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`)
         .in("item_group", ["BOHO", "PRIMROSE"])
         .order("code_colour", { ascending: true })
-        .limit(18);
+        .limit(25);
 
       if (error) {
         console.error("Error searching items:", error);
