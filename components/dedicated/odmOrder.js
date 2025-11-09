@@ -336,7 +336,7 @@ class OdmOrder {
         .eq("item_group", "ODM")
         .or(`code_colour.ilike.%${searchTerm}%,item_name.ilike.%${searchTerm}%`)
         .order("arrive_date", { descending: true })
-        .limit(15);
+        .limit(20);
 
       if (error) throw error;
 
