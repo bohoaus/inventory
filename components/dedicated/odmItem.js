@@ -146,6 +146,7 @@ class OdmItem {
 
   generateItemForm(item = null) {
     const categories = [
+      "BLOUSE",
       "CAPE",
       "DRESS",
       "KAFTAN",
