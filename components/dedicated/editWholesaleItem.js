@@ -175,7 +175,7 @@ class EditWholesaleItem {
 
                 <div class="form-group-boho-edit">
                   <label for="item_location" style="width: 150px">Location</label>
-                  <input type="text" maxlength="16" name="item_location" 
+                  <input type="text" maxlength="18" name="item_location" 
                    value="${item.item_location || ""}"
                    onkeyup="this.value = this.value.toUpperCase()">
                 </div>
