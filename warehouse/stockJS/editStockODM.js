@@ -215,7 +215,7 @@ class EditOdmItem {
           <input type="number" name="stock_qty" 
                  value="${item.stock_qty || 0}"
                  min="0" step="1"
-                 onchange="window.editOdmItem.validateQuantities(this.closest('form'))">
+                 onchange="window.editOdmItem.validateQuantities(this.closest('form'))" readonly>
         </div>
         
             <div class="form-group-odm-edit">
