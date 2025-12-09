@@ -245,7 +245,7 @@ class EditOdmItem {
         
         <div class="form-group-odm-edit">
           <label for="item_note">Note</label>
-          <textarea name="item_note" 
+          <textarea name="item_note" maxlength="50" style="color: red;" 
                     rows="4"
                     onkeyup="this.value = this.value.toUpperCase()">${
                       item.item_note || ""
