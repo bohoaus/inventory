@@ -158,6 +158,12 @@ class EditWholesaleItem {
 
       <div class="form-column">
         <!-- Third Column -->
+          <div class="form-group-odm-edit">
+          <label for="scolour">Colour</label>
+          <input type="text" name="scolour" readonly 
+                 value="${item.scolour || ""}">
+        </div>
+
         <div class="form-group-boho-edit">
           <label for="stock_qty" style="width: 150px">Stock(Packs)</label>
           <input type="number" name="stock_qty" 
