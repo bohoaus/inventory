@@ -243,7 +243,7 @@ class EditWholesaleItem {
         <!-- Note field -->
         <div class="form-group-boho-edit">
             <label for="item_note">Note</label>
-            <textarea name="item_note" rows="4"
+            <textarea name="item_note" rows="4" maxlength="50" style="color: red;" 
                       onkeyup="this.value = this.value.toUpperCase()">${
                         item.item_note || ""
                       }</textarea>
