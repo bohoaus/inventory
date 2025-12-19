@@ -72,6 +72,7 @@ class EditOdmItem {
       "EVERGREEN CLOTHNG",
       "LIFE STORY DESIGN",
       "LOVE STYLE CO",
+      "MINNIE AND MAXXIE",
       "ORANGE SHEBERT",
       "SALTY CRUSH",
       "SHE STREET",
