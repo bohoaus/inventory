@@ -212,6 +212,7 @@ class OdmItem {
       "EVERGREEN CLOTHNG",
       "LIFE STORY DESIGN",
       "LOVE STYLE CO",
+      "Minnie And Maxxie",
       "My Darlings",
       "ORANGE SHEBERT",
       "SALTY CRUSH",
