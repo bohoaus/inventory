@@ -79,10 +79,12 @@ class EditOdmItem {
       "She Street",
       "Shine On",
       "St Frock",
+      "Studio Gas",
       "Thingz",
       "Tulio",
       "Two Birds Blue",
       "Vine Apparel",
+      "NEW",
     ];
 
     form.innerHTML = `
