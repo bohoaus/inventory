@@ -83,7 +83,7 @@ class OdmOrder {
                     </div>
                     <div class="form-group-odm-order">
                         <label for="invoice_no" style="color: grey">Invoice#</label>
-                        <input type="text" id="invoice_no" value="1217300" maxlength="10" style="width: 90px; color: blue">
+                        <input type="text" id="invoice_no" value="12173400" maxlength="10" style="width: 90px; color: blue">
                     </div>
 
                     <div class="form-group-odm-order required">
@@ -112,7 +112,7 @@ class OdmOrder {
                   </div>
                     <div class="form-group-odm-order">
                         <label for="odisc" style="color: red">% Off</label>
-                        <input type="text" id="odisc" placeholder="00.00" value="88.00" maxlength="5" style="width: 50px; color: blue">
+                        <input type="text" id="odisc" placeholder="00.00" value="0.00" maxlength="5" style="width: 50px; color: blue">
                     </div>
                 </div>
 
