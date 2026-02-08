@@ -188,6 +188,7 @@ class OdmItem {
       "Denim",
       "Crinkle Rayon",
       "Linen",
+      "Modal",
       "Nelon",
       "Polyester",
       "Polyester+",
