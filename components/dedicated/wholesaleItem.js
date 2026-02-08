@@ -214,6 +214,7 @@ class WholesaleItem {
       "Crinkle Rayon",
       "Linen",
       "Linen+",
+      "Modal",
       "Nelon",
       "Polyester",
       "Polyester+",
