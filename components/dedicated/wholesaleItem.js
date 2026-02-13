@@ -323,7 +323,7 @@ class WholesaleItem {
                 <label for="item_location" style="width: 120px">Location</label>
                 <input type="text" maxlength="15" 
                        name="item_location" placeholder="Floor-" 
-                       value="${item?.item_location || "Floor"}"
+                       value="${item?.item_location || "Floor-"}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
 
