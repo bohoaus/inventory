@@ -322,7 +322,7 @@ class WholesaleItem {
             <div class="form-group-boho">
                 <label for="item_location" style="width: 120px">Location</label>
                 <input type="text" maxlength="15" 
-                       name="item_location" placeholder="Floor" 
+                       name="item_location" placeholder="Floor-" 
                        value="${item?.item_location || "Floor"}"
                        onkeyup="this.value = this.value.toUpperCase()">
             </div>
