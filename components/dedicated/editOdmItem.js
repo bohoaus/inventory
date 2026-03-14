@@ -70,6 +70,7 @@ class EditOdmItem {
       "Circle OF Friend",
       "Coco And Blush",
       "Evergreen Clothing",
+      "Kindred",
       "Life Story Design",
       "Love Style Co",
       "Minnie And Maxxie",
