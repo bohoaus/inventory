@@ -177,6 +177,7 @@ class WholesaleItem {
       "TEE",
       "TOP",
       "TUNIC",
+      "CARDIGAN",
       "COAT",
       "JACKET",
       "Knit Top",
