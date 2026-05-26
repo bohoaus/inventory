@@ -265,7 +265,7 @@ class SoldOutList {
       doc.setFontSize(fontSize);
       const pageWidth = doc.internal.pageSize.getWidth();
       const pageHeight = doc.internal.pageSize.getHeight();
-      const margins = { top: 10, bottom: 10, left: 10, right: 10 };
+      const margins = { top: 5, bottom: 5, left: 10, right: 10 };
       const usableWidth = pageWidth - margins.left - margins.right;
 
       // Format dates properly
@@ -329,7 +329,7 @@ class SoldOutList {
       ]);
 
       // Add title and info
-      doc.setFontSize(12);
+      doc.setFontSize(11);
       doc.setTextColor(0, 0, 0);
       doc.text("Soldout Items Report", margins.left, margins.top);
 
