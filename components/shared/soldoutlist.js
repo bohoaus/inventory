@@ -329,7 +329,7 @@ class SoldOutList {
       ]);
 
       // Add title and info
-      doc.setFontSize(11);
+      doc.setFontSize(10);
       doc.setTextColor(0, 0, 0);
       doc.text("Soldout Items Report", margins.left, margins.top);
 
@@ -337,9 +337,9 @@ class SoldOutList {
       doc.text(
         `Period: ${formattedStart} - ${formattedEnd}`,
         margins.left,
-        margins.top + 6
+        margins.top + 5
       );
-      doc.text(`Total Items: ${items.length}`, margins.left, margins.top + 12);
+      doc.text(`Total Items: ${items.length}`, margins.left, margins.top + 10);
 
       // Can the width of table be settled to auto? - jim-25Aug17--------
       const columnWidths = {
