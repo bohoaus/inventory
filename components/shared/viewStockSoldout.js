@@ -267,7 +267,7 @@ class StaffSoldout {
       const doc = new jsPDF("portrait");
 
       // Add title
-      doc.setFontSize(16);
+      doc.setFontSize(13);
       doc.text(`Sold Out Items - ${weekLabel}`, 20, 20);
 
       // Add date
