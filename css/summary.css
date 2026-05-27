@@ -13,7 +13,7 @@
 .weekly-summary-content {
   background-color: #fefefe;
   margin: 3% auto;
-  padding: 30px;
+  padding: 20px;
   border: none;
   border-radius: 12px;
   width: 90%;
@@ -26,8 +26,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
   border-bottom: 2px solid #f0f0f0;
 }
 
@@ -42,7 +42,7 @@
   position: absolute;
   right: 25px;
   top: 20px;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   cursor: pointer;
   color: #666;
@@ -52,13 +52,13 @@
 .weekly-summary-modal .close:hover {
   color: green;
   background-color: yellow;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /* Filter Section */
 .filter-section {
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 15px;
+  padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
@@ -71,7 +71,7 @@
 }
 
 .date-filter label {
-  font-weight: 500;
+  font-weight: 300;
   color: #495057;
   font-size: 15px;
   min-width: 140px;
@@ -87,7 +87,7 @@
   padding: 8px 12px;
   border: 1px solid #ced4da;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
   color: #495057;
 }
 
@@ -99,7 +99,7 @@
 /* Table Styles */
 .table-container {
   overflow-x: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #summaryTable {
@@ -111,14 +111,14 @@
 
 #summaryTable th,
 #summaryTable td {
-  padding: 6px 10px;
+  padding: 6px 5px;
   text-align: left;
   border-bottom: 1px solid #e9ecef;
 }
 
 #summaryTable th {
   background-color: #f8f9fa;
-  font-weight: 600;
+  font-weight: 300;
   color: #495057;
   white-space: nowrap;
   position: sticky;
@@ -133,12 +133,12 @@
 
 #summaryTable td {
   color: #212529;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* Status Colors */
 #summaryTable td:nth-child(3) {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 #summaryTable td[data-status="NEW RELEASE"] {
@@ -156,7 +156,7 @@
 /* Empty State */
 .no-data {
   text-align: center;
-  padding: 30px !important;
+  padding: 20px !important;
   color: #6c757d;
   font-style: italic;
 }
@@ -186,7 +186,7 @@
   }
 
   #summaryTable {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   #summaryTable th,
