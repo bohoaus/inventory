@@ -114,7 +114,7 @@ class Auth {
       // Redirect based on role
       switch (role.toLowerCase()) {
         case "admin":
-          window.location.href = "admin/dashboard.html";
+          window.location.href = "admin/admindashboard.html";
           break;
         case "sales":
           window.location.href = "sales/dashboard.html";
