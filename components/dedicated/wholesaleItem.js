@@ -179,7 +179,7 @@ class WholesaleItem {
       "TUNIC",
       "CARDIGAN",
       "COAT",
-      "JACKET",
+      "Puffer Jackets",
       "Knit Top",
       "Knit Dress",
       "Knit Skirt",
