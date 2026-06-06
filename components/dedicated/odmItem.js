@@ -161,7 +161,7 @@ class OdmItem {
       "TUNIC",
       "CARDIGAN",
       "COAT",
-      "JACKET",
+      "Puffer Jackets",
       "KNIT TOP",
       "KNIT DRESS",
       "KNIT VEST",
